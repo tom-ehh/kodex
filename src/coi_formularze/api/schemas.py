@@ -121,6 +121,26 @@ class ValidationFailed(BaseModel):
     file: FileReportOut
 
 
+class RouteOut(BaseModel):
+    """Complexity router's choice of extractor tier for a form."""
+
+    tier: str = Field(description="`simple`, `medium` or `hard`.")
+    confidence: float = Field(
+        description="Router model's confidence (0-1); 1.0 for the deterministic fallback."
+    )
+    probabilities: dict[str, float] = Field(description="Per-tier probabilities; empty for the fallback.")
+    source: str = Field(description="`basal` (router model) or `heuristic` (feature rules).")
+    escalated: bool = Field(description="True when the tier was bumped above the raw decision.")
+    reason: str | None = Field(description="Why the fallback was used or the tier was bumped.")
+    model: str | None = Field(description="Extractor model configured for this tier, if any.")
+
+
+class AnalyzeNotImplemented(ValidationFailed):
+    """501 body: the file is valid; carries the router's decision until extraction exists."""
+
+    route: RouteOut
+
+
 class ItemStatus(StrEnum):
     REJECTED = "rejected"  # failed validation; never analysed
     PENDING = "pending"  # valid; waiting for analysis

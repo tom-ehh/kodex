@@ -1,5 +1,7 @@
 """REST API v1. Docstrings and `responses` here become the OpenAPI spec served at /docs."""
 
+import asyncio
+import logging
 from typing import Annotated, Any
 
 from fastapi import (
@@ -14,6 +16,7 @@ from fastapi import (
 
 from coi_formularze.api.deps import JobStoreDep, SettingsDep, read_and_validate
 from coi_formularze.api.schemas import (
+    AnalyzeNotImplemented,
     BatchReport,
     ErrorDetail,
     FileReportOut,
@@ -21,9 +24,12 @@ from coi_formularze.api.schemas import (
     Job,
     JobSummary,
     Limits,
+    RouteOut,
     ValidationFailed,
 )
 from coi_formularze.auth import require_auth
+from coi_formularze.extract import ExtractionError, extract, ocr_engine_from_settings
+from coi_formularze.route import route_document, tier_models
 from coi_formularze.validation.checks import (
     FORBIDDEN_FILENAME_CHARS,
     MAX_FILENAME_LENGTH,
@@ -122,22 +128,45 @@ async def validate_batch(files: FilesParam, settings: SettingsDep) -> BatchRepor
             "content": _one_of("ValidationFailed", "HTTPValidationError"),
         },
         501: {
-            "model": ValidationFailed,
-            "description": "The file is valid but analysis is not implemented yet.",
+            "model": AnalyzeNotImplemented,
+            "description": "The file is valid but analysis is not implemented yet; `route` "
+            "shows the extractor tier the complexity router picked.",
         },
     },
 )
 async def analyze_form(file: FileParam, settings: SettingsDep, response: Response) -> Any:
     """The service's main endpoint: one form blank in, the form configuration JSON out.
 
-    **Current state:** the file is validated; a valid file gets **501**, an invalid one
-    **422** with its report. Analysis is under development."""
-    report, _data = await read_and_validate(file, settings)
+    **Current state:** the file is validated, its text extracted and routed to an
+    extractor tier; a valid file gets **501** with the routing decision in `route`, an
+    invalid one **422** with its report. Field extraction is under development."""
+    report, data = await read_and_validate(file, settings)
     if not report.ok:
         response.status_code = status.HTTP_422_UNPROCESSABLE_CONTENT
         return ValidationFailed(detail="File failed validation.", file=report).model_dump()
+    try:
+        doc = await asyncio.to_thread(
+            extract, data, report.detected_kind, ocr_engine_from_settings(settings)
+        )
+    except Exception as exc:  # routing must still answer; extraction errors surface later
+        if not isinstance(exc, ExtractionError):
+            logging.getLogger(__name__).exception("extraction failed")
+        doc = None
+    route = await route_document(doc, settings)
     response.status_code = status.HTTP_501_NOT_IMPLEMENTED
-    return ValidationFailed(detail="Form analysis is not implemented yet.", file=report).model_dump()
+    return AnalyzeNotImplemented(
+        detail="Form analysis is not implemented yet.",
+        file=report,
+        route=RouteOut(
+            tier=route.tier,
+            confidence=route.confidence,
+            probabilities=route.probabilities,
+            source=route.source,
+            escalated=route.escalated,
+            reason=route.reason,
+            model=tier_models(settings)[route.tier],
+        ),
+    ).model_dump()
 
 
 @router.post(

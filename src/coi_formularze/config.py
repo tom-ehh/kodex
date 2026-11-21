@@ -23,6 +23,18 @@ class Settings(BaseSettings):
     ocr_model: str = "deepinfra/allenai/olmOCR-7B-0725-FP8"
     ocr_timeout_s: float = Field(120.0, gt=0)
 
+    # Complexity router (basal-serve running Remek/basal-omni-pico); heuristic fallback.
+    router_enabled: bool = False
+    router_url: str = "http://127.0.0.1:8001"
+    router_threshold: float = Field(0.7, ge=0, le=1)
+    router_timeout_s: float = Field(5.0, gt=0)
+    # ~4k tokens of Polish text; the model's prompt limit is ~6k tokens.
+    router_max_state_chars: int = Field(12000, gt=200)
+    # Extractor model per tier: placeholders until the extractor benchmark picks them.
+    tier_simple_model: str | None = None
+    tier_medium_model: str | None = None
+    tier_hard_model: str | None = None
+
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None
     jwt_algorithm: str = "HS256"

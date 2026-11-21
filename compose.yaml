@@ -8,7 +8,27 @@ services:
     env_file:
       - path: .env
         required: false
+    environment:
+      COI_ROUTER_ENABLED: "true"
+      COI_ROUTER_URL: http://router:8000
     read_only: true
     tmpfs:
       - /tmp  # Starlette spools large uploads here; wiped with the container
     restart: unless-stopped
+    # No depends_on: the API answers at once and routes heuristically until the router is ready.
+
+  router:
+    build: docker/basal
+    image: coi-formularze-router:0.1.0
+    # Internal only: the API reaches it as http://router:8000.
+    expose:
+      - "8000"
+    read_only: true
+    tmpfs:
+      - /tmp
+    volumes:
+      - hf-cache:/home/app/.cache/huggingface  # weights survive rebuilds and restarts
+    restart: unless-stopped
+
+volumes:
+  hf-cache:

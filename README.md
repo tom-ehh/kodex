@@ -20,6 +20,21 @@ The base images are pinned in the `Dockerfile` but can be overridden at build ti
 docker build --build-arg PYTHON_IMAGE=python:3.14.10-alpine3.24 -t coi-formularze:0.1.0 .
 ```
 
+### Complexity router image
+
+`compose.yaml` also runs `router`: [basal-serve](https://github.com/rkinas/basal) with the
+`Remek/basal-omni-pico` model, which picks the extractor tier for each form. It needs
+PyTorch, so it has its own glibc-based image (`docker/basal/Dockerfile`, about 1.3 GB)
+while the API image stays Alpine. Build it on its own with:
+
+```sh
+docker build -t coi-formularze-router:0.1.0 docker/basal
+```
+
+On first start it downloads the weights (about 1.5 GB) into the `hf-cache` volume and
+loads the model for a few minutes; until then it answers `503 {"status": "starting"}` and
+the API routes forms with a feature-based rule instead. Later starts reuse the volume.
+
 ## Running
 
 With Docker Compose (builds the image if needed):
@@ -64,6 +79,14 @@ stop the service at startup.
 | `COI_EDENAI_API_KEY` | *(none)* | EdenAI key for OCR of scans and images (`EDENAI_API_KEY` also accepted); without it, those files can't be read |
 | `COI_OCR_MODEL` | `deepinfra/allenai/olmOCR-7B-0725-FP8` | EdenAI v3 model id used for OCR; must be an open-weights model |
 | `COI_OCR_TIMEOUT_S` | `120` | Seconds to wait for one OCR page |
+| `COI_ROUTER_ENABLED` | `false` | Ask the complexity router (basal-serve) which extractor tier a form needs; off, a feature-based rule decides. Compose turns it on |
+| `COI_ROUTER_URL` | `http://127.0.0.1:8001` | Base URL of basal-serve (`http://router:8000` under Compose) |
+| `COI_ROUTER_THRESHOLD` | `0.7` | Router answers below this confidence move the form one tier up |
+| `COI_ROUTER_TIMEOUT_S` | `5` | Seconds to wait for the router; on timeout the feature-based rule decides |
+| `COI_ROUTER_MAX_STATE_CHARS` | `12000` | Characters of form text sent to the router (about 4k tokens; the model's limit is ~6k) |
+| `COI_TIER_SIMPLE_MODEL` | *(none)* | Extractor model for `simple` forms (placeholder until chosen) |
+| `COI_TIER_MEDIUM_MODEL` | *(none)* | Extractor model for `medium` forms |
+| `COI_TIER_HARD_MODEL` | *(none)* | Extractor model for `hard` forms |
 | `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
 | `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
 | `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |

@@ -55,6 +55,8 @@ def test_batch_limit(client):
 def test_analyze_stub(client):
     ok = client.post("/api/v1/forms/analyze", files={"file": ("a.pdf", samples.PDF)})
     assert ok.status_code == 501
+    route = ok.json()["route"]
+    assert route["source"] == "heuristic" and route["tier"] in {"simple", "medium", "hard"}
     bad = client.post("/api/v1/forms/analyze", files={"file": ("a.pdf", samples.PNG)})
     assert bad.status_code == 422 and bad.json()["file"]["ok"] is False
 
