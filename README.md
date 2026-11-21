@@ -47,6 +47,7 @@ To check that it runs, open:
 | URL | What |
 |-----|------|
 | http://localhost:8000/ | Upload page: send files and see the JSON response |
+| http://localhost:8000/preview | Form preview: load a form JSON and fill it in as the e-service form (also opened from analysis results) |
 | http://localhost:8000/docs | Interactive API documentation |
 | http://localhost:8000/health | Returns `{"status": "ok"}` |
 

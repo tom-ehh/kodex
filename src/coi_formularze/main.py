@@ -2,9 +2,11 @@
 
 from contextlib import asynccontextmanager
 from importlib.resources import files
+from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
 
 from coi_formularze import __version__
 from coi_formularze.api.routes import router
@@ -12,7 +14,9 @@ from coi_formularze.api.schemas import Health
 from coi_formularze.config import get_settings
 from coi_formularze.jobs import JobStore
 
+_STATIC_DIR = Path(__file__).parent / "static"
 _INDEX_HTML = files("coi_formularze").joinpath("static/index.html").read_text(encoding="utf-8")
+_PREVIEW_HTML = files("coi_formularze").joinpath("static/preview.html").read_text(encoding="utf-8")
 
 API_DESCRIPTION = """
 Converts paper form blanks (PDF, DOC, DOCX, ODS, XLSX, JPG/JPEG, PNG) into JSON
@@ -65,6 +69,14 @@ def create_app() -> FastAPI:
     @app.get("/", include_in_schema=False)
     def index() -> HTMLResponse:
         return HTMLResponse(_INDEX_HTML)
+
+    @app.get("/preview", include_in_schema=False)
+    def preview() -> HTMLResponse:
+        """Form Preview: renders a Form Definition as a fillable e-service form."""
+        return HTMLResponse(_PREVIEW_HTML)
+
+    # Renderer assets (JS, CSS, vendored jsonata). Served locally: no CDN at runtime.
+    app.mount("/static", StaticFiles(directory=_STATIC_DIR), name="static")
 
     return app
 

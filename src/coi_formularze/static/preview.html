@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Podgląd formularza – COI Formularze</title>
+<link rel="stylesheet" href="/static/preview/preview.css">
+<script src="/static/vendor/jsonata-2.0.6.min.js"></script>
+<script type="module" src="/static/preview/app.js"></script>
+</head>
+<body>
+<header class="fp-toolbar">
+  <a class="fp-tb-home" href="/">← Strona główna</a>
+  <strong class="fp-tb-name">Podgląd formularza</strong>
+  <span class="fp-badge" title="Słowniki i dane obywatela (MLPZ, PESEL) są przykładowe">Dane demonstracyjne</span>
+  <div class="fp-tb-controls" id="tb-controls" hidden>
+    <label class="fp-tb-field">Zakładka <select id="tab-jump"></select></label>
+    <label class="fp-tb-field"><input type="checkbox" id="skip-validation"> Pomiń walidację</label>
+    <label class="fp-tb-field"><input type="checkbox" id="show-tech"> Pokaż nazwy techniczne</label>
+    <button type="button" class="fp-tb-btn" id="problems-btn">Brak problemów</button>
+    <button type="button" class="fp-tb-btn" id="load-other">Wczytaj inny</button>
+  </div>
+</header>
+<div class="fp-problems" id="problems-panel" hidden></div>
+<main class="fp-main" id="main"><noscript>Podgląd wymaga JavaScriptu.</noscript></main>
+</body>
+</html>

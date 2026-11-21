@@ -7,7 +7,7 @@
 <body>
 <h1>COI Formularze</h1>
 <p>Upload one or more form files. Validation checks name, extension, size and content type. Nothing is stored.</p>
-<p><a href="/docs">API docs</a> | <a href="/api/v1/formats">Accepted formats</a></p>
+<p><a href="/docs">API docs</a> | <a href="/api/v1/formats">Accepted formats</a> | <a href="/preview">Preview a form JSON</a></p>
 
 <form id="upload">
   <p><label>Files: <input type="file" id="files" name="files" multiple
@@ -21,12 +21,48 @@
 
 <h2>Result</h2>
 <p id="status"></p>
+<ul id="previews"></ul>
 <pre id="output"></pre>
 
 <script>
+const TOKEN_KEY = "coi.token";              // shared with /preview (same tab)
+const HANDOFF_KEY = "coi.previewDefinition";
 const form = document.getElementById("upload");
 const statusEl = document.getElementById("status");
 const output = document.getElementById("output");
+const previews = document.getElementById("previews");
+const tokenInput = document.getElementById("token");
+
+try { tokenInput.value = sessionStorage.getItem(TOKEN_KEY) || ""; } catch {}
+tokenInput.addEventListener("input", () => {
+  try { sessionStorage.setItem(TOKEN_KEY, tokenInput.value.trim()); } catch {}
+});
+
+// Links to the Form Preview for every analysed result in a response.
+// They open in the same tab so the token in sessionStorage carries over.
+function showPreviewLinks(body) {
+  previews.replaceChildren();
+  const add = (text, href, onclick) => {
+    const a = document.createElement("a");
+    a.textContent = text;
+    a.href = href;
+    if (onclick) a.addEventListener("click", onclick);
+    const li = document.createElement("li");
+    li.append(a);
+    previews.append(li);
+  };
+  if (body && body.id && Array.isArray(body.items)) {
+    for (const item of body.items) {
+      if (item.status === "done" && item.result) {
+        add("Preview " + item.file.filename, "/preview?job=" + body.id + "&item=" + item.index);
+      }
+    }
+  } else if (body && Array.isArray(body.tabs)) {
+    add("Preview this form", "/preview?source=session", () => {
+      try { sessionStorage.setItem(HANDOFF_KEY, JSON.stringify(body)); } catch {}
+    });
+  }
+}
 
 form.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -36,18 +72,22 @@ form.addEventListener("submit", async (event) => {
   const body = new FormData();
   for (const f of files) body.append("files", f);
   const headers = {};
-  const token = document.getElementById("token").value.trim();
+  const token = tokenInput.value.trim();
   if (token) headers.Authorization = "Bearer " + token;
 
   const endpoint = event.submitter.dataset.endpoint;
   statusEl.textContent = "Uploading " + files.length + " file(s) to " + endpoint + "...";
   output.textContent = "";
+  previews.replaceChildren();
   try {
     const res = await fetch(endpoint, { method: "POST", body, headers });
     const text = await res.text();
     statusEl.textContent = "HTTP " + res.status;
-    try { output.textContent = JSON.stringify(JSON.parse(text), null, 2); }
-    catch { output.textContent = text; }
+    try {
+      const json = JSON.parse(text);
+      output.textContent = JSON.stringify(json, null, 2);
+      showPreviewLinks(json);
+    } catch { output.textContent = text; }
   } catch (err) {
     statusEl.textContent = "Request failed: " + err;
   }
