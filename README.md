@@ -61,13 +61,16 @@ stop the service at startup.
 | `COI_MAX_FILE_SIZE_BYTES` | `20971520` (20 MiB) | Maximum size of one uploaded file |
 | `COI_MAX_BATCH_FILES` | `20` | Maximum number of files in one batch request |
 | `COI_MAX_JOBS` | `100` | Jobs kept in memory; past this, the oldest is dropped |
+| `COI_EDENAI_API_KEY` | *(none)* | EdenAI key for OCR of scans and images (`EDENAI_API_KEY` also accepted); without it, those files can't be read |
+| `COI_OCR_MODEL` | `deepinfra/allenai/olmOCR-7B-0725-FP8` | EdenAI v3 model id used for OCR; must be an open-weights model |
+| `COI_OCR_TIMEOUT_S` | `120` | Seconds to wait for one OCR page |
 | `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
 | `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
 | `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |
 | `COI_JWT_AUDIENCE` | *(none)* | If set, tokens must carry this `aud` claim |
 | `COI_JWT_ISSUER` | *(none)* | If set, tokens must carry this `iss` claim |
 
-Pass secrets such as `COI_JWT_SECRET` only at runtime (`.env`, `--env-file` or `-e`).
+Pass secrets such as `COI_JWT_SECRET` and `COI_EDENAI_API_KEY` only at runtime (`.env`, `--env-file` or `-e`).
 
 ## REST API
 

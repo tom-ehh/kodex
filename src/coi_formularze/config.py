@@ -2,7 +2,7 @@
 
 from functools import lru_cache
 
-from pydantic import Field, SecretStr, model_validator
+from pydantic import AliasChoices, Field, SecretStr, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -15,6 +15,13 @@ class Settings(BaseSettings):
     max_file_size_bytes: int = Field(20 * 1024 * 1024, gt=0, description="Per-file upload limit.")
     max_batch_files: int = Field(20, gt=0, description="Max files in one batch request.")
     max_jobs: int = Field(100, gt=0, description="In-memory job store capacity (oldest evicted).")
+
+    # OCR: an open-weights vision model on EdenAI v3 (no API-only models at runtime).
+    edenai_api_key: SecretStr | None = Field(
+        None, validation_alias=AliasChoices("COI_EDENAI_API_KEY", "EDENAI_API_KEY")
+    )
+    ocr_model: str = "deepinfra/allenai/olmOCR-7B-0725-FP8"
+    ocr_timeout_s: float = Field(120.0, gt=0)
 
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None
