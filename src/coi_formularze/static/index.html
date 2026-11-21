@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>COI Formularze</title>
+</head>
+<body>
+<h1>COI Formularze</h1>
+<p>Upload one or more form files. Validation checks name, extension, size and content type. Nothing is stored.</p>
+<p><a href="/docs">API docs</a> | <a href="/api/v1/formats">Accepted formats</a></p>
+
+<form id="upload">
+  <p><label>Files: <input type="file" id="files" name="files" multiple
+    accept=".pdf,.doc,.docx,.ods,.xlsx,.jpg,.jpeg,.png"></label></p>
+  <p><label>Bearer token (only if JWT is on): <input type="text" id="token" size="60"></label></p>
+  <p>
+    <button type="submit" data-endpoint="/api/v1/validate/batch">Validate</button>
+    <button type="submit" data-endpoint="/api/v1/jobs">Submit as job</button>
+  </p>
+</form>
+
+<h2>Result</h2>
+<p id="status"></p>
+<pre id="output"></pre>
+
+<script>
+const form = document.getElementById("upload");
+const statusEl = document.getElementById("status");
+const output = document.getElementById("output");
+
+form.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const files = document.getElementById("files").files;
+  if (!files.length) { statusEl.textContent = "Pick at least one file."; return; }
+
+  const body = new FormData();
+  for (const f of files) body.append("files", f);
+  const headers = {};
+  const token = document.getElementById("token").value.trim();
+  if (token) headers.Authorization = "Bearer " + token;
+
+  const endpoint = event.submitter.dataset.endpoint;
+  statusEl.textContent = "Uploading " + files.length + " file(s) to " + endpoint + "...";
+  output.textContent = "";
+  try {
+    const res = await fetch(endpoint, { method: "POST", body, headers });
+    const text = await res.text();
+    statusEl.textContent = "HTTP " + res.status;
+    try { output.textContent = JSON.stringify(JSON.parse(text), null, 2); }
+    catch { output.textContent = text; }
+  } catch (err) {
+    statusEl.textContent = "Request failed: " + err;
+  }
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+services:
+  api:
+    build: .
+    image: coi-formularze:0.1.0
+    ports:
+      - "8000:8000"
+    # Secrets come in at runtime only; .env is excluded from the image by .dockerignore.
+    env_file:
+      - path: .env
+        required: false
+    read_only: true
+    tmpfs:
+      - /tmp  # Starlette spools large uploads here; wiped with the container
+    restart: unless-stopped
