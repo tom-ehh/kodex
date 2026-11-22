@@ -20,8 +20,11 @@ from coi_formularze.schema.states import (
     Equals,
     Location,
     NotEquals,
+    StateDraft,
     catalogue,
     describe,
+    repair_states,
+    state_problems,
     state_set_model,
     to_jsonata,
 )
@@ -224,6 +227,28 @@ def test_catalogue_and_per_form_schema():
                 {"target": "sekcja.opis", "show_when": {"field": "sekcja.czy", "equals": "Może"}}):
         with pytest.raises(ValidationError):
             model.model_validate({"states": [bad]})
+
+
+def test_section_state_controlled_from_inside_moves_to_its_fields():
+    # PB-17: "show 'Dane pełnomocnika' when 'Dane pełnomocnika.Rodzaj' = ..." failed every tier.
+    rodzaj = FieldDraft(label="Rodzaj", kind="single_choice", required=True, options=["Pełnomocnik", "Do doręczeń"])
+    imie = FieldDraft(label="Imię", kind="text", required=True)
+    tel = FieldDraft(label="Tel", kind="phone", required=False)
+    d = draft_with(rodzaj, imie, tel)
+    entries = catalogue(d.outline, d.sections)
+    when = {"field": "sekcja.rodzaj", "equals": "Pełnomocnik"}
+    states = [StateDraft.model_validate(x) for x in (
+        {"target": "sekcja", "show_when": when},
+        {"target": "sekcja.tel", "show_when": {"field": "sekcja.rodzaj", "equals": "Do doręczeń"}})]
+    assert "cannot depend on itself" in state_problems(states, entries)[0]
+    fixed = repair_states(states, entries)
+    assert state_problems(fixed, entries) == []
+    assert [(s.target, s.show_when.equals) for s in fixed] == [
+        ("sekcja.imie", "Pełnomocnik"), ("sekcja.tel", "Do doręczeń")]
+    form = built(draft_with(rodzaj, imie, tel, states=[s.model_dump() for s in fixed]))
+    grid = form.tabs[0].questions[0].field
+    assert grid.states == [] and grid.repeatingSectionGrid[0].field.states == []
+    assert "Pełnomocnik" in grid.repeatingSectionGrid[1].field.states[0].query
 
 
 def test_no_choice_fields_means_no_states():

@@ -21,7 +21,14 @@ from coi_formularze.schema import validate_form_definition
 from coi_formularze.schema.assemble import Assembled, DraftError, FormDraft, assemble
 from coi_formularze.schema.drafts import FormFacts, Outline, SectionDraft
 from coi_formularze.schema.naming import slug
-from coi_formularze.schema.states import catalogue, describe, state_set_model
+from coi_formularze.schema.states import (
+    StateDraft,
+    catalogue,
+    describe,
+    repair_states,
+    state_problems,
+    state_set_model,
+)
 
 log = logging.getLogger(__name__)
 
@@ -110,7 +117,13 @@ class _Run:
         states = []
         if any(e.options for e in entries):
             model = state_set_model(entries)
-            states = list((await self.ask("states", model, catalogue=describe(entries))).states)
+
+            def repaired(obj) -> list[StateDraft]:
+                return repair_states([StateDraft.model_validate(s.model_dump()) for s in obj.states], entries)
+
+            answer = await self.ask("states", model, lambda obj: state_problems(repaired(obj), entries),
+                                    catalogue=describe(entries))
+            states = repaired(answer)
         return FormDraft(facts=facts, outline=outline, sections=list(sections),
                          states=[s.model_dump() for s in states])
 

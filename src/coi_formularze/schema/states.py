@@ -170,10 +170,36 @@ def state_problems(states: Iterable[StateDraft], entries: list[Entry]) -> list[s
             elif value not in source.options:
                 p.append(f"{s.target}: {leaf.field!r} has no option {value!r}")
             elif leaf.field == s.target or source.section == s.target:
-                p.append(f"{s.target}: cannot depend on itself")
+                p.append(f"{s.target}: cannot depend on itself; a section cannot be hidden by a "
+                         f"question inside it, put the state on its other fields instead")
             elif source.repeatable and source.section != target.section:
                 p.append(f"{s.target}: cannot depend on {leaf.field!r} inside a repeatable section")
     return p
+
+
+def repair_states(states: Iterable[StateDraft], entries: list[Entry]) -> list[StateDraft]:
+    """Move a section's state that its own question controls onto that section's fields.
+
+    Models often say "show 'Dane pełnomocnika' when 'Dane pełnomocnika.Rodzaj' = ...":
+    hiding the section would hide the question that shows it again. The intent is that
+    the rest of the section depends on the question, so the state goes to every other
+    field of the section that has no state of its own yet.
+    """
+    states = list(states)
+    sections = {e.key for e in entries if e.kind == "section"}
+    targeted = {s.target for s in states}
+    out: list[StateDraft] = []
+    for s in states:
+        sources = {leaf.field for leaf in leaves(s.show_when)}
+        inside = {k for k in sources if k.startswith(f"{s.target}.")}
+        if s.target not in sections or not inside:
+            out.append(s)
+            continue
+        for e in entries:
+            if e.section == s.target and e.kind != "section" and e.key not in sources | targeted:
+                out.append(StateDraft(target=e.key, show_when=s.show_when))
+                targeted.add(e.key)
+    return out
 
 
 # --- JSONata -----------------------------------------------------------------------------

@@ -133,3 +133,18 @@ def test_extraction_failure_gives_422(make, monkeypatch):
     monkeypatch.setattr(routes, "extract", boom)
     r = post(make(FakeChat()))
     assert r.status_code == 422 and "encrypted PDF" in r.json()["detail"]
+
+
+def test_section_state_on_its_own_question_is_repaired(make, monkeypatch):
+    # A section shown by a question inside it used to fail every tier ("cannot depend on itself").
+    answers = {**ANSWERS, "Pełnomocnik": {"title": "Pełnomocnik", "fields": [
+        {"label": "Czy pełnomocnik", "kind": "yes_no", "required": True},
+        {"label": "Imię", "kind": "text", "required": True}]},
+        "states": {"states": [{"target": "pelnomocnik", "show_when": {
+            "field": "pelnomocnik.czy_pelnomocnik", "equals": "Tak"}}]}}
+    monkeypatch.setitem(globals(), "ANSWERS", answers)
+    body = post(make(FakeChat()), envelope="true").json()
+    assert [a["error"] for a in body["attempts"]] == [None]
+    grid = body["form"]["tabs"][0]["questions"][1]["field"]
+    assert grid["states"] == []
+    assert [len(c["field"]["states"]) for c in grid["repeatingSectionGrid"]] == [0, 1]
