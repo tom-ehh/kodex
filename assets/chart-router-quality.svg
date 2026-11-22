@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="48" y="60" font-size="34" font-weight="700" fill="#0f172a">…without losing quality</text>
+<text x="48" y="96" font-size="20" fill="#475569">routed vs everything on High</text>
+<rect x="110" y="367.0" width="120" height="93.0" rx="6" fill="#94a3b8"/>
+<text x="170.0" y="355.0" font-size="18" text-anchor="middle" fill="#0f172a">High</text>
+<rect x="260" y="188.8" width="120" height="271.2" rx="6" fill="#4f46e5"/>
+<text x="320.0" y="176.8" font-size="18" text-anchor="middle" fill="#0f172a">routed</text>
+<line x1="90" y1="460" x2="400" y2="460" stroke="#0f172a" stroke-width="2"/>
+<text x="245" y="496" font-size="22" font-weight="600" text-anchor="middle" fill="#0f172a">validator accuracy</text><rect x="560" y="345.2" width="120" height="114.8" rx="6" fill="#94a3b8"/>
+<text x="620.0" y="333.2" font-size="18" text-anchor="middle" fill="#0f172a">High</text>
+<rect x="710" y="173.0" width="120" height="287.0" rx="6" fill="#4f46e5"/>
+<text x="770.0" y="161.0" font-size="18" text-anchor="middle" fill="#0f172a">routed</text>
+<line x1="540" y1="460" x2="850" y2="460" stroke="#0f172a" stroke-width="2"/>
+<text x="695" y="496" font-size="22" font-weight="600" text-anchor="middle" fill="#0f172a">forms completed</text>
+</svg>

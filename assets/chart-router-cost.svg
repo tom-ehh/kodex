@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="540" viewBox="0 0 960 540" font-family="Inter, Helvetica, Arial, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="48" y="60" font-size="34" font-weight="700" fill="#0f172a">Routing halves the cost</text>
+<text x="48" y="96" font-size="20" fill="#475569">basal router vs sending every form to the High tier</text>
+<line x1="80" y1="460" x2="912" y2="460" stroke="#0f172a" stroke-width="2"/>
+<line x1="80" y1="460" x2="80" y2="140" stroke="#0f172a" stroke-width="2"/>
+<rect x="210.8" y="163.7" width="279.2" height="296.3" rx="6" fill="#94a3b8"/>
+<text x="350.4" y="151.7" font-size="18" text-anchor="middle" fill="#0f172a">everything on High</text>
+<rect x="502.0" y="310.8" width="279.2" height="149.2" rx="6" fill="#4f46e5"/>
+<text x="641.6" y="298.8" font-size="18" text-anchor="middle" fill="#0f172a">routed</text>
+<text x="496.0" y="496" font-size="22" font-weight="600" text-anchor="middle" fill="#0f172a">cost per form</text>
+<text x="560" y="250" font-size="26" font-weight="700" fill="#d97706">2× cheaper</text>
+</svg>

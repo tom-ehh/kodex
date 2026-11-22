@@ -6,3 +6,10 @@ __pycache__/
 frontend/node_modules/
 src/kodex/static/app/
 frontend/*.tsbuildinfo
+
+# Agent-only files (kept locally)
+CONTEXT.md
+CLAUDE.md
+CLAUDE.local.md
+AGENTS.md
+.claude/

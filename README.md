@@ -5,7 +5,70 @@ into JSON form configurations for e-services.
 
 ## Approach
 
-To be continued..
+### Architecture
+
+```mermaid
+flowchart LR
+  F[/"Form file<br/>PDF · DOC(X) · ODS · XLSX · JPG · PNG"/]:::io --> X["Extract<br/>text + layout<br/>(olmOCR for scans)"]
+  X --> R{{"System One router<br/>basal-omni-pico"}}
+  R -->|"simple · medium · hard"| T["Tier model<br/>open-weights LLM<br/>parses in passes"]
+  T --> V{"Validate<br/>schema + PESEL, NIP,<br/>REGON, ZIP, EMAIL"}
+  V -->|ok| P["Form Definition<br/>preview + download"]:::io
+  V -->|"fail: retry, then next tier"| T
+  DB[("Versioned<br/>skill store")] -.->|"matching skills"| T
+  P -->|"worker correction"| W["Morpheus · wake<br/>narrow skill,<br/>replay-tested"]:::morpheus
+  V -->|"failures, escalations"| W
+  W --> DB
+  DB --> S["Morpheus · sleep<br/>merge + prune,<br/>replay-gated"]:::morpheus
+  S --> DB
+
+classDef morpheus fill:#fde68a,stroke:#d97706,stroke-width:2px,color:#111
+classDef io fill:#f1f5f9,stroke:#64748b,color:#111
+```
+
+The request path runs left to right with no agent loop. *Morpheus* (yellow) runs
+asynchronously with the request: it learns from it but never slows it down.
+
+| Part | Role |
+|------|------|
+| Extract | Every accepted format becomes one text document with layout and quality features. The model gets text, not page images: a fraction of the tokens. |
+| System One router | `Remek/basal-omni-pico` (about 235 ms on CPU, own container) labels the form `simple`, `medium` or `hard`. Below 0.7 confidence the form goes one tier up; if the router is down, feature rules decide. |
+| Tier model | The tier's open-weights model fills the form in short passes: facts, outline, each section in parallel, show/hide conditions. It says what a field *is* (`pesel`, `yes_no`, `country`); code picks widget, validator, dictionary, ids, flow and JSONata. |
+| Validate | Each pass is checked against the schema and validators. A failing pass is retried once with its errors, then the form moves up a tier. |
+| Skill store | Versioned set of skills (prompt hints, validator fixes) the tier model loads per section. Rollback; `COI_SKILLS_SNAPSHOT` pins a version. |
+| *Morpheus* | Turns corrections and failures into skills (wake) and merges them (sleep). |
+
+### It works today
+
+Routing sends each form to the smallest model that can handle it. That halves the cost per
+form compared with sending everything to the largest model, without losing quality.
+
+<img src="assets/chart-router-cost.svg" alt="Routing halves the cost" width="420"> <img src="assets/chart-router-quality.svg" alt="Routing keeps quality" width="420">
+
+### It grows with you: *Morpheus*
+
+Correcting a field in a generated form is the only input *Morpheus* needs.
+
+- **Awake.** Each correction is stored as a shape (`00-950` → `##-###`), never as content.
+  When the same kind of fix repeats, *Morpheus* writes a narrow skill. It goes live only
+  after the corrected section replays correctly with it; otherwise it waits for a human.
+- **Asleep.** Nightly, or sooner once enough patterns pile up, similar skills merge into
+  general ones. A merge goes live only if replaying reference forms shows no new errors.
+
+Waking and sleeping do different jobs. Wake patches give a quick jump in accuracy, one
+narrow fix at a time. Sleep folds those patches into fewer, general skills: some of the
+jump is traded for a smaller skill set that is easier to review, keep consistent and
+build on, and accuracy stays above where it started.
+
+<img src="assets/chart-morpheus.svg" alt="Morpheus learns, then compresses" width="560">
+
+*Morpheus* is our own design, a hybrid of two ideas. From Nous Research's
+[Hermes Agent](https://github.com/NousResearch/hermes-agent) it takes agent-written,
+refinable skills behind an approval gate (not the full agent harness). From research on
+sleep in AI systems, [sleep-time compute](https://arxiv.org/abs/2504.13171) and
+[sleep-like replay](https://doi.org/10.1038/s41467-022-34938-7), it takes the split
+between fast narrow learning while awake and slower offline merging, checked by replay.
+No model weights change; only the skills do.
 
 ## Docker image
 
@@ -81,23 +144,50 @@ To check that it runs, open:
 Set through environment variables or a `.env` file (see `.env.example`). Invalid values
 stop the service at startup.
 
+### Uploads and jobs
+
 | Variable | Default | Description |
 |----------|---------|-------------|
 | `COI_MAX_FILE_SIZE_BYTES` | `20971520` (20 MiB) | Maximum size of one uploaded file |
 | `COI_MAX_BATCH_FILES` | `20` | Maximum number of files in one batch request |
 | `COI_MAX_JOBS` | `100` | Jobs kept in memory; past this, the oldest is dropped |
+
+### Authentication (JWT)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
+| `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
+| `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |
+| `COI_JWT_AUDIENCE` | *(none)* | If set, tokens must carry this `aud` claim |
+| `COI_JWT_ISSUER` | *(none)* | If set, tokens must carry this `iss` claim |
+
+### Models (EdenAI, open-weights only)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
 | `COI_EDENAI_API_KEY` | *(none)* | EdenAI key for OCR of scans and images (`EDENAI_API_KEY` also accepted); without it, those files can't be read |
 | `COI_OCR_MODEL` | `deepinfra/allenai/olmOCR-7B-0725-FP8` | EdenAI v3 model id used for OCR; must be an open-weights model |
 | `COI_OCR_TIMEOUT_S` | `120` | Seconds to wait for one OCR page |
+| `COI_TIER_SIMPLE_MODEL` | `deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731` | EdenAI model that fills the form JSON for `simple` forms (open-weights; reasoning off) |
+| `COI_TIER_MEDIUM_MODEL` | `deepinfra/Qwen/Qwen3.6-35B-A3B` | Same, for `medium` forms |
+| `COI_TIER_HARD_MODEL` | `qwen/deepseek-v4-pro-0813` | Same, for `hard` forms and escalations |
+| `COI_LLM_TIMEOUT_S` | `120` | Seconds to wait for one LLM call |
+
+### Complexity router (System One)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
 | `COI_ROUTER_ENABLED` | `false` | Ask the complexity router (basal-serve) which extractor tier a form needs; off, a feature-based rule decides. Compose turns it on |
 | `COI_ROUTER_URL` | `http://127.0.0.1:8001` | Base URL of basal-serve (`http://router:8000` under Compose) |
 | `COI_ROUTER_THRESHOLD` | `0.7` | Router answers below this confidence move the form one tier up |
 | `COI_ROUTER_TIMEOUT_S` | `5` | Seconds to wait for the router; on timeout the feature-based rule decides |
 | `COI_ROUTER_MAX_STATE_CHARS` | `12000` | Characters of form text sent to the router (about 4k tokens; the model's limit is ~6k) |
-| `COI_TIER_SIMPLE_MODEL` | `deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731` | EdenAI model that fills the form JSON for `simple` forms (open-weights; reasoning off) |
-| `COI_TIER_MEDIUM_MODEL` | `deepinfra/Qwen/Qwen3.6-35B-A3B` | Same, for `medium` forms |
-| `COI_TIER_HARD_MODEL` | `qwen/deepseek-v4-pro-0813` | Same, for `hard` forms and escalations |
-| `COI_LLM_TIMEOUT_S` | `120` | Seconds to wait for one LLM call |
+
+### Morpheus: skill store
+
+| Variable | Default | Description |
+|----------|---------|-------------|
 | `COI_MORPHEUS_ENABLED` | `false` | Turn on the Morpheus skill store (learned and seed skills for the parser). Off, the database is never opened. Compose turns it on |
 | `COI_MORPHEUS_DB` | `/data/morpheus.sqlite` | SQLite file of the skill store (the `morpheus-data` volume under Compose) |
 | `COI_SKILLS_SNAPSHOT` | *(none)* | Pin a skillset version: the active skills stay fixed and changes to them are refused (repeatable scoring) |
@@ -108,28 +198,28 @@ stop the service at startup.
 | `COI_MORPHEUS_DOC_TTL_S` | `86400` | Seconds an analysed form's extracted text stays in memory for corrections and replay (never written to disk) |
 | `COI_MORPHEUS_MODEL` | `COI_TIER_HARD_MODEL` | Model that writes Morpheus skills |
 | `COI_MORPHEUS_REPLAY_MODEL` | `COI_TIER_MEDIUM_MODEL` | Model that replays a section to test a new skill |
+
+### Morpheus: wake (learning from corrections)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
 | `COI_FLAG_HIST_MIN` | `2` | Episodes of the same field family and validator needed before a skill is written |
 | `COI_FLAG_PATTERN_MIN` | `0.5` | System One probability that a correction is a pattern, needed to write a skill |
 | `COI_FLAG_CONSISTENT_MIN` | `0.5` | System One consistency score below which a correction is not learned |
 | `COI_MORPHEUS_BASAL_RETRIES` | `3` | Wake ticks to wait for System One before deciding on rules alone |
 | `COI_MORPHEUS_GATE_MD_DIR` | unset | Directory with the gate forms' extracted markdown for the wake smoke test and the sleep replay gate; unset skips the smoke test, and sleep then merges nothing |
 | `COI_MORPHEUS_WAKE_INTERVAL_S` | `30` | Seconds between background wake runs |
+
+### Morpheus: sleep (merging skills)
+
+| Variable | Default | Description |
+|----------|---------|-------------|
 | `COI_SLEEP_CRON` | `0 3 * * *` | When Morpheus sleeps (merges learned skills), as a 5-field cron in UTC; empty turns the schedule off |
 | `COI_SLEEP_MIN_PATTERNS` | `5` | Sleep early once this many learned, not yet consolidated pattern episodes are waiting |
 | `COI_SAME_PATTERN_MIN` | `0.6` | System One probability that two skills are the same pattern, needed to propose merging them |
 | `COI_FAITHFUL_MIN` | `0.75` | System One probability that a merged skill keeps what each original did; below it the merge goes to review |
 | `COI_SLEEP_PAIR_BUDGET` | `300` | Most skill pairs System One judges in one sleep |
 | `COI_SLEEP_MAX_CANDIDATES` | `60` | Most skills considered in one sleep |
-| `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
-| `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
-| `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |
-| `COI_JWT_AUDIENCE` | *(none)* | If set, tokens must carry this `aud` claim |
-| `COI_JWT_ISSUER` | *(none)* | If set, tokens must carry this `iss` claim |
-| `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
-| `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
-| `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |
-| `COI_JWT_AUDIENCE` | *(none)* | If set, tokens must carry this `aud` claim |
-| `COI_JWT_ISSUER` | *(none)* | If set, tokens must carry this `iss` claim |
 
 Pass secrets such as `COI_JWT_SECRET` and `COI_EDENAI_API_KEY` only at runtime (`.env`, `--env-file` or `-e`).
 
@@ -160,8 +250,10 @@ server, or the raw spec at `/openapi.json`.
 - Files are sent as `multipart/form-data`: field `file` for one file, field `files`
   repeated for several. Accepted: `.pdf`, `.doc`, `.docx`, `.ods`, `.xlsx`, `.jpg`,
   `.jpeg`, `.png`.
-- Every file is checked for name, size, extension, and whether its content matches the
-  extension. Each problem is reported in `issues`.
+- Every file is checked before it is read: the name (at most 250 characters, none of
+  `; : > < / \ | ' * % $`), the size (`COI_MAX_FILE_SIZE_BYTES`), the extension, and
+  whether the content matches the extension (MIME sniffing). Each problem is reported in
+  `issues`.
 - When `COI_JWT_ENABLED=true`, send `Authorization: Bearer <token>`.
 
 ### Analysing a form
