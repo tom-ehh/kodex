@@ -172,7 +172,7 @@ def test_dictionary_kinds():
     country, gmina = fields(FieldDraft(label="Kraj urodzenia", kind="country", required=True),
                             FieldDraft(label="Gmina", kind="commune", required=True))
     assert (country.type, country.dictionaryName, country.defaultValue) == ("SELECT", "Kraje", ["Polska"])
-    assert (gmina.dictionaryName, gmina.searchEnabled, gmina.options) == ("Gmina", True, [])
+    assert (gmina.dictionaryName, gmina.searchEnabled, gmina.options) == ("TERYT_4G_DOWODOWY", True, [])
 
 
 @pytest.mark.parametrize(("count", "type_", "search"), [(2, "RADIO", None), (5, "RADIO", None),

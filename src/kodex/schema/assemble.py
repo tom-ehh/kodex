@@ -23,7 +23,14 @@ from kodex.schema.drafts import (
     OutlineSection,
     SectionDraft,
 )
-from kodex.schema.kinds import Context, build, make_field
+from kodex.schema.kinds import (
+    TERYT_KINDS,
+    TERYT_LEVELS,
+    Context,
+    build,
+    make_field,
+    teryt_question,
+)
 from kodex.schema.naming import slug, unique
 from kodex.schema.states import (
     Location,
@@ -130,8 +137,22 @@ class _Builder:
         tech = unique(key, self.taken)
         ctx = Context(tab=tab, section=tech, repeating=plan.repeatable, taken=self.taken)
         grid: list[dict] = []
+        teryt = any(f.kind in TERYT_LEVELS for f in draft.fields)
+        teryt_at: Location | None = None  # the section's one TERYT field, once built
+        country: str | None = None  # tech of the section's Kraj field
         for field in draft.fields:
+            fkey = f"{key}.{slug(field.label)}"
+            if teryt and field.kind in TERYT_KINDS:
+                if teryt_at is None:  # further levels of the cascade point at this one field
+                    teryt_q = teryt_question(ctx, field.required, country)
+                    teryt_at = ctx.at(ctx.techs[0])
+                    grid.append(teryt_q)
+                self.question[fkey] = teryt_q
+                self.where[fkey] = teryt_at
+                continue
             built = build(field, ctx)
+            if field.kind == "country":
+                country = ctx.techs[0]
             attr = initial_data.source_for(plan.title, field, plan.repeatable)
             if attr:
                 initial_data.apply(built[0]["field"], attr)
@@ -139,7 +160,6 @@ class _Builder:
                 built[0]["field"].update(readOnly=True, defaultValue=self.addressee)
             if self.post_build:
                 self.post_build(field, built, plan.title)
-            fkey = f"{key}.{slug(field.label)}"
             self.where[fkey] = ctx.at(ctx.techs[0])
             self.question[fkey] = built[0]
             if field.reusable_list:

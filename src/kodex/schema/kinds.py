@@ -37,6 +37,12 @@ DICTIONARIES = {  # kind -> (dictionary, searchable)
     "county": ("Powiat", False), "commune": ("Gmina", True), "locality": ("Miejscowość", True),
 }  # fmt: skip
 
+# A Polish address is one multi-level SELECT over TERYT (województwo → powiat → gmina →
+# miejscowość), as in the official exports, when the section has an administrative level.
+TERYT_DICTIONARY = "TERYT_4G_DOWODOWY"
+TERYT_LEVELS = frozenset({"voivodeship", "county", "commune"})
+TERYT_KINDS = TERYT_LEVELS | {"locality"}
+
 
 @dataclass
 class Context:
@@ -116,3 +122,15 @@ def build(draft: FieldDraft, ctx: Context) -> list[dict]:
         other["states"] = [{"type": "SHOW", "query": to_jsonata(pred, ctx.at(other_tech), lambda _: ctx.at(tech))}]
         out.append({"field": other})
     return out
+
+
+def teryt_question(ctx: Context, required: bool, country: str | None) -> dict:
+    """The section's TERYT address SELECT; shown only for Poland when the section has a Kraj field."""
+    tech = ctx.name("adres_teryt")
+    f = make_field("SELECT", tech, TERYT_DICTIONARY, dictionaryName=TERYT_DICTIONARY, options=[],
+                   multiLevelTree=True, searchEnabled=True, defaultValue=[],
+                   validation=["REQUIRED"] if required else [])
+    if country:
+        pred = Equals(field=country, equals="Polska")
+        f["states"] = [{"type": "SHOW", "query": to_jsonata(pred, ctx.at(tech), lambda _: ctx.at(country))}]
+    return {"field": f}
