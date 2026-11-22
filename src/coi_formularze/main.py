@@ -17,6 +17,8 @@ from coi_formularze.jobs import JobStore
 from coi_formularze.morpheus import open_store
 from coi_formularze.morpheus.api import build_router as build_morpheus_router
 from coi_formularze.morpheus.doccache import DocCache
+from coi_formularze.morpheus.sleep.api import router as sleep_router
+from coi_formularze.morpheus.sleep.api import start_scheduler, stop_scheduler
 from coi_formularze.morpheus.wake import Wake, start_worker, stop_worker
 from coi_formularze.parse.llm import EdenAiChat
 
@@ -44,7 +46,7 @@ TAGS = [
     {"name": "forms", "description": "Form analysis: file in, form configuration JSON out."},
     {"name": "validation", "description": "Pre-checks on uploads, without analysis."},
     {"name": "jobs", "description": "Batches kept in memory with per-file status and results."},
-    {"name": "morpheus", "description": "Learned parser skills and the human review queue."},
+    {"name": "morpheus", "description": "Learned parser skills, review queue, sleep cycles, rollback, metrics."},
     {"name": "meta", "description": "Service health and capabilities."},
 ]
 
@@ -68,10 +70,12 @@ def create_app() -> FastAPI:
     async def lifespan(app: FastAPI):
         settings = get_settings()  # fail fast on bad config
         app.state.jobs = JobStore(capacity=settings.max_jobs)
-        task = None
+        task = sleeper = None
         if settings.morpheus_enabled:
             task = await _start_morpheus(app, settings)
+            sleeper = start_scheduler(app, settings)  # Morpheus sleep: cron + early trigger
         yield
+        await stop_scheduler(sleeper)
         await stop_worker(task)
 
     app = FastAPI(
@@ -86,6 +90,7 @@ def create_app() -> FastAPI:
     )
     app.include_router(router)
     app.include_router(build_morpheus_router([Depends(require_auth)]))
+    app.include_router(sleep_router)
 
     @app.get("/health", tags=["meta"], summary="Liveness check", response_description="Service is up.")
     def health() -> Health:

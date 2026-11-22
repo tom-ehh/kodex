@@ -32,7 +32,7 @@ from coi_formularze.morpheus.models import (
 )
 from coi_formularze.morpheus.sanitize import assert_clean
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
 _SCHEMA_V1 = """
 CREATE TABLE meta (key TEXT PRIMARY KEY, value TEXT NOT NULL);
@@ -81,8 +81,18 @@ CREATE TABLE sleep_cycles (
 );
 """
 
+# v2 (P3 sleep): the single sleep lock (with heartbeat) and per-cycle detail JSON.
+_SCHEMA_V2 = """
+CREATE TABLE sleep_lock (
+  name TEXT PRIMARY KEY, holder TEXT NOT NULL, heartbeat_at TEXT NOT NULL
+);
+CREATE TABLE sleep_cycle_detail (
+  cycle_id TEXT PRIMARY KEY, status TEXT NOT NULL, detail_json TEXT NOT NULL
+);
+"""
+
 # Index i holds the script that migrates schema version i to i+1.
-_MIGRATIONS = [_SCHEMA_V1]
+_MIGRATIONS = [_SCHEMA_V1, _SCHEMA_V2]
 
 
 class PinnedError(RuntimeError):

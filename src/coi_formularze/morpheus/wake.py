@@ -6,7 +6,8 @@ only if ALL hold:
    validator (or edited attr) in 14 days, counted in code;
 2. basal `scope` (wording B, no count in state) P(pattern) >= `flag_pattern_min`;
 3. the code shape check passes on the corrected value;
-4. basal `validator_consistent` >= `flag_consistent_min` (a veto only).
+4. basal `validator_consistent` >= `flag_consistent_min` (a veto only; skipped for
+   structural edits, `required` / `type`, which have no value to check).
 `worth` is computed in code and stored for refitting; basal `family` is a tag.
 
 Cold start: the first occurrence never creates a skill; with `learn_now` it goes to the
@@ -66,6 +67,9 @@ _FAMILY_KEYS = [
 ]
 _VALIDATOR_FAMILY = {"PESEL": "pesel", "NIP": "nip_regon", "REGON": "nip_regon",
                      "ZIP_CODE": "zip_code", "EMAIL": "email_phone"}
+
+
+STRUCTURAL_ATTRS = frozenset({"required", "type"})
 
 
 def code_family(ep: Episode) -> str:
@@ -223,7 +227,12 @@ class Wake:
                 b = await self.ask(ep, why, s.router_url, s.router_timeout_s)
                 out.timings["basal_s"] = round(time.monotonic() - t0, 3)
                 flag["basal"] = b.scores()
-                confirmed = b.p_pattern >= s.flag_pattern_min and b.consistent >= s.flag_consistent_min
+                # The consistency veto reads a value against its validator; a structural
+                # edit (required / type) has no value to check, so it is not vetoed.
+                structural = ep.edited_attr in STRUCTURAL_ATTRS
+                flag["veto_skipped"] = structural
+                confirmed = b.p_pattern >= s.flag_pattern_min and (
+                    structural or b.consistent >= s.flag_consistent_min)
                 flag["family_basal"] = b.family
             except BasalUnavailable:
                 retries = int(flag.get("basal_retries", 0)) + 1
@@ -381,6 +390,16 @@ class Wake:
         item = review.get_item(self.store, item_id)
         if item is None or item.status != "pending":
             raise KeyError(item_id)
+        if item.kind == "proposed_skill" and item.diff.get("source") == "sleep":
+            from coi_formularze.morpheus.sleep.cycle import (
+                activate_general,  # no import cycle
+            )
+
+            cand = Skill.model_validate(item.diff["skill"])
+            absorbs = [a["skill_id"] for a in item.diff.get("absorbs", [])]
+            sk = activate_general(self.store, cand, absorbs, Actor.HUMAN)
+            review.decide(self.store, item_id, "approved")
+            return {"skill_id": sk.id, "version": sk.version, "absorbed": absorbs}
         if item.kind == "proposed_skill":
             cand = Skill.model_validate(item.diff["skill"])
             parent = None

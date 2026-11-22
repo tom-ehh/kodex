@@ -18,7 +18,7 @@ from functools import lru_cache
 from importlib.resources import files
 from pathlib import Path
 
-from coi_formularze.morpheus.match import SectionTarget, score
+from coi_formularze.morpheus.match import SectionTarget, is_zip_skill, score
 from coi_formularze.morpheus.models import Skill
 from coi_formularze.morpheus.replay import SectionRef, find_field, replay_section
 from coi_formularze.morpheus.sanitize import pii_findings
@@ -50,6 +50,9 @@ def lint(skill: Skill) -> Lint:
     t = skill.trigger
     if not (t.labels_any or t.regex or t.validator):
         reasons.append("empty trigger")
+    sc = skill.scope or {}
+    if is_zip_skill(skill) and not (sc.get("section_any") and sc.get("section_none")):
+        reasons.append("zip skill without an address section scope")
     if not (skill.prompt_snippet or skill.validator_rule):
         reasons.append("skill does nothing")
     labels = [(f["label"], f["validation"]) for secs in gate_forms().values()

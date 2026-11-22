@@ -144,7 +144,7 @@ def test_basal_state_has_no_history_count_and_parses():
 
 
 def test_section_slice_feeds_hint_matching(store):
-    md = "Dane wnioskodawcy\nImię\nKod pocztowy ___\nOświadczenia\nPodpis"
+    md = "Dane wnioskodawcy\nImię\nAdres zamieszkania\nKod pocztowy ___\nOświadczenia\nPodpis"
     sl = section_slice(md, "Dane wnioskodawcy", ["Oświadczenia"])
     assert "Kod pocztowy" in sl and "Podpis" not in sl
     from coi_formularze.morpheus import install_seeds
@@ -380,3 +380,41 @@ async def test_human_approval_of_cold_start_runs_the_gate(store):
 def test_email_shape_is_not_pii_but_email_is():
     from coi_formularze.morpheus import pii_findings
     assert pii_findings("aaaa@aaa.aa") == [] and pii_findings("jan@wp.pl")
+
+
+PHONE_SKILL = {"name": "phone-optional", "description": "Telefon nie jest wymagany.",
+               "labels_any": ["telefon"], "prompt_snippet": "Pole telefon: required=false.",
+               "validator_rule": {"add_validators": [], "required": False, "post_fix": None}}
+
+
+def phone_ep(store, attr="required", before="true", after="false"):
+    return store.add_episode(Episode(
+        kind=EpisodeKind.WORKER_CORRECTION, form_id="f2", field_path="telefon",
+        field_label="Telefon", validator=None, before_shape=before, after_shape=after,
+        edited_attr=attr))
+
+
+async def test_structural_edit_skips_consistency_veto(store):
+    # E15 "phone not required": basal P(pattern)=0.90, consistent=0.19 -> no veto now
+    phone_ep(store), phone_ep(store)
+    w = Wake(store, settings(), Chat(writer=PHONE_SKILL), DocCache(3600), ask=flag(0.9, 0.19))
+    outs = await w.tick()
+    assert outs[-1].stage != "basal_veto", outs[-1]
+    assert outs[-1].decision == "active"  # document expired -> unreplayed, still activated
+    [sk] = learned(store)
+    assert sk.validator_rule.required is False
+    ep = store.episodes()[-1]
+    assert ep.flag["veto_skipped"] is True
+
+
+async def test_value_edit_keeps_consistency_veto(store):
+    zip_ep(store), zip_ep(store)
+    outs = await wake(store, ask=flag(0.9, 0.19)).tick()
+    assert outs[-1].stage == "basal_veto"
+    assert store.episodes()[-1].flag["veto_skipped"] is False
+
+
+async def test_structural_edit_still_needs_pattern(store):
+    phone_ep(store), phone_ep(store)
+    w = Wake(store, settings(), Chat(writer=PHONE_SKILL), DocCache(3600), ask=flag(0.2, 0.9))
+    assert (await w.tick())[-1].stage == "basal_veto"

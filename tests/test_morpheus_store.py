@@ -16,6 +16,7 @@ from coi_formularze.morpheus import (
     SkillStore,
     SkillTrigger,
 )
+from coi_formularze.morpheus.store import SCHEMA_VERSION
 
 
 def mk(id="sk-zip", status=SkillStatus.ACTIVE, **kw):
@@ -141,7 +142,7 @@ def test_migration_is_idempotent(tmp_path):
     p = tmp_path / "m.sqlite"
     SkillStore(p).create(mk())
     assert SkillStore(p).get("sk-zip") is not None
-    assert sqlite3.connect(p).execute("PRAGMA user_version").fetchone()[0] == 1
+    assert sqlite3.connect(p).execute("PRAGMA user_version").fetchone()[0] == SCHEMA_VERSION
 
 
 def test_thread_safe_writes(store):

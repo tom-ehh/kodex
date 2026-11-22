@@ -80,3 +80,40 @@ def active_skills(target, skills: Iterable[Skill], max_per_section: int = 5) -> 
     ]
     scored.sort(key=lambda p: (-p[0], _LAYER_RANK[p[1].layer], p[1].id))
     return [s for _, s in scored[:max_per_section]]
+
+
+# ---- section scope (ZIP narrowing) ----
+# A skill may carry `scope = {"section_any": [...], "section_none": [...]}`: it applies only
+# where the section's text (title, purpose, source slice) contains one `section_any` cue,
+# and never where the section's own words (title, purpose, field label) contain a
+# `section_none` cue. ZIP skills (validator ZIP_CODE or family zip_code) get ZIP_SCOPE by
+# default, learned or seed, so a postcode rule never fires outside a Polish address.
+ADDRESS_CUES = ("adres", "siedzib", "zamieszk", "korespondenc", "miejscowosc", "ulica")
+FOREIGN_CUES = ("zagranic", "poza polsk", "inny niz polska", "innym niz polska", "obcy kraj")
+ZIP_SCOPE = {"section_any": list(ADDRESS_CUES), "section_none": list(FOREIGN_CUES)}
+
+
+def is_zip_skill(skill: Skill) -> bool:
+    t = skill.trigger
+    return t.validator == "ZIP_CODE" or t.field_family == "zip_code"
+
+
+def section_scope(skill: Skill) -> dict | None:
+    sc = skill.scope or {}
+    if sc.get("section_any") or sc.get("section_none"):
+        return {"section_any": sc.get("section_any") or [], "section_none": sc.get("section_none") or []}
+    return ZIP_SCOPE if is_zip_skill(skill) else None
+
+
+def scope_ok(skill: Skill, where: str | None, own: str | None) -> bool:
+    """`where`: the section's text incl. its source slice; `own`: title/purpose/label.
+    Unknown context (None) fails a scoped skill: scoped skills need evidence to fire."""
+    sc = section_scope(skill)
+    if sc is None:
+        return True
+    if where is None:
+        return False
+    w, o = fold(where), fold(own or "")
+    if sc["section_any"] and not any(fold(c) in w for c in sc["section_any"]):
+        return False
+    return not any(fold(c) in o for c in sc["section_none"])

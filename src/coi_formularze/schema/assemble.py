@@ -36,7 +36,7 @@ from coi_formularze.schema.states import (
 FINISH_TITLE = "Podsumowanie"
 FINISH_TEXT = "Sprawdź dane przed wysłaniem wniosku."
 GRID_COLS = 3
-PostBuild = Callable[[FieldDraft, list[dict]], None]
+PostBuild = Callable[[FieldDraft, list[dict], str], None]  # (field, questions, section title)
 
 
 class DraftError(ValueError):
@@ -83,7 +83,7 @@ class Assembled(BaseModel):
 
 
 def assemble(draft: FormDraft, post_build: PostBuild | None = None) -> Assembled:
-    """`post_build(field_draft, questions)` may adjust each built field in place (Morpheus rules)."""
+    """`post_build(field_draft, questions, section_title)` may adjust each built field in place (Morpheus rules)."""
     builder = _Builder(set(), {slug(s.title): s for s in draft.sections}, post_build)
     pages = [(p.title, builder.sections(p.title, p.sections)) for p in draft.outline.pages]
     finish = make_field("SECTION", unique("podglad", builder.taken), "Podgląd", repeatingSectionGrid=[
@@ -130,7 +130,7 @@ class _Builder:
         for field in draft.fields:
             built = build(field, ctx)
             if self.post_build:
-                self.post_build(field, built)
+                self.post_build(field, built, plan.title)
             fkey = f"{key}.{slug(field.label)}"
             self.where[fkey] = ctx.at(ctx.techs[0])
             self.question[fkey] = built[0]

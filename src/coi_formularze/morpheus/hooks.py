@@ -17,7 +17,7 @@ import logging
 import re
 from collections.abc import Iterable
 
-from coi_formularze.morpheus.match import SectionTarget, active_skills
+from coi_formularze.morpheus.match import SectionTarget, active_skills, scope_ok
 from coi_formularze.morpheus.models import (
     Episode,
     EpisodeKind,
@@ -47,6 +47,7 @@ class Hooks:
         self.store, self.form_id, self.max = store, form_id, max_per_section
         self._skills = store.active()
         self.used: dict[str, int] = {}  # skill id -> times injected or applied (this request)
+        self._sections: dict[str, tuple[str, str]] = {}  # title -> (where, own) for scoped rules
         self.episodes: list[Episode] = []
 
     # ---- skills in ----
@@ -56,18 +57,31 @@ class Hooks:
         or a line of its own source-text slice (`section_slice`); capped as before."""
         lines = [ln for ln in source.splitlines() if ln.strip()]
         target = SectionTarget.of([t for t in (title, purpose) if t] + lines)
-        return [s for s in active_skills(target, self._skills, self.max) if s.prompt_snippet]
+        own = f"{title}\n{purpose}"
+        where = f"{own}\n{source}"
+        self._sections[title] = (where, own)
+        pool = [s for s in self._skills if scope_ok(s, where, own)]
+        return [s for s in active_skills(target, pool, self.max) if s.prompt_snippet]
 
     @staticmethod
     def hints(skills: Iterable[Skill]) -> str:
         lines = [f"- {s.prompt_snippet}" for s in skills]
         return f"{HINTS_HEADER}\n" + "\n".join(lines) if lines else ""
 
-    def rule_skills(self, label: str, validators: Iterable[str]) -> list[Skill]:
+    def rule_skills(self, label: str, validators: Iterable[str],
+                    section: str | None = None) -> list[Skill]:
+        """Rule skills for one field. Scoped skills (ZIP) need the field's `section`:
+        its text decides (address cues), and the section title or the label must not
+        say foreign ("zagraniczny")."""
         target = SectionTarget.of([label], validators)
-        return [s for s in active_skills(target, self._skills, self.max) if s.validator_rule]
+        ctx = self._sections.get(section) if section is not None else None
+        if ctx is None and section is not None:
+            ctx = (section, section)
+        where, own = (ctx[0] + "\n" + label, ctx[1] + "\n" + label) if ctx else (None, None)
+        pool = [s for s in self._skills if scope_ok(s, where, own)]
+        return [s for s in active_skills(target, pool, self.max) if s.validator_rule]
 
-    def apply_rules(self, label: str, questions: list[dict]) -> list[Skill]:
+    def apply_rules(self, label: str, questions: list[dict], section: str | None = None) -> list[Skill]:
         """Apply matched validator rules to one built field (questions from kinds.build).
 
         Rules: `add_validators` (TEXT_FIELD only; REQUIRED goes through `required`),
@@ -80,7 +94,7 @@ class Hooks:
         field = questions[0]["field"]
         if "validation" not in field:
             return []
-        skills = self.rule_skills(label, field["validation"])
+        skills = self.rule_skills(label, field["validation"], section)
         families = {s.trigger.field_family for s in skills if s.trigger.field_family}
         if len(families) > 1:  # 'telefon / e-mail': one field, two families -> leave it alone
             skills = [s for s in skills if not s.trigger.field_family]

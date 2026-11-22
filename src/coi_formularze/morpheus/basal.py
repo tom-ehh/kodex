@@ -116,3 +116,54 @@ async def ask_flag(ep: Episode, why: str | None, url: str, timeout: float,
     if resp.status_code != 200:
         raise BasalUnavailable(f"HTTP {resp.status_code}")
     return parse_flag(body)
+
+
+# ---- sleep (P3): same-pattern, faithfulness, conflict ----
+
+SLEEP_QUESTIONS = {
+    # calibration.md variant F: `choice` same/different with "same class AND same operation".
+    "same": {
+        "type": "choice",
+        "instructions": "Czy umiejętności A i B to ta sama reguła naprawcza dla tej samej klasy pola?",
+        "criteria": {
+            "same": "Ta sama klasa pola i ta sama operacja naprawcza (różni się tylko miejsce lub "
+            "słownictwo).",
+            "different": "Inna klasa pola albo ta sama klasa pola, ale inna poprawka lub reguła.",
+        },
+    },
+    # sleep.md §2b/§2d; thresholds untested (provisional).
+    "faithful": {
+        "type": "noul",
+        "instructions": "Czy reguła ogólna obejmuje wszystko, co robi skrót oryginalny, bez zmiany "
+        "znaczenia i bez dodawania nowych warunków?",
+    },
+    "conflict": {
+        "type": "choice",
+        "instructions": "Czy te dwie reguły dla pasującego pola dają sprzeczne instrukcje?",
+        "criteria": {
+            "conflict": "Obie reguły mogą zadziałać na to samo pole i każą zrobić coś innego "
+            "(np. inny format lub inna wartość).",
+            "compatible": "Reguły dotyczą różnych pól albo się uzupełniają.",
+            "duplicate": "Reguły mówią to samo.",
+        },
+    },
+}
+
+
+async def ask_questions(state: str, questions: dict, url: str, timeout: float,
+                        client: httpx.AsyncClient | None = None) -> dict:
+    """Any typed questions over one `state`; returns `answers`. Raises BasalUnavailable."""
+    endpoint = url.rstrip("/") + "/v1/systemone"
+    payload = {"state": state, "questions": questions}
+    try:
+        if client is None:
+            async with httpx.AsyncClient(timeout=timeout) as c:
+                resp = await c.post(endpoint, json=payload)
+        else:
+            resp = await client.post(endpoint, json=payload, timeout=timeout)
+        body = resp.json()
+    except (httpx.HTTPError, ValueError) as exc:
+        raise BasalUnavailable(f"{type(exc).__name__}") from exc
+    if resp.status_code != 200 or not isinstance(body, dict) or "answers" not in body:
+        raise BasalUnavailable(f"HTTP {resp.status_code}")
+    return body["answers"]

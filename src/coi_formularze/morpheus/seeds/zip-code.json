@@ -22,5 +22,22 @@
   "provenance": {
     "source": "docs/examples gate forms + tools/add_validators.py",
     "kind": "seed"
+  },
+  "scope": {
+    "section_any": [
+      "adres",
+      "siedzib",
+      "zamieszk",
+      "korespondenc",
+      "miejscowosc",
+      "ulica"
+    ],
+    "section_none": [
+      "zagranic",
+      "poza polsk",
+      "inny niz polska",
+      "innym niz polska",
+      "obcy kraj"
+    ]
   }
 }

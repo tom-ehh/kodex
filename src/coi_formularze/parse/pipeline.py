@@ -174,8 +174,8 @@ async def parse(md: str, route: Route, settings, chat: ChatModel, retries: int =
             draft = await _Run(chat, attempt.model, md, attempt, retries, hooks).draft()
             post = None
             if hooks:
-                def post(fd, built, applied=applied):
-                    used = hooks.apply_rules(fd.label, built)
+                def post(fd, built, section, applied=applied):
+                    used = hooks.apply_rules(fd.label, built, section)
                     hooks.used_now(used)
                     applied.extend(used)
             result = assemble(draft, post)

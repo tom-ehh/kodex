@@ -52,7 +52,7 @@ class FixedHooks(Hooks):
     def __init__(self, skills: list[Skill], max_per_section: int = 5):
         self.store, self.form_id, self.max = None, None, max_per_section  # type: ignore[assignment]
         self._skills = list(skills)
-        self.used, self.episodes = {}, []
+        self.used, self.episodes, self._sections = {}, [], {}
 
     def hit(self, skills, outcome) -> None:
         pass
@@ -111,7 +111,7 @@ async def replay_section(chat: ChatModel, model: str, md: str, section: SectionR
     fields: list[dict] = []
     for fd in draft.fields:
         built = build(fd, ctx)
-        hooks.used_now(hooks.apply_rules(fd.label, built))
+        hooks.used_now(hooks.apply_rules(fd.label, built, section.title))
         fields += [q["field"] for q in built]
     return SectionReplay(ok=True, fields=fields, skills_used=sorted(hooks.used),
                          calls=attempt.calls, cost=attempt.cost,

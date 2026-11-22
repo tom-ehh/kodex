@@ -57,6 +57,13 @@ class Settings(BaseSettings):
     morpheus_gate_md_dir: str | None = Field(
         None, description="Gate forms' markdown for the wake smoke test; unset = skipped.")
     morpheus_wake_interval_s: float = Field(30.0, gt=0, description="Background wake_tick period.")
+    # Morpheus sleep (P3): schedule, early trigger, thresholds and per-cycle bounds.
+    sleep_cron: str = Field("0 3 * * *", description="Sleep schedule (5-field cron, UTC); empty = off.")
+    sleep_min_patterns: int = Field(5, gt=0, description="Early sleep at N pending pattern episodes.")
+    same_pattern_min: float = Field(0.6, ge=0, le=1, description="basal p(same) edge threshold.")
+    faithful_min: float = Field(0.75, ge=0, le=1, description="basal faithfulness floor (untested).")
+    sleep_pair_budget: int = Field(300, gt=0, description="Max pairs judged per sleep cycle.")
+    sleep_max_candidates: int = Field(60, gt=0, description="Max skills considered per sleep cycle.")
 
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None
