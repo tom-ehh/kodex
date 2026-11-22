@@ -174,13 +174,21 @@ class _Builder:
         return section
 
     def apply_states(self, states: Iterable[StateDraft]) -> None:
+        # Several drafts for one target are alternatives ("show when A", "show when B"), but
+        # separate SHOW states must all hold, so they become one SHOW state joined with `or`.
+        queries: dict[str, list[str]] = {}
         for state in states:
             for leaf in leaves(state.show_when):
                 if leaf.field not in self.where:
                     raise DraftError(f"{state.target}: unknown field {leaf.field!r}")
             target = self.where[state.target]
             query = to_jsonata(state.show_when, target, lambda k: self.where[k])
-            self.question[state.target]["field"]["states"].append({"type": "SHOW", "query": query})
+            alternatives = queries.setdefault(state.target, [])
+            if query not in alternatives:
+                alternatives.append(query)
+        for key, alternatives in queries.items():
+            query = alternatives[0] if len(alternatives) == 1 else " or ".join(f"({q})" for q in alternatives)
+            self.question[key]["field"]["states"].append({"type": "SHOW", "query": query})
 
     def _propose(self, name: str, label: str, opts: list[str], tech: str) -> None:
         if name in self._proposals:

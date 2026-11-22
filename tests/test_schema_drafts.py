@@ -335,3 +335,15 @@ def test_dictionary_proposals_beside_form():
     (p,) = result.dictionary_proposals
     assert (p.name, p.entries, p.used_by) == ("RASY_PSOW_AGRESYWNYCH", breeds, ["rasa_psa"])
     assert "dictionaryName" not in str(result.form["tabs"][0])  # options stay inline: it still imports
+
+
+def test_several_states_for_one_target_become_one_or_query():
+    # psy: "show Nr when mikroprocesor" + "show Nr when tatuaż" as two SHOW states never showed,
+    # because separate SHOW states must all hold.
+    znak = FieldDraft(label="Znak", kind="single_choice", required=True, options=["mikroprocesor", "tatuaż", "brak"])
+    nr = FieldDraft(label="Nr", kind="text", required=True)
+    states = [{"target": "sekcja.nr", "show_when": {"field": "sekcja.znak", "equals": v}} for v in ("mikroprocesor", "tatuaż")]
+    nr_field = fields(znak, nr, states=states)[1]
+    assert len(nr_field.states) == 1
+    q = nr_field.states[0].query
+    assert '"mikroprocesor" in' in q and '"tatuaż" in' in q and ") or (" in q

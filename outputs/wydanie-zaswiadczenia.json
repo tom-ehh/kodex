@@ -2,7 +2,7 @@
   "title": "Wniosek o wydanie zaświadczenia",
   "tabs": [
     {
-      "id": "fbb60513-ccbb-4185-b522-363bbef5c115",
+      "id": "a443001d-34c3-41fc-8f4f-3bae6944e585",
       "title": "Dane urzędu i wnioskodawcy",
       "type": "MAIN",
       "questions": [
@@ -24,7 +24,7 @@
                   "readOnly": true,
                   "defaultValue": "Urząd Miasta i Gminy Młynary",
                   "questionOrder": 0,
-                  "id": "d5182e0f-8ed4-4a04-9ddd-fbe5e870baa9"
+                  "id": "7de1c835-0bdb-4e04-806b-eaad97bdb84c"
                 },
                 "x": 0,
                 "y": 0,
@@ -36,10 +36,12 @@
                   "type": "TEXT_FIELD",
                   "techName": "ulica",
                   "title": "Ulica",
-                  "validation": [],
+                  "validation": [
+                    "REQUIRED"
+                  ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "48b750c8-4a2d-4b7a-bcc2-ad562e69cf25"
+                  "id": "e95b3b7b-22bc-46b2-aaa8-1887f954eeaf"
                 },
                 "x": 0,
                 "y": 1,
@@ -51,10 +53,12 @@
                   "type": "TEXT_FIELD",
                   "techName": "numer_budynku",
                   "title": "Numer budynku",
-                  "validation": [],
+                  "validation": [
+                    "REQUIRED"
+                  ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "c212b42a-530b-44d0-8176-655b5b1d6d55"
+                  "id": "c6d53ba5-a579-471c-95d6-bb223d13967f"
                 },
                 "x": 0,
                 "y": 2,
@@ -67,11 +71,12 @@
                   "techName": "kod_pocztowy",
                   "title": "Kod pocztowy",
                   "validation": [
+                    "REQUIRED",
                     "ZIP_CODE"
                   ],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "14c04f9a-7a35-4405-aef6-941212ac15ac"
+                  "id": "abca4039-8104-4301-860c-9c607d37c898"
                 },
                 "x": 0,
                 "y": 3,
@@ -83,13 +88,15 @@
                   "type": "SELECT",
                   "techName": "miejscowosc",
                   "title": "Miejscowość",
-                  "validation": [],
+                  "validation": [
+                    "REQUIRED"
+                  ],
                   "dictionaryName": "Miejscowość",
                   "options": [],
                   "searchEnabled": true,
                   "states": [],
                   "questionOrder": 4,
-                  "id": "7fb9e2de-0525-4499-96de-9258cba83972"
+                  "id": "aff6376a-0308-46e7-96e6-6dc9311e2643"
                 },
                 "x": 0,
                 "y": 4,
@@ -99,7 +106,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "538fe21a-7076-4a91-a1f7-9a7e870eceb3"
+            "id": "8047b54f-4257-41eb-a181-941c205846d0"
           },
           "x": 0,
           "y": 0,
@@ -125,7 +132,7 @@
                   "defaultValue": "PESEL.name",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 0,
-                  "id": "8e8a8e6c-3e6c-4079-a71c-7c2e487503c6"
+                  "id": "870ddf7b-ea96-41dd-b8b0-37946089d7ad"
                 },
                 "x": 0,
                 "y": 0,
@@ -142,7 +149,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "8dd61e0f-0557-4e5c-8a86-161fa701f8c2"
+                  "id": "15a38e24-6339-48ee-84a0-eaa1dd28367c"
                 },
                 "x": 0,
                 "y": 1,
@@ -163,7 +170,7 @@
                   "defaultValue": "PESEL.pesel",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 2,
-                  "id": "b15e0eb8-9301-4ac6-887a-d5280039e3ae"
+                  "id": "cdcdb04c-1b76-4f54-b9d6-30db019c098f"
                 },
                 "x": 0,
                 "y": 2,
@@ -173,12 +180,12 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "numer_telefonu",
-                  "title": "Numer telefonu",
+                  "techName": "nr_telefonu",
+                  "title": "Nr telefonu",
                   "validation": [],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "57f04d48-d14a-417b-b121-1979f0cfb4cb"
+                  "id": "a6bbe0d2-04b4-42e6-891d-144c19d40d64"
                 },
                 "x": 0,
                 "y": 3,
@@ -187,8 +194,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "07a57d56-8832-4e8f-97ee-ceb8ed9bf281"
+            "questionOrder": 5,
+            "id": "0fb33b6e-2d81-4371-9d7f-02c5e4a046ef"
           },
           "x": 0,
           "y": 5,
@@ -198,7 +205,7 @@
       ]
     },
     {
-      "id": "a37c8ac8-a71d-431f-af14-3ebdd5051b22",
+      "id": "7d69af2d-e7ad-43f1-be5e-184e2b1f4325",
       "title": "Przedmiot wniosku",
       "type": "MAIN",
       "questions": [
@@ -245,7 +252,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "35914855-9d99-425e-ae1c-c3d30c867445"
+                  "id": "ee8d042a-42f4-4750-af4e-07be8e014ab8"
                 },
                 "x": 0,
                 "y": 0,
@@ -267,7 +274,7 @@
                     }
                   ],
                   "questionOrder": 1,
-                  "id": "323d1e9f-1529-41f1-afe0-c0471b343f01"
+                  "id": "56fae573-6641-4924-aff7-5a3d2ae42df7"
                 },
                 "x": 0,
                 "y": 1,
@@ -277,7 +284,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "00958ec9-110d-4b65-a348-890a3ade8e44"
+            "id": "e94554e8-bb79-4fce-a902-886a05af65c4"
           },
           "x": 0,
           "y": 0,
@@ -293,14 +300,14 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "instytucja_do_ktorej_zaswiadczenie_ma_byc_przedlozone",
-                  "title": "Instytucja, do której zaświadczenie ma być przedłożone",
+                  "techName": "okreslenie_instytucji_do_ktorej_zaswiadczenie_ma_byc_przedlozone",
+                  "title": "Określenie instytucji, do której zaświadczenie ma być przedłożone",
                   "validation": [
                     "REQUIRED"
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "bdc0d7b4-96d1-482c-bd20-b0f8fca39994"
+                  "id": "f91befb9-152c-402c-835e-24b027147080"
                 },
                 "x": 0,
                 "y": 0,
@@ -309,8 +316,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "11c265e2-cbce-46e8-bf36-ec20d994359a"
+            "questionOrder": 2,
+            "id": "d429a289-be37-4b08-9b16-2b41f3c962ff"
           },
           "x": 0,
           "y": 2,
@@ -320,8 +327,8 @@
       ]
     },
     {
-      "id": "ffe2c9b2-73ed-4a83-982d-f709010f32d1",
-      "title": "Opłata i podpis",
+      "id": "5ecdb4a5-a9a3-479d-920f-c85763661e42",
+      "title": "Opłata i oświadczenia",
       "type": "MAIN",
       "questions": [
         {
@@ -337,7 +344,7 @@
                   "title": "Informacja o wysokości opłaty i sposobie jej uiszczenia",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "ea160b79-2a29-4ca7-9902-af81c1a53491"
+                  "id": "1eb8546d-8059-4d34-acf7-888c24eabf23"
                 },
                 "x": 0,
                 "y": 0,
@@ -347,17 +354,62 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "c7b0f4bf-7675-4635-bad4-0a657e6725a2"
+            "id": "c8306010-e6cf-448f-8464-19454f154282"
           },
           "x": 0,
           "y": 0,
+          "rows": 1,
+          "cols": 3
+        },
+        {
+          "field": {
+            "type": "SECTION",
+            "techName": "oswiadczenie_o_zapoznaniu_sie_z_informacjami",
+            "title": "Oświadczenie o zapoznaniu się z informacjami",
+            "repeatingSectionGrid": [
+              {
+                "field": {
+                  "type": "RADIO",
+                  "techName": "oswiadczam_ze_zapoznalem_am_sie_z_informacjami_dotyczacymi_oplaty_skarbowej",
+                  "title": "Oświadczam, że zapoznałem/am się z informacjami dotyczącymi opłaty skarbowej",
+                  "options": [
+                    {
+                      "id": "Tak",
+                      "name": "Tak",
+                      "techName": "tak"
+                    },
+                    {
+                      "id": "Nie",
+                      "name": "Nie",
+                      "techName": "nie"
+                    }
+                  ],
+                  "validation": [
+                    "REQUIRED"
+                  ],
+                  "states": [],
+                  "questionOrder": 0,
+                  "id": "26130fe4-cccf-4b1d-bf62-4ac372c36c78"
+                },
+                "x": 0,
+                "y": 0,
+                "rows": 1,
+                "cols": 3
+              }
+            ],
+            "states": [],
+            "questionOrder": 1,
+            "id": "8e19f487-b6ab-40ac-b0ac-8aa296dd92c2"
+          },
+          "x": 0,
+          "y": 1,
           "rows": 1,
           "cols": 3
         }
       ]
     },
     {
-      "id": "8700d557-f562-43ad-98c6-135f27c10a08",
+      "id": "dd338886-2236-4905-a3fb-85ea60c2016f",
       "title": "Podsumowanie",
       "type": "FINISH",
       "questions": [
@@ -374,7 +426,7 @@
                   "description": "Sprawdź dane przed wysłaniem wniosku.",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "d337a7d0-c0b2-4d72-b65d-a6a624285901"
+                  "id": "02bb4dbe-7a23-4a08-9b8a-2ac152cabe40"
                 },
                 "x": 0,
                 "y": 0,
@@ -384,7 +436,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "1598ce44-ea27-4d61-a22f-24b670c95191"
+            "id": "909351df-bd96-45b0-976f-ff65438531d7"
           },
           "x": 0,
           "y": 0,
@@ -397,19 +449,19 @@
   "flow": {
     "links": [
       {
-        "id": "87703e9f-0634-41ca-821c-f6c55df0f554",
-        "source": "fbb60513-ccbb-4185-b522-363bbef5c115",
-        "target": "a37c8ac8-a71d-431f-af14-3ebdd5051b22"
+        "id": "0a3ab60d-6954-4dbf-9f35-1ea689c70bdc",
+        "source": "a443001d-34c3-41fc-8f4f-3bae6944e585",
+        "target": "7d69af2d-e7ad-43f1-be5e-184e2b1f4325"
       },
       {
-        "id": "c488f3ab-3c66-4ef2-8025-3172e52e0fe6",
-        "source": "a37c8ac8-a71d-431f-af14-3ebdd5051b22",
-        "target": "ffe2c9b2-73ed-4a83-982d-f709010f32d1"
+        "id": "e1ab0427-902e-412d-9c2c-3907ee1480c1",
+        "source": "7d69af2d-e7ad-43f1-be5e-184e2b1f4325",
+        "target": "5ecdb4a5-a9a3-479d-920f-c85763661e42"
       },
       {
-        "id": "71d1a5eb-f9be-412e-9ccb-18b628193ea6",
-        "source": "ffe2c9b2-73ed-4a83-982d-f709010f32d1",
-        "target": "8700d557-f562-43ad-98c6-135f27c10a08"
+        "id": "4e22aed0-c3a1-4f91-9459-ea48258744c1",
+        "source": "5ecdb4a5-a9a3-479d-920f-c85763661e42",
+        "target": "dd338886-2236-4905-a3fb-85ea60c2016f"
       }
     ]
   }

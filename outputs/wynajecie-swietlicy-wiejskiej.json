@@ -2,7 +2,7 @@
   "title": "Wniosek o wynajęcie/użyczenie świetlicy wiejskiej",
   "tabs": [
     {
-      "id": "d102bb49-c894-47ed-90c8-712091eac0ed",
+      "id": "a06ef302-98e2-4f3f-9674-895bc53ba826",
       "title": "Dane urzędu i wnioskodawcy",
       "type": "MAIN",
       "questions": [
@@ -14,17 +14,15 @@
             "repeatingSectionGrid": [
               {
                 "field": {
-                  "type": "SELECT",
-                  "techName": "miejscowosc_urzedu",
-                  "title": "Miejscowość urzędu",
-                  "validation": [],
-                  "description": "Płoskinia",
-                  "dictionaryName": "Miejscowość",
-                  "options": [],
-                  "searchEnabled": true,
+                  "type": "TEXT_FIELD",
+                  "techName": "nazwa_urzedu",
+                  "title": "Nazwa urzędu",
+                  "validation": [
+                    "REQUIRED"
+                  ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "3942b954-bf12-44df-b44e-63a1e532f952"
+                  "id": "fe5f3982-1b9b-412a-b660-af13deb9d0a7"
                 },
                 "x": 0,
                 "y": 0,
@@ -34,15 +32,14 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "kod_pocztowy",
-                  "title": "Kod pocztowy",
+                  "techName": "ulica",
+                  "title": "Ulica",
                   "validation": [
-                    "ZIP_CODE"
+                    "REQUIRED"
                   ],
-                  "description": "14-526",
                   "states": [],
                   "questionOrder": 1,
-                  "id": "58236569-98a7-4597-b8bb-91e9700d82c5"
+                  "id": "d9092dee-7774-47cb-aee9-fc7fee12bee3"
                 },
                 "x": 0,
                 "y": 1,
@@ -52,13 +49,14 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "ulica_i_numer",
-                  "title": "Ulica i numer",
-                  "validation": [],
-                  "description": "Płoskinia 8",
+                  "techName": "numer_budynku",
+                  "title": "Numer budynku",
+                  "validation": [
+                    "REQUIRED"
+                  ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "9d3d5707-600a-4265-b55e-f6427f5fa2ff"
+                  "id": "375fbc93-919d-48bc-824f-fbac18113312"
                 },
                 "x": 0,
                 "y": 2,
@@ -68,27 +66,49 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "nazwa_organu",
-                  "title": "Nazwa organu",
-                  "validation": [],
-                  "description": "WÓJT GMINY PŁOSKINIA",
+                  "techName": "kod_pocztowy",
+                  "title": "Kod pocztowy",
+                  "validation": [
+                    "REQUIRED",
+                    "ZIP_CODE"
+                  ],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "45bbf8d1-3a70-4184-a511-5763509916f4"
+                  "id": "e4fd5913-56db-444a-a0c4-dac2741a7ae5"
                 },
                 "x": 0,
                 "y": 3,
+                "rows": 1,
+                "cols": 3
+              },
+              {
+                "field": {
+                  "type": "SELECT",
+                  "techName": "miejscowosc",
+                  "title": "Miejscowość",
+                  "validation": [
+                    "REQUIRED"
+                  ],
+                  "dictionaryName": "Miejscowość",
+                  "options": [],
+                  "searchEnabled": true,
+                  "states": [],
+                  "questionOrder": 4,
+                  "id": "2eb000b8-9d72-4b4c-8a84-ea3e49cadad5"
+                },
+                "x": 0,
+                "y": 4,
                 "rows": 1,
                 "cols": 3
               }
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "68a48a92-d747-43c2-a519-0bf92cb56698"
+            "id": "7a75eb63-c5e2-4df6-bfc5-30dbcdb76719"
           },
           "x": 0,
           "y": 0,
-          "rows": 4,
+          "rows": 5,
           "cols": 3
         },
         {
@@ -105,10 +125,9 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "description": "Miejscowość i data złożenia wniosku",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "5a42ce3f-f028-40a8-90a6-79dffd006772"
+                  "id": "97d6f400-20f6-44f6-9ec5-881f5397752c"
                 },
                 "x": 0,
                 "y": 0,
@@ -128,7 +147,7 @@
                   "defaultValue": "PESEL.name",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 1,
-                  "id": "65fd0085-ada3-4976-ad53-8ffed1967b6f"
+                  "id": "75813925-82c0-4a74-9714-79ff9b0b4175"
                 },
                 "x": 0,
                 "y": 1,
@@ -145,7 +164,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "7d21825c-8d29-43f2-9262-47c191ef19cb"
+                  "id": "7d3a7a67-de5f-4fbd-a7b6-d8ffc0d3e09e"
                 },
                 "x": 0,
                 "y": 2,
@@ -160,7 +179,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "37d4dfa6-aaea-4a58-a3ee-97165973b028"
+                  "id": "38171f33-56a0-4da2-ae7a-f41d5d509427"
                 },
                 "x": 0,
                 "y": 3,
@@ -169,39 +188,38 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "042f20ee-f6dc-4c7d-b9cb-6b72d4c266bf"
+            "questionOrder": 5,
+            "id": "4a37623a-35f6-4bfc-863b-1917d989e22a"
           },
           "x": 0,
-          "y": 4,
+          "y": 5,
           "rows": 4,
           "cols": 3
         }
       ]
     },
     {
-      "id": "0f6ed164-2f46-47f1-97fe-09a7f22238c7",
+      "id": "9c3c278d-2c6d-4a8d-ad2b-69649de383a2",
       "title": "Przedmiot wniosku",
       "type": "MAIN",
       "questions": [
         {
           "field": {
             "type": "SECTION",
-            "techName": "dane_dotyczace_swietlicy",
-            "title": "Dane dotyczące świetlicy",
+            "techName": "swietlica_i_termin",
+            "title": "Świetlica i termin",
             "repeatingSectionGrid": [
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "lokalizacja_swietlicy",
-                  "title": "Lokalizacja świetlicy",
+                  "techName": "swietlica_wiejska_w",
+                  "title": "Świetlica wiejska w",
                   "validation": [
                     "REQUIRED"
                   ],
-                  "description": "Wskazanie lokalizacji świetlicy wiejskiej",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "2d60edae-7f2a-4a68-bab0-7427643a2871"
+                  "id": "e61d3597-4a99-441a-b730-fb2669eaa844"
                 },
                 "x": 0,
                 "y": 0,
@@ -216,10 +234,9 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "description": "Data rozpoczęcia korzystania ze świetlicy",
                   "states": [],
                   "questionOrder": 1,
-                  "id": "99c7eca4-f28f-46ee-ab84-369fd782f245"
+                  "id": "f71fd6ba-351e-4515-8410-daeb8ef2b189"
                 },
                 "x": 0,
                 "y": 1,
@@ -234,10 +251,9 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "description": "Data zakończenia korzystania ze świetlicy",
                   "states": [],
                   "questionOrder": 2,
-                  "id": "abc9d494-8aa9-48f4-8782-a6d3caf35ba5"
+                  "id": "04c82aa9-ed52-42e3-88c5-2eb612df90e3"
                 },
                 "x": 0,
                 "y": 2,
@@ -247,7 +263,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "2947da33-0115-466b-80d3-ca198f8d6c96"
+            "id": "57f15b96-dbfe-4fa6-8866-81d37e8f8c3d"
           },
           "x": 0,
           "y": 0,
@@ -257,21 +273,21 @@
         {
           "field": {
             "type": "SECTION",
-            "techName": "cel_i_skala_wydarzenia",
-            "title": "Cel i skala wydarzenia",
+            "techName": "cel_i_uczestnicy",
+            "title": "Cel i uczestnicy",
             "repeatingSectionGrid": [
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "rodzaj_uroczystosci",
-                  "title": "Rodzaj uroczystości",
+                  "techName": "cel_wynajecia_swietlicy",
+                  "title": "Cel wynajęcia świetlicy",
                   "validation": [
                     "REQUIRED"
                   ],
-                  "description": "np. wesele, urodziny, zabawa itp.",
+                  "description": "rodzaj uroczystości, np. wesele, urodziny, zabawa itp.",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "27a4fa5e-42a8-4532-abe5-352da4f49854"
+                  "id": "fc155938-fc6a-40f1-a22c-120594543b34"
                 },
                 "x": 0,
                 "y": 0,
@@ -281,14 +297,14 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "przewidywana_liczba_uczestnikow",
-                  "title": "Przewidywana liczba uczestników",
+                  "techName": "przewidywana_ilosc_uczestnikow",
+                  "title": "Przewidywana ilość uczestników",
                   "validation": [
                     "REQUIRED"
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "c730b545-5cf1-4d00-82d0-4f8a06bf1cac"
+                  "id": "770fa55b-91d7-4eb2-9e9f-208d52964320"
                 },
                 "x": 0,
                 "y": 1,
@@ -297,8 +313,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "af777672-a2b3-4cd5-a9fa-166a952877e1"
+            "questionOrder": 3,
+            "id": "0059bb71-15c2-41bd-9647-4639eb353d26"
           },
           "x": 0,
           "y": 3,
@@ -319,31 +335,78 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "description": "wnioskodawca, w przypadku innej osoby niż wnioskodawca - zgoda osoby odpowiedzialnej",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "0a3821db-3639-4b0e-b5c5-9a580ae8b4d2"
+                  "id": "a68afd5a-0ff2-49d9-9fdc-aa6b58d07bb9"
                 },
                 "x": 0,
                 "y": 0,
                 "rows": 1,
                 "cols": 3
+              },
+              {
+                "field": {
+                  "type": "TEXT_FIELD",
+                  "techName": "adres_zamieszkania_osoby_odpowiedzialnej",
+                  "title": "Adres zamieszkania osoby odpowiedzialnej",
+                  "validation": [
+                    "REQUIRED"
+                  ],
+                  "states": [],
+                  "questionOrder": 1,
+                  "id": "db069932-5a10-4d96-a484-7e8dde51a5fc"
+                },
+                "x": 0,
+                "y": 1,
+                "rows": 1,
+                "cols": 3
+              },
+              {
+                "field": {
+                  "type": "TEXT_FIELD",
+                  "techName": "telefon_osoby_odpowiedzialnej",
+                  "title": "Telefon osoby odpowiedzialnej",
+                  "validation": [],
+                  "states": [],
+                  "questionOrder": 2,
+                  "id": "e947a6b3-d246-4487-8611-ff43f232e4ee"
+                },
+                "x": 0,
+                "y": 2,
+                "rows": 1,
+                "cols": 3
+              },
+              {
+                "field": {
+                  "type": "FILE_UPLOADER",
+                  "techName": "zgoda_osoby_odpowiedzialnej",
+                  "title": "Zgoda osoby odpowiedzialnej",
+                  "validation": [],
+                  "description": "W przypadku innej osoby niż wnioskodawca, załączyć zgodę osoby odpowiedzialnej.",
+                  "states": [],
+                  "questionOrder": 3,
+                  "id": "8e66326b-1e49-494e-bcaf-20c7f5233cdb"
+                },
+                "x": 0,
+                "y": 3,
+                "rows": 1,
+                "cols": 3
               }
             ],
             "states": [],
-            "questionOrder": 2,
-            "id": "e8f4c82a-1911-41fc-8eca-d865edb92661"
+            "questionOrder": 5,
+            "id": "c981c2b9-71b6-4ae7-b606-63e46638686b"
           },
           "x": 0,
           "y": 5,
-          "rows": 1,
+          "rows": 4,
           "cols": 3
         }
       ]
     },
     {
-      "id": "dc4a7a7d-0340-4e22-aec8-9750e51cf0bf",
-      "title": "Oświadczenia i kontakt",
+      "id": "ead464b3-cab1-4d3d-862d-2325b14c7c0b",
+      "title": "Oświadczenia i podpis",
       "type": "MAIN",
       "questions": [
         {
@@ -374,7 +437,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "7658ade0-0ddf-4eca-bf33-5714eebacd5c"
+                  "id": "6aadaf75-0118-49db-b911-da66437d6ee1"
                 },
                 "x": 0,
                 "y": 0,
@@ -384,8 +447,8 @@
               {
                 "field": {
                   "type": "RADIO",
-                  "techName": "oswiadczam_ze_w_czasie_najmu_odpowiadam_za_lad_i_porzadek_w_swietlicy_oraz_na_terenie_przyleglym_do_swietlicy",
-                  "title": "Oświadczam, że w czasie najmu odpowiadam za ład i porządek w świetlicy oraz na terenie przyległym do świetlicy",
+                  "techName": "w_czasie_najmu_odpowiadam_za_lad_i_porzadek_w_swietlicy_oraz_na_terenie_przyleglym_do_swietlicy",
+                  "title": "W czasie najmu odpowiadam za ład i porządek w świetlicy oraz na terenie przyległym do świetlicy",
                   "options": [
                     {
                       "id": "Tak",
@@ -403,7 +466,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "5a1fc218-66b3-4d33-9f68-ddef499d18c2"
+                  "id": "db9c2515-fe7b-4f5c-bc6f-3f2a1431be77"
                 },
                 "x": 0,
                 "y": 1,
@@ -432,7 +495,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "4c246739-bd72-4f2c-9d8d-498c380e9fc2"
+                  "id": "f94edd09-6bd7-4764-8e30-880b3900d6f9"
                 },
                 "x": 0,
                 "y": 2,
@@ -461,7 +524,7 @@
                   ],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "94c9efe9-c45e-486a-a9ad-205b4c848950"
+                  "id": "460775e1-be94-4f77-ab33-63dcef84f6ec"
                 },
                 "x": 0,
                 "y": 3,
@@ -471,7 +534,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "32098583-5ca7-4496-aaa0-15668295a128"
+            "id": "c69d543f-24e2-4678-a539-87bc1e97b2e4"
           },
           "x": 0,
           "y": 0,
@@ -481,99 +544,40 @@
         {
           "field": {
             "type": "SECTION",
-            "techName": "podpis_i_dane_kontaktowe",
-            "title": "Dane kontaktowe",
+            "techName": "podpis_wnioskodawcy",
+            "title": "Podpis wnioskodawcy",
             "repeatingSectionGrid": [
               {
                 "field": {
-                  "type": "SELECT",
-                  "techName": "lokalizacja_miejscowosc",
-                  "title": "Lokalizacja (miejscowość)",
+                  "type": "TEXT_FIELD",
+                  "techName": "czytelny_podpis_wnioskodawcy",
+                  "title": "Czytelny podpis wnioskodawcy",
                   "validation": [
                     "REQUIRED"
                   ],
-                  "dictionaryName": "Miejscowość",
-                  "options": [],
-                  "searchEnabled": true,
                   "states": [],
                   "questionOrder": 0,
-                  "id": "a10adc2c-78d0-4eb2-9203-53124fdcfb83"
+                  "id": "21e842dc-577c-4db4-ac90-de88588bbad1"
                 },
                 "x": 0,
                 "y": 0,
                 "rows": 1,
                 "cols": 3
-              },
-              {
-                "field": {
-                  "type": "TEXT_FIELD",
-                  "techName": "kod_pocztowy_podpis_i_dane_kontaktowe",
-                  "title": "Kod pocztowy",
-                  "validation": [
-                    "REQUIRED",
-                    "ZIP_CODE"
-                  ],
-                  "states": [],
-                  "questionOrder": 1,
-                  "id": "19770a00-a71d-44cb-b97f-cd960e247171"
-                },
-                "x": 0,
-                "y": 1,
-                "rows": 1,
-                "cols": 3
-              },
-              {
-                "field": {
-                  "type": "TEXT_FIELD",
-                  "techName": "nr_telefonu",
-                  "title": "Nr telefonu",
-                  "validation": [],
-                  "states": [],
-                  "readOnly": true,
-                  "defaultValue": "MLPZ.phoneNumber",
-                  "defaultValueType": "EXTERNAL_SYSTEM",
-                  "questionOrder": 2,
-                  "id": "94496fe4-90ef-4346-8394-d5927826c5c8"
-                },
-                "x": 0,
-                "y": 2,
-                "rows": 1,
-                "cols": 3
-              },
-              {
-                "field": {
-                  "type": "TEXT_FIELD",
-                  "techName": "e_mail",
-                  "title": "E-mail",
-                  "validation": [
-                    "EMAIL"
-                  ],
-                  "states": [],
-                  "readOnly": true,
-                  "defaultValue": "MLPZ.email",
-                  "defaultValueType": "EXTERNAL_SYSTEM",
-                  "questionOrder": 3,
-                  "id": "6c15cc01-dfbf-47fe-8460-0588d1d48ff8"
-                },
-                "x": 0,
-                "y": 3,
-                "rows": 1,
-                "cols": 3
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "4ca5f875-aee3-4bc6-acf9-8eae6dd85d14"
+            "questionOrder": 4,
+            "id": "75c1e932-f5a3-483a-ac2b-26bb3fb9c661"
           },
           "x": 0,
           "y": 4,
-          "rows": 4,
+          "rows": 1,
           "cols": 3
         }
       ]
     },
     {
-      "id": "d650d2b7-72d4-4ce7-b002-0936afd1d612",
+      "id": "9137f708-5e2c-44fb-9fac-9902559c0c15",
       "title": "Podsumowanie",
       "type": "FINISH",
       "questions": [
@@ -590,7 +594,7 @@
                   "description": "Sprawdź dane przed wysłaniem wniosku.",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "8eddfcbd-d591-49ad-98f3-31a86bcfd5fd"
+                  "id": "6b467f4a-2ca0-4a2b-9828-04261304ce3c"
                 },
                 "x": 0,
                 "y": 0,
@@ -600,7 +604,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "2138a431-000f-4570-a8ec-347cebf2b33a"
+            "id": "700358aa-bf95-4a7a-8b5e-01bdc4e59a3b"
           },
           "x": 0,
           "y": 0,
@@ -613,19 +617,19 @@
   "flow": {
     "links": [
       {
-        "id": "e6e5f359-6106-4f66-8edc-14ccaeeadc35",
-        "source": "d102bb49-c894-47ed-90c8-712091eac0ed",
-        "target": "0f6ed164-2f46-47f1-97fe-09a7f22238c7"
+        "id": "20030690-bfe4-4eb2-8032-6bd61a5b6164",
+        "source": "a06ef302-98e2-4f3f-9674-895bc53ba826",
+        "target": "9c3c278d-2c6d-4a8d-ad2b-69649de383a2"
       },
       {
-        "id": "30a62b73-7d04-476c-be25-741fd989331f",
-        "source": "0f6ed164-2f46-47f1-97fe-09a7f22238c7",
-        "target": "dc4a7a7d-0340-4e22-aec8-9750e51cf0bf"
+        "id": "ff375ea4-e55b-4ad6-9294-cac3d843b881",
+        "source": "9c3c278d-2c6d-4a8d-ad2b-69649de383a2",
+        "target": "ead464b3-cab1-4d3d-862d-2325b14c7c0b"
       },
       {
-        "id": "e5b23d58-ccaa-485e-8616-7e38f438e9c4",
-        "source": "dc4a7a7d-0340-4e22-aec8-9750e51cf0bf",
-        "target": "d650d2b7-72d4-4ce7-b002-0936afd1d612"
+        "id": "4cfadae0-7b22-4bb7-b854-7df3a643a5c6",
+        "source": "ead464b3-cab1-4d3d-862d-2325b14c7c0b",
+        "target": "9137f708-5e2c-44fb-9fac-9902559c0c15"
       }
     ]
   }
