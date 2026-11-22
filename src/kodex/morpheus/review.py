@@ -18,7 +18,8 @@ from kodex.morpheus.store import SkillStore
 
 class ReviewItem(BaseModel):
     id: str
-    kind: str  # proposed_skill | needs_human_episode | needs_review_form
+    # proposed_skill | needs_human_episode | needs_review_form | recurring_failure
+    kind: str
     ref_id: str
     diff: dict[str, Any] | None = None
     replay: dict[str, Any] | None = None
@@ -90,3 +91,12 @@ def set_episode(store: SkillStore, episode_id: str, status: EpisodeStatus | None
         if flag is not None:
             store._db.execute("UPDATE episodes SET flag_json=? WHERE id=?",
                               (json.dumps(flag), episode_id))
+
+
+def pending_for(store: SkillStore, kind: str, ref_id: str) -> ReviewItem | None:
+    """The pending item of `kind` for `ref_id`, if any."""
+    with store._lock:
+        r = store._db.execute(
+            "SELECT * FROM review_queue WHERE ref_id=? AND kind=? AND status='pending'",
+            (ref_id, kind)).fetchone()
+    return _row(r) if r else None

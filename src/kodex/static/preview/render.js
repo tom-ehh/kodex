@@ -44,8 +44,9 @@ function desc(text, cls) {
 }
 
 export class Renderer {
-  constructor(model, { onChange, onStructure }) {
+  constructor(model, { onChange, onStructure, correctButton }) {
     this.model = model;
+    this.correctButton = correctButton; // (field) -> button | null, worker corrections
     this.onChange = onChange;
     this.onStructure = onStructure;
     this.views = [];
@@ -494,6 +495,8 @@ export class Renderer {
       h("code", {}, f.techName ?? "(brak techName)"), " · ", h("span", {}, f.type ?? "?"),
       index != null ? ` · instancja ${index + 1}` : "");
     if ((f.states ?? []).length) tag.append(h("ul", { class: "fp-tech-states" }));
+    const fix = this.correctButton?.(f);
+    if (fix) tag.append(" ", fix);
     return tag;
   }
 

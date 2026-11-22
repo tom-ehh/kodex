@@ -88,6 +88,29 @@ def history_key(ep: Episode) -> tuple[str, str]:
     return code_family(ep), ep.validator or f"attr:{ep.edited_attr or 'value'}"
 
 
+def error_class(error: str | None) -> str:
+    """Coarse failure class from a pipeline error (no text kept)."""
+    e = (error or "").lower()
+    if "invalid json" in e or "json_invalid" in e:
+        return "invalid_json"
+    if "length" in e or "token" in e:
+        return "truncated"
+    if _VALIDATOR_IN_ERR.search(error or ""):
+        return "validator"
+    return "schema"
+
+
+_VALIDATOR_IN_ERR = re.compile(r"\b(REQUIRED|PESEL|NIP|REGON|ZIP_CODE|EMAIL)\b")
+
+
+def failure_key(ep: Episode) -> tuple[str, str, str]:
+    """Same failure = same field family (or pass/section), validator, error class.
+    Real pipeline failures rarely name a validator, so the pass/section stands in."""
+    fam = code_family(ep)
+    where = fam if fam != "other" else f"pass:{ep.field_path or '?'}"
+    return where, ep.validator or "-", error_class(ep.error)
+
+
 _SHAPES = {
     "ZIP_CODE": re.compile(r"^##-###$"), "PESEL": re.compile(r"^#{11}$"),
     "NIP": re.compile(r"^#{10}$"), "REGON": re.compile(r"^(#{9}|#{14})$"),
@@ -163,13 +186,47 @@ class Wake:
             await asyncio.sleep(self.settings.morpheus_wake_interval_s)
 
     async def tick(self) -> list[Outcome]:
-        """Expire old episodic skills, then process every pending correction."""
+        """Expire old episodic skills, triage pipeline failures, then process every
+        pending correction."""
         if self.store.snapshot is not None:
             return []
         self.expire()
-        pending = [e for e in self.store.episodes(EpisodeStatus.PENDING)
-                   if e.kind is EpisodeKind.WORKER_CORRECTION]
-        return [await self.process_one(e) for e in pending]
+        pending = self.store.episodes(EpisodeStatus.PENDING)
+        out = [self.triage_failure(e) for e in pending
+               if e.kind is not EpisodeKind.WORKER_CORRECTION]
+        return out + [await self.process_one(e) for e in pending
+                      if e.kind is EpisodeKind.WORKER_CORRECTION]
+
+    def triage_failure(self, ep: Episode) -> Outcome:
+        """A pipeline episode (validation failure, escalation) carries no fix, so no skill
+        can be written from it. Wake counts it instead: once the same field family and
+        validator has failed `flag_hist_min` times in 14 days, a `recurring_failure` item
+        asks a human for a correction; one-offs are ignored. Escalations are kept as
+        signals only (router metrics)."""
+        out = Outcome(ep.id, "triage", "ignored")
+        if ep.kind is EpisodeKind.ESCALATION:
+            out.stage = "escalation_signal"
+            review.set_episode(self.store, ep.id, EpisodeStatus.IGNORED,
+                               (ep.flag or {}) | {"triaged": "escalation"})
+            return out
+        key, since = failure_key(ep), self.now() - timedelta(days=HISTORY_DAYS)
+        same = [e.id for e in self.store.episodes()
+                if e.kind is EpisodeKind.VALIDATION_FAILURE and failure_key(e) == key
+                and (e.created_at is None or since <= e.created_at <= ep.created_at)]
+        out.hist = len(same)
+        flag = (ep.flag or {}) | {"triaged": "failure", "hist": len(same),
+                                  "family_code": key[0]}
+        if len(same) >= self.settings.flag_hist_min:
+            out.decision = "needs_human"
+            review.set_episode(self.store, ep.id, EpisodeStatus.NEEDS_HUMAN, flag)
+            review.enqueue(self.store, "recurring_failure", ":".join(key),
+                           diff={"episode_ids": same[-10:], "family": key[0],
+                                 "validator": ep.validator, "where": ep.field_path,
+                                 "error_class": key[2], "count": len(same),
+                                 "tier": ep.tier_from})
+        else:
+            review.set_episode(self.store, ep.id, EpisodeStatus.IGNORED, flag)
+        return out
 
     async def learn_now(self, episode_ids: list[str]) -> list[Outcome]:
         """Process these episodes immediately (the gate is never skipped)."""
@@ -411,6 +468,10 @@ class Wake:
                                 gate={"replay": {"status": "human"}, "smoke": {"status": "human"}})
             review.decide(self.store, item_id, "approved")
             return {"skill_id": sk.id, "version": sk.version}
+        if item.kind in ("needs_review_form", "recurring_failure"):
+            # Acknowledged: the human fixes it through corrections, which wake learns from.
+            review.decide(self.store, item_id, "approved")
+            return {"acknowledged": item.ref_id}
         ep = next((e for e in self.store.episodes() if e.id == item.ref_id), None)
         if ep is None:
             raise KeyError(item.ref_id)

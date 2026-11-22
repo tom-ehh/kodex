@@ -2,6 +2,7 @@
 
 export const TOKEN_KEY = "coi.token"; // shared with /preview
 export const HANDOFF_KEY = "coi.previewDefinition"; // read by /preview?source=session
+export const FORM_META_KEY = "coi.previewFormMeta"; // {form_id, needs_review}: enables corrections in /preview
 
 export const session = {
   get(k: string): string | null {
@@ -29,8 +30,11 @@ export interface Limits {
 }
 
 export interface Envelope {
+  form_id?: string;
   form: Record<string, unknown>;
-  route: { tier: string; confidence: number; model: string; escalated: boolean };
+  /** True for a 502 draft Morpheus queued for a human: not importable as is. */
+  needs_review?: boolean;
+  route?: { tier: string; confidence: number; model: string; escalated: boolean };
   attempts: { tier: string; model: string; calls: number; cost_usd: number; error: string | null }[];
   dictionary_proposals: unknown[];
 }
@@ -39,6 +43,7 @@ export class ApiError extends Error {
   constructor(
     public status: number,
     message: string,
+    public body?: Record<string, unknown>,
   ) {
     super(message);
   }
@@ -52,8 +57,10 @@ function headers(): HeadersInit {
 /** Polish, user-facing message for a failed response. */
 async function failure(res: Response): Promise<ApiError> {
   let detail = "";
+  let raw: Record<string, unknown> | undefined;
   try {
     const body = await res.json();
+    raw = body;
     detail = typeof body.detail === "string" ? body.detail : "";
     const issues: { message?: string }[] | undefined = body.file?.issues;
     if (issues?.length) detail = issues.map((i) => i.message).filter(Boolean).join("; ");
@@ -69,7 +76,7 @@ async function failure(res: Response): Promise<ApiError> {
     503: "Usługa analizy jest niedostępna (brak skonfigurowanego modelu).",
   };
   const base = byStatus[res.status] ?? `Błąd serwera (${res.status}).`;
-  return new ApiError(res.status, detail && res.status !== 401 ? `${base} ${detail}` : base);
+  return new ApiError(res.status, detail && res.status !== 401 ? `${base} ${detail}` : base, raw);
 }
 
 export async function getLimits(): Promise<Limits> {
@@ -85,3 +92,44 @@ export async function analyze(file: File, signal?: AbortSignal): Promise<Envelop
   if (!res.ok) throw await failure(res);
   return res.json();
 }
+
+async function call<T>(path: string, init: RequestInit = {}): Promise<T> {
+  const res = await fetch(`/api/v1${path}`, {
+    ...init,
+    headers: { ...headers(), ...(init.body ? { "Content-Type": "application/json" } : {}) },
+  });
+  if (!res.ok) throw await failure(res);
+  return res.json();
+}
+
+// ---- Morpheus ----
+
+export interface ReviewItem {
+  id: string;
+  kind: "proposed_skill" | "needs_human_episode" | "needs_review_form" | "recurring_failure";
+  ref_id: string;
+  diff: Record<string, unknown> | null;
+  replay: Record<string, unknown> | null;
+  status: string;
+  created_at: string;
+}
+
+export interface SkillOut {
+  id: string;
+  name: string;
+  layer: "seed" | "episodic" | "general";
+  status: string;
+  description: string;
+  hits: number;
+  wins: number;
+  losses: number;
+}
+
+export const morpheus = {
+  review: () => call<ReviewItem[]>("/morpheus/review"),
+  decide: (id: string, decision: "approve" | "reject") =>
+    call(`/morpheus/review/${encodeURIComponent(id)}`, { method: "POST", body: JSON.stringify({ decision }) }),
+  skills: () => call<SkillOut[]>("/morpheus/skills?status=active"),
+  metrics: () => call<{ current_version: number; cycles: Record<string, unknown>[] }>("/morpheus/metrics"),
+  sleep: () => call<{ status: string }>("/morpheus/sleep", { method: "POST" }),
+};

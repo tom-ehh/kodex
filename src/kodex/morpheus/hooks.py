@@ -42,6 +42,9 @@ def _clean(text: str | None, limit: int = 200) -> str | None:
     return text if not pii_findings(text) else shape(text, limit)
 
 
+clean_text = _clean  # public alias for the API layer
+
+
 class Hooks:
     def __init__(self, store: SkillStore, form_id: str | None = None, max_per_section: int = 5):
         self.store, self.form_id, self.max = store, form_id, max_per_section

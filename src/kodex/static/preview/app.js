@@ -3,6 +3,7 @@
 
 import { FormModel, Problems } from "./model.js";
 import { Renderer, h } from "./render.js";
+import { Corrections, FORM_META_KEY } from "./corrections.js";
 
 const TOKEN_KEY = "coi.token";
 const HANDOFF_KEY = "coi.previewDefinition";
@@ -28,6 +29,7 @@ let problems = null;
 let current = 0;
 let evalSeq = 0;
 let debounce = null;
+let corrections = null; // worker corrections, only for a hand-off with a form_id
 
 // ---- loading ----
 
@@ -104,7 +106,7 @@ async function open(raw) {
     return;
   }
   problems.listeners.push(updateProblems);
-  renderer = new Renderer(model, { onChange, onStructure });
+  renderer = new Renderer(model, { onChange, onStructure, correctButton: corrections ? (f) => corrections.button(f) : null });
   current = 0;
   controls.hidden = false;
   pagebar.hidden = false;
@@ -129,6 +131,7 @@ function renderTab(scrollTop) {
   }
   const page = h("div", { class: "fp-page" },
     h("h1", { class: "fp-title" }, model.def.title || "(formularz bez tytułu)"),
+    corrections?.banner(),
     h("p", { class: "fp-step" }, `Krok ${current + 1} z ${model.tabs.length}: ${tab.title ?? ""}`),
     renderer.renderTab(tab),
     tab.type === "FINISH" ? renderer.summary((i) => goTo(i)) : null,
@@ -211,6 +214,7 @@ skip.addEventListener("change", () => { if (skip.checked) renderer?.clearErrors(
 problemsBtn.addEventListener("click", () => { problemsPanel.hidden = !problemsPanel.hidden; });
 $("load-other").addEventListener("click", () => {
   history.replaceState(null, "", location.pathname);
+  if (corrections) { corrections.setOn(false); corrections.toggle.remove(); corrections = null; }
   showLoader();
 });
 
@@ -240,6 +244,11 @@ setDebug((() => { try { return localStorage.getItem(DEBUG_KEY) === "1"; } catch 
     }
   } else if (params.get("source") === "session") {
     const text = store.get(HANDOFF_KEY);
+    let meta = null;
+    try { meta = JSON.parse(store.get(FORM_META_KEY) ?? "null"); } catch { /* none */ }
+    if (text && meta?.form_id) {
+      corrections = new Corrections(meta, { token: () => store.get(TOKEN_KEY), rerender: () => onStructure(), pagebar });
+    }
     if (text) openText(text);
     else showLoader("Brak przekazanego wyniku. Wczytaj plik JSON.");
   } else {

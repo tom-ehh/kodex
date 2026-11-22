@@ -170,6 +170,15 @@ class AnalyzeFailed(BaseModel):
 
     detail: str
     attempts: list[AttemptOut]
+    form_id: str | None = Field(None, description="Id of this result (also in `X-Form-Id`); "
+                                "corrections to `form` go to `POST /forms/{form_id}/corrections`.")
+    needs_review: bool = Field(False, description="True when Morpheus queued the form for a "
+                               "human (`GET /morpheus/review`, item `review_id`).")
+    review_id: str | None = Field(None, description="The `needs_review_form` review item.")
+    form: dict[str, Any] | None = Field(None, description="The last assembled draft, which "
+                                        "failed validation: **not importable as is**, a starting "
+                                        "point for the worker's corrections. Null when no tier "
+                                        "got that far.")
 
 
 class ItemStatus(StrEnum):

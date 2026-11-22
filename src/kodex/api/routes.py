@@ -44,7 +44,8 @@ from kodex.api.schemas import (
 )
 from kodex.auth import require_auth
 from kodex.extract import ExtractionError, extract, ocr_engine_from_settings
-from kodex.morpheus.hooks import Hooks, record_corrections
+from kodex.morpheus import review
+from kodex.morpheus.hooks import Hooks, clean_text, record_corrections
 from kodex.parse.pipeline import ParseFailed, parse
 from kodex.route import route_document, tier_models
 from kodex.validation.checks import (
@@ -190,11 +191,15 @@ async def analyze_form(
     try:
         parsed = await parse(doc.markdown, route, settings, chat, hooks=hooks)
     except ParseFailed as exc:
+        review_id = None
         if morpheus:
-            doc_cache.put(form_id, doc)
+            doc_cache.put(form_id, doc, exc.form)
+            review_id = _queue_for_review(morpheus, form_id, exc)
         response.status_code = status.HTTP_502_BAD_GATEWAY
         return AnalyzeFailed(detail="No model tier produced a valid form.",
-                             attempts=[_attempt(a) for a in exc.attempts]).model_dump()
+                             attempts=[_attempt(a) for a in exc.attempts], form_id=form_id,
+                             needs_review=review_id is not None, review_id=review_id,
+                             form=exc.form).model_dump()
     if morpheus:
         doc_cache.put(form_id, doc, parsed.result.form)
     if not envelope:
@@ -238,6 +243,8 @@ def post_corrections(form_id: str, body: CorrectionsIn, morpheus: MorpheusDep,
     if cached is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Unknown or expired form id.")
     eps = record_corrections(morpheus, form_id, cached.form, body.edits, body.learn_now)
+    if (item := review.pending_for(morpheus, "needs_review_form", form_id)) is not None:
+        review.decide(morpheus, item.id, "approved", by="correction")
     wake = getattr(request.app.state, "wake", None)
     if wake is not None:
         ids = [e.id for e in eps]
@@ -245,6 +252,21 @@ def post_corrections(form_id: str, body: CorrectionsIn, morpheus: MorpheusDep,
         if body.learn_now:
             background.add_task(wake.learn_now, ids)
     return CorrectionsOut(form_id=form_id, episode_ids=[e.id for e in eps], learn_now=body.learn_now)
+
+
+def _queue_for_review(morpheus, form_id: str, exc: ParseFailed) -> str | None:
+    """`needs_review_form` item for a form no tier could finish: tiers and short error
+    shapes only, never form text."""
+    try:
+        item = review.enqueue(morpheus, "needs_review_form", form_id, diff={
+            "tiers": [a.tier for a in exc.attempts],
+            "errors": [clean_text(a.error, 120) for a in exc.attempts],
+            "has_draft": exc.form is not None,
+        })
+    except Exception:
+        logging.getLogger(__name__).exception("morpheus: needs_review item not queued")
+        return None
+    return item.id
 
 
 def _attempt(a) -> AttemptOut:

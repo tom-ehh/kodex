@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type DragEvent } from "react";
 import { strToU8, zipSync } from "fflate";
-import { getLimits, HANDOFF_KEY, session, TOKEN_KEY, type Limits } from "./api";
+import { FORM_META_KEY, getLimits, HANDOFF_KEY, session, TOKEN_KEY, type Limits } from "./api";
+import { MorpheusPanel } from "./Morpheus";
 import { formatBytes, useBatch, type Item, type ItemStatus } from "./batch";
 
 const STATUS: Record<ItemStatus, { label: string; cls: string }> = {
@@ -8,6 +9,7 @@ const STATUS: Record<ItemStatus, { label: string; cls: string }> = {
   queued: { label: "W kolejce", cls: "bg-surface text-muted ring-line" },
   analyzing: { label: "Analizowanie…", cls: "bg-blue-50 text-blue-700 ring-blue-200" },
   done: { label: "Gotowe", cls: "bg-green-50 text-ok ring-green-200" },
+  review: { label: "Do weryfikacji", cls: "bg-amber-50 text-amber-800 ring-amber-200" },
   failed: { label: "Błąd", cls: "bg-accent-tint text-error ring-accent/30" },
   rejected: { label: "Odrzucony", cls: "bg-accent-tint text-error ring-accent/30" },
 };
@@ -24,6 +26,7 @@ function download(name: string, data: BlobPart, type: string) {
 
 function openPreview(item: Item) {
   session.set(HANDOFF_KEY, JSON.stringify(item.result!.form));
+  session.set(FORM_META_KEY, JSON.stringify({ form_id: item.result!.form_id ?? null, needs_review: Boolean(item.result!.needs_review) }));
   location.href = "/preview?source=session";
 }
 
@@ -89,7 +92,7 @@ export function Workspace() {
   const active = items.filter((i) => i.status === "queued" || i.status === "analyzing");
   const done = items.filter((i) => i.status === "done");
   const tracked = items.filter((i) => i.status !== "ready" && i.status !== "rejected");
-  const finished = tracked.filter((i) => i.status === "done" || i.status === "failed");
+  const finished = tracked.filter((i) => i.status === "done" || i.status === "review" || i.status === "failed");
   useTick(active.length > 0);
 
   const exts = limits?.formats.flatMap((f) => f.extensions) ?? [];
@@ -249,7 +252,10 @@ export function Workspace() {
                   <td className="px-4 py-4"><Badge status={i.status} /></td>
                   <td className="px-4 py-4 text-muted">
                     {i.status === "analyzing" && i.startedAt && <>{Math.round((Date.now() - i.startedAt) / 1000)} s</>}
-                    {i.status === "done" && i.result && (
+                    {i.status === "review" && (
+                      <span className="text-amber-800">Żaden model nie dał poprawnego wyniku. Szkic czeka na poprawki w podglądzie.</span>
+                    )}
+                    {i.status === "done" && i.result?.route && (
                       <>
                         Poziom <strong className="font-medium text-ink">{i.result.route.tier}</strong>
                         {i.result.route.escalated && " (eskalacja)"}
@@ -275,6 +281,11 @@ export function Workspace() {
                         </button>
                       </span>
                     )}
+                    {i.status === "review" && (
+                      <button type="button" onClick={() => openPreview(i)} className="font-medium text-amber-800 hover:underline">
+                        Popraw w podglądzie
+                      </button>
+                    )}
                     {i.status === "failed" && batch.hasFile(i.id) && (
                       <button type="button" onClick={() => batch.retry(i.id)} className="font-medium hover:underline">Ponów</button>
                     )}
@@ -288,6 +299,8 @@ export function Workspace() {
           </table>
         </div>
       </section>
+
+      <MorpheusPanel />
     </main>
   );
 }

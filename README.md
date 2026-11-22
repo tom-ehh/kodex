@@ -173,7 +173,7 @@ server, or the raw spec at `/openapi.json`.
 | `200` | The Form Definition, ready to import (`title`, `tabs`, `flow`) |
 | `200` with `?envelope=true` | `{"form_id", "form", "route", "attempts", "dictionary_proposals"}`: `form` is the same Form Definition; `route` is the final model tier, `attempts` lists every tier tried, `dictionary_proposals` suggests new dictionaries for reusable option lists |
 | `422` | The file failed validation, or its text could not be extracted |
-| `502` | No model tier, up to `hard`, produced a valid form; `attempts` says why |
+| `502` | No model tier, up to `hard`, produced a valid form: `{"detail", "attempts", "form_id", "needs_review", "review_id", "form"}`. `attempts` says why; `form` is the last draft that failed validation (not importable as is, or `null`); with Morpheus on, `needs_review` is `true` and `review_id` is the review queue item |
 | `503` | No model API key is configured |
 
 How it works: the text is extracted, a router picks a tier (`simple`, `medium`,
@@ -201,7 +201,16 @@ written only for a repeated pattern (the same field family and validator seen at
 `COI_FLAG_HIST_MIN` times), a passing code check and System One's agreement, and it is
 activated only after replaying the form's section with it. A first occurrence with
 `learn_now`, or a skill whose replay fails, goes to the review queue:
-`POST /api/v1/morpheus/review/{id}` with `{"decision": "approve"}` or `"reject"`.
+`GET /api/v1/morpheus/review` lists it, `POST /api/v1/morpheus/review/{id}` with
+`{"decision": "approve"}` or `"reject"` decides it.
+
+The queue also gets a `needs_review_form` item for every form that failed at `hard`
+(a correction to that form closes it), and a `recurring_failure` item when the wake
+task sees the same field family and validator fail validation `COI_FLAG_HIST_MIN`
+times: a human correction to one such form lets Morpheus learn the pattern. In the
+web app, failed forms show as "Do weryfikacji"; the preview's "Popraw formularz"
+sends corrections, and the Morpheus panel on the main page handles the queue and
+starts a sleep.
 
 ### Sleep
 

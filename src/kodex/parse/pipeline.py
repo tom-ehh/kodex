@@ -44,11 +44,13 @@ class PassFailed(Exception):
 
 
 class ParseFailed(Exception):
-    """Every tier up to `hard` failed; `attempts` says how."""
+    """Every tier up to `hard` failed; `attempts` says how. `form`: the last assembled but
+    invalid Form Definition, if any tier got that far (a draft for human review)."""
 
-    def __init__(self, attempts: list[Attempt]):
+    def __init__(self, attempts: list[Attempt], form: dict | None = None):
         super().__init__("; ".join(f"{a.tier}: {a.error}" for a in attempts))
         self.attempts = attempts
+        self.form = form
 
 
 @dataclass
@@ -166,6 +168,7 @@ async def parse(md: str, route: Route, settings, chat: ChatModel, retries: int =
     """`hooks`: Morpheus plug-in points (skills in, episodes out); None = Morpheus off."""
     models = tier_models(settings)
     attempts: list[Attempt] = []
+    partial: dict | None = None
     while True:
         attempt = Attempt(tier=route.tier.value, model=models[route.tier])
         attempts.append(attempt)
@@ -188,6 +191,7 @@ async def parse(md: str, route: Route, settings, chat: ChatModel, retries: int =
                     hooks.record_escalation(prev.tier, attempt.tier, prev.error,
                                             f"failed:{prev.tier}", form_shape(result.form))
                 return ParseResult(result=result, route=route, attempts=attempts)
+            partial = result.form
             attempt.error = f"invalid form: {json.dumps([i.message for i in issues[:3]], ensure_ascii=False)}"
             log.warning("assembled form invalid (assembler bug?): %s", attempt.error)
         except (PassFailed, DraftError, ValidationError, LlmError) as exc:
@@ -195,5 +199,5 @@ async def parse(md: str, route: Route, settings, chat: ChatModel, retries: int =
         if route.tier is Tier.HARD:
             if hooks:
                 hooks.record_needs_review(attempt.tier, attempt.error)
-            raise ParseFailed(attempts)
+            raise ParseFailed(attempts, partial)
         route = escalate(route, f"{attempt.tier} failed: {attempt.error}"[:200])

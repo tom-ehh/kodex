@@ -4,7 +4,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { analyze, ApiError, session, type Envelope, type Limits } from "./api";
 
-export type ItemStatus = "ready" | "queued" | "analyzing" | "done" | "failed" | "rejected";
+export type ItemStatus = "ready" | "queued" | "analyzing" | "done" | "review" | "failed" | "rejected";
 
 export interface Item {
   id: string;
@@ -89,7 +89,7 @@ export function useBatch(limits: Limits | null) {
   }, []);
 
   const clearFinished = useCallback(() => {
-    setItems((xs) => xs.filter((x) => !["done", "failed", "rejected"].includes(x.status)));
+    setItems((xs) => xs.filter((x) => !["done", "review", "failed", "rejected"].includes(x.status)));
   }, []);
 
   // Pump: start queued items up to CONCURRENCY.
@@ -110,6 +110,17 @@ export function useBatch(limits: Limits | null) {
         })
         .catch((e: unknown) => {
           if (e instanceof ApiError && e.status === 401) setAuthNeeded(true);
+          // 502 with a draft: no tier produced a valid form, Morpheus queued it for a human.
+          const b = e instanceof ApiError ? e.body : undefined;
+          if (b?.needs_review && b.form) {
+            files.current.delete(item.id);
+            patch(item.id, {
+              status: "review",
+              result: { form: b.form as Record<string, unknown>, form_id: b.form_id as string, needs_review: true, attempts: [], dictionary_proposals: [] },
+              error: undefined,
+            });
+            return;
+          }
           patch(item.id, { status: "failed", error: e instanceof Error ? e.message : String(e) });
         })
         .finally(() => {

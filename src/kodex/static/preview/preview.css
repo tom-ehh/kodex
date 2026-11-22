@@ -311,3 +311,32 @@ textarea.fp-input { resize: vertical; padding-right: 12px; }
 .fp-debug-panel .fp-badge { padding: 2px 10px; }
 .fp-debug-panel .fp-tb-field select { height: 28px; padding: 0 6px; }
 .fp-debug-panel .fp-tb-btn { height: 28px; padding: 0 12px; border-radius: 999px; }
+
+/* ---- worker corrections (Morpheus) ---- */
+.fp-pagebar { gap: 8px; }
+.fp-corr-btn { display: none; }
+.fp-correcting .fp-tech {
+  display: block; margin: 0 0 6px; padding: 2px 6px; border-radius: 4px;
+  background: #fff4e5; color: #6b4300; font: 12px/1.4 ui-monospace, monospace;
+}
+.fp-correcting .fp-corr-btn {
+  display: inline; font: 500 12px var(--font); color: var(--link); background: none; border: 0;
+  padding: 0; cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
+}
+.fp-corr-banner {
+  margin: 0 0 16px; padding: 12px 16px; border-radius: var(--radius);
+  background: #fff4e5; border: 1px solid #f0c27a; color: #4d3200;
+}
+.fp-corr-tray {
+  position: fixed; left: 16px; bottom: 16px; z-index: 30; width: min(440px, calc(100vw - 32px));
+  max-height: 60vh; overflow: auto; background: #fff; border: 1px solid var(--border-soft);
+  border-radius: var(--radius); padding: 12px 16px; font-size: 13px; box-shadow: 0 8px 24px rgb(0 0 0 / .12);
+}
+.fp-corr-tray .fp-actions { margin-top: 8px; flex-wrap: wrap; }
+.fp-corr-list { margin: 8px 0; padding-left: 18px; }
+.fp-corr-ok { color: #1f7a3f; }
+.fp-corr-dialog { border: 0; border-radius: var(--radius); padding: 0; width: min(440px, calc(100vw - 32px)); }
+.fp-corr-dialog::backdrop { background: rgb(2 12 43 / .45); }
+.fp-corr-form { display: flex; flex-direction: column; gap: 6px; padding: 20px; }
+.fp-corr-check { display: inline-flex; align-items: center; gap: 4px; margin-right: 12px; }
+.fp-corr-set { border: 1px solid var(--border-soft); border-radius: 8px; padding: 8px 12px; }
