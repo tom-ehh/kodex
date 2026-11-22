@@ -30,10 +30,11 @@ class Settings(BaseSettings):
     router_timeout_s: float = Field(5.0, gt=0)
     # ~4k tokens of Polish text; the model's prompt limit is ~6k tokens.
     router_max_state_chars: int = Field(12000, gt=200)
-    # Extractor model per tier: placeholders until the extractor benchmark picks them.
-    tier_simple_model: str | None = None
-    tier_medium_model: str | None = None
-    tier_hard_model: str | None = None
+    # Extractor model per tier: open-weights, EdenAI ids pinned to a provider with
+    # JSON-schema output and reasoning off (picked 2026-11-22, docs/notes/llm-drafts.md).
+    tier_simple_model: str = "deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731"
+    tier_medium_model: str = "deepinfra/Qwen/Qwen3.6-35B-A3B"
+    tier_hard_model: str = "qwen/deepseek-v4-pro-0813"
 
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None

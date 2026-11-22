@@ -197,3 +197,64 @@ def test_score():
     assert s["validators_acc"] == 1.0 and s["section_acc"] == 1.0
     assert s["option_recall"] == round(2 / 3, 3)
     assert s["section_recall"] == 1.0 and s["title_sim"] == 1.0
+
+
+# --- draft variants (tools/llm_drafts.py), with a scripted fake model ------------------
+
+from llm_drafts import parse as parse_model
+from llm_drafts import run_variant
+
+ANSWERS = {
+    "structure": {"title": "Wniosek o dodatek", "pages": [
+        {"title": "Wnioskodawca", "sections": [{"title": "Dane wnioskodawcy"}]}]},
+    "facts": {"title": "Wniosek o dodatek", "addressee": "Wójt Gminy X", "filers": ["person"]},
+    "outline": {"pages": [{"title": "Wnioskodawca", "sections": [
+        {"title": "Dane wnioskodawcy", "purpose": "kto składa"},
+        {"title": "Pełnomocnik", "purpose": "dane pełnomocnika"}]}]},
+    "page": {"sections": [{"title": "Dane wnioskodawcy", "fields": [
+        {"label": "PESEL", "kind": "pesel", "required": True},
+        {"label": "Składam jako", "kind": "single_choice", "required": True,
+         "options": ["Osoba", "Pełnomocnik"]}]}]},
+    "Dane wnioskodawcy": {"title": "Dane wnioskodawcy", "fields": [
+        {"label": "PESEL", "kind": "pesel", "required": True},
+        {"label": "Składam jako", "kind": "single_choice", "required": True,
+         "options": ["Osoba", "Pełnomocnik"]}]},
+    "Pełnomocnik": {"title": "Pełnomocnik", "fields": [
+        {"label": "Imię", "kind": "text", "required": True}]},
+    "states": {"states": [{"target": "pelnomocnik", "show_when": {
+        "field": "dane_wnioskodawcy.skladam_jako", "equals": "Pełnomocnik"}}]},
+}
+
+
+def fake_call(part, model, text, page, check):
+    key = part
+    if part == "section":
+        key = "Pełnomocnik" if "„Pełnomocnik”" in text else "Dane wnioskodawcy"
+    obj, errs = parse_model(model, json.dumps(ANSWERS[key]), check)
+    assert not errs, errs
+    return obj
+
+
+def test_variants_assemble_valid_forms():
+    for variant in ("kinds", "drafts", "drafts_states"):
+        doc, issues, ok, total = run_variant(variant, fake_call, "md")
+        assert issues == [] and ok == total, (variant, issues)
+        flat = flatten_definition(doc)
+        types = [f["type"] for s in flat["sections"] for f in s["fields"]]
+        assert types[:2] == ["TEXT_FIELD", "RADIO"]
+    sec = doc["tabs"][0]["questions"][1]["field"]
+    assert "Pełnomocnik" in sec["states"][0]["query"]
+
+
+def test_variant_page_check_rejects_unknown_section():
+    bad = {"sections": [{"title": "Inna", "fields": [{"label": "A", "kind": "text", "required": True}]}]}
+
+    def call(part, model, text, page, check):
+        if part == "page":
+            obj, errs = parse_model(model, json.dumps(bad), check)
+            assert obj is None and {k for k, _ in errs} == {"unknown_section", "missing_section"}
+            return None
+        return fake_call(part, model, text, page, check)
+
+    doc, _issues, ok, total = run_variant("kinds", call, "md")
+    assert doc is None and ok == 1 and total == 2

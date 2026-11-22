@@ -39,10 +39,11 @@ import httpx
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+from llm_drafts import VARIANTS, run_variant
+from llm_drafts import parse as parse_model
 from llm_parts import (
     CHOICE_TYPES,
     PART_MODELS,
-    Structure,
     build_prompt,
     merge,
     parse_part,
@@ -256,7 +257,7 @@ class Client:
 # --- forms ---------------------------------------------------------------------------
 
 
-def load_forms(data: Path, docs: Path) -> list[dict]:
+def load_forms(data: Path, gold: Path) -> list[dict]:
     forms = []
     for row in csv.DictReader(
         (data / "synthetic/xlsx/manifest.csv").open(encoding="utf-8")
@@ -269,14 +270,17 @@ def load_forms(data: Path, docs: Path) -> list[dict]:
                 "truth": truth_from_synthetic(data / row["truth"]),
             }
         )
-    for ex in sorted((docs / "examples").glob("*/expected.json")):
-        docx = next(iter(sorted(ex.parent.glob("input/*.docx"))), None)
-        if docx:
+    for ex in sorted(gold.glob("*/expected.json")):  # gold is data, read only here
+        inputs = sorted(ex.parent.glob("input/*"))
+        docx = [p for p in inputs if p.suffix.lower() == ".docx"]
+        pdf = [p for p in inputs if p.suffix.lower() == ".pdf"]
+        src, kind = (docx[0], FileKind.DOCX) if docx else (pdf[0], FileKind.PDF) if pdf else (None, None)
+        if src:
             forms.append(
                 {
                     "id": ex.parent.name,
-                    "path": docx,
-                    "kind": FileKind.DOCX,
+                    "path": src,
+                    "kind": kind,
                     "truth": truth_from_expected(ex),
                 }
             )
@@ -303,13 +307,20 @@ def run_part(
     log: list[dict],
     tag: dict,
     est: float,
+    model=None,
+    text: str | None = None,
+    check=None,
 ):
-    schema = PART_MODELS[part].model_json_schema()
-    messages = [{"role": "user", "content": build_prompt(part, md, ctx, schema)}]
+    schema = (model or PART_MODELS[part]).model_json_schema()
+    content = text if text is not None else build_prompt(part, md, ctx, schema)
+    messages = [{"role": "user", "content": content}]
     obj = None
     for attempt in range(retries + 1):
         call = client.chat(cands, messages, schema, est)
-        obj, errs = parse_part(part, call["text"], ctx)
+        if model is None:
+            obj, errs = parse_part(part, call["text"], ctx)
+        else:
+            obj, errs = parse_model(model, call["text"], check)
         log.append(
             tag
             | {
@@ -339,6 +350,25 @@ def run_part(
     return obj
 
 
+def _run_base(client, cands, md, retries, log, tag, est):
+    """The original 3-part split: structure, fields per page, choices; code merge."""
+    st = run_part(client, cands, "structure", md, {}, retries, log, tag, est)
+    if st is None:
+        return None, ["structure part failed"], 0, 1
+    pages = []
+    for i, page in enumerate(st.pages, start=1):
+        ctx = {"page": i, "sections": [s.title for s in page.sections]}
+        pages.append(run_part(client, cands, "fields", md, ctx, retries, log, tag, est))
+    labels = [f.label for pf in pages if pf for f in pf.fields if f.type in CHOICE_TYPES]
+    ch = None
+    if labels:
+        ctx = {"labels": labels}
+        ch = run_part(client, cands, "choices", md, ctx, retries, log, tag, est)
+    doc = merge(st, pages, ch)
+    ok = 1 + sum(1 for x in pages if x) + (ch is not None or not labels)
+    return doc, validate_merged(doc), ok, 1 + len(pages) + bool(labels)
+
+
 def run_form(
     client: Client,
     key: str,
@@ -347,52 +377,34 @@ def run_form(
     md: str,
     retries: int,
     est: float,
+    variant: str = "base",
 ) -> tuple[dict, list[dict]]:
     log: list[dict] = []
-    tag = {"model": key, "tier": MODELS.get(key, ("custom",))[0], "form": form["id"]}
+    tag = {
+        "model": key,
+        "variant": variant,
+        "tier": MODELS.get(key, ("custom",))[0],
+        "form": form["id"],
+    }
     res = tag | {"error": ""}
     try:
-        st = run_part(client, cands, "structure", md, {}, retries, log, tag, est)
-        if st is None:
-            st = Structure.model_construct(title="?", pages=[])
-        pages = []
-        for i, page in enumerate(st.pages, start=1):
-            ctx = {"page": i, "sections": [s.title for s in page.sections]}
-            pages.append(
-                run_part(client, cands, "fields", md, ctx, retries, log, tag, est)
-            )
-        choice_labels = [
-            f.label for pf in pages if pf for f in pf.fields if f.type in CHOICE_TYPES
-        ]
-        ch = None
-        if choice_labels:
-            ch = run_part(
-                client,
-                cands,
-                "choices",
-                md,
-                {"labels": choice_labels},
-                retries,
-                log,
-                tag,
-                est,
-            )
-        if st.pages:
-            doc = merge(st, pages, ch)
-            issues = validate_merged(doc)
-            pred = flatten_definition(doc)
+        if variant == "base":
+            doc, issues, ok, total = _run_base(client, cands, md, retries, log, tag, est)
         else:
-            doc, issues, pred = (
-                None,
-                ["structure part failed"],
-                {"title": "", "sections": []},
-            )
+
+            def call(part, model, text, page, check):
+                return run_part(
+                    client, cands, part, md, {"page": page}, retries, log, tag, est,
+                    model=model, text=text, check=check,
+                )  # fmt: skip
+
+            doc, issues, ok, total = run_variant(variant, call, md)
+        pred = flatten_definition(doc) if doc else {"title": "", "sections": []}
         res |= {
-            "merged_valid": not issues,
+            "merged_valid": doc is not None and not issues,
             "merge_issues": issues[:10],
-            "parts_ok": sum(1 for x in [st if st.pages else None, *pages] if x)
-            + (ch is not None or not choice_labels),
-            "parts_total": 1 + len(pages) + bool(choice_labels),
+            "parts_ok": ok,
+            "parts_total": total,
         } | score(pred, form["truth"])
         res["prediction"] = doc
     except BudgetExceeded as exc:
@@ -457,9 +469,9 @@ def _mean(xs: list) -> float | None:
 
 def summarise(results: list[dict], calls: list[dict]) -> list[dict]:
     rows = []
-    for key in dict.fromkeys(r["model"] for r in results):
-        rs = [r for r in results if r["model"] == key and not r["error"]]
-        cs = [c for c in calls if c["model"] == key]
+    for key, var in dict.fromkeys((r["model"], r["variant"]) for r in results):
+        rs = [r for r in results if (r["model"], r["variant"]) == (key, var) and not r["error"]]
+        cs = [c for c in calls if (c["model"], c["variant"]) == (key, var)]
         firsts = [c for c in cs if c["attempt"] == 0]
         final = {}
         for c in cs:  # last attempt per (form, part, page)
@@ -471,9 +483,12 @@ def summarise(results: list[dict], calls: list[dict]) -> list[dict]:
         rows.append(
             {
                 "model": key,
+                "variant": var,
                 "tier": MODELS.get(key, ("custom",))[0],
                 "forms": len(rs),
-                "errors": sum(1 for r in results if r["model"] == key and r["error"]),
+                "errors": sum(
+                    1 for r in results if (r["model"], r["variant"]) == (key, var) and r["error"]
+                ),
                 # schema adherence
                 "json_ok": _mean([c["json_ok"] for c in firsts]),
                 "valid_1st": _mean([c["valid"] for c in firsts]),
@@ -520,6 +535,7 @@ def print_table(rows: list[dict]) -> None:
             "SCHEMA ADHERENCE",
             [
                 "model",
+                "variant",
                 "tier",
                 "forms",
                 "errors",
@@ -536,6 +552,7 @@ def print_table(rows: list[dict]) -> None:
             "ACCURACY",
             [
                 "model",
+                "variant",
                 "recall",
                 "precision",
                 "type_acc",
@@ -546,7 +563,7 @@ def print_table(rows: list[dict]) -> None:
                 "section_recall",
             ],
         ),
-        ("COST", ["model", "secs_form", "tok_form", "usd_form"]),
+        ("COST", ["model", "variant", "secs_form", "tok_form", "usd_form"]),
     ]
     for name, cols in groups:
         print(f"\n## {name}")
@@ -572,7 +589,13 @@ def main() -> None:
     ap.add_argument("--workers", type=int, default=4)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--data", type=Path, default=MAIN / "data")
-    ap.add_argument("--docs", type=Path, default=MAIN / "docs")
+    ap.add_argument(
+        "--gold", type=Path, default=MAIN / "docs" / "examples",
+        help="dir of <form>/expected.json + <form>/input/* (default: docs/examples)",
+    )  # fmt: skip
+    ap.add_argument(
+        "--variants", default="base", help=f"comma list of {','.join(VARIANTS)}"
+    )
     ap.add_argument("--cache", type=Path, default=SCRATCH / "llm_cache")
     ap.add_argument("--out", type=Path, default=SCRATCH / "bench_llm")
     a = ap.parse_args()
@@ -590,7 +613,11 @@ def main() -> None:
     catalogue = load_catalogue(key, a.cache)
     cand = {k: resolve(k, catalogue) for k in keys}
 
-    forms = load_forms(a.data, a.docs)
+    forms = load_forms(a.data, a.gold)
+    variants = [v for v in a.variants.split(",") if v]
+    bad = set(variants) - set(VARIANTS)
+    if bad:
+        raise SystemExit(f"unknown variants {sorted(bad)}; use {VARIANTS}")
     if a.forms:
         want = a.forms.split(",")
         forms = [f for f in forms if f["id"] in want]
@@ -605,23 +632,23 @@ def main() -> None:
     mds = {f["id"]: markdown_of(f, a.cache) for f in forms}
     results: list[dict] = []
     calls: list[dict] = []
-    for k in keys:
+    for k, var in [(k, v) for k in keys for v in variants]:
         if client.stopped:
             break
         m0 = cand[k][0]
         pin, pout = _price(m0)
 
-        def one(f: dict, k=k, pin=pin, pout=pout):
+        def one(f: dict, k=k, pin=pin, pout=pout, var=var):
             md = mds[f["id"]]
             est = (len(md) / 3.0 + 1800) * pin + 3000 * pout  # pessimistic per call
-            return run_form(client, k, cand[k], f, md, a.retries, est)
+            return run_form(client, k, cand[k], f, md, a.retries, est, var)
 
         with ThreadPoolExecutor(a.workers) as pool:
             for res, log in pool.map(one, forms):
                 results.append(res)
                 calls.extend(log)
                 print(
-                    f"{k:20} {res['form']:40} usd={res['usd']:.4f} recall={res.get('recall')} "
+                    f"{k:20} {var:13} {res['form']:40} usd={res['usd']:.4f} recall={res.get('recall')} "
                     f"merged_valid={res.get('merged_valid')} {res['error']}",
                     file=sys.stderr,
                 )
