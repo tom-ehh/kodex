@@ -1,4 +1,4 @@
-"""DOCX (and DOC via LibreOffice): paragraphs and tables in document order."""
+"""DOCX, and DOC via antiword (LibreOffice fallback): paragraphs and tables in order."""
 
 import io
 import zipfile
@@ -8,6 +8,7 @@ from docx.document import Document as DocxDocument
 from docx.table import Table
 from docx.text.paragraph import Paragraph
 
+from kodex.extract import antiword
 from kodex.extract.model import Document, ExtractionError, Page, Source
 from kodex.extract.office import convert
 
@@ -28,6 +29,15 @@ def extract_docx(data: bytes) -> Document:
 
 
 def extract_doc(data: bytes) -> Document:
+    """antiword first (small, in the image); LibreOffice if antiword is missing or fails."""
+    if antiword.available():
+        try:
+            md = antiword.doc_to_markdown(data)
+            return Document(
+                kind="doc", pages=[Page(number=1, source=Source.NATIVE, markdown=md)]
+            )
+        except ExtractionError:
+            pass
     doc = extract_docx(convert(data, "doc", "docx"))
     doc.kind = "doc"
     return doc

@@ -1,6 +1,8 @@
 """Extraction per format, with small files built in memory and a fake OCR engine."""
 
 import io
+import shutil
+from pathlib import Path
 
 import docx
 import pytest
@@ -156,3 +158,28 @@ def test_strip_fence():
 def test_collapse_leaders():
     assert _collapse_leaders("Imię: " + "." * 500 + " koniec") == "Imię: ____ koniec"
     assert _collapse_leaders("a . . . b") == "a . . . b"
+
+
+_DOC_SAMPLE = (
+    Path(__file__).resolve().parent.parent
+    / "docs/examples/wydanie-zaswiadczenia/input/Wniosek o wydanie zaświadczenia.doc"
+)
+
+
+@pytest.mark.skipif(
+    not shutil.which("antiword") or not _DOC_SAMPLE.exists(),
+    reason="needs antiword and the sample .doc",
+)
+def test_extract_doc_with_antiword():
+    from kodex.extract.word import extract_doc
+
+    doc = extract_doc(_DOC_SAMPLE.read_bytes())
+    assert doc.kind == "doc"
+    assert "WNIOSEK O WYDANIE ZAŚWIADCZENIA" in doc.pages[0].markdown
+
+
+def test_antiword_tables_to_md():
+    from kodex.extract.antiword import _tables_to_md
+
+    md = _tables_to_md("x\n|a  |b |\n|c  |d |\ny")
+    assert md.splitlines() == ["x", "| a | b |", "|---|---|", "| c | d |", "y"]

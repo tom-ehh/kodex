@@ -31,6 +31,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 # ---- runtime: venv only, unprivileged user ----
 FROM ${PYTHON_IMAGE}
+# antiword reads legacy .doc (~1 MB); LibreOffice is only a fallback when present.
+RUN apk add --no-cache antiword
 RUN addgroup -S app && adduser -S -G app -H -s /sbin/nologin app \
     && mkdir /data && chown app:app /data  # Morpheus SQLite; a fresh named volume copies this owner
 WORKDIR /app
