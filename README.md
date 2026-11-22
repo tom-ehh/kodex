@@ -3,10 +3,9 @@
 A REST service that turns paper form blanks (PDF, DOC, DOCX, ODS, XLSX, JPG/JPEG, PNG)
 into JSON form configurations for e-services.
 
-> **Status:** uploading, validation and jobs work. Form analysis is under development:
-> `POST /api/v1/forms/analyze` reads the file's text (OCR for scans and images) and picks
-> the extractor tier, then answers `501` with that decision in `route`. Generating the
-> form JSON (the Form Definition) is the next step.
+> **Status:** `POST /api/v1/forms/analyze` returns the Form Definition. It reads the
+> file's text (OCR for scans and images), routes it to a model tier, drafts the form with
+> an open-weights LLM in passes and validates the result. Jobs don't analyse files yet.
 
 ## Docker image
 
@@ -89,6 +88,7 @@ stop the service at startup.
 | `COI_TIER_SIMPLE_MODEL` | `deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731` | EdenAI model that fills the form JSON for `simple` forms (open-weights; reasoning off) |
 | `COI_TIER_MEDIUM_MODEL` | `deepinfra/Qwen/Qwen3.6-35B-A3B` | Same, for `medium` forms |
 | `COI_TIER_HARD_MODEL` | `qwen/deepseek-v4-pro-0813` | Same, for `hard` forms and escalations |
+| `COI_LLM_TIMEOUT_S` | `120` | Seconds to wait for one LLM call |
 | `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
 | `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
 | `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |
@@ -121,6 +121,23 @@ server, or the raw spec at `/openapi.json`.
   extension. Each problem is reported in `issues`.
 - When `COI_JWT_ENABLED=true`, send `Authorization: Bearer <token>`.
 
+### Analysing a form
+
+`POST /api/v1/forms/analyze` takes one file and answers:
+
+| Status | Body |
+|--------|------|
+| `200` | The Form Definition, ready to import (`title`, `tabs`, `flow`) |
+| `200` with `?envelope=true` | `{"form", "route", "attempts", "dictionary_proposals"}`: `form` is the same Form Definition; `route` is the final model tier, `attempts` lists every tier tried, `dictionary_proposals` suggests new dictionaries for reusable option lists |
+| `422` | The file failed validation, or its text could not be extracted |
+| `502` | No model tier, up to `hard`, produced a valid form; `attempts` says why |
+| `503` | No model API key is configured |
+
+How it works: the text is extracted, a router picks a tier (`simple`, `medium`,
+`hard`), and that tier's model drafts the form in passes (facts, outline, each
+section, dynamic states). Code builds the ids, layout, flow and JSONata and validates
+the result. If a tier fails, the form moves one tier up.
+
 ### Examples
 
 Validate a file whose content doesn't match its extension:
@@ -143,6 +160,12 @@ curl -F "file=@skan.png" http://localhost:8000/api/v1/validate
     {"code": "content_extension_mismatch", "message": "Extension says png, content is pdf."}
   ]
 }
+```
+
+Analyse a form, with the route and attempts:
+
+```sh
+curl -F "file=@wniosek.pdf" "http://localhost:8000/api/v1/forms/analyze?envelope=true"
 ```
 
 Submit two files as a job, then fetch it by its `id`:

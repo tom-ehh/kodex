@@ -9,14 +9,17 @@ from fastapi import (
     Depends,
     File,
     HTTPException,
+    Query,
     Response,
     UploadFile,
     status,
 )
 
-from coi_formularze.api.deps import JobStoreDep, SettingsDep, read_and_validate
+from coi_formularze.api.deps import ChatDep, JobStoreDep, SettingsDep, read_and_validate
 from coi_formularze.api.schemas import (
-    AnalyzeNotImplemented,
+    AnalyzeEnvelope,
+    AnalyzeFailed,
+    AttemptOut,
     BatchReport,
     ErrorDetail,
     FileReportOut,
@@ -29,6 +32,7 @@ from coi_formularze.api.schemas import (
 )
 from coi_formularze.auth import require_auth
 from coi_formularze.extract import ExtractionError, extract, ocr_engine_from_settings
+from coi_formularze.parse.pipeline import ParseFailed, parse
 from coi_formularze.route import route_document, tier_models
 from coi_formularze.validation.checks import (
     FORBIDDEN_FILENAME_CHARS,
@@ -119,54 +123,73 @@ async def validate_batch(files: FilesParam, settings: SettingsDep) -> BatchRepor
     "/forms/analyze",
     tags=["forms"],
     summary="Convert a form into its JSON configuration",
-    response_model=dict[str, Any],
+    response_model=dict[str, Any] | AnalyzeEnvelope,
     responses={
-        200: {"description": "Form configuration JSON (schema to be defined)."},
+        200: {
+            "description": "The Form Definition, ready to import (the organisers' schema). "
+            "With `?envelope=true`: an `AnalyzeEnvelope` holding it plus the route, the "
+            "tiers tried and dictionary proposals.",
+        },
         422: {
-            "description": "The file failed validation (`ValidationFailed`), or the `file` "
-            "field is missing (`HTTPValidationError`).",
+            "description": "The file failed validation or its text could not be extracted "
+            "(`ValidationFailed`), or the `file` field is missing (`HTTPValidationError`).",
             "content": _one_of("ValidationFailed", "HTTPValidationError"),
         },
-        501: {
-            "model": AnalyzeNotImplemented,
-            "description": "The file is valid but analysis is not implemented yet; `route` "
-            "shows the extractor tier the complexity router picked.",
-        },
+        502: {"model": AnalyzeFailed, "description": "No tier up to `hard` produced a valid form."},
+        503: {"model": ErrorDetail, "description": "No model API key is configured."},
     },
 )
-async def analyze_form(file: FileParam, settings: SettingsDep, response: Response) -> Any:
+async def analyze_form(
+    file: FileParam,
+    settings: SettingsDep,
+    chat: ChatDep,
+    response: Response,
+    envelope: Annotated[bool, Query(description="Wrap the form with its route, attempts "
+                                                "and dictionary proposals.")] = False,
+) -> Any:
     """The service's main endpoint: one form blank in, the form configuration JSON out.
 
-    **Current state:** the file is validated, its text extracted and routed to an
-    extractor tier; a valid file gets **501** with the routing decision in `route`, an
-    invalid one **422** with its report. Field extraction is under development."""
+    The file is validated, its text extracted, and a complexity router picks a model
+    tier. The model drafts the form in passes (facts, outline, one draft per section,
+    dynamic states); code assembles and validates the Form Definition. A tier that
+    fails moves the form one tier up; failing at `hard` gives **502**."""
     report, data = await read_and_validate(file, settings)
     if not report.ok:
         response.status_code = status.HTTP_422_UNPROCESSABLE_CONTENT
         return ValidationFailed(detail="File failed validation.", file=report).model_dump()
+    if chat is None:
+        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "No model API key is configured.")
     try:
         doc = await asyncio.to_thread(
             extract, data, report.detected_kind, ocr_engine_from_settings(settings)
         )
-    except Exception as exc:  # routing must still answer; extraction errors surface later
+    except Exception as exc:
         if not isinstance(exc, ExtractionError):
             logging.getLogger(__name__).exception("extraction failed")
-        doc = None
+        response.status_code = status.HTTP_422_UNPROCESSABLE_CONTENT
+        return ValidationFailed(detail=f"Text extraction failed: {exc}", file=report).model_dump()
     route = await route_document(doc, settings)
-    response.status_code = status.HTTP_501_NOT_IMPLEMENTED
-    return AnalyzeNotImplemented(
-        detail="Form analysis is not implemented yet.",
-        file=report,
-        route=RouteOut(
-            tier=route.tier,
-            confidence=route.confidence,
-            probabilities=route.probabilities,
-            source=route.source,
-            escalated=route.escalated,
-            reason=route.reason,
-            model=tier_models(settings)[route.tier],
-        ),
+    try:
+        parsed = await parse(doc.markdown, route, settings, chat)
+    except ParseFailed as exc:
+        response.status_code = status.HTTP_502_BAD_GATEWAY
+        return AnalyzeFailed(detail="No model tier produced a valid form.",
+                             attempts=[_attempt(a) for a in exc.attempts]).model_dump()
+    if not envelope:
+        return parsed.result.form
+    r = parsed.route
+    return AnalyzeEnvelope(
+        form=parsed.result.form,
+        route=RouteOut(tier=r.tier, confidence=r.confidence, probabilities=r.probabilities,
+                       source=r.source, escalated=r.escalated, reason=r.reason,
+                       model=tier_models(settings)[r.tier]),
+        attempts=[_attempt(a) for a in parsed.attempts],
+        dictionary_proposals=[p.model_dump() for p in parsed.result.dictionary_proposals],
     ).model_dump()
+
+
+def _attempt(a) -> AttemptOut:
+    return AttemptOut(tier=a.tier, model=a.model, calls=a.calls, cost_usd=round(a.cost, 6), error=a.error)
 
 
 @router.post(

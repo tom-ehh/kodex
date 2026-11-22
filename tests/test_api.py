@@ -52,11 +52,7 @@ def test_batch_limit(client):
     assert client.post("/api/v1/validate/batch", files=files).status_code == 422
 
 
-def test_analyze_stub(client):
-    ok = client.post("/api/v1/forms/analyze", files={"file": ("a.pdf", samples.PDF)})
-    assert ok.status_code == 501
-    route = ok.json()["route"]
-    assert route["source"] == "heuristic" and route["tier"] in {"simple", "medium", "hard"}
+def test_analyze_rejects_invalid_file(client):
     bad = client.post("/api/v1/forms/analyze", files={"file": ("a.pdf", samples.PNG)})
     assert bad.status_code == 422 and bad.json()["file"]["ok"] is False
 

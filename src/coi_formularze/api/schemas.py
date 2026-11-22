@@ -135,10 +135,39 @@ class RouteOut(BaseModel):
     model: str | None = Field(description="Extractor model configured for this tier, if any.")
 
 
-class AnalyzeNotImplemented(ValidationFailed):
-    """501 body: the file is valid; carries the router's decision until extraction exists."""
+class AttemptOut(BaseModel):
+    """One try at one tier model."""
 
-    route: RouteOut
+    tier: str = Field(description="`simple`, `medium` or `hard`.")
+    model: str = Field(description="EdenAI model id used.")
+    calls: int = Field(description="LLM calls made, retries included.")
+    cost_usd: float = Field(description="Estimated cost of those calls.")
+    error: str | None = Field(description="Why this tier failed; null for the one that succeeded.")
+
+
+class DictionaryProposalOut(BaseModel):
+    """Extension II: a new dictionary suggested for a reusable list of options."""
+
+    name: str
+    description: str
+    entries: list[str]
+    used_by: list[str] = Field(description="techNames of the fields that would use it.")
+
+
+class AnalyzeEnvelope(BaseModel):
+    """`?envelope=true` body: the importable form plus how it was made."""
+
+    form: dict[str, Any] = Field(description="The Form Definition: identical to the bare 200 body.")
+    route: RouteOut = Field(description="Final tier (after any escalation) and its model.")
+    attempts: list[AttemptOut] = Field(description="Every tier tried, in order.")
+    dictionary_proposals: list[DictionaryProposalOut]
+
+
+class AnalyzeFailed(BaseModel):
+    """502 body: every tier up to `hard` failed to produce a valid form."""
+
+    detail: str
+    attempts: list[AttemptOut]
 
 
 class ItemStatus(StrEnum):

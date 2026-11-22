@@ -35,6 +35,7 @@ class Settings(BaseSettings):
     tier_simple_model: str = "deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731"
     tier_medium_model: str = "deepinfra/Qwen/Qwen3.6-35B-A3B"
     tier_hard_model: str = "qwen/deepseek-v4-pro-0813"
+    llm_timeout_s: float = Field(120.0, gt=0, description="Per LLM call.")
 
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None
