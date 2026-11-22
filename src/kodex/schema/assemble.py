@@ -15,6 +15,7 @@ from collections.abc import Callable, Iterable
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
+from kodex.schema import initial_data
 from kodex.schema.drafts import (
     FieldDraft,
     FormFacts,
@@ -85,6 +86,7 @@ class Assembled(BaseModel):
 def assemble(draft: FormDraft, post_build: PostBuild | None = None) -> Assembled:
     """`post_build(field_draft, questions, section_title)` may adjust each built field in place (Morpheus rules)."""
     builder = _Builder(set(), {slug(s.title): s for s in draft.sections}, post_build)
+    builder.addressee = draft.facts.addressee
     pages = [(p.title, builder.sections(p.title, p.sections)) for p in draft.outline.pages]
     finish = make_field("SECTION", unique("podglad", builder.taken), "Podgląd", repeatingSectionGrid=[
         {"field": make_field("INFO_SECTION", unique("podglad_info", builder.taken), description=FINISH_TEXT)}
@@ -117,6 +119,7 @@ class _Builder:
         self.where: dict[str, Location] = {}
         self.question: dict[str, dict] = {}  # key -> the question whose field it is
         self._proposals: dict[str, DictionaryProposal] = {}
+        self.addressee: str | None = None
 
     def sections(self, tab: str, plans: Iterable[OutlineSection]) -> list[dict]:
         return [self.section(tab, plan) for plan in plans]
@@ -129,6 +132,11 @@ class _Builder:
         grid: list[dict] = []
         for field in draft.fields:
             built = build(field, ctx)
+            attr = initial_data.source_for(plan.title, field, plan.repeatable)
+            if attr:
+                initial_data.apply(built[0]["field"], attr)
+            elif self.addressee and initial_data.office_name(plan.title, field):
+                built[0]["field"].update(readOnly=True, defaultValue=self.addressee)
             if self.post_build:
                 self.post_build(field, built, plan.title)
             fkey = f"{key}.{slug(field.label)}"
