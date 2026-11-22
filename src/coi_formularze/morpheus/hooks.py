@@ -51,9 +51,11 @@ class Hooks:
 
     # ---- skills in ----
 
-    def section_skills(self, title: str, purpose: str = "") -> list[Skill]:
-        """Skills with a prompt snippet whose trigger matches the section's title/purpose."""
-        target = SectionTarget.of([t for t in (title, purpose) if t])
+    def section_skills(self, title: str, purpose: str = "", source: str = "") -> list[Skill]:
+        """Skills with a prompt snippet whose trigger matches the section's title/purpose
+        or a line of its own source-text slice (`section_slice`); capped as before."""
+        lines = [ln for ln in source.splitlines() if ln.strip()]
+        target = SectionTarget.of([t for t in (title, purpose) if t] + lines)
         return [s for s in active_skills(target, self._skills, self.max) if s.prompt_snippet]
 
     @staticmethod
@@ -145,6 +147,29 @@ class Hooks:
             kind=EpisodeKind.VALIDATION_FAILURE, form_id=self.form_id, error=_clean(error),
             tier_from=tier, skills_used=sorted(self.used), status=EpisodeStatus.NEEDS_HUMAN,
         ))
+
+
+SLICE_MAX_LINES, SLICE_MAX_CHARS = 60, 4000
+
+
+def section_slice(md: str, title: str, other_titles: Iterable[str] = ()) -> str:
+    """The section's own part of the markdown: from the first line containing its title
+    up to the next line containing another section's title (capped). '' if not found."""
+    from coi_formularze.morpheus.match import fold
+
+    lines = md.splitlines()
+    want = fold(title)
+    others = [fold(t) for t in other_titles if t and fold(t) != want and len(fold(t)) > 3]
+    start = next((i for i, ln in enumerate(lines) if want and want in fold(ln)), None)
+    if start is None:
+        return ""
+    out = []
+    for ln in lines[start + 1:start + 1 + SLICE_MAX_LINES]:
+        f = fold(ln)
+        if any(o in f for o in others):
+            break
+        out.append(ln)
+    return "\n".join(out)[:SLICE_MAX_CHARS]
 
 
 _VALIDATOR_RX = re.compile(r"\b(REQUIRED|PESEL|NIP|REGON|ZIP_CODE|EMAIL)\b")

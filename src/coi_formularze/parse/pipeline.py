@@ -13,7 +13,7 @@ from dataclasses import dataclass, field
 
 from pydantic import BaseModel, ValidationError
 
-from coi_formularze.morpheus.hooks import Hooks, form_shape
+from coi_formularze.morpheus.hooks import Hooks, form_shape, section_slice
 from coi_formularze.morpheus.models import HitOutcome
 from coi_formularze.parse.llm import ChatModel, LlmError
 from coi_formularze.parse.prompts import prompt, retry_prompt
@@ -113,13 +113,14 @@ class _Run:
             self.hooks.record_validation_failure(self.attempt.tier, task, None, errors)
         raise PassFailed(task, errors)
 
-    async def section(self, page: str, sec, plan: str) -> SectionDraft:
+    async def section(self, page: str, sec, plan: str, titles: tuple = ()) -> SectionDraft:
         """One SectionDraft, with matching Morpheus skills as hints when enabled."""
         def same_title(obj):
             return [] if slug(obj.title) == slug(sec.title) else [f"title must be exactly {sec.title!r}"]
 
         h = self.hooks
-        skills = h.section_skills(sec.title, sec.purpose) if h else []
+        source = section_slice(self.md, sec.title, titles) if h else ""
+        skills = h.section_skills(sec.title, sec.purpose, source) if h else []
         if h:
             h.used_now(skills)
         stats: dict = {}
@@ -140,9 +141,10 @@ class _Run:
     async def draft(self) -> FormDraft:
         facts = await self.ask("facts", FormFacts)
         outline = await self.ask("outline", Outline, facts=facts.model_dump_json())
+        titles = tuple(s.title for p in outline.pages for s in p.sections)
         plan = "\n".join(f"- {p.title}: " + "; ".join(s.title for s in p.sections) for p in outline.pages)
         sections = await asyncio.gather(*(
-            self.section(p.title, s, plan) for p in outline.pages for s in p.sections
+            self.section(p.title, s, plan, titles) for p in outline.pages for s in p.sections
         ))
         entries = catalogue(outline, sections)
         states = []

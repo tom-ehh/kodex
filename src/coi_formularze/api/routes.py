@@ -7,10 +7,12 @@ from typing import Annotated, Any
 
 from fastapi import (
     APIRouter,
+    BackgroundTasks,
     Depends,
     File,
     HTTPException,
     Query,
+    Request,
     Response,
     UploadFile,
     status,
@@ -221,19 +223,27 @@ async def analyze_form(
     },
 )
 def post_corrections(form_id: str, body: CorrectionsIn, morpheus: MorpheusDep,
-                     doc_cache: DocCacheDep) -> CorrectionsOut:
+                     doc_cache: DocCacheDep, request: Request,
+                     background: BackgroundTasks) -> CorrectionsOut:
     """Structured edits to a form from `POST /forms/analyze` (its `X-Form-Id` header or
     envelope `form_id`), kept while the form is cached (`COI_MORPHEUS_DOC_TTL_S`).
 
     Each edit becomes one Morpheus episode holding **shapes only** (a value `00-950`
-    is stored as `##-###`). `why` is **never stored or logged**. `learn_now` is
-    recorded on the episodes; live learning from it comes with the wake phase."""
+    is stored as `##-###`). `why` is **never stored or logged**: it is held in memory
+    for the wake step only. `learn_now` processes the episodes right after the response
+    (the flag gate still applies: a first occurrence goes to the review queue)."""
     if morpheus is None:
         raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "Morpheus is disabled.")
     cached = doc_cache.get(form_id)
     if cached is None:
         raise HTTPException(status.HTTP_404_NOT_FOUND, "Unknown or expired form id.")
     eps = record_corrections(morpheus, form_id, cached.form, body.edits, body.learn_now)
+    wake = getattr(request.app.state, "wake", None)
+    if wake is not None:
+        ids = [e.id for e in eps]
+        wake.remember_why(ids, body.why)  # memory only, dropped once processed
+        if body.learn_now:
+            background.add_task(wake.learn_now, ids)
     return CorrectionsOut(form_id=form_id, episode_ids=[e.id for e in eps], learn_now=body.learn_now)
 
 

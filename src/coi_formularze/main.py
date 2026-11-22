@@ -4,15 +4,21 @@ from contextlib import asynccontextmanager
 from importlib.resources import files
 from pathlib import Path
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
 from coi_formularze import __version__
 from coi_formularze.api.routes import router
 from coi_formularze.api.schemas import Health
+from coi_formularze.auth import require_auth
 from coi_formularze.config import get_settings
 from coi_formularze.jobs import JobStore
+from coi_formularze.morpheus import open_store
+from coi_formularze.morpheus.api import build_router as build_morpheus_router
+from coi_formularze.morpheus.doccache import DocCache
+from coi_formularze.morpheus.wake import Wake, start_worker, stop_worker
+from coi_formularze.parse.llm import EdenAiChat
 
 _STATIC_DIR = Path(__file__).parent / "static"
 _INDEX_HTML = files("coi_formularze").joinpath("static/index.html").read_text(encoding="utf-8")
@@ -38,8 +44,23 @@ TAGS = [
     {"name": "forms", "description": "Form analysis: file in, form configuration JSON out."},
     {"name": "validation", "description": "Pre-checks on uploads, without analysis."},
     {"name": "jobs", "description": "Batches kept in memory with per-file status and results."},
+    {"name": "morpheus", "description": "Learned parser skills and the human review queue."},
     {"name": "meta", "description": "Service health and capabilities."},
 ]
+
+
+async def _start_morpheus(app: FastAPI, settings):
+    """Store, DocCache and the wake worker (a background task, never on the request path)."""
+    app.state.morpheus = open_store(settings)
+    app.state.doc_cache = DocCache(settings.morpheus_doc_ttl_s)
+    chat = None
+    if settings.edenai_api_key is not None:
+        chat = app.state.chat = EdenAiChat(settings.edenai_api_key.get_secret_value(),
+                                           timeout=settings.llm_timeout_s)
+    app.state.wake = Wake(app.state.morpheus, settings, chat, app.state.doc_cache)
+    if settings.skills_snapshot is not None:
+        return None
+    return await start_worker(app.state.wake)
 
 
 def create_app() -> FastAPI:
@@ -47,7 +68,11 @@ def create_app() -> FastAPI:
     async def lifespan(app: FastAPI):
         settings = get_settings()  # fail fast on bad config
         app.state.jobs = JobStore(capacity=settings.max_jobs)
+        task = None
+        if settings.morpheus_enabled:
+            task = await _start_morpheus(app, settings)
         yield
+        await stop_worker(task)
 
     app = FastAPI(
         title="COI Formularze API",
@@ -60,6 +85,7 @@ def create_app() -> FastAPI:
         lifespan=lifespan,
     )
     app.include_router(router)
+    app.include_router(build_morpheus_router([Depends(require_auth)]))
 
     @app.get("/health", tags=["meta"], summary="Liveness check", response_description="Service is up.")
     def health() -> Health:

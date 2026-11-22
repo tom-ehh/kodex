@@ -46,6 +46,17 @@ class Settings(BaseSettings):
     general_max: int = Field(50, gt=0)
     skills_max_per_section: int = Field(5, gt=0)
     morpheus_doc_ttl_s: float = Field(86400.0, gt=0, description="In-memory Document lifetime.")
+    # Morpheus wake (P2): flag gate (design.md decision 7, revised), writer, light gate.
+    morpheus_model: str | None = Field(None, description="Skill writer; default tier_hard_model.")
+    morpheus_replay_model: str | None = Field(
+        None, description="Light-gate section replay; default tier_medium_model.")
+    flag_hist_min: int = Field(2, ge=1, description="Same family+validator episodes needed.")
+    flag_pattern_min: float = Field(0.5, ge=0, le=1, description="basal P(pattern) to confirm.")
+    flag_consistent_min: float = Field(0.5, ge=0, le=1, description="basal consistency veto.")
+    morpheus_basal_retries: int = Field(3, ge=0, description="Ticks to wait for basal, then rules only.")
+    morpheus_gate_md_dir: str | None = Field(
+        None, description="Gate forms' markdown for the wake smoke test; unset = skipped.")
+    morpheus_wake_interval_s: float = Field(30.0, gt=0, description="Background wake_tick period.")
 
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None

@@ -235,9 +235,9 @@ class CorrectionEdit(BaseModel):
 class CorrectionsIn(BaseModel):
     edits: list[CorrectionEdit] = Field(min_length=1, max_length=200)
     why: str | None = Field(None, max_length=2000, description="Free-text reason. "
-                            "**Never stored or logged**; reserved for the live wake call (P2).")
+                            "**Never stored or logged**; held in memory for the wake step only.")
     learn_now: bool = Field(False, description="Ask Morpheus to learn from these edits "
-                            "right away. Recorded on the episodes; learning arrives in P2.")
+                            "right away (after the response; the flag gate still applies).")
 
 
 class CorrectionsOut(BaseModel):

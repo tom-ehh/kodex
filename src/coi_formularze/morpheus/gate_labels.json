@@ -1,0 +1,2708 @@
+{
+ "zwrot-oplaty-skarbowej": [
+  {
+   "title": "Urząd, do którego jest składany wniosek",
+   "fields": [
+    {
+     "label": "Nazwa urzędu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Wnioskodawca",
+   "fields": [
+    {
+     "label": "Wybierz, kim jest wnioskodawca",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Czy wniosek składa pełnomocnik?",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane wnioskodawcy",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane podmiotu",
+   "fields": [
+    {
+     "label": "Nazwa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "NIP",
+     "validation": [
+      "NIP",
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres siedziby lub miejsca zamieszkania wnioskodawcy",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Dane pełnomocnika",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres pełnomocnika",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_pelnomocnik_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_pelnomocnik_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_pelnomocnik_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_pelnomocnik_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Załączniki",
+   "fields": [
+    {
+     "label": "Dokument stwierdzający udzielenie pełnomocnictwa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Dowód uiszczenia opłaty skarbowej za pełnomocnictwo",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Informacje o opłacie skarbowej",
+   "fields": [
+    {
+     "label": "Data uiszczenia opłaty",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość opłaty",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwa organu, w którym zapłacono opłatę",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Uzasadnienie wniosku",
+   "fields": [
+    {
+     "label": "Uzasadnienie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Sposób zwrotu opłaty skarbowej",
+   "fields": [
+    {
+     "label": "Wybierz sposób zwrotu opłaty",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer rachunku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Dane właściciela rachunku",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane do kontaktu",
+   "fields": [
+    {
+     "label": "Numer telefonu",
+     "validation": []
+    },
+    {
+     "label": "Adres e-mail",
+     "validation": [
+      "EMAIL"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Zgoda",
+   "fields": [
+    {
+     "label": "zgoda",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  }
+ ],
+ "wydanie-zaswiadczenia": [
+  {
+   "title": "Urząd, do którego jest składany wniosek",
+   "fields": [
+    {
+     "label": "Nazwa urzędu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Twoje dane",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer PESEL",
+     "validation": [
+      "PESEL",
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Rodzaj zaświadczenia",
+   "fields": [
+    {
+     "label": "Wybierz, czego ma dotyczyć zaświadczenie",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Opisz, czego ma dotyczyć zaświadczenie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Cel zaświadczenia",
+   "fields": [
+    {
+     "label": "Gdzie przedłożysz zaświadczenie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa",
+   "fields": [
+    {
+     "label": "oplata_info",
+     "validation": []
+    },
+    {
+     "label": "Czy jesteś zwolniony z opłaty skarbowej?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Potwierdzenie uiszczenia opłaty skarbowej",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane do kontaktu",
+   "fields": [
+    {
+     "label": "Numer telefonu",
+     "validation": []
+    },
+    {
+     "label": "Adres e-mail",
+     "validation": [
+      "EMAIL"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Zgoda",
+   "fields": [
+    {
+     "label": "zgoda",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  }
+ ],
+ "wynajecie-swietlicy-wiejskiej": [
+  {
+   "title": "Organ, do którego jest składany wniosek",
+   "fields": [
+    {
+     "label": "Nazwa organu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Twoje dane",
+   "fields": [
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania",
+   "fields": [
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Przedmiot wniosku",
+   "fields": [
+    {
+     "label": "Czego dotyczy wniosek?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość, w której znajduje się świetlica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Termin od",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Termin do",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Cel wynajęcia świetlicy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Przewidywana liczba uczestników",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Osoba odpowiedzialna za porządek i bezpieczeństwo",
+   "fields": [
+    {
+     "label": "Kto będzie osobą odpowiedzialną?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Zgoda i oświadczenie osoby odpowiedzialnej",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Oświadczenia",
+   "fields": [
+    {
+     "label": "oswiadczenie_warunki_wynajmu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "oswiadczenie_lad_i_porzadek",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "oswiadczenie_przepisy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "oswiadczenie_odpowiedzialnosc_za_mienie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane do kontaktu",
+   "fields": [
+    {
+     "label": "Numer telefonu",
+     "validation": []
+    },
+    {
+     "label": "Adres e-mail",
+     "validation": [
+      "EMAIL"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Zgody",
+   "fields": [
+    {
+     "label": "zgoda",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  }
+ ],
+ "zajecie-pasa-drogowego": [
+  {
+   "title": "Organ, do którego jest składany wniosek",
+   "fields": [
+    {
+     "label": "Nazwa organu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Podmiot wniosku",
+   "fields": [
+    {
+     "label": "Wybierz, jako kto wnioskujesz",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wybierz, w czyim imieniu wnioskujesz",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Twoje dane",
+   "fields": [
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania",
+   "fields": [
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Dane podmiotu",
+   "fields": [
+    {
+     "label": "Nazwa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "NIP",
+     "validation": [
+      "NIP",
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "REGON",
+     "validation": [
+      "REGON",
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer KRS",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Adres siedziby",
+   "fields": [
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_siedziba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_siedziba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_siedziba_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_siedziba_brak",
+     "validation": []
+    },
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Potwierdzenie, że jesteś reprezentantem",
+   "fields": [
+    {
+     "label": "Plik z odpisem danych",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane innej osoby",
+   "fields": [
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania innej osoby",
+   "fields": [
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_inna_osoba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_inna_osoba_brak",
+     "validation": []
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_inna_osoba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_inna_osoba_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Pełnomocnictwo",
+   "fields": [
+    {
+     "label": "Dokument z potwierdzeniem, podpisany elektronicznie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa",
+   "fields": [
+    {
+     "label": "Czy złożenie pełnomocnictwa wymaga opłaty skarbowej?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "oplata_info_1",
+     "validation": []
+    },
+    {
+     "label": "Potwierdzenie przelewu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa za pełnomocnictwo",
+   "fields": [
+    {
+     "label": "oplata_info",
+     "validation": []
+    },
+    {
+     "label": "Potwierdzenie przelewu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Lokalizacja zajęcia pasa drogowego",
+   "fields": [
+    {
+     "label": "Nazwa i numer drogi gminnej",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer ewidencyjny działki",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Rodzaj robót i sposób ich wykonania",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Powierzchnia pasa drogowego do zajęcia",
+   "fields": [
+    {
+     "label": "Które elementy pasa drogowego zajmiesz?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie do 20% szerokości: długość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie do 20% szerokości: szerokość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie do 20% szerokości: powierzchnia razem [m²]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie powyżej 20% do 50% szerokości: długość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie powyżej 20% do 50% szerokości: szerokość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie powyżej 20% do 50% szerokości: powierzchnia razem [m²]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie powyżej 50% szerokości: długość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie powyżej 50% szerokości: szerokość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Jezdnia – zajęcie powyżej 50% szerokości: powierzchnia razem [m²]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Chodnik: długość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Chodnik: szerokość [m]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Chodnik: powierzchnia razem [m²]",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Całkowita powierzchnia zajęcia [m²]",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Termin robót",
+   "fields": [
+    {
+     "label": "Data rozpoczęcia robót",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data zakończenia robót",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba dni",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Wykonawca robót",
+   "fields": [
+    {
+     "label": "Nazwa przedsiębiorstwa lub imię i nazwisko wykonawcy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Imię osoby odpowiedzialnej",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko osoby odpowiedzialnej",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Adres zamieszkania osoby odpowiedzialnej",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer telefonu osoby odpowiedzialnej",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Załączniki",
+   "fields": [
+    {
+     "label": "Ogólny plan orientacyjny",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Szczegółowy plan sytuacyjny",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Szczegółowy harmonogram robót",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Czy zajęcie pasa drogowego wpływa na ruch drogowy?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Zatwierdzony projekt organizacji ruchu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Informacja o sposobie zabezpieczenia robót",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane do kontaktu",
+   "fields": [
+    {
+     "label": "Numer telefonu",
+     "validation": []
+    },
+    {
+     "label": "Adres e-mail",
+     "validation": [
+      "EMAIL"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Zgody",
+   "fields": [
+    {
+     "label": "zgoda",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  }
+ ],
+ "psy-ras-agresywnych": [
+  {
+   "title": "Urząd, do którego jest składany wniosek",
+   "fields": [
+    {
+     "label": "Nazwa urzędu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Podmiot wniosku",
+   "fields": [
+    {
+     "label": "Wybierz, w czyim imieniu wnioskujesz",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Twoje dane",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer PESEL",
+     "validation": [
+      "PESEL",
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Dane innej osoby",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania innej osoby",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_inna_osoba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_inna_osoba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_inna_osoba_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_inna_osoba_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Pełnomocnictwo",
+   "fields": [
+    {
+     "label": "Dokument z potwierdzeniem, podpisany elektronicznie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa",
+   "fields": [
+    {
+     "label": "Czy złożenie pełnomocnictwa wymaga opłaty skarbowej?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "oplata_info_1",
+     "validation": []
+    },
+    {
+     "label": "Potwierdzenie przelewu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Przedmiot wniosku",
+   "fields": [
+    {
+     "label": "Wnioskuję o zezwolenie na",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Informacje o psie",
+   "fields": [
+    {
+     "label": "Pochodzenie psa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Rasa psa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data urodzenia psa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data szczepienia przeciwko wściekliźnie",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Płeć",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Sposób oznakowania psa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer identyfikacyjny",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kopia zaświadczenia o szczepieniu przeciwko wściekliźnie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Miejsce utrzymywania psa",
+   "fields": [
+    {
+     "label": "Adres miejsca utrzymywania psa lub psów",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Opis miejsca i warunków utrzymywania psa lub psów",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane do kontaktu",
+   "fields": [
+    {
+     "label": "Numer telefonu",
+     "validation": []
+    },
+    {
+     "label": "Adres e-mail",
+     "validation": [
+      "EMAIL"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa",
+   "fields": [
+    {
+     "label": "oplata_skarbowa_info",
+     "validation": []
+    },
+    {
+     "label": "Potwierdzenie przelewu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Zgody i oświadczenia",
+   "fields": [
+    {
+     "label": "zgody_i_oswiadczenia",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  }
+ ],
+ "oplata-za-odpady": [
+  {
+   "title": "Organ, do którego jest składana deklaracja",
+   "fields": [
+    {
+     "label": "Nazwa organu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Podmiot wniosku",
+   "fields": [
+    {
+     "label": "Wybierz, w czyim imieniu wnioskujesz",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wybierz, jako kto wnioskujesz",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Składający deklarację",
+   "fields": [
+    {
+     "label": "Kim jest składający deklarację",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Rodzaj i dane podmiotu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Twoje dane",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer PESEL",
+     "validation": [
+      "PESEL",
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Dane podmiotu",
+   "fields": [
+    {
+     "label": "Nazwa",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "NIP",
+     "validation": [
+      "NIP",
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "REGON",
+     "validation": [
+      "REGON",
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer KRS",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Adres siedziby",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_siedziba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_siedziba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_siedziba_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_siedziba_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Potwierdzenie, że jesteś reprezentantem",
+   "fields": [
+    {
+     "label": "Plik z odpisem danych",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane innej osoby",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania innej osoby",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_inna_osoba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_inna_osoba_zagranica_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_4G_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_inna_osoba_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_inna_osoba_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Pełnomocnictwo",
+   "fields": [
+    {
+     "label": "Dokument z potwierdzeniem, podpisany elektronicznie",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa",
+   "fields": [
+    {
+     "label": "Czy złożenie pełnomocnictwa wymaga opłaty skarbowej?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "oplata_info_1",
+     "validation": []
+    },
+    {
+     "label": "Potwierdzenie przelewu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata skarbowa za pełnomocnictwo",
+   "fields": [
+    {
+     "label": "oplata_info",
+     "validation": []
+    },
+    {
+     "label": "Potwierdzenie przelewu",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane współmałżonka",
+   "fields": [
+    {
+     "label": "Imię",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Nazwisko",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer PESEL",
+     "validation": [
+      "PESEL",
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres zamieszkania współmałżonka",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_wspolmalzonek_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_wspolmalzonek_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_wspolmalzonek_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_wspolmalzonek_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Inny adres do korespondencji",
+   "fields": [
+    {
+     "label": "Czy adres do korespondencji jest inny niż adres zamieszkania lub siedziby?",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres do korespondencji",
+   "fields": [
+    {
+     "label": "Kraj",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "kod_pocztowy_zagranica_korespondencja_brak",
+     "validation": []
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_zagranica_korespondencja_brak",
+     "validation": []
+    },
+    {
+     "label": "TERYT_DOWODOWY",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "ulica_korespondencja_brak",
+     "validation": []
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_korespondencja_brak",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Okoliczności złożenia deklaracji",
+   "fields": [
+    {
+     "label": "Powód złożenia deklaracji",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data zdarzenia powodującego powstanie obowiązku opłaty",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data wystąpienia zmiany danych",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data zdarzenia powodującego ustanie obowiązku opłaty",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Data wystąpienia zmiany danych",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Adres nieruchomości",
+   "fields": [
+    {
+     "label": "Miejscowość",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Kod pocztowy",
+     "validation": [
+      "REQUIRED",
+      "ZIP_CODE"
+     ]
+    },
+    {
+     "label": "Ulica",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer budynku",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lokalu",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "numer_lokalu_nieruchomosci_brak",
+     "validation": []
+    },
+    {
+     "label": "Czy nieruchomość ma urzędowo nadany adres?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lub numery działek",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Miejsce gromadzenia odpadów",
+   "fields": [
+    {
+     "label": "Czy składasz deklarację odrębnie dla budynku lub części budynku wielolokalowego z oddzielnym miejscem gromadzenia odpadów?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Adres lub opis miejsca lokalizacji pojemników",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Numer lub numery działek geodezyjnych",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Rodzaj nieruchomości",
+   "fields": [
+    {
+     "label": "Rodzaj nieruchomości",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Czy na części nieruchomości nie zamieszkują mieszkańcy, a powstają tam odpady komunalne?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "zalacznik_info",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Kompostownik",
+   "fields": [
+    {
+     "label": "Czy nieruchomość jest wyposażona w przydomowy kompostownik, w którym kompostowane są bioodpady?",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Sposób obliczenia opłaty",
+   "fields": [
+    {
+     "label": "sposob_obliczenia_info",
+     "validation": []
+    }
+   ]
+  },
+  {
+   "title": "Obliczenie wysokości opłaty dla nieruchomości",
+   "fields": [
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej nieprzekraczającej 45 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej powyżej 45 m², nie większej niż 60 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej powyżej 60 m², nie większej niż 80 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej powyżej 80 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych objętych zwolnieniem dochodowym",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznego zwolnienia (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Suma opłat pomniejszona o kwotę zwolnienia (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Obliczenie wysokości opłaty z kompostownikiem",
+   "fields": [
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej nieprzekraczającej 45 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej powyżej 45 m², nie większej niż 60 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej powyżej 60 m², nie większej niż 80 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych zajmujących lokale o powierzchni użytkowej powyżej 80 m²",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznej opłaty (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Liczba gospodarstw domowych objętych zwolnieniem dochodowym",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Wysokość miesięcznego zwolnienia (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Suma opłat pomniejszona o kwotę zwolnienia (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Opłata dla części nieruchomości, na której nie zamieszkują mieszkańcy",
+   "fields": [
+    {
+     "label": "Kwota z poz. 29 załącznika A lub B (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Razem wysokość miesięcznej opłaty",
+   "fields": [
+    {
+     "label": "Wysokość miesięcznej opłaty razem (zł)",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Dane do kontaktu",
+   "fields": [
+    {
+     "label": "Numer telefonu",
+     "validation": []
+    },
+    {
+     "label": "Adres e-mail",
+     "validation": [
+      "EMAIL"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Załączniki",
+   "fields": [
+    {
+     "label": "Załącznik A",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Załącznik B",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Czy dołączasz inne załączniki?",
+     "validation": [
+      "REQUIRED"
+     ]
+    },
+    {
+     "label": "Inne załączniki",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  },
+  {
+   "title": "Zgody",
+   "fields": [
+    {
+     "label": "zgody_i_oswiadczenia",
+     "validation": [
+      "REQUIRED"
+     ]
+    }
+   ]
+  }
+ ]
+}

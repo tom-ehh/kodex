@@ -32,6 +32,9 @@ _PII = {
     "digit_run": re.compile(r"\d{6,}"),
 }
 
+# A match made only of shape letters ('aaaa@aaa.aa' from shape()) is not PII.
+_SHAPE_ONLY = re.compile(r"[aA#@.+_ -]+")
+
 # Metadata keys that legitimately hold digits (timestamps, generated ids).
 SKIP_KEYS = frozenset(
     {"id", "skill_id", "created_at", "expires_at", "ts", "episode_ids", "form_id", "ref_id"}
@@ -42,7 +45,8 @@ def pii_findings(value: Any, path: str = "$") -> list[str]:
     """Paths + kinds of PII-shaped literals anywhere in a JSON-like value."""
     found: list[str] = []
     if isinstance(value, str):
-        found += [f"{path}: {kind}" for kind, rx in _PII.items() if rx.search(value)]
+        found += [f"{path}: {kind}" for kind, rx in _PII.items()
+                  if any(not _SHAPE_ONLY.fullmatch(m.group()) for m in rx.finditer(value))]
     elif isinstance(value, dict):
         for k, v in value.items():
             if k not in SKIP_KEYS:
