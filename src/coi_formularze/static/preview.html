@@ -3,25 +3,41 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Podgląd formularza – COI Formularze</title>
+<title>Podgląd formularza – Kodex</title>
 <link rel="stylesheet" href="/static/preview/preview.css">
 <script src="/static/vendor/jsonata-2.0.6.min.js"></script>
 <script type="module" src="/static/preview/app.js"></script>
 </head>
 <body>
-<header class="fp-toolbar">
-  <a class="fp-tb-home" href="/">← Strona główna</a>
-  <strong class="fp-tb-name">Podgląd formularza</strong>
-  <span class="fp-badge" title="Słowniki i dane obywatela (MLPZ, PESEL) są przykładowe">Dane demonstracyjne</span>
-  <div class="fp-tb-controls" id="tb-controls" hidden>
-    <label class="fp-tb-field">Zakładka <select id="tab-jump"></select></label>
-    <label class="fp-tb-field"><input type="checkbox" id="skip-validation"> Pomiń walidację</label>
-    <label class="fp-tb-field"><input type="checkbox" id="show-tech"> Pokaż nazwy techniczne</label>
-    <button type="button" class="fp-tb-btn" id="problems-btn">Brak problemów</button>
-    <button type="button" class="fp-tb-btn" id="load-other">Wczytaj inny</button>
+<a class="fp-skip" href="#main">Przejdź do treści</a>
+<!-- Same 56px bar as the Kodex app (frontend/src/App.tsx, collapsed state). -->
+<header class="kx-bar">
+  <div class="kx-bar-in">
+    <a class="kx-logo" href="/#main"><span class="kx-word">Kodex</span><span class="kx-div" aria-hidden="true"></span><span class="kx-sub">Generator e-formularzy</span></a>
+    <nav class="kx-nav" aria-label="Główna">
+      <a href="/#main">Prześlij</a>
+      <a href="/preview" aria-current="page">Podgląd</a>
+      <a href="/docs">API</a>
+    </nav>
   </div>
 </header>
+<div class="fp-pagebar" id="pagebar" hidden>
+  <button type="button" class="fp-btn fp-btn-outline fp-btn-sm" id="load-other">Wczytaj inny formularz</button>
+</div>
 <div class="fp-problems" id="problems-panel" hidden></div>
-<main class="fp-main" id="main"><noscript>Podgląd wymaga JavaScriptu.</noscript></main>
+<main class="fp-main" id="main" tabindex="-1"><noscript>Podgląd wymaga JavaScriptu.</noscript></main>
+<!-- Preview tooling (not part of the e-service): collapsible drawer, bottom right. -->
+<aside class="fp-debug" id="tb-controls" aria-label="Narzędzia podglądu" hidden>
+  <div class="fp-debug-panel" id="debug-panel">
+    <span class="fp-badge" title="Słowniki i dane obywatela (MLPZ, PESEL) są przykładowe">Dane demonstracyjne</span>
+    <label class="fp-tb-field">Zakładka <select id="tab-jump"></select></label>
+    <label class="fp-tb-field"><input type="checkbox" id="skip-validation"> Pomiń walidację</label>
+    <label class="fp-tb-field"><input type="checkbox" id="show-tech"> Nazwy techniczne</label>
+    <button type="button" class="fp-tb-btn" id="problems-btn">Brak problemów</button>
+  </div>
+  <button type="button" class="fp-debug-toggle" id="debug-toggle" aria-controls="debug-panel" aria-expanded="false">
+    <span class="fp-debug-label">Narzędzia</span><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M6 15l6-6 6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</aside>
 </body>
 </html>

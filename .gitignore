@@ -3,3 +3,6 @@ __pycache__/
 *.pyc
 .pytest_cache/
 .env
+frontend/node_modules/
+src/coi_formularze/static/app/
+frontend/*.tsbuildinfo

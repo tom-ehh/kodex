@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+/* COI-inspired palette (docs/notes/upload-ui.md): navy + blue base, crimson accent. */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy-950: #020c2b;
+  --color-navy-900: #0a1a44;
+  --color-navy-800: #0d2a66;
+  --color-blue-700: #1e3a8a;
+  --color-focus: #145ceb;
+
+  --color-accent: #ca0049;
+  --color-accent-hover: #b30041;
+  --color-accent-active: #860031;
+  --color-accent-tint: #fce6ee;
+
+  --color-ink: #0d0e0e;
+  --color-muted: #515255;
+  --color-line: #e7e7e8;
+  --color-surface: #f3f3f4;
+
+  --color-ok: #2f7d32;
+  --color-warn: #b45309;
+  --color-error: #b30041;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}

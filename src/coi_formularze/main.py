@@ -23,7 +23,10 @@ from coi_formularze.morpheus.wake import Wake, start_worker, stop_worker
 from coi_formularze.parse.llm import EdenAiChat
 
 _STATIC_DIR = Path(__file__).parent / "static"
-_INDEX_HTML = files("coi_formularze").joinpath("static/index.html").read_text(encoding="utf-8")
+_APP_INDEX = _STATIC_DIR / "app" / "index.html"  # built by frontend/ (Vite); absent in a bare checkout
+_INDEX_HTML = (
+    _APP_INDEX if _APP_INDEX.is_file() else files("coi_formularze").joinpath("static/index.html")
+).read_text(encoding="utf-8")
 _PREVIEW_HTML = files("coi_formularze").joinpath("static/preview.html").read_text(encoding="utf-8")
 
 API_DESCRIPTION = """

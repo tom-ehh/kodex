@@ -110,6 +110,7 @@ def test_job_fetch_still_requires_jwt_when_enabled():
 
 
 def test_index_links_to_preview(client):
-    html = client.get("/").text
+    # Legacy page (fallback until the React app links job previews itself).
+    html = client.get("/static/index.html").text
     assert 'href="/preview"' in html
     assert "/preview?job=" in html

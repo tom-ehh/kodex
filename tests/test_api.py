@@ -22,7 +22,9 @@ def client():
 
 def test_health_and_index(client):
     assert client.get("/health").json() == {"status": "ok"}
-    assert "<form" in client.get("/").text
+    html = client.get("/").text
+    # React app shell when frontend/ is built, else the legacy plain page.
+    assert 'id="root"' in html or "<form" in html
 
 
 def test_formats(client):

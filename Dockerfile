@@ -2,8 +2,17 @@
 # Pinned versions; bump deliberately. Never use `latest`.
 ARG PYTHON_IMAGE=python:3.14.10-alpine3.24
 ARG UV_IMAGE=ghcr.io/astral-sh/uv:0.13.1
+ARG NODE_IMAGE=node:22.21.1-alpine3.22
 
 FROM ${UV_IMAGE} AS uv
+
+# ---- frontend: build the React app into static/app (Node is build-time only) ----
+FROM ${NODE_IMAGE} AS frontend
+WORKDIR /app/frontend
+COPY frontend/package.json frontend/package-lock.json ./
+RUN --mount=type=cache,target=/root/.npm npm ci
+COPY frontend ./
+RUN npm run build
 
 # ---- build: resolve the locked deps into /app/.venv ----
 FROM ${PYTHON_IMAGE} AS build
@@ -16,6 +25,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev --no-install-project
 COPY README.md ./
 COPY src ./src
+COPY --from=frontend /app/src/coi_formularze/static/app ./src/coi_formularze/static/app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev --no-editable
 

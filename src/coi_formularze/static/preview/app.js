@@ -15,6 +15,7 @@ const store = {
 const $ = (id) => document.getElementById(id);
 const main = $("main");
 const controls = $("tb-controls");
+const pagebar = $("pagebar");
 const tabJump = $("tab-jump");
 const skip = $("skip-validation");
 const showTech = $("show-tech");
@@ -33,6 +34,7 @@ let debounce = null;
 function showLoader(message = "") {
   model = null;
   controls.hidden = true;
+  pagebar.hidden = true;
   problemsPanel.hidden = true;
   const fileInput = h("input", { type: "file", accept: ".json,application/json", id: "load-file" });
   const paste = h("textarea", { class: "fp-input fp-paste", id: "load-paste", rows: 10, placeholder: '{ "title": "…", "tabs": [ … ], "flow": { "links": [ … ] } }' });
@@ -105,6 +107,7 @@ async function open(raw) {
   renderer = new Renderer(model, { onChange, onStructure });
   current = 0;
   controls.hidden = false;
+  pagebar.hidden = false;
   tabJump.replaceChildren(...model.tabs.map((t, i) => h("option", { value: i }, `${i + 1}. ${t.title ?? "(bez tytułu)"}`)));
   updateProblems();
   await model.evaluate();
@@ -130,8 +133,10 @@ function renderTab(scrollTop) {
     renderer.renderTab(tab),
     tab.type === "FINISH" ? renderer.summary((i) => goTo(i)) : null,
     h("nav", { class: "fp-nav" }, left, right));
+  main.classList.remove("fp-anim"); // first paint of a tab: no expand animations
   main.replaceChildren(page);
   renderer.applyStates();
+  requestAnimationFrame(() => requestAnimationFrame(() => main.classList.add("fp-anim")));
   tabJump.value = String(current);
   if (scrollTop) window.scrollTo(0, 0);
 }
@@ -187,6 +192,8 @@ function updateProblems() {
   const list = problems?.list ?? [];
   const errors = list.filter((p) => p.level === "error").length;
   problemsBtn.textContent = list.length ? `Problemy: ${list.length}` : "Brak problemów";
+  problemsBtn.disabled = !list.length; // nothing to open: a status, not a button
+  if (!list.length) problemsPanel.hidden = true;
   problemsBtn.className = `fp-tb-btn ${errors ? "fp-tb-error" : list.length ? "fp-tb-warn" : "fp-tb-ok"}`;
   problemsPanel.replaceChildren(
     h("div", { class: "fp-problems-head" }, h("strong", {}, "Problemy znalezione podczas renderowania"),
@@ -206,6 +213,20 @@ $("load-other").addEventListener("click", () => {
   history.replaceState(null, "", location.pathname);
   showLoader();
 });
+
+// ---- debug drawer (bottom right, remembers open/closed) ----
+
+const DEBUG_KEY = "kodex.debugOpen";
+const debugToggle = $("debug-toggle");
+function setDebug(open) {
+  controls.classList.toggle("fp-debug-open", open);
+  debugToggle.setAttribute("aria-expanded", String(open));
+  debugToggle.title = open ? "Zwiń narzędzia" : "Narzędzia podglądu";
+  try { localStorage.setItem(DEBUG_KEY, open ? "1" : "0"); } catch { /* ignore */ }
+  if (!open) problemsPanel.hidden = true;
+}
+debugToggle.addEventListener("click", () => setDebug(!controls.classList.contains("fp-debug-open")));
+setDebug((() => { try { return localStorage.getItem(DEBUG_KEY) === "1"; } catch { return false; } })());
 
 // ---- start ----
 
