@@ -2,7 +2,7 @@
   "title": "Deklaracja o wysokości miesięcznej opłaty za gospodarowanie odpadami komunalnymi",
   "tabs": [
     {
-      "id": "72e05617-abe2-4319-b6bf-2c6f16bf1129",
+      "id": "7b37d287-c6b8-48d1-a249-f7c29a511151",
       "title": "Organ i wnioskodawca",
       "type": "MAIN",
       "questions": [
@@ -24,7 +24,7 @@
                   "readOnly": true,
                   "defaultValue": "Prezydent Miasta Gdyni",
                   "questionOrder": 0,
-                  "id": "81ada66d-ffcd-45f9-a715-675bcdf4ada8"
+                  "id": "e9584760-ea28-43df-986f-705f67e671f7"
                 },
                 "x": 0,
                 "y": 0,
@@ -34,16 +34,14 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "adres_organu",
-                  "title": "Adres organu",
+                  "techName": "ulica",
+                  "title": "Ulica",
                   "validation": [
                     "REQUIRED"
                   ],
                   "states": [],
-                  "readOnly": true,
-                  "defaultValue": "Prezydent Miasta Gdyni",
                   "questionOrder": 1,
-                  "id": "9ba9faa0-0cc3-49e1-ae94-8f32396c4f1e"
+                  "id": "6c1eca44-d589-44db-b44c-c4a818cb1b8b"
                 },
                 "x": 0,
                 "y": 1,
@@ -61,7 +59,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "efb455a0-fa66-4548-b549-38ff192798d0"
+                  "id": "3e0e8d1d-4463-4b63-adbd-016ca8c36fb6"
                 },
                 "x": 0,
                 "y": 2,
@@ -81,7 +79,7 @@
                   "searchEnabled": true,
                   "states": [],
                   "questionOrder": 3,
-                  "id": "053ff46c-16fb-4dbe-8034-d5693339cd24"
+                  "id": "3a1b23ba-3fcf-4f5e-bb21-1b0c94733ece"
                 },
                 "x": 0,
                 "y": 3,
@@ -91,7 +89,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "8d730f93-d1b4-4c63-917d-3483c3b82b98"
+            "id": "e78fff47-009f-4c0f-88bb-57478f33b7a3"
           },
           "x": 0,
           "y": 0,
@@ -147,7 +145,7 @@
                   "searchEnabled": false,
                   "states": [],
                   "questionOrder": 0,
-                  "id": "36a80a50-fe1b-4b32-8650-719dc06aeb20"
+                  "id": "0efcab5b-3988-4698-b332-94c3510c4da5"
                 },
                 "x": 0,
                 "y": 0,
@@ -164,7 +162,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "fc85a997-ca2e-4c82-a218-fa14590a72cc"
+                  "id": "8c0ad828-a5d3-4626-a00c-4352415daa69"
                 },
                 "x": 0,
                 "y": 1,
@@ -182,7 +180,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "f79a8f6a-47d3-4b2e-b5d7-e57f2269bd40"
+                  "id": "7cc0a95f-806c-4132-9964-a411fcd301d8"
                 },
                 "x": 0,
                 "y": 2,
@@ -197,7 +195,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "53194e87-3786-4f1f-9465-82a080187189"
+                  "id": "247fc070-a637-4fc3-bd42-46fa2fa8c6bd"
                 },
                 "x": 0,
                 "y": 3,
@@ -220,7 +218,7 @@
                   ],
                   "states": [],
                   "questionOrder": 4,
-                  "id": "ce5a693d-7281-4750-84c5-51dbcd494800"
+                  "id": "486eff88-8126-45f2-a9e1-72d7e7717fc8"
                 },
                 "x": 0,
                 "y": 4,
@@ -247,7 +245,7 @@
                     }
                   ],
                   "questionOrder": 5,
-                  "id": "b28ad4fe-c998-4554-8f82-8e44aa2bf5b3"
+                  "id": "3498fcbc-f8ef-4c6b-bc81-62778b0c057f"
                 },
                 "x": 0,
                 "y": 5,
@@ -257,14 +255,14 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "ulica",
+                  "techName": "ulica_dane_podmiotu_zobowiazanego_do_zlozenia_deklaracji",
                   "title": "Ulica",
                   "validation": [
                     "REQUIRED"
                   ],
                   "states": [],
                   "questionOrder": 6,
-                  "id": "ca3718ee-df63-4779-8948-3091e360412e"
+                  "id": "722ac01c-e92d-45d9-b9e4-085e1a93e024"
                 },
                 "x": 0,
                 "y": 6,
@@ -281,7 +279,7 @@
                   ],
                   "states": [],
                   "questionOrder": 7,
-                  "id": "63e4f937-f5c7-450e-b531-3bf5b20a64a0"
+                  "id": "cd530322-5c0b-4e22-aacf-7e18242fd499"
                 },
                 "x": 0,
                 "y": 7,
@@ -296,7 +294,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 8,
-                  "id": "65ca87ef-b216-4bf1-af1a-cb3a8053eb46"
+                  "id": "35452273-2072-4d13-b54d-9a36166cb10d"
                 },
                 "x": 0,
                 "y": 8,
@@ -314,7 +312,7 @@
                   ],
                   "states": [],
                   "questionOrder": 9,
-                  "id": "4482a247-59b6-4db3-8f35-7d4bc8a7c025"
+                  "id": "6d39f41c-3a6c-4332-b38b-97d78be6f287"
                 },
                 "x": 0,
                 "y": 9,
@@ -329,7 +327,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 10,
-                  "id": "1603f6dd-0d4a-49ca-bcda-9207892ff9c4"
+                  "id": "24a987dc-0c56-429f-9858-9c30419b8ecc"
                 },
                 "x": 0,
                 "y": 10,
@@ -338,8 +336,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "3cb4e65f-e924-462f-8732-f7aaf8de3c24"
+            "questionOrder": 4,
+            "id": "c7b57ab9-e324-4a4f-a64d-b3590a09243e"
           },
           "x": 0,
           "y": 4,
@@ -367,7 +365,7 @@
                     }
                   ],
                   "questionOrder": 0,
-                  "id": "140a576a-e667-4f5f-a35a-13d2f5e8d799"
+                  "id": "5c84f759-a6cb-4d37-945b-40a14aa8dced"
                 },
                 "x": 0,
                 "y": 0,
@@ -376,7 +374,7 @@
               },
               {
                 "field": {
-                  "type": "TEXT_FIELD",
+                  "type": "TEXTAREA",
                   "techName": "adres_zamieszkania",
                   "title": "Adres zamieszkania",
                   "validation": [
@@ -389,7 +387,7 @@
                     }
                   ],
                   "questionOrder": 1,
-                  "id": "18f25d26-5903-4d9e-8a60-7ce0758e8253"
+                  "id": "ffb87695-ed7f-4031-ac2f-b132c647a896"
                 },
                 "x": 0,
                 "y": 1,
@@ -412,7 +410,7 @@
                     }
                   ],
                   "questionOrder": 2,
-                  "id": "2c0148e9-f1ed-47a8-8a47-503fa6c40645"
+                  "id": "192af89b-5b28-4f96-ba0d-03ecdd2881cd"
                 },
                 "x": 0,
                 "y": 2,
@@ -426,8 +424,8 @@
                 "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Organ i wnioskodawca' in title].questions['dane_podmiotu_zobowiazanego_do_zlozenia_deklaracji' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
               }
             ],
-            "questionOrder": 2,
-            "id": "3cdaec6d-d9ef-42cd-b894-3207269cc9f5"
+            "questionOrder": 15,
+            "id": "71f7d946-a884-492b-9451-fc5a42dea902"
           },
           "x": 0,
           "y": 15,
@@ -454,7 +452,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "b721911a-d1d6-4422-adf4-1cdd8dd854f9"
+                  "id": "406f66fd-b9f1-41ec-b6a5-4e5d6684eb5d"
                 },
                 "x": 0,
                 "y": 0,
@@ -479,7 +477,7 @@
                     }
                   ],
                   "questionOrder": 1,
-                  "id": "0eebf827-3a10-4ef5-9db0-629e450499a8"
+                  "id": "3431503c-1f59-4f74-8164-327e8d9c23dc"
                 },
                 "x": 0,
                 "y": 1,
@@ -497,7 +495,7 @@
                   "defaultValue": "MLPZ.street",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 2,
-                  "id": "e1a18b08-eb82-4005-93d0-252fe3a3aa52"
+                  "id": "b468be0b-0aed-439c-a4e4-fe9fb36a1eee"
                 },
                 "x": 0,
                 "y": 2,
@@ -512,7 +510,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "8849feb6-0f3a-4726-a997-278138790ce1"
+                  "id": "451384d2-b46f-44c0-ba94-c729b134b18b"
                 },
                 "x": 0,
                 "y": 3,
@@ -530,7 +528,7 @@
                   "defaultValue": "MLPZ.apartment",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 4,
-                  "id": "cd72e948-7f5d-4350-8625-f5bf2d71b747"
+                  "id": "13228d81-33b7-4bb1-b874-de1bc40cb09e"
                 },
                 "x": 0,
                 "y": 4,
@@ -550,7 +548,7 @@
                   "defaultValue": "MLPZ.postCode",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 5,
-                  "id": "71b83161-26d8-4b8a-91d5-333a58a26c81"
+                  "id": "7e125638-e22a-4cc2-863c-546da993172a"
                 },
                 "x": 0,
                 "y": 5,
@@ -559,8 +557,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 3,
-            "id": "3a04b006-1bb7-4175-b9e1-a9bbdba100b4"
+            "questionOrder": 18,
+            "id": "240b6f16-aa26-463e-a4c3-b44c31da3185"
           },
           "x": 0,
           "y": 18,
@@ -570,7 +568,7 @@
       ]
     },
     {
-      "id": "a48d8d35-b379-4b6d-918f-028ffaed7fad",
+      "id": "9a5e59de-9486-4fbc-80bc-336633b82fe6",
       "title": "Przedmiot deklaracji",
       "type": "MAIN",
       "questions": [
@@ -612,7 +610,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "3331e246-0a3e-436d-b1ee-df8e692497b4"
+                  "id": "065afaa4-71cb-4a57-b77d-ab100a886a32"
                 },
                 "x": 0,
                 "y": 0,
@@ -629,7 +627,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "9fa039c5-1f1a-4739-b6b1-c4813f7c95b9"
+                  "id": "474740a3-feeb-4f1e-add1-52bae6663623"
                 },
                 "x": 0,
                 "y": 1,
@@ -639,7 +637,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "13d5239a-b942-4039-87b3-1302f5a57d17"
+            "id": "20d630bc-445a-4cdb-af46-f8728d3dfeeb"
           },
           "x": 0,
           "y": 0,
@@ -665,7 +663,7 @@
                   "searchEnabled": true,
                   "states": [],
                   "questionOrder": 0,
-                  "id": "89266565-29b1-410b-8cf3-fff3afe1ba13"
+                  "id": "9d5b4c18-d806-4a3f-825d-f5eede87c6da"
                 },
                 "x": 0,
                 "y": 0,
@@ -683,7 +681,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "ac718030-9256-4f57-8104-6c87e2369978"
+                  "id": "9b5814c5-25bf-43c2-a59c-c3d809db6047"
                 },
                 "x": 0,
                 "y": 1,
@@ -700,7 +698,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "e9ec2450-cc60-4c9e-9bc8-0cee0409a76c"
+                  "id": "15982e8f-3f65-4b90-8a4b-87dc2547944a"
                 },
                 "x": 0,
                 "y": 2,
@@ -717,7 +715,7 @@
                   ],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "81cae3de-3c57-44a6-9acc-5b422f963107"
+                  "id": "3c79fab6-606a-4774-bc4c-0e018765a57a"
                 },
                 "x": 0,
                 "y": 3,
@@ -732,7 +730,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 4,
-                  "id": "66fc3508-4b1e-4772-9fcc-00b35f785a2d"
+                  "id": "c5ec2a21-5555-47cf-9945-45af57225b52"
                 },
                 "x": 0,
                 "y": 4,
@@ -741,8 +739,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "5ae9885b-b7a8-43f1-ab16-79bc4b241ac8"
+            "questionOrder": 2,
+            "id": "c23661f1-7d75-4e6f-b2f5-ea1d4940127e"
           },
           "x": 0,
           "y": 2,
@@ -763,14 +761,9 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "states": [
-                    {
-                      "type": "SHOW",
-                      "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym\" in tabs['Przedmiot deklaracji' in title].questions['rodzaj_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci_rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
-                    }
-                  ],
+                  "states": [],
                   "questionOrder": 0,
-                  "id": "00bc80e3-e288-4c58-8685-7296d9a80c6f"
+                  "id": "2c4dc1e6-8f3c-442d-867f-c79c56d0da7d"
                 },
                 "x": 0,
                 "y": 0,
@@ -785,14 +778,9 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "states": [
-                    {
-                      "type": "SHOW",
-                      "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym\" in tabs['Przedmiot deklaracji' in title].questions['rodzaj_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci_rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
-                    }
-                  ],
+                  "states": [],
                   "questionOrder": 1,
-                  "id": "ba0bd1df-c671-496e-9c55-ef0fe6c30f57"
+                  "id": "d3ad8d3a-05bd-44db-8307-1fa8cacec6bd"
                 },
                 "x": 0,
                 "y": 1,
@@ -800,14 +788,9 @@
                 "cols": 3
               }
             ],
-            "states": [
-              {
-                "type": "SHOW",
-                "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym\" in tabs['Przedmiot deklaracji' in title].questions['rodzaj_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci_rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
-              }
-            ],
-            "questionOrder": 2,
-            "id": "f7c82e26-fb5d-44a7-a289-62b30ac3184f"
+            "states": [],
+            "questionOrder": 7,
+            "id": "cd7f60b3-7113-4c63-8eb0-5dad8b75392e"
           },
           "x": 0,
           "y": 7,
@@ -842,7 +825,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "076ada17-8484-45f6-b383-a507ed9e6b45"
+                  "id": "65ed1f53-3286-47ae-b878-18270a9f3cbc"
                 },
                 "x": 0,
                 "y": 0,
@@ -871,7 +854,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "f1ba7901-89c6-4741-a323-d99f3a38a301"
+                  "id": "dc73401c-ffe7-404a-a3cb-854aebbf9416"
                 },
                 "x": 0,
                 "y": 1,
@@ -880,8 +863,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 3,
-            "id": "df54aed4-e327-4c61-9e61-030983c9b6a9"
+            "questionOrder": 9,
+            "id": "8d52e00a-3ca1-4128-843c-1cc76832db69"
           },
           "x": 0,
           "y": 9,
@@ -914,14 +897,9 @@
                   "validation": [
                     "REQUIRED"
                   ],
-                  "states": [
-                    {
-                      "type": "SHOW",
-                      "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym jednorodzinnym\" in tabs['Przedmiot deklaracji' in title].questions['rodzaj_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci_rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
-                    }
-                  ],
+                  "states": [],
                   "questionOrder": 0,
-                  "id": "7617a6af-cafb-4d76-9f03-d93258cf5f41"
+                  "id": "ced67023-f39a-4074-9158-d4d27404369e"
                 },
                 "x": 0,
                 "y": 0,
@@ -929,14 +907,9 @@
                 "cols": 3
               }
             ],
-            "states": [
-              {
-                "type": "SHOW",
-                "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym jednorodzinnym\" in tabs['Przedmiot deklaracji' in title].questions['rodzaj_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci_rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
-              }
-            ],
-            "questionOrder": 4,
-            "id": "c5e64710-1b27-41ab-b806-a9783478379c"
+            "states": [],
+            "questionOrder": 11,
+            "id": "72a1671d-3178-446d-92e1-caa9e761f773"
           },
           "x": 0,
           "y": 11,
@@ -946,7 +919,7 @@
       ]
     },
     {
-      "id": "11f37cca-b05e-4e0b-97cf-f60e79defc52",
+      "id": "6d69d576-85b9-454a-bc6d-0dbd284d0c35",
       "title": "Obliczenie opłaty",
       "type": "MAIN",
       "questions": [
@@ -966,7 +939,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "da557af6-d4a4-4f98-bc19-888f7f9f13a4"
+                  "id": "fdb01927-cb9b-474d-bf97-4b689c6e6843"
                 },
                 "x": 0,
                 "y": 0,
@@ -981,9 +954,10 @@
                   "validation": [
                     "REQUIRED"
                   ],
+                  "description": "38 zł",
                   "states": [],
                   "questionOrder": 1,
-                  "id": "b2d047e2-eec1-4e84-a84b-bd85f82a0ca8"
+                  "id": "1f139905-911c-4044-ad19-dad0c3e1f4c9"
                 },
                 "x": 0,
                 "y": 1,
@@ -1000,7 +974,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "4bb63d14-f8a3-4ddb-af3c-7067516334f9"
+                  "id": "bae843da-50cc-44a3-8815-038b13d6557c"
                 },
                 "x": 0,
                 "y": 2,
@@ -1017,7 +991,7 @@
                   ],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "c2725f1c-3ba6-4951-8349-aca1f2b30a03"
+                  "id": "4216ef69-8a54-499b-9fe9-7167b0b09ce5"
                 },
                 "x": 0,
                 "y": 3,
@@ -1032,9 +1006,10 @@
                   "validation": [
                     "REQUIRED"
                   ],
+                  "description": "69 zł",
                   "states": [],
                   "questionOrder": 4,
-                  "id": "e99a6164-1a04-4ff9-8d9e-a319518eb060"
+                  "id": "a2d93a16-33e7-42f7-9f4b-f86e0d71ebf8"
                 },
                 "x": 0,
                 "y": 4,
@@ -1051,7 +1026,7 @@
                   ],
                   "states": [],
                   "questionOrder": 5,
-                  "id": "5aaa650e-a828-4fd3-b323-17bf5615bf5c"
+                  "id": "7804da86-59b1-4fbe-91cd-02031a0ed8a6"
                 },
                 "x": 0,
                 "y": 5,
@@ -1068,7 +1043,7 @@
                   ],
                   "states": [],
                   "questionOrder": 6,
-                  "id": "33eeab13-9666-4fd4-b705-ed951ce60935"
+                  "id": "d95ba9f7-cf32-4f21-a53b-170e07eb58de"
                 },
                 "x": 0,
                 "y": 6,
@@ -1083,9 +1058,10 @@
                   "validation": [
                     "REQUIRED"
                   ],
+                  "description": "81 zł",
                   "states": [],
                   "questionOrder": 7,
-                  "id": "8303a1f6-5bed-48fb-99a5-b5a8af33150a"
+                  "id": "43c44e96-ce95-4090-aedc-bd98231be2f0"
                 },
                 "x": 0,
                 "y": 7,
@@ -1102,7 +1078,7 @@
                   ],
                   "states": [],
                   "questionOrder": 8,
-                  "id": "48a57231-a7c2-4c0f-9b30-91ce54b0d9e2"
+                  "id": "6df078af-0750-4158-ad62-a4ad2a823141"
                 },
                 "x": 0,
                 "y": 8,
@@ -1119,7 +1095,7 @@
                   ],
                   "states": [],
                   "questionOrder": 9,
-                  "id": "68979e5e-9ace-4958-ae1a-0b9f46a0b3b7"
+                  "id": "705860a5-62f3-4c47-8b83-04d409285ed5"
                 },
                 "x": 0,
                 "y": 9,
@@ -1134,9 +1110,10 @@
                   "validation": [
                     "REQUIRED"
                   ],
+                  "description": "101 zł",
                   "states": [],
                   "questionOrder": 10,
-                  "id": "0189d3c1-1ff7-4ea0-a66b-5dfa8da75be2"
+                  "id": "fb153f71-f664-457a-9af9-25588d7eb3e5"
                 },
                 "x": 0,
                 "y": 10,
@@ -1153,7 +1130,7 @@
                   ],
                   "states": [],
                   "questionOrder": 11,
-                  "id": "02c19ef3-be10-43c1-a445-019534aba46d"
+                  "id": "26a33b86-93e8-4f0c-8be6-d3dfe076eec5"
                 },
                 "x": 0,
                 "y": 11,
@@ -1170,7 +1147,7 @@
                   ],
                   "states": [],
                   "questionOrder": 12,
-                  "id": "3b358ec8-f035-4603-bd7f-8b625acf7275"
+                  "id": "8facb236-c6a4-4619-bf58-be59bece6bdd"
                 },
                 "x": 0,
                 "y": 12,
@@ -1185,9 +1162,10 @@
                   "validation": [
                     "REQUIRED"
                   ],
+                  "description": "- 15 zł 00 gr",
                   "states": [],
                   "questionOrder": 13,
-                  "id": "0bab2c50-fd51-4182-b4c2-a2aba87c0796"
+                  "id": "ec04fb3c-5cb2-402f-aee9-20a550bef724"
                 },
                 "x": 0,
                 "y": 13,
@@ -1204,7 +1182,7 @@
                   ],
                   "states": [],
                   "questionOrder": 14,
-                  "id": "a637f57a-2e76-4342-9089-d38ef0934a7e"
+                  "id": "de5024c8-f121-4e88-9148-7197d953be7c"
                 },
                 "x": 0,
                 "y": 14,
@@ -1221,7 +1199,7 @@
                   ],
                   "states": [],
                   "questionOrder": 15,
-                  "id": "ecd82299-13b9-455a-97ab-51350c50ec6d"
+                  "id": "d7aa55ca-4412-46df-a4a5-e7bff26b9b0f"
                 },
                 "x": 0,
                 "y": 15,
@@ -1231,7 +1209,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "ec944b8c-7d96-4270-ba86-cef6bbf7ccee"
+            "id": "4f0d4073-2431-439c-a80e-33f5f7a6e8cc"
           },
           "x": 0,
           "y": 0,
@@ -1241,13 +1219,13 @@
         {
           "field": {
             "type": "SECTION",
-            "techName": "obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
-            "title": "Obliczenie opłaty dla nieruchomości z kompostownikiem",
+            "techName": "obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
+            "title": "Obliczenie wysokości opłaty dla nieruchomości z kompostownikiem",
             "repeatingSectionGrid": [
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_nie_przekraczajacej_45_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_nie_przekraczajacej_45_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej nie przekraczającej 45 m²",
                   "validation": [
                     "REQUIRED"
@@ -1259,7 +1237,7 @@
                     }
                   ],
                   "questionOrder": 0,
-                  "id": "2dc55514-83fb-406e-be8f-bfdef569560d"
+                  "id": "e5636d3a-7b91-4598-afa1-9d955f87bd75"
                 },
                 "x": 0,
                 "y": 0,
@@ -1269,7 +1247,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_do_45_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_do_45_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Stawka opłaty od gospodarstwa domowego (do 45 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1281,7 +1259,7 @@
                     }
                   ],
                   "questionOrder": 1,
-                  "id": "ee367763-5103-4b9f-b973-4d67413e68f6"
+                  "id": "39bcbebb-32d0-4fa5-ac52-76894e485aa4"
                 },
                 "x": 0,
                 "y": 1,
@@ -1291,7 +1269,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "wysokosc_miesiecznej_oplaty_do_45_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "wysokosc_miesiecznej_oplaty_do_45_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Wysokość miesięcznej opłaty (do 45 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1303,7 +1281,7 @@
                     }
                   ],
                   "questionOrder": 2,
-                  "id": "1815ab23-41c8-442c-903e-c5915204e848"
+                  "id": "0874d6ff-9bc6-4a0d-ab0a-f55fe06dcbbb"
                 },
                 "x": 0,
                 "y": 2,
@@ -1313,7 +1291,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_45_m2_jednak_nie_wiekszej_niz_60_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_45_m2_jednak_nie_wiekszej_niz_60_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 45 m² jednak nie większej niż 60 m²",
                   "validation": [
                     "REQUIRED"
@@ -1325,7 +1303,7 @@
                     }
                   ],
                   "questionOrder": 3,
-                  "id": "3947caf3-b417-44a2-9ae3-d8cdd4a639e4"
+                  "id": "be398b7c-97eb-4bab-beb5-ed9a010b0e54"
                 },
                 "x": 0,
                 "y": 3,
@@ -1335,7 +1313,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_45_60_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_45_60_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Stawka opłaty od gospodarstwa domowego (45-60 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1347,7 +1325,7 @@
                     }
                   ],
                   "questionOrder": 4,
-                  "id": "4a79b762-6c7d-455b-ae97-52f8ad921849"
+                  "id": "b9e2fc28-1082-4e5b-bd16-b1064ea8600b"
                 },
                 "x": 0,
                 "y": 4,
@@ -1357,7 +1335,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "wysokosc_miesiecznej_oplaty_45_60_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "wysokosc_miesiecznej_oplaty_45_60_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Wysokość miesięcznej opłaty (45-60 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1369,7 +1347,7 @@
                     }
                   ],
                   "questionOrder": 5,
-                  "id": "1850dd10-9c65-4ef7-9c96-853737c8d597"
+                  "id": "79d2307e-8765-4d00-ad99-c2bb5b8fe1e8"
                 },
                 "x": 0,
                 "y": 5,
@@ -1379,7 +1357,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_60_m2_jednak_nie_wiekszej_niz_80_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_60_m2_jednak_nie_wiekszej_niz_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 60 m² jednak nie większej niż 80 m²",
                   "validation": [
                     "REQUIRED"
@@ -1391,7 +1369,7 @@
                     }
                   ],
                   "questionOrder": 6,
-                  "id": "4cafaa7e-b569-43a2-bf5f-b7462ce63c16"
+                  "id": "cdfd3d8d-f3a1-4f79-be24-a8fb658f5fca"
                 },
                 "x": 0,
                 "y": 6,
@@ -1401,7 +1379,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_60_80_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_60_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Stawka opłaty od gospodarstwa domowego (60-80 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1413,7 +1391,7 @@
                     }
                   ],
                   "questionOrder": 7,
-                  "id": "4d6443e6-c7d9-4202-81e2-e6e19d6b98cc"
+                  "id": "2878b953-82ee-4ff9-8e1d-59202cbe642d"
                 },
                 "x": 0,
                 "y": 7,
@@ -1423,7 +1401,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "wysokosc_miesiecznej_oplaty_60_80_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "wysokosc_miesiecznej_oplaty_60_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Wysokość miesięcznej opłaty (60-80 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1435,7 +1413,7 @@
                     }
                   ],
                   "questionOrder": 8,
-                  "id": "9305c6df-bac4-4ca6-af4c-2945f5674125"
+                  "id": "95954f68-01e1-49e1-81e2-05e43bcc55ec"
                 },
                 "x": 0,
                 "y": 8,
@@ -1445,7 +1423,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_80_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 80 m²",
                   "validation": [
                     "REQUIRED"
@@ -1457,7 +1435,7 @@
                     }
                   ],
                   "questionOrder": 9,
-                  "id": "5fd615e4-caaf-450f-a14d-89d4b9f7870f"
+                  "id": "760d30a1-fbcd-43d1-9fbb-401cc5ce92e3"
                 },
                 "x": 0,
                 "y": 9,
@@ -1467,7 +1445,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_powyzej_80_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "stawka_oplaty_od_gospodarstwa_domowego_powyzej_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Stawka opłaty od gospodarstwa domowego (powyżej 80 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1479,7 +1457,7 @@
                     }
                   ],
                   "questionOrder": 10,
-                  "id": "1cb978c2-4ba9-49bc-b40a-3c36008444f5"
+                  "id": "4f2cfe5e-7de8-4e00-93f5-13620fb55c4b"
                 },
                 "x": 0,
                 "y": 10,
@@ -1489,7 +1467,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "wysokosc_miesiecznej_oplaty_powyzej_80_m2_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "wysokosc_miesiecznej_oplaty_powyzej_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Wysokość miesięcznej opłaty (powyżej 80 m²)",
                   "validation": [
                     "REQUIRED"
@@ -1501,7 +1479,7 @@
                     }
                   ],
                   "questionOrder": 11,
-                  "id": "ea767ddb-5d7b-48e4-99e0-8721b2bc5df1"
+                  "id": "7b51965f-f570-4d04-9238-d2ed755f2d13"
                 },
                 "x": 0,
                 "y": 11,
@@ -1511,7 +1489,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "liczba_gospodarstw_domowych_objetych_zwolnieniem_dochodowym_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "liczba_gospodarstw_domowych_objetych_zwolnieniem_dochodowym_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Liczba gospodarstw domowych objętych zwolnieniem dochodowym",
                   "validation": [
                     "REQUIRED"
@@ -1523,7 +1501,7 @@
                     }
                   ],
                   "questionOrder": 12,
-                  "id": "3bdbf31e-af6d-49a9-af98-47eb44bdce89"
+                  "id": "bb5d6663-dd90-4b5a-be28-e911066523e5"
                 },
                 "x": 0,
                 "y": 12,
@@ -1533,7 +1511,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "stawka_zwolnienia_od_gospodarstwa_domowego_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "stawka_zwolnienia_od_gospodarstwa_domowego_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Stawka zwolnienia od gospodarstwa domowego",
                   "validation": [
                     "REQUIRED"
@@ -1545,7 +1523,7 @@
                     }
                   ],
                   "questionOrder": 13,
-                  "id": "0bd8d225-e6a0-4880-8ce8-662ec35bb4df"
+                  "id": "a7f7d9fc-cc36-4205-a2fc-ab499601a455"
                 },
                 "x": 0,
                 "y": 13,
@@ -1555,7 +1533,7 @@
               {
                 "field": {
                   "type": "NUMBER",
-                  "techName": "wysokosc_miesiecznego_zwolnienia_obliczenie_oplaty_dla_nieruchomosci_z_kompostownikiem",
+                  "techName": "wysokosc_miesiecznego_zwolnienia_obliczenie_wysokosci_oplaty_dla_nieruchomosci_z_kompostownikiem",
                   "title": "Wysokość miesięcznego zwolnienia",
                   "validation": [
                     "REQUIRED"
@@ -1567,7 +1545,7 @@
                     }
                   ],
                   "questionOrder": 14,
-                  "id": "a9faec1a-b4f9-4b3a-a0a0-60fa80db0e84"
+                  "id": "4fe69e59-de8e-4ac4-b0a3-b3f7d2aacb3a"
                 },
                 "x": 0,
                 "y": 14,
@@ -1589,7 +1567,7 @@
                     }
                   ],
                   "questionOrder": 15,
-                  "id": "0de839bf-88a0-46ec-8e9c-6a4436f0ef3f"
+                  "id": "0901a068-5bcc-4843-9805-7f20cdd1605e"
                 },
                 "x": 0,
                 "y": 15,
@@ -1603,8 +1581,8 @@
                 "query": "(\"Tak\" in tabs['Przedmiot deklaracji' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
               }
             ],
-            "questionOrder": 1,
-            "id": "7a78238a-c396-45e8-bed5-2fc80970eb9f"
+            "questionOrder": 16,
+            "id": "7c204dbd-e7a4-41c8-8330-53f0088c1cbd"
           },
           "x": 0,
           "y": 16,
@@ -1614,14 +1592,14 @@
         {
           "field": {
             "type": "SECTION",
-            "techName": "oplata_dla_czesci_nieruchomosci_bez_mieszkancow",
-            "title": "Opłata dla części nieruchomości bez mieszkańców",
+            "techName": "wysokosc_oplaty_dla_czesci_nieruchomosci_bez_mieszkancow",
+            "title": "Wysokość opłaty dla części nieruchomości bez mieszkańców",
             "repeatingSectionGrid": [
               {
                 "field": {
                   "type": "NUMBER",
                   "techName": "kwota_z_poz_29_zalacznika_a_lub_b_do_deklaracji",
-                  "title": "KWOTA z poz. 29 załącznika A lub B do deklaracji",
+                  "title": "Kwota z poz. 29 załącznika A lub B do deklaracji",
                   "validation": [
                     "REQUIRED"
                   ],
@@ -1632,7 +1610,7 @@
                     }
                   ],
                   "questionOrder": 0,
-                  "id": "dbc2c083-ecdd-4d12-a45a-31d86581bd20"
+                  "id": "3b5eca9e-8a79-498b-ad9b-ca50b6fb2f1d"
                 },
                 "x": 0,
                 "y": 0,
@@ -1646,8 +1624,8 @@
                 "query": "(\"Tak\" in tabs['Przedmiot deklaracji' in title].questions['rodzaj_nieruchomosci' in field.techName].field.repeatingSectionGrid['nieruchomosc_zaznaczona_w_poz_33_jest_nieruchomoscia_ktora_w_czesci_stanowi_nieruchomosc_na_ktorej_zamieszkuja_mieszkancy_a_w_czesci_nieruchomosc_na_ktorej_nie_zamieszkuja_mieszkancy_a_powstaja_na' in field.techName].field.__userAnswer)"
               }
             ],
-            "questionOrder": 2,
-            "id": "c2f2a237-ddec-41e5-9716-d76abf5744a1"
+            "questionOrder": 32,
+            "id": "180641eb-89b5-41e3-8c25-df1d92d0fb7d"
           },
           "x": 0,
           "y": 32,
@@ -1664,13 +1642,13 @@
                 "field": {
                   "type": "NUMBER",
                   "techName": "suma_poz_51_lub_67_oraz_68",
-                  "title": "SUMA poz. 51 lub 67 oraz 68",
+                  "title": "Suma poz. 51 lub 67 oraz 68",
                   "validation": [
                     "REQUIRED"
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "733244a0-9b4c-4598-ac42-9b1d0dbb821d"
+                  "id": "a2291194-fca0-4028-9f85-67ccdc1fa19d"
                 },
                 "x": 0,
                 "y": 0,
@@ -1679,8 +1657,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 3,
-            "id": "ed4d57de-2f48-43a6-b62a-18763ced758d"
+            "questionOrder": 33,
+            "id": "93b73a26-365b-428f-824a-995efbcf144f"
           },
           "x": 0,
           "y": 33,
@@ -1690,7 +1668,7 @@
       ]
     },
     {
-      "id": "30e97d79-3b30-4c87-b7ad-330b3f7be99d",
+      "id": "85cb72fd-dc65-42f2-a363-6004cc7f5c0a",
       "title": "Kontakt, załączniki i podpis",
       "type": "MAIN",
       "questions": [
@@ -1711,7 +1689,7 @@
                   "defaultValue": "MLPZ.phoneNumber",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 0,
-                  "id": "e22e4917-3f31-45da-afee-bc100f2431ff"
+                  "id": "5100d992-4372-41d3-8f87-d1ef40595ae4"
                 },
                 "x": 0,
                 "y": 0,
@@ -1731,7 +1709,7 @@
                   "defaultValue": "MLPZ.email",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 1,
-                  "id": "6d0e9b5f-337a-42c2-9963-4f160eeb0b6e"
+                  "id": "bce49412-0766-4acf-b7c2-e0d8c5c074cd"
                 },
                 "x": 0,
                 "y": 1,
@@ -1758,7 +1736,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "804f3657-4293-4175-b438-a578de30f9fa"
+                  "id": "1a3d3869-063a-49bf-9e4a-e74878b724f3"
                 },
                 "x": 0,
                 "y": 2,
@@ -1768,7 +1746,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "ebcba200-cb50-40a4-b796-3d822551f569"
+            "id": "f699e261-eed7-4546-b539-493d5b86ca5f"
           },
           "x": 0,
           "y": 0,
@@ -1801,7 +1779,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "c5c204b2-26e4-4bba-ac7a-96f941abf37d"
+                  "id": "b8bfbfbd-aaaa-4d56-a1bf-4d11e81a5007"
                 },
                 "x": 0,
                 "y": 0,
@@ -1828,7 +1806,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "49587869-2ad4-49d8-9a26-bf00cfbf3585"
+                  "id": "fb9f1cd8-4a43-49b0-b4db-9c9d84bb5782"
                 },
                 "x": 0,
                 "y": 1,
@@ -1855,7 +1833,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "f6826092-b241-4597-a15d-0cc8c970b524"
+                  "id": "78907d78-7a18-4ed4-a791-2de85a910379"
                 },
                 "x": 0,
                 "y": 2,
@@ -1865,8 +1843,8 @@
               {
                 "field": {
                   "type": "TEXT_FIELD",
-                  "techName": "inne_podac_jakie",
-                  "title": "Inne (podać jakie)",
+                  "techName": "inne_zalaczniki_podac_jakie",
+                  "title": "Inne załączniki (podać jakie)",
                   "validation": [],
                   "states": [
                     {
@@ -1875,7 +1853,7 @@
                     }
                   ],
                   "questionOrder": 3,
-                  "id": "8bad9ab2-56a4-41d1-8c5c-292d8ab3fbb6"
+                  "id": "f7d55e98-ccfa-4a27-9b87-a3cc9022e2ad"
                 },
                 "x": 0,
                 "y": 3,
@@ -1884,8 +1862,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "1425c508-57f8-4525-9630-e524e5fba313"
+            "questionOrder": 3,
+            "id": "f7634b7c-ed8e-46dd-be5b-23f12423431d"
           },
           "x": 0,
           "y": 3,
@@ -1896,7 +1874,7 @@
           "field": {
             "type": "SECTION",
             "techName": "podpis_skladajacego_deklaracje",
-            "title": "Składający deklarację",
+            "title": "Podpis składającego deklarację",
             "repeatingSectionGrid": [
               {
                 "field": {
@@ -1908,7 +1886,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "99e48a5c-0141-4b97-9ec7-23c42f2acea1"
+                  "id": "142171d4-97f3-449b-ab51-2d840be28b67"
                 },
                 "x": 0,
                 "y": 0,
@@ -1925,7 +1903,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "e08131e1-b2a4-4107-bf2a-659b97883b93"
+                  "id": "c2b5baa4-fb52-430c-ba88-930470df26b4"
                 },
                 "x": 0,
                 "y": 1,
@@ -1942,27 +1920,65 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "8b185722-a2e4-400b-9e87-8e279bf9371f"
+                  "id": "d4a565e9-9c6c-48e5-9297-69ef3b60e1fc"
                 },
                 "x": 0,
                 "y": 2,
                 "rows": 1,
                 "cols": 3
+              },
+              {
+                "field": {
+                  "type": "FILE_UPLOADER",
+                  "techName": "podpis_skladajacego_deklaracje_osoby_reprezentujacej",
+                  "title": "Podpis składającego deklarację / osoby reprezentującej",
+                  "validation": [
+                    "REQUIRED"
+                  ],
+                  "states": [],
+                  "questionOrder": 3,
+                  "id": "4b872889-55d4-4961-bedb-1b08bef29969"
+                },
+                "x": 0,
+                "y": 3,
+                "rows": 1,
+                "cols": 3
+              },
+              {
+                "field": {
+                  "type": "FILE_UPLOADER",
+                  "techName": "podpis_wspolmalzonka",
+                  "title": "Podpis współmałżonka",
+                  "validation": [],
+                  "description": "Wypełnić tylko w przypadku zaznaczenia poz. B 1.1.2",
+                  "states": [
+                    {
+                      "type": "SHOW",
+                      "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Organ i wnioskodawca' in title].questions['dane_podmiotu_zobowiazanego_do_zlozenia_deklaracji' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+                    }
+                  ],
+                  "questionOrder": 4,
+                  "id": "b587af3a-f66f-44b8-997f-4efcdc3957a4"
+                },
+                "x": 0,
+                "y": 4,
+                "rows": 1,
+                "cols": 3
               }
             ],
             "states": [],
-            "questionOrder": 2,
-            "id": "43eccd2c-de12-4c5d-9fdb-bc4437b05634"
+            "questionOrder": 7,
+            "id": "1140a6a3-d026-4797-8de8-27b1b0bf1367"
           },
           "x": 0,
           "y": 7,
-          "rows": 3,
+          "rows": 5,
           "cols": 3
         }
       ]
     },
     {
-      "id": "94603780-bbd3-4c04-969a-f2798b5f75f1",
+      "id": "67021ced-0ea3-48c2-980c-d390fae8fdd9",
       "title": "Podsumowanie",
       "type": "FINISH",
       "questions": [
@@ -1979,7 +1995,7 @@
                   "description": "Sprawdź dane przed wysłaniem wniosku.",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "b3db2a56-43d4-4955-8b6d-1591b1264395"
+                  "id": "942353d5-cb70-46ed-9366-685da7e27b6b"
                 },
                 "x": 0,
                 "y": 0,
@@ -1989,7 +2005,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "4582eadb-e958-4664-a4d9-37a3bbf2561e"
+            "id": "4493e2bb-5729-4ddf-aa29-b08428c94da9"
           },
           "x": 0,
           "y": 0,
@@ -2002,24 +2018,24 @@
   "flow": {
     "links": [
       {
-        "id": "1fe3a89f-d41d-4624-91ec-5bd2b9bbad7c",
-        "source": "72e05617-abe2-4319-b6bf-2c6f16bf1129",
-        "target": "a48d8d35-b379-4b6d-918f-028ffaed7fad"
+        "id": "3627e5b8-af71-4c0a-92d0-66e8cfbd6a0b",
+        "source": "7b37d287-c6b8-48d1-a249-f7c29a511151",
+        "target": "9a5e59de-9486-4fbc-80bc-336633b82fe6"
       },
       {
-        "id": "5acfa2e0-fd2c-4421-bc68-81902d4bcc52",
-        "source": "a48d8d35-b379-4b6d-918f-028ffaed7fad",
-        "target": "11f37cca-b05e-4e0b-97cf-f60e79defc52"
+        "id": "7deedfc1-8b1b-4825-999e-60db25e4d121",
+        "source": "9a5e59de-9486-4fbc-80bc-336633b82fe6",
+        "target": "6d69d576-85b9-454a-bc6d-0dbd284d0c35"
       },
       {
-        "id": "1cd83f8d-f130-49cf-9b0d-14f4cd801faf",
-        "source": "11f37cca-b05e-4e0b-97cf-f60e79defc52",
-        "target": "30e97d79-3b30-4c87-b7ad-330b3f7be99d"
+        "id": "26fa8705-057e-47ca-a2d8-b40d38cb5bc4",
+        "source": "6d69d576-85b9-454a-bc6d-0dbd284d0c35",
+        "target": "85cb72fd-dc65-42f2-a363-6004cc7f5c0a"
       },
       {
-        "id": "fef86201-e651-4e2e-8b24-2d14aeec35b3",
-        "source": "30e97d79-3b30-4c87-b7ad-330b3f7be99d",
-        "target": "94603780-bbd3-4c04-969a-f2798b5f75f1"
+        "id": "1e5a4a64-f12a-4bec-bf7f-98ea061c9cbf",
+        "source": "85cb72fd-dc65-42f2-a363-6004cc7f5c0a",
+        "target": "67021ced-0ea3-48c2-980c-d390fae8fdd9"
       }
     ]
   }

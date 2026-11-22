@@ -2,7 +2,7 @@
   "title": "Wniosek o zwrot opłaty skarbowej",
   "tabs": [
     {
-      "id": "313f24fa-b79c-45b8-b11e-75325f45f82b",
+      "id": "26ecaa1a-4a48-4ccf-bfdb-a765370b60e1",
       "title": "Dane wnioskodawcy",
       "type": "MAIN",
       "questions": [
@@ -22,7 +22,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "0cef136d-3464-4f75-b039-3577a7907c7a"
+                  "id": "702988ab-f2ad-463c-8c3e-f07433ef4c32"
                 },
                 "x": 0,
                 "y": 0,
@@ -40,43 +40,21 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "c1f7601b-9c36-4d0b-8570-d2c2cdec7a9f"
+                  "id": "47b0a2a9-7945-4b4d-9ac2-8ad480aa46f7"
                 },
                 "x": 0,
                 "y": 1,
-                "rows": 1,
-                "cols": 3
-              },
-              {
-                "field": {
-                  "type": "CHECKBOX",
-                  "techName": "wniosek_przez_pelnomocnika",
-                  "title": "Pełnomocnik",
-                  "options": [
-                    {
-                      "id": "82c2299d-2cdd-4bab-bb96-e726581e7a57",
-                      "name": "Wniosek składa pełnomocnik",
-                      "techName": "wniosek_przez_pelnomocnika_tak"
-                    }
-                  ],
-                  "validation": [],
-                  "states": [],
-                  "questionOrder": 2,
-                  "id": "11a74e2c-80f6-43a6-8b67-958e470c20b1"
-                },
-                "x": 0,
-                "y": 2,
                 "rows": 1,
                 "cols": 3
               }
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "a3100776-6f0e-4303-b2cf-f26294c679bb"
+            "id": "4fa7d6b5-579c-4132-b2c1-94f56735b63b"
           },
           "x": 0,
           "y": 0,
-          "rows": 3,
+          "rows": 2,
           "cols": 3
         },
         {
@@ -98,7 +76,7 @@
                   "searchEnabled": true,
                   "states": [],
                   "questionOrder": 0,
-                  "id": "11f40eba-e233-4b8e-9d71-5b3bbf4050db"
+                  "id": "51630814-1a91-48b9-9783-a84e96878e4a"
                 },
                 "x": 0,
                 "y": 0,
@@ -118,7 +96,7 @@
                   "defaultValue": "MLPZ.street",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 1,
-                  "id": "4d732c1a-6cdc-446f-af02-dbd49316a495"
+                  "id": "56d1828f-a1f8-4ba7-a3bf-78e090bf2054"
                 },
                 "x": 0,
                 "y": 1,
@@ -138,7 +116,7 @@
                   "defaultValue": "MLPZ.building",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 2,
-                  "id": "1a2cb971-1411-4197-8223-b94727239525"
+                  "id": "5f24b3a8-22f5-4ff9-8a4e-620f6ae2fa00"
                 },
                 "x": 0,
                 "y": 2,
@@ -156,7 +134,7 @@
                   "defaultValue": "MLPZ.apartment",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 3,
-                  "id": "6a8ac3e5-fac5-4f31-b93b-6e108b60e013"
+                  "id": "5e756d57-bddc-4d02-bf60-c1dad0e4bfe2"
                 },
                 "x": 0,
                 "y": 3,
@@ -177,7 +155,7 @@
                   "defaultValue": "MLPZ.postCode",
                   "defaultValueType": "EXTERNAL_SYSTEM",
                   "questionOrder": 4,
-                  "id": "26c5dd3b-49e9-4813-88ed-daf32f249b40"
+                  "id": "1f4f7bd3-dac4-4562-95d8-89cbcf5a54b8"
                 },
                 "x": 0,
                 "y": 4,
@@ -186,11 +164,11 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "e1ebc076-2c29-489c-b12a-5c3035f471f0"
+            "questionOrder": 2,
+            "id": "a91f4789-9990-4c0c-940a-4e3aef44e434"
           },
           "x": 0,
-          "y": 3,
+          "y": 2,
           "rows": 5,
           "cols": 3
         },
@@ -208,7 +186,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "e567b525-6490-4640-936e-b7aeaeed6112"
+                  "id": "54ad3602-b5ce-4041-a305-9c7f2bcced2f"
                 },
                 "x": 0,
                 "y": 0,
@@ -225,7 +203,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "510345d3-9250-4a6d-b599-c4ae3ffebab1"
+                  "id": "5dfb705d-3b28-4ac8-a49c-6b01b56f27a2"
                 },
                 "x": 0,
                 "y": 1,
@@ -234,11 +212,11 @@
               }
             ],
             "states": [],
-            "questionOrder": 2,
-            "id": "f41789c6-26af-49ac-8c5b-2fa2cae2196d"
+            "questionOrder": 7,
+            "id": "8cd6917e-9c23-40a7-bdee-e5cf7cad5853"
           },
           "x": 0,
-          "y": 8,
+          "y": 7,
           "rows": 2,
           "cols": 3
         },
@@ -258,7 +236,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "7b53722b-5612-4bee-985e-648b04f06369"
+                  "id": "c5777c96-db98-4552-8b11-28da14e2d17c"
                 },
                 "x": 0,
                 "y": 0,
@@ -278,7 +256,7 @@
                   "searchEnabled": true,
                   "states": [],
                   "questionOrder": 1,
-                  "id": "a973ae43-742c-4bb4-bcb7-06146d2165f0"
+                  "id": "10aeb4e4-735b-4b3e-8b37-0995ec3b7102"
                 },
                 "x": 0,
                 "y": 1,
@@ -295,7 +273,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "e80d4bd5-7e51-414b-afd5-1a0070c25158"
+                  "id": "fee7d6cc-7286-4e79-afe2-8d64f8be1165"
                 },
                 "x": 0,
                 "y": 2,
@@ -312,7 +290,7 @@
                   ],
                   "states": [],
                   "questionOrder": 3,
-                  "id": "e052bd4b-0532-4d87-bb8b-bf3f44c382c6"
+                  "id": "32094a67-d469-4cb5-99bd-7826ada06d64"
                 },
                 "x": 0,
                 "y": 3,
@@ -327,7 +305,7 @@
                   "validation": [],
                   "states": [],
                   "questionOrder": 4,
-                  "id": "502c3188-1d10-43aa-af89-eeea1f4f9da0"
+                  "id": "ff313e65-6b9e-4d7f-bc61-f1a8495fee9d"
                 },
                 "x": 0,
                 "y": 4,
@@ -345,7 +323,7 @@
                   ],
                   "states": [],
                   "questionOrder": 5,
-                  "id": "d2dc3b60-7600-4f34-8248-35c6f8e979f8"
+                  "id": "37a594c3-1986-487d-a0b2-bc664e54b670"
                 },
                 "x": 0,
                 "y": 5,
@@ -353,24 +331,19 @@
                 "cols": 3
               }
             ],
-            "states": [
-              {
-                "type": "SHOW",
-                "query": "(\"Wniosek składa pełnomocnik\" in tabs['Dane wnioskodawcy' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['wniosek_przez_pelnomocnika' in field.techName].field.__userAnswer)"
-              }
-            ],
-            "questionOrder": 3,
-            "id": "47972d96-0c1e-4858-8b99-22c1874fc1ce"
+            "states": [],
+            "questionOrder": 9,
+            "id": "949b2735-cf9f-4cbc-b946-a67fefccf0d5"
           },
           "x": 0,
-          "y": 10,
+          "y": 9,
           "rows": 6,
           "cols": 3
         }
       ]
     },
     {
-      "id": "aba04582-d328-4346-937c-c2cac7dc65cc",
+      "id": "ad3c41d0-eedb-4cda-bc93-b73d66986f25",
       "title": "Przedmiot wniosku",
       "type": "MAIN",
       "questions": [
@@ -390,7 +363,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "55cbdd6b-431d-4abb-8f0f-043dec10a849"
+                  "id": "468bde1c-ce8c-4821-99b6-b15f97ccd871"
                 },
                 "x": 0,
                 "y": 0,
@@ -407,7 +380,7 @@
                   ],
                   "states": [],
                   "questionOrder": 1,
-                  "id": "08e16364-f42e-4e33-9dec-4bd76ef50081"
+                  "id": "d9f9eb0a-04d7-4b78-8ccc-29411a8879ba"
                 },
                 "x": 0,
                 "y": 1,
@@ -424,7 +397,7 @@
                   ],
                   "states": [],
                   "questionOrder": 2,
-                  "id": "11813068-2b09-42e5-8bd8-942bb0319bb4"
+                  "id": "6c181960-8488-4d7d-921c-daea5c26ecda"
                 },
                 "x": 0,
                 "y": 2,
@@ -434,7 +407,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "108f0545-2ae2-4943-9944-c685345372f6"
+            "id": "cb87dfb9-1d04-40d6-a576-45515ac56cca"
           },
           "x": 0,
           "y": 0,
@@ -457,7 +430,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "3a1c4597-f772-489f-beab-7c8d8b61109a"
+                  "id": "dd80eb6f-fa37-4dea-9d54-172387661187"
                 },
                 "x": 0,
                 "y": 0,
@@ -466,8 +439,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 1,
-            "id": "e47d7cf6-aa46-488f-9432-63e3eef52b7d"
+            "questionOrder": 3,
+            "id": "5b929592-436d-426c-9539-0d76ea67d464"
           },
           "x": 0,
           "y": 3,
@@ -502,7 +475,7 @@
                   ],
                   "states": [],
                   "questionOrder": 0,
-                  "id": "c3e0c8a6-97e7-4c83-a801-a48bd6657dcb"
+                  "id": "816911b3-c47b-4565-bc43-62ed8acfd55e"
                 },
                 "x": 0,
                 "y": 0,
@@ -514,9 +487,7 @@
                   "type": "TEXT_FIELD",
                   "techName": "nr_rachunku",
                   "title": "Nr rachunku",
-                  "validation": [
-                    "REQUIRED"
-                  ],
+                  "validation": [],
                   "states": [
                     {
                       "type": "SHOW",
@@ -524,7 +495,7 @@
                     }
                   ],
                   "questionOrder": 1,
-                  "id": "40ca82d8-2653-429e-bdb2-f4af38b5bf16"
+                  "id": "1154a0ad-544b-4901-9b18-95151120eb5b"
                 },
                 "x": 0,
                 "y": 1,
@@ -536,9 +507,7 @@
                   "type": "TEXTAREA",
                   "techName": "dane_wlasciciela",
                   "title": "Dane właściciela",
-                  "validation": [
-                    "REQUIRED"
-                  ],
+                  "validation": [],
                   "states": [
                     {
                       "type": "SHOW",
@@ -546,7 +515,7 @@
                     }
                   ],
                   "questionOrder": 2,
-                  "id": "a3436bb9-f268-4937-bedf-c4667c5506c0"
+                  "id": "f7fd0152-1e4e-417d-94ca-06f2501fedf3"
                 },
                 "x": 0,
                 "y": 2,
@@ -555,8 +524,8 @@
               }
             ],
             "states": [],
-            "questionOrder": 2,
-            "id": "383a8f7e-8a7c-4aed-b473-91cfb9398264"
+            "questionOrder": 4,
+            "id": "3be882be-1fde-4d87-8147-5837ca59a1be"
           },
           "x": 0,
           "y": 4,
@@ -566,7 +535,7 @@
       ]
     },
     {
-      "id": "4abf6b09-bbb4-4e84-aced-0c33519bd2a5",
+      "id": "771debe4-e899-40a6-8c7b-39c113d1c3d8",
       "title": "Załączniki i oświadczenia",
       "type": "MAIN",
       "questions": [
@@ -581,9 +550,10 @@
                   "type": "TEXT_BLOCK",
                   "techName": "podstawa_prawna_podstawa_prawna",
                   "title": "Podstawa prawna",
+                  "description": "Art. 9 ustawy z dnia 16 listopada 2006 r. o opłacie skarbowej",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "cb4ad0fc-440f-484d-a27e-1d2677018da1"
+                  "id": "816d5db5-62b0-4c4a-aa47-d1ea2c132017"
                 },
                 "x": 0,
                 "y": 0,
@@ -593,7 +563,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "698788e1-6681-42ff-935a-c143df4d9668"
+            "id": "cd01ae05-08ed-48e5-bcdf-5bd9d84297d6"
           },
           "x": 0,
           "y": 0,
@@ -611,17 +581,10 @@
                   "type": "FILE_UPLOADER",
                   "techName": "dokument_stwierdzajacy_udzielenie_pelnomocnictwa",
                   "title": "Dokument stwierdzający udzielenie pełnomocnictwa",
-                  "validation": [
-                    "REQUIRED"
-                  ],
-                  "states": [
-                    {
-                      "type": "SHOW",
-                      "query": "(\"Wniosek składa pełnomocnik\" in tabs['Dane wnioskodawcy' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['wniosek_przez_pelnomocnika' in field.techName].field.__userAnswer)"
-                    }
-                  ],
+                  "validation": [],
+                  "states": [],
                   "questionOrder": 0,
-                  "id": "b5b5d742-415f-47cd-9735-48d982a85d56"
+                  "id": "8ccb758b-7b98-4394-90c3-6f3be1c558a8"
                 },
                 "x": 0,
                 "y": 0,
@@ -633,17 +596,10 @@
                   "type": "FILE_UPLOADER",
                   "techName": "dowod_uiszczenia_oplaty_skarbowej_za_pelnomocnictwo",
                   "title": "Dowód uiszczenia opłaty skarbowej za pełnomocnictwo",
-                  "validation": [
-                    "REQUIRED"
-                  ],
-                  "states": [
-                    {
-                      "type": "SHOW",
-                      "query": "(\"Wniosek składa pełnomocnik\" in tabs['Dane wnioskodawcy' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['wniosek_przez_pelnomocnika' in field.techName].field.__userAnswer)"
-                    }
-                  ],
+                  "validation": [],
+                  "states": [],
                   "questionOrder": 1,
-                  "id": "c2c89f78-b7f7-444d-84bc-6bc17337682f"
+                  "id": "39f61091-3681-4f6f-8499-77632e0e503c"
                 },
                 "x": 0,
                 "y": 1,
@@ -653,17 +609,67 @@
             ],
             "states": [],
             "questionOrder": 1,
-            "id": "04e06fb0-caa8-4246-b697-3d0697ae45cd"
+            "id": "d40898c8-9489-45ee-9375-7a0f5406933d"
           },
           "x": 0,
           "y": 1,
+          "rows": 2,
+          "cols": 3
+        },
+        {
+          "field": {
+            "type": "SECTION",
+            "techName": "data_i_podpis_wnioskodawcy",
+            "title": "Data i podpis wnioskodawcy",
+            "repeatingSectionGrid": [
+              {
+                "field": {
+                  "type": "DATEPICKER",
+                  "techName": "data",
+                  "title": "Data",
+                  "validation": [
+                    "REQUIRED"
+                  ],
+                  "states": [],
+                  "questionOrder": 0,
+                  "id": "441192a6-c853-4779-b38b-f2c009c2a558"
+                },
+                "x": 0,
+                "y": 0,
+                "rows": 1,
+                "cols": 3
+              },
+              {
+                "field": {
+                  "type": "TEXT_FIELD",
+                  "techName": "podpis",
+                  "title": "Podpis",
+                  "validation": [
+                    "REQUIRED"
+                  ],
+                  "states": [],
+                  "questionOrder": 1,
+                  "id": "9a6b1006-4ef8-4bf6-a4f2-6b157f1106d0"
+                },
+                "x": 0,
+                "y": 1,
+                "rows": 1,
+                "cols": 3
+              }
+            ],
+            "states": [],
+            "questionOrder": 3,
+            "id": "05b13629-e2dd-43b8-a1ea-d6e3ce672cf9"
+          },
+          "x": 0,
+          "y": 3,
           "rows": 2,
           "cols": 3
         }
       ]
     },
     {
-      "id": "956926e9-436c-4fa2-84e8-4306bd2a89c3",
+      "id": "43fd23cf-454e-4c1a-9dbf-17552ee8fd95",
       "title": "Podsumowanie",
       "type": "FINISH",
       "questions": [
@@ -680,7 +686,7 @@
                   "description": "Sprawdź dane przed wysłaniem wniosku.",
                   "states": [],
                   "questionOrder": 0,
-                  "id": "eeb99cd6-aa2a-45bf-8452-6313553dbaa8"
+                  "id": "66b20895-4ae2-4322-b6ca-7a4477fa425a"
                 },
                 "x": 0,
                 "y": 0,
@@ -690,7 +696,7 @@
             ],
             "states": [],
             "questionOrder": 0,
-            "id": "d5a34dc0-0191-4130-866a-a1e34c9ed388"
+            "id": "1b7db38e-2102-4854-b0a7-7b7389fb9541"
           },
           "x": 0,
           "y": 0,
@@ -703,19 +709,19 @@
   "flow": {
     "links": [
       {
-        "id": "3a74596f-7666-4075-8632-41cf4dc7b5d9",
-        "source": "313f24fa-b79c-45b8-b11e-75325f45f82b",
-        "target": "aba04582-d328-4346-937c-c2cac7dc65cc"
+        "id": "c1be1b5f-83b3-4a76-ae83-3b831fa0db92",
+        "source": "26ecaa1a-4a48-4ccf-bfdb-a765370b60e1",
+        "target": "ad3c41d0-eedb-4cda-bc93-b73d66986f25"
       },
       {
-        "id": "014c877f-6a8b-41b4-beef-f4cdd462d9a5",
-        "source": "aba04582-d328-4346-937c-c2cac7dc65cc",
-        "target": "4abf6b09-bbb4-4e84-aced-0c33519bd2a5"
+        "id": "7139dd7f-eb0e-4d3e-b19d-657a1d634f3b",
+        "source": "ad3c41d0-eedb-4cda-bc93-b73d66986f25",
+        "target": "771debe4-e899-40a6-8c7b-39c113d1c3d8"
       },
       {
-        "id": "792c886b-161e-4262-aed7-e26683b023c8",
-        "source": "4abf6b09-bbb4-4e84-aced-0c33519bd2a5",
-        "target": "956926e9-436c-4fa2-84e8-4306bd2a89c3"
+        "id": "011a28af-673e-4f0a-928e-ead629043f4c",
+        "source": "771debe4-e899-40a6-8c7b-39c113d1c3d8",
+        "target": "43fd23cf-454e-4c1a-9dbf-17552ee8fd95"
       }
     ]
   }
