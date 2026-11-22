@@ -4,7 +4,9 @@ A REST service that turns paper form blanks (PDF, DOC, DOCX, ODS, XLSX, JPG/JPEG
 into JSON form configurations for e-services.
 
 > **Status:** uploading, validation and jobs work. Form analysis is under development:
-> `POST /api/v1/forms/analyze` answers `501` for valid files.
+> `POST /api/v1/forms/analyze` reads the file's text (OCR for scans and images) and picks
+> the extractor tier, then answers `501` with that decision in `route`. Generating the
+> form JSON (the Form Definition) is the next step.
 
 ## Docker image
 
@@ -84,9 +86,9 @@ stop the service at startup.
 | `COI_ROUTER_THRESHOLD` | `0.7` | Router answers below this confidence move the form one tier up |
 | `COI_ROUTER_TIMEOUT_S` | `5` | Seconds to wait for the router; on timeout the feature-based rule decides |
 | `COI_ROUTER_MAX_STATE_CHARS` | `12000` | Characters of form text sent to the router (about 4k tokens; the model's limit is ~6k) |
-| `COI_TIER_SIMPLE_MODEL` | *(none)* | Extractor model for `simple` forms (placeholder until chosen) |
-| `COI_TIER_MEDIUM_MODEL` | *(none)* | Extractor model for `medium` forms |
-| `COI_TIER_HARD_MODEL` | *(none)* | Extractor model for `hard` forms |
+| `COI_TIER_SIMPLE_MODEL` | `deepinfra/deepseek-ai/DeepSeek-V4-Flash-0731` | EdenAI model that fills the form JSON for `simple` forms (open-weights; reasoning off) |
+| `COI_TIER_MEDIUM_MODEL` | `deepinfra/Qwen/Qwen3.6-35B-A3B` | Same, for `medium` forms |
+| `COI_TIER_HARD_MODEL` | `qwen/deepseek-v4-pro-0813` | Same, for `hard` forms and escalations |
 | `COI_JWT_ENABLED` | `false` | Require a JWT bearer token on every `/api/v1` endpoint |
 | `COI_JWT_SECRET` | *(none)* | Key used to verify tokens; required when JWT is enabled |
 | `COI_JWT_ALGORITHM` | `HS256` | Signing algorithm the tokens must use |
