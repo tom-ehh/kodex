@@ -1,0 +1,2476 @@
+{
+ "title": "Deklaracja o wysokości miesięcznej opłaty za gospodarowanie odpadami komunalnymi",
+ "tabs": [
+  {
+   "id": "f987584c-f747-486e-84d2-f0090aa26ad2",
+   "title": "Organ",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "organ",
+      "title": "Organ",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "prezydent_miasta_gdyni",
+         "title": "Prezydent Miasta Gdyni",
+         "states": [],
+         "questionOrder": 0,
+         "id": "c5f2433b-dc8e-462c-80b9-2386a8708ad1"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "8067ddfd-7616-4d82-91bb-3b19b214ce5c"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "3559f62d-0d37-43e9-a774-1051c61140b0"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "72ac5ee0-54cf-4a8f-b9e8-8e817b96d97c"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "2bfa0d1c-787a-4934-811e-71db9f7adacb"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "b64fcf17-0163-40f0-85ed-9a28576c7945",
+   "title": "Wnioskodawca",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_identyfikacyjne",
+      "title": "Dane identyfikacyjne",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "skladajacy_deklaracje",
+         "title": "Składający deklarację",
+         "options": [
+          {
+           "id": "właściciel/współwłaściciel",
+           "name": "właściciel/współwłaściciel",
+           "techName": "wlasciciel_wspolwlasciciel"
+          },
+          {
+           "id": "współwłaściciel (wspólność majątkowa)",
+           "name": "współwłaściciel (wspólność majątkowa)",
+           "techName": "wspolwlasciciel_wspolnosc_majatkowa"
+          },
+          {
+           "id": "najemca/dzierżawca",
+           "name": "najemca/dzierżawca",
+           "techName": "najemca_dzierzawca"
+          },
+          {
+           "id": "wspólnota mieszkaniowa",
+           "name": "wspólnota mieszkaniowa",
+           "techName": "wspolnota_mieszkaniowa"
+          },
+          {
+           "id": "spółdzielnia mieszkaniowa",
+           "name": "spółdzielnia mieszkaniowa",
+           "techName": "spoldzielnia_mieszkaniowa"
+          },
+          {
+           "id": "inny podmiot posiadający nieruchomość w zarządzie lub użytkowaniu",
+           "name": "inny podmiot posiadający nieruchomość w zarządzie lub użytkowaniu",
+           "techName": "inny_podmiot_posiadajacy_nieruchomosc_w_zarzadzie_lub_uzytkowaniu"
+          },
+          {
+           "id": "Inne",
+           "name": "Inne",
+           "techName": "inne"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 0,
+         "id": "2612ce50-fa68-4106-a1ae-48c3c8d03a33"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "skladajacy_deklaracje_inne",
+         "title": "Wpisz, jakie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Inne\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "844f9007-fd60-4bf6-8c7a-ec88558660cf"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwisko_imie_nazwa_pelna",
+         "title": "Nazwisko, imię / Nazwa pełna",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Imię i nazwisko podają składający deklarację będący osobami fizycznymi. Pełną nazwę podają składający deklarację nie będący osobami fizycznymi.",
+         "states": [],
+         "questionOrder": 2,
+         "id": "b51b49c2-65bf-4e4a-b83b-b22ad0e2079d"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel",
+         "title": "PESEL",
+         "validation": [
+          "REQUIRED",
+          "PESEL"
+         ],
+         "description": "Osoby fizyczne nieprowadzące działalności gospodarczej figurujące w rejestrze PESEL wpisują numer PESEL.",
+         "states": [],
+         "questionOrder": 3,
+         "id": "1f69ecfe-bc41-47aa-a09a-0f4a6844e554"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nip",
+         "title": "NIP",
+         "validation": [
+          "NIP"
+         ],
+         "description": "Pozostałe podmioty wpisują numer NIP lub REGON.",
+         "states": [],
+         "questionOrder": 4,
+         "id": "68cfe801-b5c2-4869-bf26-ac3cf29505b7"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "regon",
+         "title": "REGON",
+         "validation": [
+          "REGON"
+         ],
+         "description": "Pozostałe podmioty wpisują numer NIP lub REGON.",
+         "states": [],
+         "questionOrder": 5,
+         "id": "31dd547f-02ae-4317-93f7-489b82d7a120"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "1925e235-b603-4790-9567-6b0c64698ffd"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 6,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_identyfikacyjne_wspolmalzonka",
+      "title": "Dane identyfikacyjne współmałżonka",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwisko_imie",
+         "title": "Nazwisko, imię",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "f6c1118d-0289-4887-b7e3-12db5079f318"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "kraj",
+         "title": "Kraj",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Kraje",
+         "options": [],
+         "searchEnabled": true,
+         "defaultValue": [
+          "Polska"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "fc769fc6-9da3-4de6-b6c7-40a66936a688"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "f11e0360-d25e-4dcc-af88-cc23b02916ab"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "powiat",
+         "title": "Powiat",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Powiat",
+         "options": [],
+         "searchEnabled": false,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 3,
+         "id": "becb8595-978e-403c-b003-d403adcad2c0"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 4,
+         "id": "cc54cb33-1998-42c1-8fa8-9ecbe5fb8ffd"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_identyfikacyjne_wspolmalzonka",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 5,
+         "id": "9ee7c5f8-82f9-4e6f-9c9f-c319b4682aa4"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_dane_identyfikacyjne_wspolmalzonka",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 6,
+         "id": "f1d79392-889e-4fcd-9eac-2f1272432731"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_nieruchomosci_domu",
+         "title": "Numer nieruchomości/domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 7,
+         "id": "3ea07323-b2e8-4158-9e6d-93e4479c8e21"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_lokalu",
+         "title": "Numer lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 8,
+         "id": "ca559734-bd6b-4180-a071-59035d9834cc"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_dane_identyfikacyjne_wspolmalzonka",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 9,
+         "id": "1c4b8a4e-f445-475e-850e-16429e2250fc"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel_dane_identyfikacyjne_wspolmalzonka",
+         "title": "PESEL",
+         "validation": [
+          "REQUIRED",
+          "PESEL"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 10,
+         "id": "00d2e03f-88ab-4e6f-bb75-eab5e3823640"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [
+       {
+        "type": "SHOW",
+        "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+       }
+      ],
+      "questionOrder": 6,
+      "id": "2411194e-ce02-47a2-a56a-3ef595ac53d6"
+     },
+     "x": 0,
+     "y": 6,
+     "rows": 11,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adres_zamieszkania_siedziby",
+      "title": "Adres zamieszkania / siedziby",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "kraj_adres_zamieszkania_siedziby",
+         "title": "Kraj",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Kraje",
+         "options": [],
+         "searchEnabled": true,
+         "defaultValue": [
+          "Polska"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "b13ac99a-bdb3-4c05-bbcf-88867336cb07"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo_adres_zamieszkania_siedziby",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 1,
+         "id": "557c5626-7180-4585-8ab4-b8020efe563b"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina_adres_zamieszkania_siedziby",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 2,
+         "id": "ca18ed42-2d44-4a37-9e57-71392eb58d60"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_adres_zamieszkania_siedziby",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "b4d187ab-47af-40f6-88d9-c80de09b0d4a"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_adres_zamieszkania_siedziby",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "656cb9ab-b122-4838-a7ef-767e4008385f"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_nieruchomosci_domu_adres_zamieszkania_siedziby",
+         "title": "Numer nieruchomości/domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "53412966-2667-4ee9-a79b-048bea05fee8"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_lokalu_adres_zamieszkania_siedziby",
+         "title": "Numer lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "873e019a-9460-43f6-8155-e3fb77b37900"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_adres_zamieszkania_siedziby",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 7,
+         "id": "9f70fd6d-4b36-493d-8a27-4d26fa8cbd5c"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_y_dzialki_dzialek",
+         "title": "Numer/y działki/działek",
+         "validation": [],
+         "description": "Wypełnić jeżeli nieruchomość nie ma urzędowo nadanego adresu.",
+         "states": [],
+         "questionOrder": 8,
+         "id": "0f12eb85-722f-4554-8366-fcfb0c7b97ad"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 17,
+      "id": "000e8fc8-0b50-4bc8-a709-78715aee03cb"
+     },
+     "x": 0,
+     "y": 17,
+     "rows": 9,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adres_do_korespondencji",
+      "title": "Adres do korespondencji",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "kraj_adres_do_korespondencji",
+         "title": "Kraj",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Kraje",
+         "options": [],
+         "searchEnabled": true,
+         "defaultValue": [
+          "Polska"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "e4a16b94-199f-4b4f-b8d9-5f5b409ddd32"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo_adres_do_korespondencji",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 1,
+         "id": "2eff6856-1492-43f3-b82e-0add07db9ea9"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina_adres_do_korespondencji",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 2,
+         "id": "380e39a3-22c2-41b1-863f-045eb04a64d8"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_adres_do_korespondencji",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "f3ddb51f-d863-40ba-83d6-28578516a161"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_adres_do_korespondencji",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "3ac8c36e-21c8-409d-b699-bdb28b7d4924"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_nieruchomosci_domu_adres_do_korespondencji",
+         "title": "Numer nieruchomości/domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "ec91e2b2-db47-4836-8606-54ffb871d173"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_lokalu_adres_do_korespondencji",
+         "title": "Numer lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "19f56532-aefe-472b-a6c9-b4f1af0e744a"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_adres_do_korespondencji",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 7,
+         "id": "8d81eb50-c0e4-49da-a5b4-9a7edcda3a1e"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 26,
+      "id": "3d7d5820-f30a-4a77-82a3-dc693a82dbbb"
+     },
+     "x": 0,
+     "y": 26,
+     "rows": 8,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "c7d6c922-834a-4733-bfa6-d323973fd2a7",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "okolicznosci_zlozenia_deklaracji",
+      "title": "Okoliczności złożenia deklaracji",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "okolicznosci",
+         "title": "Okoliczności",
+         "options": [
+          {
+           "id": "pierwsza deklaracja",
+           "name": "pierwsza deklaracja",
+           "techName": "pierwsza_deklaracja"
+          },
+          {
+           "id": "nowa deklaracja składana ze względu na zmianę danych będących podstawą ustalenia wysokości należnej opłaty za gospodarowanie odpadami komunalnymi",
+           "name": "nowa deklaracja składana ze względu na zmianę danych będących podstawą ustalenia wysokości należnej opłaty za gospodarowanie odpadami komunalnymi",
+           "techName": "nowa_deklaracja_skladana_ze_wzgledu_na_zmiane_danych_bedacych_podstawa_ustalenia_wysokosci_naleznej_oplaty_za_gospodarowanie_odpadami_komunalnymi"
+          },
+          {
+           "id": "ustanie obowiązku uiszczania opłaty",
+           "name": "ustanie obowiązku uiszczania opłaty",
+           "techName": "ustanie_obowiazku_uiszczania_oplaty"
+          },
+          {
+           "id": "korekta złożonej, obowiązującej deklaracji",
+           "name": "korekta złożonej, obowiązującej deklaracji",
+           "techName": "korekta_zlozonej_obowiazujacej_deklaracji"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "980244b9-8134-4a77-a72b-9f62db3d6848"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_zdarzenia_powodujacego_powstanie_obowiazku_oplaty",
+         "title": "Data zdarzenia powodującego powstanie obowiązku opłaty",
+         "validation": [],
+         "description": "Data zdarzenia powodującego powstanie obowiązku opłaty",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pierwsza deklaracja\" in tabs['Przedmiot wniosku' in title].questions['okolicznosci_zlozenia_deklaracji' in field.techName].field.repeatingSectionGrid['okolicznosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "27ff90cd-0b9b-4d1d-8e51-7ef5e7efdc91"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_wystapienia_zmiany_danych_dla_nowej_deklaracji",
+         "title": "Data wystąpienia zmiany danych dla nowej deklaracji",
+         "validation": [],
+         "description": "Data wystąpienia zmiany danych dla nowej deklaracji",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"nowa deklaracja składana ze względu na zmianę danych będących podstawą ustalenia wysokości należnej opłaty za gospodarowanie odpadami komunalnymi\" in tabs['Przedmiot wniosku' in title].questions['okolicznosci_zlozenia_deklaracji' in field.techName].field.repeatingSectionGrid['okolicznosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "d5b84108-e39a-4e0b-a73d-04e47088fef3"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_zdarzenia_powodujacego_ustanie_obowiazku_oplaty",
+         "title": "Data zdarzenia powodującego ustanie obowiązku opłaty",
+         "validation": [],
+         "description": "Data zdarzenia powodującego ustanie obowiązku opłaty",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"ustanie obowiązku uiszczania opłaty\" in tabs['Przedmiot wniosku' in title].questions['okolicznosci_zlozenia_deklaracji' in field.techName].field.repeatingSectionGrid['okolicznosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 3,
+         "id": "690dbd81-faad-45a8-b0b4-b3993712a9e8"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_wystapienia_zmiany_danych_dla_korekty_deklaracji",
+         "title": "Data wystąpienia zmiany danych dla korekty deklaracji",
+         "validation": [],
+         "description": "Data wystąpienia zmiany danych dla korekty deklaracji",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"korekta złożonej, obowiązującej deklaracji\" in tabs['Przedmiot wniosku' in title].questions['okolicznosci_zlozenia_deklaracji' in field.techName].field.repeatingSectionGrid['okolicznosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 4,
+         "id": "8aeba2f2-5b78-4b29-86a3-75cc6577dff9"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "5d10447b-9285-473c-bad9-5fbeab50434d"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "6980113c-cc84-4e2e-8d41-5897b6cd9486",
+   "title": "Dane nieruchomości",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adres_nieruchomosci",
+      "title": "Adres nieruchomości",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_adres_nieruchomosci",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 0,
+         "id": "894e8171-8693-4f05-bf7a-bf9f22b23586"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_adres_nieruchomosci",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "5bd36f6a-f169-44e6-af53-2a6c9376fa06"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_adres_nieruchomosci",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "6563a8b6-fd25-445b-b376-1ecb53ce1b66"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_nieruchomosci_domu_adres_nieruchomosci",
+         "title": "Numer nieruchomości/domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "ffab2ef5-e75b-443a-83ab-9ed7078c99a6"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_lokalu_adres_nieruchomosci",
+         "title": "Numer lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "31a0667a-aac7-4174-9773-957d1cd61395"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "be695ab2-b239-455e-b431-6672bfaaedba"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "miejsce_gromadzenia_odpadow",
+      "title": "Miejsce gromadzenia odpadów",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "adres_lub_opis_miejsca_lokalizacji_pojemnikow",
+         "title": "Adres lub opis miejsca lokalizacji pojemników",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "9b106315-5923-414a-9a61-859dac56fa38"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_y_dzialki_dzialek_geodezyjnych",
+         "title": "Numer/y działki/działek geodezyjnych",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "5834554d-6378-40c9-9649-046d1c2d9d18"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [
+       {
+        "type": "SHOW",
+        "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
+       }
+      ],
+      "questionOrder": 5,
+      "id": "bfbdabce-0a13-44b0-835d-2519621bb92b"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_identyfikacyjne_nieruchomosci",
+      "title": "Dane identyfikacyjne nieruchomości",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "rodzaj_nieruchomosci",
+         "title": "Rodzaj nieruchomości",
+         "options": [
+          {
+           "id": "Nieruchomość zabudowana budynkiem mieszkalnym jednorodzinnym",
+           "name": "Nieruchomość zabudowana budynkiem mieszkalnym jednorodzinnym",
+           "techName": "nieruchomosc_zabudowana_budynkiem_mieszkalnym_jednorodzinnym"
+          },
+          {
+           "id": "Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym",
+           "name": "Nieruchomość zabudowana budynkiem mieszkalnym wielolokalowym",
+           "techName": "nieruchomosc_zabudowana_budynkiem_mieszkalnym_wielolokalowym"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "3e09ce0f-3714-4955-9a9b-623acacfb0b0"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "nieruchomosc_ktora_w_czesci_stanowi_nieruchomosc_na_ktorej_zamieszkuja_mieszkancy_a_w_czesci_nieruchomosc_na_ktorej_nie_zamieszkuja_mieszkancy_a_powstaja_na_niej_odpady_komunalne",
+         "title": "Nieruchomość, która w części stanowi nieruchomość na której zamieszkują mieszkańcy, a w części nieruchomość na której nie zamieszkują mieszkańcy, a powstają na niej odpady komunalne",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Składający deklarację, który zaznaczył kratkę TAK w poz. 34 zobowiązany jest do wypełnienia załącznika do deklaracji: A (w przypadku zaznaczenia D.3.33.1) lub B (w przypadku zaznaczenia D.3.33.2).",
+         "states": [],
+         "questionOrder": 1,
+         "id": "18cda37c-f184-4e5f-9f3a-40b1b650f13b"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 7,
+      "id": "b53fd3f9-1a5d-4649-bf32-647fc7e2cfa2"
+     },
+     "x": 0,
+     "y": 7,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenie_o_kompostowniku",
+      "title": "Oświadczenie o kompostowniku",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne",
+         "title": "Oświadczam, że nieruchomość wyposażona jest w przydomowy kompostownik, w którym kompostowane są wytworzone na jej terenie bioodpady stanowiące odpady komunalne.",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym jednorodzinnym\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "bed8742d-27ee-4f09-8bf0-1cedd1336ec5"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [
+       {
+        "type": "SHOW",
+        "query": "(\"Nieruchomość zabudowana budynkiem mieszkalnym jednorodzinnym\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['rodzaj_nieruchomosci' in field.techName].field.__userAnswer)"
+       }
+      ],
+      "questionOrder": 9,
+      "id": "f1f8fd32-6bcc-4c65-aaa9-b45a0a782407"
+     },
+     "x": 0,
+     "y": 9,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "25c3e9c0-123b-4cbd-8dd3-d9ab031184e2",
+   "title": "Opłaty",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "obliczenie_wysokosci_oplaty",
+      "title": "Obliczenie wysokości opłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_nie_przekraczajacej_45_m2",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej nie przekraczającej 45 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "6207f095-7931-4ee7-a91a-9fabfadb3ce2"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_38_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 38 zł",
+         "states": [],
+         "questionOrder": 1,
+         "id": "4e3716b3-edbc-4dd7-8631-426d0aab5de1"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_poz_38",
+         "title": "Wysokość miesięcznej opłaty (poz. 38)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "5d293072-40f5-444a-a8df-a933a3502b3c"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_45_m2_jednak_nie_wiekszej_niz_60_m2",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 45 m² jednak nie większej niż 60 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "7a1650aa-38d0-4166-b786-77723df143da"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_69_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 69 zł",
+         "states": [],
+         "questionOrder": 4,
+         "id": "8e5f5912-e196-41f0-98bd-a3c812f1f6e2"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_poz_41",
+         "title": "Wysokość miesięcznej opłaty (poz. 41)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "8250bba7-09f7-4151-9fd5-aad479fd92e2"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_60_m2_jednak_nie_wiekszej_niz_80_m2",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 60 m² jednak nie większej niż 80 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "f93c69f5-2985-4118-9ac1-5525911b81b5"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_81_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 81 zł",
+         "states": [],
+         "questionOrder": 7,
+         "id": "4969a4e0-acef-4556-8b54-6a62763f7d76"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_poz_44",
+         "title": "Wysokość miesięcznej opłaty (poz. 44)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 8,
+         "id": "52dd9faf-1d25-4a22-bfe2-a1581553f6b8"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_80_m2",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 80 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 9,
+         "id": "1aac75a5-a564-4ceb-9abb-97b33251e7a7"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_101_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 101 zł",
+         "states": [],
+         "questionOrder": 10,
+         "id": "3768031e-992a-4a26-a60d-78e78d1862e5"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_poz_47",
+         "title": "Wysokość miesięcznej opłaty (poz. 47)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 11,
+         "id": "e297c3b8-0b51-4ac2-9cf4-672f8f9bba3a"
+        },
+        "x": 0,
+        "y": 11,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_objetych_zwolnieniem_dochodowym",
+         "title": "Liczba gospodarstw domowych objętych zwolnieniem dochodowym",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 12,
+         "id": "470a48df-1cb3-40c7-88dd-9fa8e701f633"
+        },
+        "x": 0,
+        "y": 12,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_zwolnienia_od_gospodarstwa_domowego_15_zl_00_gr",
+         "title": "Stawka zwolnienia od gospodarstwa domowego - 15 zł 00 gr",
+         "states": [],
+         "questionOrder": 13,
+         "id": "1fed543e-c569-4109-a6f5-66bf044e6ca4"
+        },
+        "x": 0,
+        "y": 13,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznego_zwolnienia_poz_50",
+         "title": "Wysokość miesięcznego zwolnienia (poz. 50)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 14,
+         "id": "31841bcb-4571-4da6-b201-26740f175b28"
+        },
+        "x": 0,
+        "y": 14,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "suma_poz_38_41_44_i_47_pomniejszona_o_kwote_z_poz_50",
+         "title": "SUMA poz. 38, 41, 44 i 47 pomniejszona o kwotę z poz. 50",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 15,
+         "id": "b62ed357-aa31-4fe1-bc3c-be8089c323d1"
+        },
+        "x": 0,
+        "y": 15,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "b3f40913-ff93-4c82-a338-0fcd646327ca"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 16,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+      "title": "Obliczenie wysokości opłaty dla nieruchomości jednorodzinnych",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_nie_przekraczajacej_45_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej nie przekraczającej 45 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "db4fd17d-c386-4388-8aaf-bd4ed023b728"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_28_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 28 zł",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "5efbdf8d-ac6c-44b4-8d1e-ce73448ab0ef"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_dla_gospodarstw_domowych_o_powierzchni_uzytkowej_nie_przekraczajacej_45_m2",
+         "title": "Wysokość miesięcznej opłaty dla gospodarstw domowych o powierzchni użytkowej nie przekraczającej 45 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "82fc4148-552e-4dcf-9b58-f6760bb81a0c"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_45_m2_jednak_nie_wiekszej_niz_60_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 45 m² jednak nie większej niż 60 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 3,
+         "id": "3e80536e-47a7-461a-b94c-84c8d7d16411"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_59_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 59 zł",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 4,
+         "id": "b3354402-8785-4333-8dd0-fd5980ce3db1"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_dla_gospodarstw_domowych_o_powierzchni_uzytkowej_przekraczajacej_45_m2_jednak_nie_wiekszej_niz_60_m2",
+         "title": "Wysokość miesięcznej opłaty dla gospodarstw domowych o powierzchni użytkowej przekraczającej 45 m² jednak nie większej niż 60 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 5,
+         "id": "e9296ea9-ad91-4396-b2ef-7525c55b2243"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_60_m2_jednak_nie_wiekszej_niz_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 60 m² jednak nie większej niż 80 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 6,
+         "id": "3635ff5b-a964-465f-8d87-9ba398076bf2"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_71_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 71 zł",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 7,
+         "id": "e882e56d-fc47-47df-af8f-2f5a79910222"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_dla_gospodarstw_domowych_o_powierzchni_uzytkowej_przekraczajacej_60_m2_jednak_nie_wiekszej_niz_80_m2",
+         "title": "Wysokość miesięcznej opłaty dla gospodarstw domowych o powierzchni użytkowej przekraczającej 60 m² jednak nie większej niż 80 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 8,
+         "id": "dd539730-0ec0-475f-9566-d522dd3c746c"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_zajmujacych_lokale_mieszkalne_o_powierzchni_uzytkowej_przekraczajacej_80_m2_obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+         "title": "Liczba gospodarstw domowych zajmujących lokale mieszkalne o powierzchni użytkowej przekraczającej 80 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 9,
+         "id": "810d4c10-1a47-48a5-b733-974a6d7af699"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_oplaty_od_gospodarstwa_domowego_91_zl",
+         "title": "Stawka opłaty od gospodarstwa domowego 91 zł",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 10,
+         "id": "0830b9bf-0eaf-4ad0-be06-4ca004e5e8c7"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznej_oplaty_dla_gospodarstw_domowych_o_powierzchni_uzytkowej_przekraczajacej_80_m2",
+         "title": "Wysokość miesięcznej opłaty dla gospodarstw domowych o powierzchni użytkowej przekraczającej 80 m²",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 11,
+         "id": "55fc744b-9a4d-4be2-974d-7724e9555a2e"
+        },
+        "x": 0,
+        "y": 11,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_gospodarstw_domowych_objetych_zwolnieniem_dochodowym_obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+         "title": "Liczba gospodarstw domowych objętych zwolnieniem dochodowym",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 12,
+         "id": "f7c91f82-b51e-43ea-a993-c91f4a663737"
+        },
+        "x": 0,
+        "y": 12,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "stawka_zwolnienia_od_gospodarstwa_domowego_15_zl_00_gr_obliczenie_wysokosci_oplaty_dla_nieruchomosci_jednorodzinnych",
+         "title": "Stawka zwolnienia od gospodarstwa domowego - 15 zł 00 gr",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 13,
+         "id": "dfe5e65f-2b9f-45dd-aab8-3a7f71016d26"
+        },
+        "x": 0,
+        "y": 13,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_miesiecznego_zwolnienia",
+         "title": "Wysokość miesięcznego zwolnienia",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 14,
+         "id": "3e072d6b-9476-45af-a672-266f0eea17dc"
+        },
+        "x": 0,
+        "y": 14,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "suma_poz_54_57_60_i_63_pomniejszona_o_kwote_z_poz_66",
+         "title": "SUMA poz. 54, 57, 60 i 63 pomniejszona o kwotę z poz. 66",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 15,
+         "id": "3101d308-8b1a-4eee-bfff-a935ec97a98b"
+        },
+        "x": 0,
+        "y": 15,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [
+       {
+        "type": "SHOW",
+        "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['oswiadczenie_o_kompostowniku' in field.techName].field.repeatingSectionGrid['oswiadczam_ze_nieruchomosc_wyposazona_jest_w_przydomowy_kompostownik_w_ktorym_kompostowane_sa_wytworzone_na_jej_terenie_bioodpady_stanowiace_odpady_komunalne' in field.techName].field.__userAnswer)"
+       }
+      ],
+      "questionOrder": 16,
+      "id": "867e2c7d-d115-4f67-a100-da371f0d2ac5"
+     },
+     "x": 0,
+     "y": 16,
+     "rows": 16,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oplata_dla_czesci_nieruchomosci_niezamieszkanej",
+      "title": "Opłata dla części nieruchomości niezamieszkanej",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "kwota_z_poz_29_zalacznika_a_lub_b_do_deklaracji",
+         "title": "KWOTA z poz. 29 załącznika A lub B do deklaracji",
+         "validation": [],
+         "description": "Wypełnić tylko w przypadku złożenia załącznika A lub B do deklaracji.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['nieruchomosc_ktora_w_czesci_stanowi_nieruchomosc_na_ktorej_zamieszkuja_mieszkancy_a_w_czesci_nieruchomosc_na_ktorej_nie_zamieszkuja_mieszkancy_a_powstaja_na_niej_odpady_komunalne' in field.techName].field.__userAnswer)"
+          },
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Załączniki' in title].questions['zalaczniki' in field.techName].field.repeatingSectionGrid['zalacznik_a' in field.techName].field.__userAnswer)"
+          },
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Załączniki' in title].questions['zalaczniki' in field.techName].field.repeatingSectionGrid['zalacznik_b' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "9629284e-a91f-49e7-bbad-e37a98ebde55"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [
+       {
+        "type": "SHOW",
+        "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['nieruchomosc_ktora_w_czesci_stanowi_nieruchomosc_na_ktorej_zamieszkuja_mieszkancy_a_w_czesci_nieruchomosc_na_ktorej_nie_zamieszkuja_mieszkancy_a_powstaja_na_niej_odpady_komunalne' in field.techName].field.__userAnswer)"
+       }
+      ],
+      "questionOrder": 32,
+      "id": "c302d431-c530-48fa-a6df-5261ac7fc5c1"
+     },
+     "x": 0,
+     "y": 32,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "razem_wysokosc_miesiecznej_oplaty",
+      "title": "Razem wysokość miesięcznej opłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "suma_poz_51_lub_67_oraz_68_zl",
+         "title": "SUMA poz. 51 lub 67 oraz 68 (zł)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Suma wysokości miesięcznej opłaty za gospodarowanie odpadami.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Dane nieruchomości' in title].questions['dane_identyfikacyjne_nieruchomosci' in field.techName].field.repeatingSectionGrid['nieruchomosc_ktora_w_czesci_stanowi_nieruchomosc_na_ktorej_zamieszkuja_mieszkancy_a_w_czesci_nieruchomosc_na_ktorej_nie_zamieszkuja_mieszkancy_a_powstaja_na_niej_odpady_komunalne' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "9bb5592c-c676-4a67-ae9d-f4133e0a06df"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 33,
+      "id": "f7cf8e9d-e79f-4c73-bdf0-dc18a5d6403a"
+     },
+     "x": 0,
+     "y": 33,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "060e982b-aada-4b54-9652-c61bce54c339",
+   "title": "Kontakt",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_do_kontaktu",
+      "title": "Dane do kontaktu",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_tel_fax",
+         "title": "Nr tel./fax",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "b36ad58e-3b0f-4f03-b806-1f11e112439d"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_e_mail",
+         "title": "Adres e-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "cd6ea2af-3953-417d-920e-c022b3deb88b"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "wyrazam_zgode_na_otrzymywanie_korespondencji_za_posrednictwem_adresu_poczty_elektronicznej_wskazanego_w_poz_71",
+         "title": "Wyrażam zgodę na otrzymywanie korespondencji za pośrednictwem adresu poczty elektronicznej wskazanego w poz. 71",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "e072c93c-78f2-4520-a6fc-fb2d1c4208ca"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "4682e303-f91a-468f-88da-1f8d0bb8e9f5"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "673516a8-810d-4686-a5fc-0f25a043d0c1",
+   "title": "Załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "zalacznik_a",
+         "title": "Załącznik A",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "126e5411-1fbd-41dc-924f-ef5ac6f382bb"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "zalacznik_b",
+         "title": "Załącznik B",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "f192d70c-f0aa-466d-bf20-ee4c32578b2a"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "dokumenty_upowazniajace_do_zlozenia_deklaracji",
+         "title": "Dokumenty upoważniające do złożenia deklaracji",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "ae023c96-6bb4-4825-947b-ebcbf8080ccf"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "inne",
+         "title": "Inne",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "c5cbad44-120a-4dcc-a079-1fc08b135147"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "9f130c22-5729-470b-9dbb-a972f3f1962f"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "ef576e7d-ff66-48d4-b6c8-9ae91e9a34d2",
+   "title": "Oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podpis",
+      "title": "Podpis",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie",
+         "title": "Imię",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "6f2bee88-ea3d-4507-9fb7-33ccfa87509f"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwisko",
+         "title": "Nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "d818e01a-bb90-4408-9111-d21f74339c51"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_wypelnienia",
+         "title": "Data wypełnienia",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "76bdfac1-4c6b-47b4-8a9c-e241a96f48e2"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis_skladajacego_deklaracje_osoby_reprezentujacej",
+         "title": "Podpis składającego deklarację / osoby reprezentującej",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "55b9a49b-de01-4c54-8f16-92f2f0f9a59e"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis_wspolmalzonka",
+         "title": "Podpis współmałżonka",
+         "validation": [],
+         "description": "Wypełnić tylko w przypadku zaznaczenia poz. B 1.1.2",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"współwłaściciel (wspólność majątkowa)\" in tabs['Wnioskodawca' in title].questions['dane_identyfikacyjne' in field.techName].field.repeatingSectionGrid['skladajacy_deklaracje' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 4,
+         "id": "58d5dd84-cee3-413a-844c-68c2372ad458"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "bcafa9c6-6b15-43ab-bc60-4f3e599ac2b4"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "696f2dba-4162-475d-a181-7280b5d7716a",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "a9de5d60-8410-484e-bec2-5ce1311b602b"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "e53cd3e1-c506-406e-8462-bfc82ac0d3fd"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "1a419cf4-9caa-46c4-b6e1-1a83c87dfb4a",
+    "source": "f987584c-f747-486e-84d2-f0090aa26ad2",
+    "target": "b64fcf17-0163-40f0-85ed-9a28576c7945"
+   },
+   {
+    "id": "60a29f03-6da3-4fc2-9b27-2dce870595e1",
+    "source": "b64fcf17-0163-40f0-85ed-9a28576c7945",
+    "target": "c7d6c922-834a-4733-bfa6-d323973fd2a7"
+   },
+   {
+    "id": "06b712cf-bb24-4366-8fe6-8bf7ccafed9b",
+    "source": "c7d6c922-834a-4733-bfa6-d323973fd2a7",
+    "target": "6980113c-cc84-4e2e-8d41-5897b6cd9486"
+   },
+   {
+    "id": "f6560d39-d8ad-40e5-9f3d-1ac3b7e4baa6",
+    "source": "6980113c-cc84-4e2e-8d41-5897b6cd9486",
+    "target": "25c3e9c0-123b-4cbd-8dd3-d9ab031184e2"
+   },
+   {
+    "id": "602cefc4-77d2-442e-b577-d371d15690f5",
+    "source": "25c3e9c0-123b-4cbd-8dd3-d9ab031184e2",
+    "target": "060e982b-aada-4b54-9652-c61bce54c339"
+   },
+   {
+    "id": "2cb3ec45-49eb-4ac6-8170-386517db112a",
+    "source": "060e982b-aada-4b54-9652-c61bce54c339",
+    "target": "673516a8-810d-4686-a5fc-0f25a043d0c1"
+   },
+   {
+    "id": "eea9e271-04dd-486d-a753-619ad9c8e0d4",
+    "source": "673516a8-810d-4686-a5fc-0f25a043d0c1",
+    "target": "ef576e7d-ff66-48d4-b6c8-9ae91e9a34d2"
+   },
+   {
+    "id": "c771daf8-7288-415e-a188-5e5cd209ecee",
+    "source": "ef576e7d-ff66-48d4-b6c8-9ae91e9a34d2",
+    "target": "696f2dba-4162-475d-a181-7280b5d7716a"
+   }
+  ]
+ }
+}

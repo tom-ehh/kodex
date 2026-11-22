@@ -1,0 +1,1219 @@
+{
+ "title": "Wniosek o wydanie zezwolenia na zajęcie pasa drogowego w celu prowadzenia robót",
+ "tabs": [
+  {
+   "id": "71410e7f-994f-4a78-98a3-da059e369d7a",
+   "title": "Dane urzędu i wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "urzad",
+      "title": "Urząd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_urzedu",
+         "title": "Nazwa urzędu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "f7081ad6-79ae-4c2b-8408-a8f8f8fd9dcf"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "adres_urzedu_miejscowosc",
+         "title": "Adres urzędu - miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "911a811e-b01a-476a-95d7-806fd50a0f53"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_urzedu_kod_pocztowy",
+         "title": "Adres urzędu - kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "cffe800e-0665-4031-9c52-3d4be9c67095"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_urzedu_ulica_i_numer",
+         "title": "Adres urzędu - ulica i numer",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "fbf4045d-6db7-415f-8820-7e8d2ae2e484"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "5e37422e-930b-4655-9fae-7de754c4fde9"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "wnioskodawca",
+      "title": "Wnioskodawca",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_lub_nazwa_firmy",
+         "title": "Imię i nazwisko lub nazwa firmy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "64f0f3c5-6cfa-450f-80f5-bd551809de3f"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "adres_zamieszkania_siedziby_miejscowosc",
+         "title": "Adres zamieszkania/siedziby - miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "4fc429d9-34a5-45b6-95a0-ce12166c4050"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_siedziby_kod_pocztowy",
+         "title": "Adres zamieszkania/siedziby - kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "c6c8a4cb-3703-4c8d-baf3-ed533b345d03"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_siedziby_ulica",
+         "title": "Adres zamieszkania/siedziby - ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "6e5fba60-cb5c-4209-bf7d-3d3185d95b2b"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_siedziby_numer_domu",
+         "title": "Adres zamieszkania/siedziby - numer domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "d8944b22-75ac-4c7c-a64d-c708e42f5b04"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_siedziby_numer_lokalu",
+         "title": "Adres zamieszkania/siedziby - numer lokalu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "815eff4c-f693-414f-8edf-c3da579dfbfe"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_telefonu",
+         "title": "Nr telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "a4cdcb34-4e57-45d9-9a3b-cea0c23b6b38"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "e_mail",
+         "title": "E-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 7,
+         "id": "12cc2e3d-8f3a-40a2-a660-4c111d476306"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "b80a6443-09fa-4fef-8e45-1dbcb1d63bad"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 8,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "2c06c3ca-fdb6-4cb3-8ab9-d7f131bf4fc9",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "droga_i_lokalizacja",
+      "title": "Droga i lokalizacja",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_drogi_oraz_jej_nr",
+         "title": "Nazwa drogi oraz jej nr",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "1fa4b2f4-8119-43d2-8fae-415c0015071d"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "1222b3fb-c947-4b66-9735-33597b1097b0"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "dzialka_nr_ewidencyjny",
+         "title": "Działka nr ewidencyjny",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "3d597676-84be-486d-9a42-97a692862701"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "ffe591e9-a393-4c4b-91f8-3c6a617a2e6d"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "cel_i_rodzaj_robot",
+      "title": "Cel i rodzaj robót",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "opis_celu_oraz_rodzaju_i_sposobu_wykonania_planowanych_robot",
+         "title": "Opis celu oraz rodzaju i sposobu wykonania planowanych robót",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "93e1bc9c-eb96-41a6-9ed8-9915433cd5fa"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "75bdff38-8ee7-43fe-91f6-6642f9877e83"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "bc54337e-29da-4a3e-94b5-3918fe59dc2b",
+   "title": "Zakres zajęcia pasa drogowego",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "REPEATING_SECTION",
+      "techName": "powierzchnia_zajecia",
+      "title": "Powierzchnia zajęcia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_do_20_szerokosci_dlugosc",
+         "title": "Jezdnia (przy zajęciu do 20% szerokości) - długość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "ed408476-2a56-4917-ab63-661129114765"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_do_20_szerokosci_szerokosc",
+         "title": "Jezdnia (przy zajęciu do 20% szerokości) - szerokość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "eb92c276-0dc1-4807-b38b-702abd89d4fb"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_do_20_szerokosci_razem_m2",
+         "title": "Jezdnia (przy zajęciu do 20% szerokości) - razem (m2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "7476a213-c5f9-4d0c-bfbf-f4c025c3af78"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_do_20_szerokosci_dlugosc_2",
+         "title": "Jezdnia (przy zajęciu do 20% szerokości) - długość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "223ce1a5-2e8b-462b-9087-0d582e1f1317"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_do_20_szerokosci_szerokosc_2",
+         "title": "Jezdnia (przy zajęciu do 20% szerokości) - szerokość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "8ffaad3d-4c33-4f3f-b752-364dcf347bae"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_do_20_szerokosci_razem_m2_2",
+         "title": "Jezdnia (przy zajęciu do 20% szerokości) - razem (m2) (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "95a15f3c-8fe2-40c9-a9ba-2e5c3bb0e937"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_20_do_50_szerokosci_dlugosc",
+         "title": "Jezdnia (przy zajęciu powyżej 20% do 50% szerokości) - długość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "c40b0636-84b2-480c-a964-887c62acea08"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_20_do_50_szerokosci_szerokosc",
+         "title": "Jezdnia (przy zajęciu powyżej 20% do 50% szerokości) - szerokość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 7,
+         "id": "bdf89638-b424-475f-b2d5-daa5eb313704"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_20_do_50_szerokosci_razem_m2",
+         "title": "Jezdnia (przy zajęciu powyżej 20% do 50% szerokości) - razem (m2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 8,
+         "id": "f985eafd-fa2f-4d53-a8d6-a0f4e9cd3b37"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_20_do_50_szerokosci_dlugosc_2",
+         "title": "Jezdnia (przy zajęciu powyżej 20% do 50% szerokości) - długość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 9,
+         "id": "708b8cff-3f5b-4006-bfd3-b711b42174ac"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_20_do_50_szerokosci_szerokosc_2",
+         "title": "Jezdnia (przy zajęciu powyżej 20% do 50% szerokości) - szerokość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 10,
+         "id": "8eb53add-0b30-4036-bb8e-58561d4efc5a"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_20_do_50_szerokosci_razem_m2_2",
+         "title": "Jezdnia (przy zajęciu powyżej 20% do 50% szerokości) - razem (m2) (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 11,
+         "id": "40d460fa-bead-4a0a-a1c3-d4c54149831a"
+        },
+        "x": 0,
+        "y": 11,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_50_szerokosci_dlugosc",
+         "title": "Jezdnia (przy zajęciu powyżej 50% szerokości) - długość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 12,
+         "id": "9638cebc-0c00-465a-80b5-f0eec373d7f9"
+        },
+        "x": 0,
+        "y": 12,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_50_szerokosci_szerokosc",
+         "title": "Jezdnia (przy zajęciu powyżej 50% szerokości) - szerokość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 13,
+         "id": "53aecbc6-58fe-42f0-a32a-b1a1eaa45c8b"
+        },
+        "x": 0,
+        "y": 13,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_50_szerokosci_razem_m2",
+         "title": "Jezdnia (przy zajęciu powyżej 50% szerokości) - razem (m2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 14,
+         "id": "acce4ff9-bfd9-4fb6-9e5b-09f45ac97055"
+        },
+        "x": 0,
+        "y": 14,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_50_szerokosci_dlugosc_2",
+         "title": "Jezdnia (przy zajęciu powyżej 50% szerokości) - długość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 15,
+         "id": "3429fdbc-91ea-47c4-8a20-3f66a30e4ab0"
+        },
+        "x": 0,
+        "y": 15,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_50_szerokosci_szerokosc_2",
+         "title": "Jezdnia (przy zajęciu powyżej 50% szerokości) - szerokość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 16,
+         "id": "b2eb23cb-0dce-46f8-b7a7-98b961e52e76"
+        },
+        "x": 0,
+        "y": 16,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "jezdnia_przy_zajeciu_powyzej_50_szerokosci_razem_m2_2",
+         "title": "Jezdnia (przy zajęciu powyżej 50% szerokości) - razem (m2) (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 17,
+         "id": "2d0df5fa-f802-4600-a3c7-2026208c574c"
+        },
+        "x": 0,
+        "y": 17,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "chodnik_dlugosc",
+         "title": "Chodnik - długość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 18,
+         "id": "f88fc59f-eb27-4750-8fc8-e3029e8a15da"
+        },
+        "x": 0,
+        "y": 18,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "chodnik_szerokosc",
+         "title": "Chodnik - szerokość",
+         "validation": [],
+         "states": [],
+         "questionOrder": 19,
+         "id": "53dceb1e-5241-43c6-983e-bde4f024038a"
+        },
+        "x": 0,
+        "y": 19,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "chodnik_razem_m2",
+         "title": "Chodnik - razem (m2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 20,
+         "id": "49b0ab88-fb7e-4896-8d09-ccd5b7a18f37"
+        },
+        "x": 0,
+        "y": 20,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "chodnik_dlugosc_2",
+         "title": "Chodnik - długość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 21,
+         "id": "48a0d94d-5382-41e0-9e10-906e1f49921c"
+        },
+        "x": 0,
+        "y": 21,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "chodnik_szerokosc_2",
+         "title": "Chodnik - szerokość (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 22,
+         "id": "103cfb08-cf8b-42ad-ac39-bbb4af167b78"
+        },
+        "x": 0,
+        "y": 22,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "chodnik_razem_m2_2",
+         "title": "Chodnik - razem (m2) (2)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 23,
+         "id": "8524e02e-3623-455e-b6c4-2d9ef81f246a"
+        },
+        "x": 0,
+        "y": 23,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "calkowita_powierzchnia_zajecia_m2",
+         "title": "Całkowita powierzchnia zajęcia (m2)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 24,
+         "id": "65f0ac9b-e393-43ca-8c7b-f6d1a7aea9e9"
+        },
+        "x": 0,
+        "y": 24,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "86249298-7342-4f6a-9e81-e99d292a4f07"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 25,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "calkowita_powierzchnia_zajecia",
+      "title": "Całkowita powierzchnia zajęcia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "calkowita_powierzchnia_zajecia_calkowita_powierzchnia_zajecia",
+         "title": "Całkowita powierzchnia zajęcia",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "164e7c3e-adc9-427b-9d38-023b46ba8162"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 25,
+      "id": "693216ed-f336-4a73-8273-6e4baad510ae"
+     },
+     "x": 0,
+     "y": 25,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "59e6a091-a640-466c-aa47-90d632c720a9",
+   "title": "Termin i wykonawca robót",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "termin_realizacji",
+      "title": "Termin realizacji",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "planowany_termin_rozpoczecia_robot",
+         "title": "Planowany termin rozpoczęcia robót",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "f3dcab84-7ce0-490f-b8d4-0ce245b054e2"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "planowany_termin_zakonczenia_robot",
+         "title": "Planowany termin zakończenia robót",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "ae3758c9-5b2d-4759-894f-21cf4843b852"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "liczba_dni_realizacji_robot",
+         "title": "Liczba dni realizacji robót",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "ffa5944e-c6a1-4eb9-8fa8-fd5ddf6f84a1"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "704e280c-7fe5-434a-9f0a-3f73539f7b12"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "wykonawca_i_osoba_odpowiedzialna",
+      "title": "Wykonawca i osoba odpowiedzialna",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "wykonawca_robot_nazwa_przedsiebiorstwa_lub_osoby_fizycznej",
+         "title": "Wykonawca robót (nazwa przedsiębiorstwa lub osoby fizycznej)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "60682e5e-6bde-4b86-a066-c1725bcc1e03"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "osoba_odpowiedzialna_za_wykonanie_robot_zgodnie_z_projektem_i_odtworzenie_pasa_drogowego",
+         "title": "Osoba odpowiedzialna za wykonanie robót zgodnie z projektem i odtworzenie pasa drogowego",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "958dd0cc-0a2b-41a2-9af4-30e5f7983860"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "adres_zamieszkania_osoby_odpowiedzialnej_miejscowosc",
+         "title": "Adres zamieszkania osoby odpowiedzialnej - miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 2,
+         "id": "8c3f6310-216f-4a19-84f8-8ca7aca8dc6b"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_osoby_odpowiedzialnej_kod_pocztowy",
+         "title": "Adres zamieszkania osoby odpowiedzialnej - kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "9510f868-8405-47ef-9ec2-6f6d4c4e522c"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_osoby_odpowiedzialnej_ulica_i_numer",
+         "title": "Adres zamieszkania osoby odpowiedzialnej - ulica i numer",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "863e39b0-ca5b-4ff3-985f-71d037c625fc"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "telefon_osoby_odpowiedzialnej",
+         "title": "Telefon osoby odpowiedzialnej",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "a443d1d0-1b45-46bc-acfa-ca60922e175b"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "69df587c-e963-46e1-8178-3e89390586fe"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 6,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "54a82439-c17f-4c4a-a9c4-98eef237ba9a",
+   "title": "Załączniki i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "ogolny_plan_orientacyjny_w_skali_1_10_000_lub_1_25_000_z_zaznaczeniem_zajmowanego_odcinka_pasa_drogowego",
+         "title": "Ogólny plan orientacyjny w skali 1:10 000 lub 1:25 000 z zaznaczeniem zajmowanego odcinka pasa drogowego",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "6a03cdb5-cd9b-4a79-a9ea-d01f6bf1ef27"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "szczegolowy_plan_sytuacyjny_w_skali_1_1000_lub_1_500_z_zaznaczeniem_granic_i_podaniem_wymiarow_planowanej_powierzchni_zajecia_pasa_drogowego",
+         "title": "Szczegółowy plan sytuacyjny w skali 1:1000 lub 1:500 z zaznaczeniem granic i podaniem wymiarów planowanej powierzchni zajęcia pasa drogowego",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "7e83436d-a3fe-4043-b028-403327a9acc2"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "szczegolowy_harmonogram_robot",
+         "title": "Szczegółowy harmonogram robót",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "e9d14e6e-ad2b-4e43-b27a-ca6e107aace2"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "zatwierdzony_projekt_organizacji_ruchu_jezeli_zajecie_pasa_drogowego_wplywa_na_ruch_drogowy_lub_ogranicza_widocznosc_na_drodze_albo_powoduje_wprowadzenie_zmian_w_istniejacej_organizacji_ruchu_pojazdo",
+         "title": "Zatwierdzony projekt organizacji ruchu, jeżeli zajęcie pasa drogowego wpływa na ruch drogowy lub ogranicza widoczność na drodze albo powoduje wprowadzenie zmian w istniejącej organizacji ruchu pojazdó",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "c76a69a2-6d46-4ccb-aed9-af70071fc62d"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "informacja_o_sposobie_zabezpieczenia_robot_jezeli_nie_jest_wymagany_projekt_organizacji_ruchu",
+         "title": "Informacja o sposobie zabezpieczenia robót, jeżeli nie jest wymagany projekt organizacji ruchu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "cc8cb278-ceac-49c4-88a7-03bda9b3021e"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "oryginal_pelnomocnictwa_lub_poswiadczony_odpis_pelnomocnictwa_stosownie_do_zapisow_art_33_ustawy_kodeks_postepowania_administracyjnego_wraz_z_oplata_skarbowa_w_wysokosci_17_zl_w_przypadku_gdy_w_spra",
+         "title": "Oryginał pełnomocnictwa lub poświadczony odpis pełnomocnictwa stosownie do zapisów art. 33 ustawy Kodeks postępowania administracyjnego wraz z opłatą skarbową w wysokości 17 zł w przypadku, gdy w spra",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "aa9d89f3-fe00-43d8-b459-a353f9879913"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "fdb1d721-deae-41cd-833c-2667e84bd1e1"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 6,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zgoda_na_przetwarzanie_danych_osobowych",
+      "title": "Zgoda na przetwarzanie danych osobowych",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "wyrazam_zgode_na_przetwarzanie_przez_urzad_miasta_i_gminy_w_daleszycach_moich_danych_osobowych",
+         "title": "Wyrażam zgodę na przetwarzanie przez Urząd Miasta i Gminy w Daleszycach, moich danych osobowych",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "20ede143-dd17-4f98-82b4-2f40dfd10c1f"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 6,
+      "id": "76bccedb-ddac-4c9f-9588-ce3d7aaf7617"
+     },
+     "x": 0,
+     "y": 6,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "a1b80595-e4ad-402f-b1e7-b6b485db56ba",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "39444be2-b33d-4ab9-8764-63d9892c6ba4"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "90a433ce-75db-477b-b22e-2f2e3666c404"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "a81a6b36-7a07-45be-907d-8c0d83d6e454",
+    "source": "71410e7f-994f-4a78-98a3-da059e369d7a",
+    "target": "2c06c3ca-fdb6-4cb3-8ab9-d7f131bf4fc9"
+   },
+   {
+    "id": "bb2fcf39-7a8d-4825-a0c9-cd4361cb1856",
+    "source": "2c06c3ca-fdb6-4cb3-8ab9-d7f131bf4fc9",
+    "target": "bc54337e-29da-4a3e-94b5-3918fe59dc2b"
+   },
+   {
+    "id": "d8b2f5c8-60ec-46d8-ad5c-05b6f0597036",
+    "source": "bc54337e-29da-4a3e-94b5-3918fe59dc2b",
+    "target": "59e6a091-a640-466c-aa47-90d632c720a9"
+   },
+   {
+    "id": "6bbaa2df-031e-4c47-91f5-af7d09d71bf9",
+    "source": "59e6a091-a640-466c-aa47-90d632c720a9",
+    "target": "54a82439-c17f-4c4a-a9c4-98eef237ba9a"
+   },
+   {
+    "id": "19475156-a8a7-4036-a0cf-e01573709a54",
+    "source": "54a82439-c17f-4c4a-a9c4-98eef237ba9a",
+    "target": "a1b80595-e4ad-402f-b1e7-b6b485db56ba"
+   }
+  ]
+ }
+}

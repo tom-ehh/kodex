@@ -1,0 +1,716 @@
+{
+ "title": "Wniosek o zwrot opłaty skarbowej",
+ "tabs": [
+  {
+   "id": "6541850c-e6c2-4768-b6e0-f3476703d59f",
+   "title": "Dane wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_identyfikacyjne",
+      "title": "Dane identyfikacyjne",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_imie_i_nazwisko",
+         "title": "Nazwa / Imię i nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "cb0bc208-3a98-4500-86ef-4b7431acb3f4"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nip",
+         "title": "NIP",
+         "validation": [
+          "REQUIRED",
+          "NIP"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "afffa478-6a00-46c0-812f-8b1c5790821b"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "7fda57f4-69b1-469a-bae3-bea960faeaab"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adres_siedziby_lub_miejsca_zamieszkania_wnioskodawcy",
+      "title": "Adres siedziby lub miejsca zamieszkania wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 0,
+         "id": "75b7403e-991f-4f00-9c72-c1b812099fe1"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "73f749cb-5608-4e00-9411-1436c3a547f6"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "3a11cb81-8930-493f-811a-fcd1848728de"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_lokalu",
+         "title": "Nr lokalu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "2eedbde5-76da-4d14-9f3b-ab5a0fc084a3"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "f561860e-a0c8-4035-ab87-bf9409b9f191"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "e180fdee-b551-444e-873f-e87bb3e57243"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 5,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_kontaktowe_wnioskodawcy",
+      "title": "Dane kontaktowe wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_telefonu",
+         "title": "Numer telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "745e4461-b71f-4690-95dc-b68b55b3af6d"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_poczty_elektronicznej",
+         "title": "Adres poczty elektronicznej",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "f9934a36-1562-4fc9-9097-ac3d5b56686c"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 7,
+      "id": "1ea24ee8-7b62-457a-b6b5-24bd5f827aa3"
+     },
+     "x": 0,
+     "y": 7,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_pelnomocnika",
+      "title": "Dane pełnomocnika",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko",
+         "title": "Imię i nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "d54fc228-b0f2-46f6-9bbf-51d83577d6cb"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_pelnomocnika",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "e57efb33-4933-45fd-9a2d-d2eecfda2db8"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_dane_pelnomocnika",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "b279217a-66d5-4d6c-b7ad-f40c952e633d"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu_dane_pelnomocnika",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "2d39385b-d716-4fd3-80da-30949fdefbdd"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_lokalu_dane_pelnomocnika",
+         "title": "Nr lokalu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "40b6f040-1b55-41a1-8a35-feb03feafd76"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_dane_pelnomocnika",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "560063c4-48bf-46cd-a1db-962a9e1dad88"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 9,
+      "id": "0acf07d0-29c8-485d-9a9c-f8182ac8fb7b"
+     },
+     "x": 0,
+     "y": 9,
+     "rows": 6,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "57d27ab4-c47f-46e4-b951-d92551607edf",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "informacje_o_oplacie_skarbowej",
+      "title": "Informacje o opłacie skarbowej",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_uiszczenia_oplaty",
+         "title": "Data uiszczenia opłaty",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "7c899fbc-4984-4845-b32d-cdc2607fbb8a"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "wysokosc_oplaty",
+         "title": "Wysokość opłaty",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "6c922794-f35a-4a74-96ee-95c270ec9dda"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_organu_w_ktorym_zaplacono_oplate",
+         "title": "Nazwa organu, w którym zapłacono opłatę",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "9a6812f3-5d4d-45cb-9c59-014ece60ceef"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "bb93ec58-9512-4ff5-9feb-ac61b96ba21b"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "uzasadnienie_wniosku",
+      "title": "Uzasadnienie wniosku",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "uzasadnienie_wniosku_uzasadnienie_wniosku",
+         "title": "Uzasadnienie wniosku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Opisz, dlaczego opłata skarbowa, której dotyczy wniosek, została błędnie uiszczona.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "fb620e46-625f-4192-b152-1531afb65759"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "c00055e7-8d5f-4a7b-ac81-2bb41086e9a7"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "informacje_dotyczace_sposobu_zwrotu_oplaty_skarbowej",
+      "title": "Informacje dotyczące sposobu zwrotu opłaty skarbowej",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "sposob_zwrotu_oplaty_skarbowej",
+         "title": "Sposób zwrotu opłaty skarbowej",
+         "options": [
+          {
+           "id": "Gotówką w kasie organu",
+           "name": "Gotówką w kasie organu",
+           "techName": "gotowka_w_kasie_organu"
+          },
+          {
+           "id": "Przelewem na rachunek w banku",
+           "name": "Przelewem na rachunek w banku",
+           "techName": "przelewem_na_rachunek_w_banku"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "428d3a7d-f520-4e34-a653-048235dfc81d"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_rachunku",
+         "title": "Nr rachunku",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Przelewem na rachunek w banku\" in tabs['Przedmiot wniosku' in title].questions['informacje_dotyczace_sposobu_zwrotu_oplaty_skarbowej' in field.techName].field.repeatingSectionGrid['sposob_zwrotu_oplaty_skarbowej' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "5335ffb9-4b31-4594-a8ec-782d13ce179f"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "dane_wlasciciela",
+         "title": "Dane właściciela",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Przelewem na rachunek w banku\" in tabs['Przedmiot wniosku' in title].questions['informacje_dotyczace_sposobu_zwrotu_oplaty_skarbowej' in field.techName].field.repeatingSectionGrid['sposob_zwrotu_oplaty_skarbowej' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "ae00e837-fc26-42e4-8ea9-1a51014a4f3c"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "3baee614-2755-4471-a048-a8cfd8187e05"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "dd12bca9-e650-4a98-a23e-ed1470c7fbfa",
+   "title": "Załączniki i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podstawa_prawna",
+      "title": "Podstawa prawna",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "art_9_ustawy_z_dnia_16_listopada_2006_r_o_oplacie_skarbowej",
+         "title": "Art. 9 ustawy z dnia 16 listopada 2006 r. o opłacie skarbowej",
+         "states": [],
+         "questionOrder": 0,
+         "id": "3d1e33f1-de40-4190-a895-5b49492f17fc"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "4dc61035-1286-4a12-bc62-4322759acfc0"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokument_stwierdzajacy_udzielenie_pelnomocnictwa",
+         "title": "Dokument stwierdzający udzielenie pełnomocnictwa",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "13bf9a7b-05cb-4239-a2f7-e430b1170686"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dowod_uiszczenia_oplaty_skarbowej_za_pelnomocnictwo",
+         "title": "Dowód uiszczenia opłaty skarbowej za pełnomocnictwo",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "7ce4cae5-4a1c-4d02-9c8f-a0ec8e9aef55"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 1,
+      "id": "ce9809fc-2206-49e7-b52e-139092353aa5"
+     },
+     "x": 0,
+     "y": 1,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "data_i_podpis_wnioskodawcy",
+      "title": "Data i podpis wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data",
+         "title": "Data",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "0d64363b-3b38-4434-8b99-ac3594c01642"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis",
+         "title": "Podpis",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "a4e9b336-54ee-4ca6-bc0b-324fa86ac629"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "163ba36c-ad8f-40fb-9ae2-a4e0a25c3cfb"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "ee74bf62-348a-4297-beba-9f718fa2a499",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "e34f61e6-ccea-465d-a343-781901253f80"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "06fa85a5-68fe-4dce-a8ad-e3238b99a491"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "2e7b337b-17cc-470e-8445-b0ff8c08892e",
+    "source": "6541850c-e6c2-4768-b6e0-f3476703d59f",
+    "target": "57d27ab4-c47f-46e4-b951-d92551607edf"
+   },
+   {
+    "id": "a3d649f9-8c33-4eaa-8350-6b90904f0f0a",
+    "source": "57d27ab4-c47f-46e4-b951-d92551607edf",
+    "target": "dd12bca9-e650-4a98-a23e-ed1470c7fbfa"
+   },
+   {
+    "id": "bb3c9c82-3ce6-44e2-b5b3-bb437ff2b614",
+    "source": "dd12bca9-e650-4a98-a23e-ed1470c7fbfa",
+    "target": "ee74bf62-348a-4297-beba-9f718fa2a499"
+   }
+  ]
+ }
+}

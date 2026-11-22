@@ -1,0 +1,911 @@
+{
+ "title": "Wniosek o rejestrację lub czasową rejestrację pojazdu",
+ "tabs": [
+  {
+   "id": "7a4b0e1e-aa75-434b-824f-7d81f0e39cee",
+   "title": "Urząd",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "urzad",
+      "title": "Urząd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_urzedu",
+         "title": "Nazwa urzędu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "92acddaa-5203-4e83-bf1b-8392b1fab196"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "wydzial",
+         "title": "Wydział",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "263722a2-a650-438b-ba08-d22d034909bc"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 2,
+         "id": "bd504539-7b88-42ef-be17-8cf819adf54b"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "c6fa7a85-aca9-49c8-b302-787db72196fe"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "feb82826-cfd3-48da-8bbf-0314545291c3"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_budynku",
+         "title": "Numer budynku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "2ac806af-efa9-4591-9631-aac6217e1c5b"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_lokalu",
+         "title": "Numer lokalu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "dad3e19f-1176-479b-b776-07eb2fd3f299"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "27cded2d-8426-402d-9c3b-ff47ad4b502d"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 7,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "a95b4559-89ae-4a49-8e02-fd920f2342d2",
+   "title": "Wnioskodawca",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "wnioskodawca",
+      "title": "Wnioskodawca",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_lub_nazwa_wlasciciela",
+         "title": "Imię i nazwisko lub nazwa właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "dd0155f3-fc5a-4c50-9728-6f87c952b05a"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_wlasciciela",
+         "title": "Adres właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "68c952c6-8bf1-4e0f-bfd3-3f9de0e7b176"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_pesel",
+         "title": "Nr PESEL",
+         "validation": [
+          "PESEL"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "bd623d3a-412f-4041-8d12-1625a66b0af8"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "regon",
+         "title": "REGON",
+         "validation": [
+          "REGON"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "4de4a9e3-18ca-4822-8fe5-0ebf5dd5686f"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia",
+         "title": "Data urodzenia",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "5f10fbc1-aeec-4b7c-86e8-f4726b46598e"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "e4ff33e3-e02f-4974-bb31-c1f0c831aae1"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "pelnomocnik",
+      "title": "Pełnomocnik",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_lub_nazwa_pelnomocnika",
+         "title": "Imię i nazwisko lub nazwa pełnomocnika",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "28b95eec-56f4-47cf-a26b-0c823c19da88"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_pelnomocnika",
+         "title": "Adres pełnomocnika",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "faa650ff-377b-4bf2-b9be-c9edfaaeba6a"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_pesel_pelnomocnika",
+         "title": "Nr PESEL pełnomocnika",
+         "validation": [
+          "PESEL"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "7353bf48-e53e-42a7-9dad-c06bfdae3522"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia_pelnomocnika",
+         "title": "Data urodzenia pełnomocnika",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "628bf9af-6ea8-4599-b6df-b9ba2d08b2fe"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 5,
+      "id": "7d359465-d01c-4f92-8fa3-b0abd5c607d8"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "3a1c9e18-5511-4975-aad7-5647ffd14d9b",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "przedmiot_wniosku",
+      "title": "Przedmiot wniosku",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_pojazdu_i_przeznaczenie",
+         "title": "Rodzaj pojazdu i przeznaczenie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "2287f4f9-b157-4b6d-9912-f4e15e57f7b6"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "marka_typ_model",
+         "title": "Marka, typ, model",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "ae7f4dfa-d2e4-427e-b80d-3fb254b6f65e"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "rok_produkcji",
+         "title": "Rok produkcji",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "19ecf51b-2424-4923-a8a3-74638daa77c8"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_vin_nr_nadwozia_podwozia_lub_ramy",
+         "title": "Numer VIN / nr nadwozia, podwozia lub ramy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "9075a88d-0642-4247-b832-bf27ede619e0"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "dotychczasowy_numer_rejestracyjny",
+         "title": "Dotychczasowy numer rejestracyjny",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "3320bd0c-9594-4bdb-b7cf-a8cd1a535256"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_sprowadzenia_z_terytorium_panstwa_czlonkowskiego_ue",
+         "title": "Data sprowadzenia z terytorium państwa członkowskiego UE",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "7d3da65c-af88-4dfb-8da6-2568384537b3"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_nabycia_zbycia_dotychczas_zarejestrowanego_pojazdu",
+         "title": "Data nabycia/zbycia dotychczas zarejestrowanego pojazdu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "032a6680-c9c4-4e35-ae46-3944a908eb26"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "e6088a0c-8e2a-4624-aa19-3b61b39ae2b3"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 7,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "nabycie_lub_zbycie_pojazdu",
+      "title": "Nabycie lub zbycie pojazdu",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_pojazdu_i_przeznaczenie_nabycie_lub_zbycie_pojazdu",
+         "title": "Rodzaj pojazdu i przeznaczenie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "dc9990b9-5768-4f64-82a3-8c9e9b3eaff0"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "marka_typ_model_nabycie_lub_zbycie_pojazdu",
+         "title": "Marka, typ, model",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "24248031-fb54-47cb-8cd2-df456dd5c556"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "rok_produkcji_nabycie_lub_zbycie_pojazdu",
+         "title": "Rok produkcji",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "1a231d28-a7e1-41ad-8a98-2886176be482"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_vin_nr_nadwozia_podwozia_lub_ramy_nabycie_lub_zbycie_pojazdu",
+         "title": "Numer VIN / nr nadwozia, podwozia lub ramy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "8ddb446e-5df0-4140-891b-fd8c87b2e667"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "dotychczasowy_numer_rejestracyjny_nabycie_lub_zbycie_pojazdu",
+         "title": "Dotychczasowy numer rejestracyjny",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "e4ee464e-8f5a-49e1-8b21-677d87a096f5"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_sprowadzenia_z_terytorium_panstwa_czlonkowskiego_ue_nabycie_lub_zbycie_pojazdu",
+         "title": "Data sprowadzenia z terytorium państwa członkowskiego UE",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "4eef5fa8-c635-4b2e-9fee-ce5c3acc1b9d"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_nabycia_zbycia_dotychczas_zarejestrowanego_pojazdu_nabycie_lub_zbycie_pojazdu",
+         "title": "Data nabycia/zbycia dotychczas zarejestrowanego pojazdu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "15df49ce-dab3-4147-bf76-d888111468e8"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 7,
+      "id": "a3385aaa-8f81-4074-80c0-d4369a76cb9e"
+     },
+     "x": 0,
+     "y": 7,
+     "rows": 7,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "71e8692f-fb17-443d-a1ef-232ca39030fa",
+   "title": "Kontakt, opłaty, załączniki i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "kontakt",
+      "title": "Kontakt",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_lub_nazwa_wlasciciela_kontakt",
+         "title": "Imię i nazwisko lub nazwa właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "7b904308-c8e3-4fbc-8667-dcbe5e2ad998"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_wlasciciela_kontakt",
+         "title": "Adres właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "cccd0e19-1813-44b5-a9bf-6bae957dc285"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_pesel_lub_regon",
+         "title": "Nr PESEL lub REGON",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "6c94fa3c-a6d4-4766-80dc-9de4683abfcb"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia_kontakt",
+         "title": "Data urodzenia",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "8632bf9e-f765-46eb-85fe-374188473496"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "1724910f-26f6-4e96-a3d7-27bac8cda6b3"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oplaty",
+      "title": "Opłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "informacje_o_oplatach_zwiazanych_z_rejestracja_pojazdu",
+         "title": "Informacje o opłatach związanych z rejestracją pojazdu.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "421d0f6f-43cc-43d4-b8ac-491fbc091943"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "f8ae576a-1fb3-4030-8b22-0aa16ab9bd49"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokument_1",
+         "title": "Dokument 1",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "016eba1b-647f-4f53-acda-1a703a545105"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokument_2",
+         "title": "Dokument 2",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "a0f90758-0aef-48a9-a2bc-0316d35cc23b"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokument_3",
+         "title": "Dokument 3",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "5dd87d91-5003-4a73-86a0-152b6d05d25f"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokument_4",
+         "title": "Dokument 4",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "17402d13-979c-4785-bced-16159aeade2b"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 5,
+      "id": "9bba73f6-ec1e-4e8d-80b8-758fb481867b"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenia",
+      "title": "Oświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "oswiadczam_ze_podane_we_wniosku_dane_i_informacje_sa_aktualne_i_zgodne_ze_stanem_faktycznym",
+         "title": "Oświadczam, że podane we wniosku dane i informacje są aktualne i zgodne ze stanem faktycznym.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "ed73956a-307c-479b-a56e-15d1d73b1515"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis_wlasciciela",
+         "title": "Podpis właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "dea1c1ee-f0b7-4a77-bc4f-d799c1d81ab4"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 9,
+      "id": "427dbed6-3b2f-4968-9d89-e987b13b83d8"
+     },
+     "x": 0,
+     "y": 9,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "1172ae5a-5247-405d-ab86-8d0eb907976c",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "c2fe63af-4b1a-4235-a823-1c12066ea521"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "bae43c94-8756-406a-aec3-288c1229385a"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "73c29d65-f341-486a-a3bb-4406b3788bbf",
+    "source": "7a4b0e1e-aa75-434b-824f-7d81f0e39cee",
+    "target": "a95b4559-89ae-4a49-8e02-fd920f2342d2"
+   },
+   {
+    "id": "efcc8c94-d0ca-448b-93f0-128cd295cf11",
+    "source": "a95b4559-89ae-4a49-8e02-fd920f2342d2",
+    "target": "3a1c9e18-5511-4975-aad7-5647ffd14d9b"
+   },
+   {
+    "id": "2501cf1e-4325-40e6-9e03-7f822ddda2e0",
+    "source": "3a1c9e18-5511-4975-aad7-5647ffd14d9b",
+    "target": "71e8692f-fb17-443d-a1ef-232ca39030fa"
+   },
+   {
+    "id": "266eae3d-1981-4734-809f-b930ec3ba34b",
+    "source": "71e8692f-fb17-443d-a1ef-232ca39030fa",
+    "target": "1172ae5a-5247-405d-ab86-8d0eb907976c"
+   }
+  ]
+ }
+}

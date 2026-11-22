@@ -1,0 +1,2930 @@
+{
+ "spent_usd": 0.0928,
+ "wake_spent_usd": 0.0086,
+ "wake_wall_s": 142.6,
+ "models": {
+  "writer": "qwen/deepseek-v4-pro-0813",
+  "replay": "deepinfra/Qwen/Qwen3.6-35B-A3B"
+ },
+ "funnel": {
+  "cold_start": 6,
+  "activated": 5,
+  "basal_veto": 2,
+  "shape": 1
+ },
+ "episodes": [
+  {
+   "episode": "E01",
+   "pattern": "zip",
+   "form": "zwrot-oplaty-skarbowej",
+   "label": "Kod pocztowy",
+   "hist": 1,
+   "stage": "cold_start",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 1,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E04",
+   "pattern": "pesel",
+   "form": "wydanie-zaswiadczenia",
+   "label": "PESEL",
+   "hist": 1,
+   "stage": "cold_start",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 1,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E06",
+   "pattern": "nip",
+   "form": "zwrot-oplaty-skarbowej",
+   "label": "NIP",
+   "hist": 1,
+   "stage": "cold_start",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 1,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E09",
+   "pattern": "email",
+   "form": "zajecie-pasa-drogowego",
+   "label": "Adres e-mail",
+   "hist": 1,
+   "stage": "cold_start",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 1,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E12",
+   "pattern": "phone-optional",
+   "form": "zwrot-oplaty-skarbowej",
+   "label": "Numer telefonu",
+   "hist": 1,
+   "stage": "cold_start",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 1,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E03",
+   "pattern": "zip",
+   "form": "wydanie-zaswiadczenia",
+   "label": "Kod pocztowy",
+   "hist": 2,
+   "stage": "activated",
+   "decision": "active",
+   "skill": "ep-zip-code-hyphen",
+   "basal": {
+    "p_pattern": 0.9021,
+    "family": "zip_code",
+    "family_conf": 0.9739,
+    "consistent": 0.9035
+   },
+   "worth": 3,
+   "timings": {
+    "basal_s": 1.431,
+    "write_s": 0.003,
+    "replay_s": 0.003,
+    "smoke_s": 38.956
+   },
+   "cost": 0.001491,
+   "replay": "pass",
+   "replay_reason": "post_fix zip_code",
+   "smoke": "pass",
+   "lint": {
+    "ok": true,
+    "reasons": [],
+    "breadth": 0.074
+   }
+  },
+  {
+   "episode": "E05",
+   "pattern": "pesel",
+   "form": "oplata-za-odpady",
+   "label": "PESEL",
+   "hist": 2,
+   "stage": "activated",
+   "decision": "active",
+   "skill": "ep-pesel-digits-only",
+   "basal": {
+    "p_pattern": 0.9073,
+    "family": "pesel",
+    "family_conf": 0.9723,
+    "consistent": 0.8696
+   },
+   "worth": 3,
+   "timings": {
+    "basal_s": 1.463,
+    "write_s": 0.007,
+    "replay_s": 29.527,
+    "smoke_s": 0.019
+   },
+   "cost": 0.0022553,
+   "replay": "pass",
+   "replay_reason": "post_fix digits_only",
+   "smoke": "pass",
+   "lint": {
+    "ok": true,
+    "reasons": [],
+    "breadth": 0.01
+   }
+  },
+  {
+   "episode": "E07",
+   "pattern": "nip",
+   "form": "oplata-za-odpady",
+   "label": "NIP/REGON",
+   "hist": 2,
+   "stage": "activated",
+   "decision": "active",
+   "skill": "ep-nip-remove-pl-prefix",
+   "basal": {
+    "p_pattern": 0.7107,
+    "family": "nip_regon",
+    "family_conf": 0.9664,
+    "consistent": 0.7416
+   },
+   "worth": 3,
+   "timings": {
+    "basal_s": 1.277,
+    "write_s": 0.007,
+    "replay_s": 14.099,
+    "smoke_s": 0.02
+   },
+   "cost": 0.0010922000000000002,
+   "replay": "pass",
+   "replay_reason": "post_fix digits_only",
+   "smoke": "pass",
+   "lint": {
+    "ok": true,
+    "reasons": [],
+    "breadth": 0.013
+   }
+  },
+  {
+   "episode": "E10",
+   "pattern": "email",
+   "form": "oplata-za-odpady",
+   "label": "Adres e-mail",
+   "hist": 2,
+   "stage": "activated",
+   "decision": "active",
+   "skill": "ep-email-trim-spaces",
+   "basal": {
+    "p_pattern": 0.8756,
+    "family": "email_phone",
+    "family_conf": 0.9797,
+    "consistent": 0.9281
+   },
+   "worth": 3,
+   "timings": {
+    "basal_s": 1.641,
+    "write_s": 0.001,
+    "replay_s": 15.834,
+    "smoke_s": 0.015
+   },
+   "cost": 0.00198425,
+   "replay": "pass",
+   "replay_reason": "post_fix trim",
+   "smoke": "pass",
+   "lint": {
+    "ok": true,
+    "reasons": [],
+    "breadth": 0.015
+   }
+  },
+  {
+   "episode": "E15",
+   "pattern": "phone-optional",
+   "form": "psy-ras-agresywnych",
+   "label": "Telefon",
+   "hist": 2,
+   "stage": "activated",
+   "decision": "active",
+   "skill": "ep-phone-required-flag",
+   "basal": {
+    "p_pattern": 0.902,
+    "family": "required_flag",
+    "family_conf": 0.8499,
+    "consistent": 0.1856
+   },
+   "worth": 3,
+   "timings": {
+    "basal_s": 1.397,
+    "write_s": 3.17,
+    "replay_s": 30.32,
+    "smoke_s": 0.008
+   },
+   "cost": 0.00123455,
+   "replay": "pass",
+   "replay_reason": "required=False",
+   "smoke": "pass",
+   "lint": {
+    "ok": true,
+    "reasons": [],
+    "breadth": 0.018
+   }
+  },
+  {
+   "episode": "E32",
+   "pattern": "one-off",
+   "form": "wynajecie-swietlicy-wiejskiej",
+   "label": "Kod pocztowy",
+   "hist": 3,
+   "stage": "basal_veto",
+   "decision": "needs_human",
+   "skill": null,
+   "basal": {
+    "p_pattern": 0.0442,
+    "family": "zip_code",
+    "family_conf": 0.9321,
+    "consistent": 0.8492
+   },
+   "worth": 2,
+   "timings": {
+    "basal_s": 1.581
+   },
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E38",
+   "pattern": "one-off",
+   "form": "zajecie-pasa-drogowego",
+   "label": "Adres e-mail",
+   "hist": 3,
+   "stage": "basal_veto",
+   "decision": "needs_human",
+   "skill": null,
+   "basal": {
+    "p_pattern": 0.2264,
+    "family": "email_phone",
+    "family_conf": 0.9582,
+    "consistent": 0.83
+   },
+   "worth": 2,
+   "timings": {
+    "basal_s": 1.657
+   },
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E34",
+   "pattern": "one-off",
+   "form": "wynajecie-swietlicy-wiejskiej",
+   "label": "Imię i nazwisko wnioskodawcy",
+   "hist": 1,
+   "stage": "cold_start",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 1,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  },
+  {
+   "episode": "E52",
+   "pattern": "one-off",
+   "form": "wynajecie-swietlicy-wiejskiej",
+   "label": "Imię i nazwisko wnioskodawcy",
+   "hist": 2,
+   "stage": "shape",
+   "decision": "ignored",
+   "skill": null,
+   "basal": null,
+   "worth": 0,
+   "timings": {},
+   "cost": 0.0,
+   "replay": null,
+   "replay_reason": null,
+   "smoke": null,
+   "lint": {}
+  }
+ ],
+ "learned": [
+  {
+   "id": "ep-email-trim-spaces",
+   "version": 1,
+   "name": "email-trim-spaces",
+   "layer": "episodic",
+   "status": "active",
+   "description": "Usuwa spacje z adresu e-mail.",
+   "trigger": {
+    "labels_any": [
+     "adres e-mail",
+     "e-mail",
+     "email"
+    ],
+    "regex": null,
+    "validator": "EMAIL",
+    "field_family": "email_phone"
+   },
+   "scope": {
+    "family": "email_phone"
+   },
+   "pattern": {
+    "before": "aaaa@aaa.aa ",
+    "after": "aaaa@aaa.aa",
+    "attr": "value"
+   },
+   "prompt_snippet": "Dla pola adres e-mail ustaw rodzaj pola email_phone, wymagalność zgodnie z formularzem i walidator EMAIL. Usuń zbędne spacje z wartości.",
+   "validator_rule": {
+    "add_validators": [
+     "EMAIL"
+    ],
+    "required": null,
+    "post_fix": "trim"
+   },
+   "provenance": {
+    "episode_ids": [
+     "ep_e81240950de8",
+     "ep_ce12534ab4bf",
+     "ep_fbe7f2b4ac7f"
+    ],
+    "hist": 2,
+    "basal": {
+     "p_pattern": 0.8756,
+     "family": "email_phone",
+     "family_conf": 0.9797,
+     "consistent": 0.9281
+    },
+    "worth": 3,
+    "rules_only": false,
+    "human_approved": false,
+    "model": "qwen/deepseek-v4-pro-0813"
+   },
+   "expires_at": "2026-12-06T05:40:54.251765Z",
+   "hits": 0,
+   "wins": 0,
+   "losses": 0,
+   "parent_version": null,
+   "absorbed_into": null,
+   "pinned": false
+  },
+  {
+   "id": "ep-nip-remove-pl-prefix",
+   "version": 1,
+   "name": "nip-remove-pl-prefix",
+   "layer": "episodic",
+   "status": "active",
+   "description": "Usuwa prefiks kraju PL z pola NIP/REGON, pozostawiając wyłącznie cyfry.",
+   "trigger": {
+    "labels_any": [
+     "NIP",
+     "REGON",
+     "NIP/REGON"
+    ],
+    "regex": null,
+    "validator": "NIP",
+    "field_family": "nip_regon"
+   },
+   "scope": {
+    "family": "nip_regon"
+   },
+   "pattern": {
+    "before": "AA##########",
+    "after": "##########",
+    "attr": "value"
+   },
+   "prompt_snippet": "Rozpoznaj pole nip_regon jako wymagane. Zastosuj walidator NIP i usuń prefiks kraju PL, pozostawiając wyłącznie cyfry.",
+   "validator_rule": {
+    "add_validators": [
+     "NIP"
+    ],
+    "required": null,
+    "post_fix": "digits_only"
+   },
+   "provenance": {
+    "episode_ids": [
+     "ep_8209b9bfe2a4",
+     "ep_d4dea29131e5"
+    ],
+    "hist": 2,
+    "basal": {
+     "p_pattern": 0.7107,
+     "family": "nip_regon",
+     "family_conf": 0.9664,
+     "consistent": 0.7416
+    },
+    "worth": 3,
+    "rules_only": false,
+    "human_approved": false,
+    "model": "qwen/deepseek-v4-pro-0813"
+   },
+   "expires_at": "2026-12-06T05:40:36.740755Z",
+   "hits": 0,
+   "wins": 0,
+   "losses": 0,
+   "parent_version": null,
+   "absorbed_into": null,
+   "pinned": false
+  },
+  {
+   "id": "ep-pesel-digits-only",
+   "version": 1,
+   "name": "pesel-digits-only",
+   "layer": "episodic",
+   "status": "active",
+   "description": "Pole PESEL powinno zawierać wyłącznie 11 cyfr bez separatorów.",
+   "trigger": {
+    "labels_any": [
+     "PESEL"
+    ],
+    "regex": null,
+    "validator": "PESEL",
+    "field_family": "pesel"
+   },
+   "scope": {
+    "family": "pesel"
+   },
+   "pattern": {
+    "before": "###-####-####",
+    "after": "###########",
+    "attr": "value"
+   },
+   "prompt_snippet": "Rozpoznaj pole jako pesel, ustaw wymagalność zgodnie z formularzem i zastosuj walidator PESEL. Wartość zapisuj wyłącznie jako 11 cyfr bez separatorów.",
+   "validator_rule": {
+    "add_validators": [
+     "PESEL"
+    ],
+    "required": null,
+    "post_fix": "digits_only"
+   },
+   "provenance": {
+    "episode_ids": [
+     "ep_95a36fe8efba",
+     "ep_de6e0afff6cf"
+    ],
+    "hist": 2,
+    "basal": {
+     "p_pattern": 0.9073,
+     "family": "pesel",
+     "family_conf": 0.9723,
+     "consistent": 0.8696
+    },
+    "worth": 3,
+    "rules_only": false,
+    "human_approved": false,
+    "model": "qwen/deepseek-v4-pro-0813"
+   },
+   "expires_at": "2026-12-06T05:40:21.314705Z",
+   "hits": 0,
+   "wins": 0,
+   "losses": 0,
+   "parent_version": null,
+   "absorbed_into": null,
+   "pinned": false
+  },
+  {
+   "id": "ep-phone-required-flag",
+   "version": 1,
+   "name": "phone-required-flag",
+   "layer": "episodic",
+   "status": "active",
+   "description": "Pole telefon oznaczone jako wymagane mimo etykiety sugerującej opcjonalność.",
+   "trigger": {
+    "labels_any": [
+     "telefon"
+    ],
+    "regex": null,
+    "validator": null,
+    "field_family": "required_flag"
+   },
+   "scope": {
+    "family": "required_flag"
+   },
+   "pattern": {
+    "before": "true",
+    "after": "false",
+    "attr": "required"
+   },
+   "prompt_snippet": "Jeśli etykieta pola telefonu sugeruje, że pole jest nieobowiązkowe, ale pole ma ustawioną wymagalność, ustaw required na false.",
+   "validator_rule": {
+    "add_validators": [],
+    "required": false,
+    "post_fix": null
+   },
+   "provenance": {
+    "episode_ids": [
+     "ep_27864451b56a",
+     "ep_1fb60a4c90ae"
+    ],
+    "hist": 2,
+    "basal": {
+     "p_pattern": 0.902,
+     "family": "required_flag",
+     "family_conf": 0.8499,
+     "consistent": 0.1856
+    },
+    "worth": 3,
+    "rules_only": false,
+    "human_approved": false,
+    "model": "qwen/deepseek-v4-pro-0813"
+   },
+   "expires_at": "2026-12-06T05:41:29.167150Z",
+   "hits": 0,
+   "wins": 0,
+   "losses": 0,
+   "parent_version": null,
+   "absorbed_into": null,
+   "pinned": false
+  },
+  {
+   "id": "ep-zip-code-hyphen",
+   "version": 1,
+   "name": "zip-code-hyphen",
+   "layer": "episodic",
+   "status": "active",
+   "description": "Reguła formatowania kodu pocztowego z myślnikiem po drugiej cyfrze.",
+   "trigger": {
+    "labels_any": [
+     "kod pocztowy"
+    ],
+    "regex": null,
+    "validator": "ZIP_CODE",
+    "field_family": "zip_code"
+   },
+   "scope": {
+    "family": "zip_code",
+    "section_any": [
+     "adres",
+     "siedzib",
+     "zamieszk",
+     "korespondenc",
+     "miejscowosc",
+     "ulica"
+    ],
+    "section_none": [
+     "zagranic",
+     "poza polsk",
+     "inny niz polska",
+     "innym niz polska",
+     "obcy kraj"
+    ]
+   },
+   "pattern": {
+    "before": "#####",
+    "after": "##-###",
+    "attr": "value"
+   },
+   "prompt_snippet": "Pole typu zip_code. Wartość sformatuj jako kod pocztowy w formacie ##-###. Zastosuj walidator ZIP_CODE.",
+   "validator_rule": {
+    "add_validators": [
+     "ZIP_CODE"
+    ],
+    "required": null,
+    "post_fix": "zip_code"
+   },
+   "provenance": {
+    "episode_ids": [
+     "ep_a507f8e281d1",
+     "ep_14f3bcad2560",
+     "ep_20219e204d94"
+    ],
+    "hist": 2,
+    "basal": {
+     "p_pattern": 0.9021,
+     "family": "zip_code",
+     "family_conf": 0.9739,
+     "consistent": 0.9035
+    },
+    "worth": 3,
+    "rules_only": false,
+    "human_approved": false,
+    "model": "qwen/deepseek-v4-pro-0813"
+   },
+   "expires_at": "2026-12-06T05:39:50.277531Z",
+   "hits": 0,
+   "wins": 0,
+   "losses": 0,
+   "parent_version": null,
+   "absorbed_into": null,
+   "pinned": false
+  }
+ ],
+ "review_queue": [],
+ "latency": {
+  "basal_s": {
+   "n": 7,
+   "mean": 1.49,
+   "max": 1.657
+  },
+  "write_s": {
+   "n": 5,
+   "mean": 0.64,
+   "max": 3.17
+  },
+  "replay_s": {
+   "n": 5,
+   "mean": 17.96,
+   "max": 30.32
+  },
+  "smoke_s": {
+   "n": 5,
+   "mean": 7.8,
+   "max": 38.956
+  }
+ },
+ "summary": {
+  "gate/seeds": {
+   "forms": 6,
+   "ok": 6,
+   "recall": 0.357,
+   "precision": 0.546,
+   "type_acc": 0.776,
+   "required_acc": 0.802,
+   "validators_acc": 0.769,
+   "section_recall": 0.309,
+   "validators": {
+    "REQUIRED": {
+     "tp": 105,
+     "fp": 1,
+     "fn": 34,
+     "precision": 0.991,
+     "recall": 0.755
+    },
+    "PESEL": {
+     "tp": 3,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.5,
+     "recall": 1.0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "ZIP_CODE": {
+     "tp": 8,
+     "fp": 5,
+     "fn": 0,
+     "precision": 0.615,
+     "recall": 1.0
+    },
+    "EMAIL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.667
+    }
+   },
+   "cost_usd": 0.0144,
+   "list_cost_usd": 0.2058,
+   "list_cost_per_form": 0.0343,
+   "llm_s_total": 1127.2,
+   "tiers": {
+    "simple": 3,
+    "medium": 1,
+    "hard": 2
+   },
+   "heuristic_routes": 6,
+   "tokens": 500394,
+   "llm_latency_s": 187.867,
+   "escalations": 0,
+   "skills_fired": {
+    "seed-address-required": 43,
+    "seed-phone-optional": 17,
+    "seed-email": 11,
+    "seed-zip-code": 6,
+    "seed-pesel": 5,
+    "seed-marked-optional": 3,
+    "seed-nip": 3,
+    "seed-regon": 1
+   }
+  },
+  "all/seeds": {
+   "forms": 12,
+   "ok": 12,
+   "recall": 0.287,
+   "precision": 0.554,
+   "type_acc": 0.816,
+   "required_acc": 0.778,
+   "validators_acc": 0.748,
+   "section_recall": 0.216,
+   "validators": {
+    "REQUIRED": {
+     "tp": 181,
+     "fp": 3,
+     "fn": 61,
+     "precision": 0.984,
+     "recall": 0.748
+    },
+    "PESEL": {
+     "tp": 5,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "NIP": {
+     "tp": 2,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.667,
+     "recall": 1.0
+    },
+    "REGON": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "ZIP_CODE": {
+     "tp": 15,
+     "fp": 9,
+     "fn": 1,
+     "precision": 0.625,
+     "recall": 0.938
+    },
+    "EMAIL": {
+     "tp": 7,
+     "fp": 0,
+     "fn": 2,
+     "precision": 1.0,
+     "recall": 0.778
+    }
+   },
+   "cost_usd": 0.0487,
+   "list_cost_usd": 0.2401,
+   "list_cost_per_form": 0.02001,
+   "llm_s_total": 2020.4,
+   "tiers": {
+    "simple": 4,
+    "medium": 6,
+    "hard": 2
+   },
+   "heuristic_routes": 12,
+   "tokens": 690038,
+   "llm_latency_s": 168.367,
+   "escalations": 0,
+   "skills_fired": {
+    "seed-address-required": 80,
+    "seed-phone-optional": 33,
+    "seed-email": 24,
+    "seed-zip-code": 10,
+    "seed-pesel": 10,
+    "seed-marked-optional": 6,
+    "seed-nip": 6,
+    "seed-regon": 3
+   }
+  },
+  "gate/learned": {
+   "forms": 6,
+   "ok": 6,
+   "recall": 0.357,
+   "precision": 0.546,
+   "type_acc": 0.776,
+   "required_acc": 0.809,
+   "validators_acc": 0.774,
+   "section_recall": 0.309,
+   "validators": {
+    "REQUIRED": {
+     "tp": 107,
+     "fp": 1,
+     "fn": 32,
+     "precision": 0.991,
+     "recall": 0.77
+    },
+    "PESEL": {
+     "tp": 3,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.5,
+     "recall": 1.0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "ZIP_CODE": {
+     "tp": 8,
+     "fp": 5,
+     "fn": 0,
+     "precision": 0.615,
+     "recall": 1.0
+    },
+    "EMAIL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.667
+    }
+   },
+   "cost_usd": 0.0151,
+   "list_cost_usd": 0.2066,
+   "list_cost_per_form": 0.03443,
+   "llm_s_total": 1129.4,
+   "tiers": {
+    "simple": 3,
+    "medium": 1,
+    "hard": 2
+   },
+   "heuristic_routes": 6,
+   "tokens": 507300,
+   "llm_latency_s": 188.233,
+   "escalations": 0,
+   "skills_fired": {
+    "seed-address-required": 43,
+    "ep-zip-code-hyphen": 6,
+    "seed-phone-optional": 6,
+    "seed-zip-code": 6,
+    "ep-email-trim-spaces": 5,
+    "seed-email": 5,
+    "ep-pesel-digits-only": 5,
+    "seed-pesel": 5,
+    "ep-phone-required-flag": 4,
+    "seed-marked-optional": 3,
+    "ep-nip-remove-pl-prefix": 2,
+    "seed-nip": 2,
+    "seed-regon": 1
+   }
+  },
+  "all/learned": {
+   "forms": 12,
+   "ok": 12,
+   "recall": 0.288,
+   "precision": 0.547,
+   "type_acc": 0.816,
+   "required_acc": 0.794,
+   "validators_acc": 0.763,
+   "section_recall": 0.216,
+   "validators": {
+    "REQUIRED": {
+     "tp": 186,
+     "fp": 3,
+     "fn": 57,
+     "precision": 0.984,
+     "recall": 0.765
+    },
+    "PESEL": {
+     "tp": 5,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "NIP": {
+     "tp": 2,
+     "fp": 1,
+     "fn": 0,
+     "precision": 0.667,
+     "recall": 1.0
+    },
+    "REGON": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "ZIP_CODE": {
+     "tp": 15,
+     "fp": 9,
+     "fn": 1,
+     "precision": 0.625,
+     "recall": 0.938
+    },
+    "EMAIL": {
+     "tp": 7,
+     "fp": 0,
+     "fn": 2,
+     "precision": 1.0,
+     "recall": 0.778
+    }
+   },
+   "cost_usd": 0.0508,
+   "list_cost_usd": 0.2424,
+   "list_cost_per_form": 0.0202,
+   "llm_s_total": 2076.5,
+   "tiers": {
+    "simple": 4,
+    "medium": 6,
+    "hard": 2
+   },
+   "heuristic_routes": 12,
+   "tokens": 709284,
+   "llm_latency_s": 173.042,
+   "escalations": 0,
+   "skills_fired": {
+    "seed-address-required": 82,
+    "seed-phone-optional": 14,
+    "ep-email-trim-spaces": 10,
+    "ep-zip-code-hyphen": 10,
+    "seed-email": 10,
+    "ep-pesel-digits-only": 10,
+    "seed-pesel": 10,
+    "ep-phone-required-flag": 9,
+    "seed-zip-code": 8,
+    "seed-marked-optional": 6,
+    "ep-nip-remove-pl-prefix": 5,
+    "seed-nip": 4,
+    "seed-regon": 2
+   }
+  },
+  "held-out/seeds": {
+   "forms": 6,
+   "ok": 6,
+   "recall": 0.218,
+   "precision": 0.561,
+   "type_acc": 0.856,
+   "required_acc": 0.753,
+   "validators_acc": 0.727,
+   "section_recall": 0.122,
+   "validators": {
+    "REQUIRED": {
+     "tp": 76,
+     "fp": 2,
+     "fn": 27,
+     "precision": 0.974,
+     "recall": 0.738
+    },
+    "PESEL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "ZIP_CODE": {
+     "tp": 7,
+     "fp": 4,
+     "fn": 1,
+     "precision": 0.636,
+     "recall": 0.875
+    },
+    "EMAIL": {
+     "tp": 5,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.833
+    }
+   },
+   "cost_usd": 0.0343,
+   "list_cost_usd": 0.0343,
+   "list_cost_per_form": 0.00572,
+   "llm_s_total": 893.2,
+   "tiers": {
+    "medium": 5,
+    "simple": 1
+   },
+   "heuristic_routes": 6,
+   "tokens": 189644,
+   "llm_latency_s": 148.867,
+   "escalations": 0,
+   "skills_fired": {
+    "seed-address-required": 37,
+    "seed-phone-optional": 16,
+    "seed-email": 13,
+    "seed-pesel": 5,
+    "seed-zip-code": 4,
+    "seed-marked-optional": 3,
+    "seed-nip": 3,
+    "seed-regon": 2
+   }
+  },
+  "held-out/learned": {
+   "forms": 6,
+   "ok": 6,
+   "recall": 0.22,
+   "precision": 0.549,
+   "type_acc": 0.855,
+   "required_acc": 0.778,
+   "validators_acc": 0.751,
+   "section_recall": 0.122,
+   "validators": {
+    "REQUIRED": {
+     "tp": 79,
+     "fp": 2,
+     "fn": 25,
+     "precision": 0.975,
+     "recall": 0.76
+    },
+    "PESEL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0,
+     "precision": 1.0,
+     "recall": 1.0
+    },
+    "ZIP_CODE": {
+     "tp": 7,
+     "fp": 4,
+     "fn": 1,
+     "precision": 0.636,
+     "recall": 0.875
+    },
+    "EMAIL": {
+     "tp": 5,
+     "fp": 0,
+     "fn": 1,
+     "precision": 1.0,
+     "recall": 0.833
+    }
+   },
+   "cost_usd": 0.0357,
+   "list_cost_usd": 0.0358,
+   "list_cost_per_form": 0.00596,
+   "llm_s_total": 947.1,
+   "tiers": {
+    "medium": 5,
+    "simple": 1
+   },
+   "heuristic_routes": 6,
+   "tokens": 201984,
+   "llm_latency_s": 157.85,
+   "escalations": 0,
+   "skills_fired": {
+    "seed-address-required": 39,
+    "seed-phone-optional": 8,
+    "ep-email-trim-spaces": 5,
+    "ep-phone-required-flag": 5,
+    "seed-email": 5,
+    "ep-pesel-digits-only": 5,
+    "seed-pesel": 5,
+    "ep-zip-code-hyphen": 4,
+    "seed-marked-optional": 3,
+    "ep-nip-remove-pl-prefix": 3,
+    "seed-nip": 2,
+    "seed-zip-code": 2,
+    "seed-regon": 1
+   }
+  }
+ },
+ "results": [
+  {
+   "form": "zwrot-oplaty-skarbowej",
+   "set": "gate",
+   "mode": "seeds",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 0.2,
+   "llm_latency_s": 34.2,
+   "calls": 16,
+   "cached_calls": 16,
+   "prompt_tokens": 41307,
+   "completion_tokens": 2824,
+   "cost_usd": 0.00268,
+   "list_cost_usd": 0.00299,
+   "score": {
+    "truth_fields": 47,
+    "pred_fields": 27,
+    "matched": 20,
+    "recall": 0.426,
+    "precision": 0.741,
+    "type_acc": 0.85,
+    "required_acc": 0.8,
+    "validators_acc": 0.75,
+    "section_acc": 0.65,
+    "option_recall": null,
+    "section_recall": 0.462,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 15,
+     "fp": 0,
+     "fn": 4
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 10,
+    "seed-email": 2,
+    "seed-marked-optional": 1,
+    "seed-nip": 2,
+    "seed-phone-optional": 2,
+    "seed-zip-code": 2
+   },
+   "episodes": {}
+  },
+  {
+   "form": "zwrot-oplaty-skarbowej",
+   "set": "gate",
+   "mode": "learned",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 4.6,
+   "llm_latency_s": 35.6,
+   "calls": 17,
+   "cached_calls": 11,
+   "prompt_tokens": 44362,
+   "completion_tokens": 2927,
+   "cost_usd": 0.00274,
+   "list_cost_usd": 0.00319,
+   "score": {
+    "truth_fields": 47,
+    "pred_fields": 27,
+    "matched": 20,
+    "recall": 0.426,
+    "precision": 0.741,
+    "type_acc": 0.85,
+    "required_acc": 0.8,
+    "validators_acc": 0.75,
+    "section_acc": 0.65,
+    "option_recall": null,
+    "section_recall": 0.462,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 15,
+     "fp": 0,
+     "fn": 4
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 1,
+    "ep-nip-remove-pl-prefix": 1,
+    "ep-phone-required-flag": 1,
+    "ep-zip-code-hyphen": 2,
+    "seed-address-required": 10,
+    "seed-email": 1,
+    "seed-marked-optional": 1,
+    "seed-nip": 1,
+    "seed-phone-optional": 1,
+    "seed-zip-code": 2
+   },
+   "episodes": {}
+  },
+  {
+   "form": "wydanie-zaswiadczenia",
+   "set": "gate",
+   "mode": "seeds",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 0.2,
+   "llm_latency_s": 18.2,
+   "calls": 9,
+   "cached_calls": 9,
+   "prompt_tokens": 20890,
+   "completion_tokens": 1263,
+   "cost_usd": 0.00145,
+   "list_cost_usd": 0.00148,
+   "score": {
+    "truth_fields": 26,
+    "pred_fields": 16,
+    "matched": 9,
+    "recall": 0.346,
+    "precision": 0.562,
+    "type_acc": 0.889,
+    "required_acc": 0.889,
+    "validators_acc": 0.889,
+    "section_acc": 0.0,
+    "option_recall": null,
+    "section_recall": 0.25,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 7,
+     "fp": 1,
+     "fn": 0
+    },
+    "PESEL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 3,
+    "seed-pesel": 1,
+    "seed-phone-optional": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "wydanie-zaswiadczenia",
+   "set": "gate",
+   "mode": "learned",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 0.0,
+   "llm_latency_s": 18.2,
+   "calls": 9,
+   "cached_calls": 9,
+   "prompt_tokens": 20890,
+   "completion_tokens": 1263,
+   "cost_usd": 0.00145,
+   "list_cost_usd": 0.00148,
+   "score": {
+    "truth_fields": 26,
+    "pred_fields": 16,
+    "matched": 9,
+    "recall": 0.346,
+    "precision": 0.562,
+    "type_acc": 0.889,
+    "required_acc": 0.889,
+    "validators_acc": 0.889,
+    "section_acc": 0.0,
+    "option_recall": null,
+    "section_recall": 0.25,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 7,
+     "fp": 1,
+     "fn": 0
+    },
+    "PESEL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    }
+   },
+   "skills_fired": {
+    "ep-pesel-digits-only": 1,
+    "seed-address-required": 3,
+    "seed-pesel": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "wynajecie-swietlicy-wiejskiej",
+   "set": "gate",
+   "mode": "seeds",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 0.0,
+   "llm_latency_s": 27.9,
+   "calls": 10,
+   "cached_calls": 10,
+   "prompt_tokens": 25603,
+   "completion_tokens": 1368,
+   "cost_usd": 0.00175,
+   "list_cost_usd": 0.00178,
+   "score": {
+    "truth_fields": 33,
+    "pred_fields": 19,
+    "matched": 10,
+    "recall": 0.303,
+    "precision": 0.526,
+    "type_acc": 0.8,
+    "required_acc": 0.9,
+    "validators_acc": 0.8,
+    "section_acc": 0.1,
+    "option_recall": null,
+    "section_recall": 0.25,
+    "title_sim": 0.961
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 8,
+     "fp": 0,
+     "fn": 1
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 0,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 2,
+    "seed-phone-optional": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "wynajecie-swietlicy-wiejskiej",
+   "set": "gate",
+   "mode": "learned",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 0.0,
+   "llm_latency_s": 27.9,
+   "calls": 10,
+   "cached_calls": 10,
+   "prompt_tokens": 25603,
+   "completion_tokens": 1368,
+   "cost_usd": 0.00175,
+   "list_cost_usd": 0.00178,
+   "score": {
+    "truth_fields": 33,
+    "pred_fields": 19,
+    "matched": 10,
+    "recall": 0.303,
+    "precision": 0.526,
+    "type_acc": 0.8,
+    "required_acc": 0.9,
+    "validators_acc": 0.8,
+    "section_acc": 0.1,
+    "option_recall": null,
+    "section_recall": 0.25,
+    "title_sim": 0.961
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 8,
+     "fp": 0,
+     "fn": 1
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 0,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 2
+   },
+   "episodes": {}
+  },
+  {
+   "form": "zajecie-pasa-drogowego",
+   "set": "gate",
+   "mode": "seeds",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 0.2,
+   "llm_latency_s": 343.4,
+   "calls": 14,
+   "cached_calls": 14,
+   "prompt_tokens": 38259,
+   "completion_tokens": 4967,
+   "cost_usd": 0.00854,
+   "list_cost_usd": 0.00854,
+   "score": {
+    "truth_fields": 92,
+    "pred_fields": 76,
+    "matched": 37,
+    "recall": 0.402,
+    "precision": 0.487,
+    "type_acc": 0.541,
+    "required_acc": 0.541,
+    "validators_acc": 0.514,
+    "section_acc": 0.135,
+    "option_recall": null,
+    "section_recall": 0.105,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 18,
+     "fp": 0,
+     "fn": 17
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 2,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 6,
+    "seed-email": 6,
+    "seed-marked-optional": 1,
+    "seed-phone-optional": 7
+   },
+   "episodes": {}
+  },
+  {
+   "form": "zajecie-pasa-drogowego",
+   "set": "gate",
+   "mode": "learned",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 32.9,
+   "llm_latency_s": 356.9,
+   "calls": 15,
+   "cached_calls": 11,
+   "prompt_tokens": 41294,
+   "completion_tokens": 5283,
+   "cost_usd": 0.00915,
+   "list_cost_usd": 0.00915,
+   "score": {
+    "truth_fields": 92,
+    "pred_fields": 76,
+    "matched": 37,
+    "recall": 0.402,
+    "precision": 0.487,
+    "type_acc": 0.541,
+    "required_acc": 0.568,
+    "validators_acc": 0.541,
+    "section_acc": 0.135,
+    "option_recall": null,
+    "section_recall": 0.105,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 19,
+     "fp": 0,
+     "fn": 16
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 2,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 2,
+    "ep-phone-required-flag": 1,
+    "seed-address-required": 6,
+    "seed-email": 2,
+    "seed-marked-optional": 1,
+    "seed-phone-optional": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "psy-ras-agresywnych",
+   "set": "gate",
+   "mode": "seeds",
+   "tier_start": "hard",
+   "routed_tier": "hard",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "hard",
+   "escalations": 0,
+   "wall_s": 0.1,
+   "llm_latency_s": 68.9,
+   "calls": 15,
+   "cached_calls": 15,
+   "prompt_tokens": 52164,
+   "completion_tokens": 5114,
+   "cost_usd": 0.0,
+   "list_cost_usd": 0.02896,
+   "score": {
+    "truth_fields": 53,
+    "pred_fields": 37,
+    "matched": 14,
+    "recall": 0.264,
+    "precision": 0.378,
+    "type_acc": 0.714,
+    "required_acc": 0.857,
+    "validators_acc": 0.857,
+    "section_acc": 0.143,
+    "option_recall": 1.0,
+    "section_recall": 0.357,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 11,
+     "fp": 0,
+     "fn": 2
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 5,
+    "seed-email": 1,
+    "seed-marked-optional": 1,
+    "seed-phone-optional": 4,
+    "seed-zip-code": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "psy-ras-agresywnych",
+   "set": "gate",
+   "mode": "learned",
+   "tier_start": "hard",
+   "routed_tier": "hard",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "hard",
+   "escalations": 0,
+   "wall_s": 12.4,
+   "llm_latency_s": 65.5,
+   "calls": 15,
+   "cached_calls": 11,
+   "prompt_tokens": 52269,
+   "completion_tokens": 5082,
+   "cost_usd": 0.0,
+   "list_cost_usd": 0.02896,
+   "score": {
+    "truth_fields": 53,
+    "pred_fields": 37,
+    "matched": 14,
+    "recall": 0.264,
+    "precision": 0.378,
+    "type_acc": 0.714,
+    "required_acc": 0.857,
+    "validators_acc": 0.857,
+    "section_acc": 0.143,
+    "option_recall": 1.0,
+    "section_recall": 0.357,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 11,
+     "fp": 0,
+     "fn": 2
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 1,
+    "ep-phone-required-flag": 2,
+    "ep-zip-code-hyphen": 1,
+    "seed-address-required": 5,
+    "seed-email": 1,
+    "seed-marked-optional": 1,
+    "seed-phone-optional": 2,
+    "seed-zip-code": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "oplata-za-odpady",
+   "set": "gate",
+   "mode": "seeds",
+   "tier_start": "hard",
+   "routed_tier": "hard",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "hard",
+   "escalations": 0,
+   "wall_s": 0.3,
+   "llm_latency_s": 634.6,
+   "calls": 29,
+   "cached_calls": 29,
+   "prompt_tokens": 271103,
+   "completion_tokens": 35532,
+   "cost_usd": 0.0,
+   "list_cost_usd": 0.16203,
+   "score": {
+    "truth_fields": 142,
+    "pred_fields": 98,
+    "matched": 57,
+    "recall": 0.401,
+    "precision": 0.582,
+    "type_acc": 0.86,
+    "required_acc": 0.825,
+    "validators_acc": 0.807,
+    "section_acc": 0.509,
+    "option_recall": 1.0,
+    "section_recall": 0.433,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 46,
+     "fp": 0,
+     "fn": 10
+    },
+    "PESEL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 1,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 3,
+     "fp": 2,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 17,
+    "seed-email": 2,
+    "seed-nip": 1,
+    "seed-pesel": 4,
+    "seed-phone-optional": 2,
+    "seed-regon": 1,
+    "seed-zip-code": 3
+   },
+   "episodes": {}
+  },
+  {
+   "form": "oplata-za-odpady",
+   "set": "gate",
+   "mode": "learned",
+   "tier_start": "hard",
+   "routed_tier": "hard",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "hard",
+   "escalations": 0,
+   "wall_s": 14.5,
+   "llm_latency_s": 625.3,
+   "calls": 29,
+   "cached_calls": 17,
+   "prompt_tokens": 271605,
+   "completion_tokens": 35354,
+   "cost_usd": 0.0,
+   "list_cost_usd": 0.16202,
+   "score": {
+    "truth_fields": 142,
+    "pred_fields": 98,
+    "matched": 57,
+    "recall": 0.401,
+    "precision": 0.582,
+    "type_acc": 0.86,
+    "required_acc": 0.842,
+    "validators_acc": 0.807,
+    "section_acc": 0.509,
+    "option_recall": 1.0,
+    "section_recall": 0.433,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 47,
+     "fp": 0,
+     "fn": 9
+    },
+    "PESEL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 1,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 3,
+     "fp": 2,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 1,
+    "ep-nip-remove-pl-prefix": 1,
+    "ep-pesel-digits-only": 4,
+    "ep-zip-code-hyphen": 3,
+    "seed-address-required": 17,
+    "seed-email": 1,
+    "seed-nip": 1,
+    "seed-pesel": 4,
+    "seed-phone-optional": 2,
+    "seed-regon": 1,
+    "seed-zip-code": 3
+   },
+   "episodes": {}
+  },
+  {
+   "form": "numer-porzadkowy",
+   "set": "held-out",
+   "mode": "seeds",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 0.1,
+   "llm_latency_s": 77.3,
+   "calls": 9,
+   "cached_calls": 9,
+   "prompt_tokens": 19758,
+   "completion_tokens": 1489,
+   "cost_usd": 0.00339,
+   "list_cost_usd": 0.00339,
+   "score": {
+    "truth_fields": 64,
+    "pred_fields": 18,
+    "matched": 9,
+    "recall": 0.141,
+    "precision": 0.5,
+    "type_acc": 0.889,
+    "required_acc": 1.0,
+    "validators_acc": 1.0,
+    "section_acc": 0.222,
+    "option_recall": null,
+    "section_recall": 0.067,
+    "title_sim": 0.85
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 7,
+     "fp": 0,
+     "fn": 0
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 2,
+    "seed-email": 3,
+    "seed-marked-optional": 1,
+    "seed-phone-optional": 3
+   },
+   "episodes": {}
+  },
+  {
+   "form": "numer-porzadkowy",
+   "set": "held-out",
+   "mode": "learned",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 13.7,
+   "llm_latency_s": 79.8,
+   "calls": 9,
+   "cached_calls": 7,
+   "prompt_tokens": 19912,
+   "completion_tokens": 1549,
+   "cost_usd": 0.00346,
+   "list_cost_usd": 0.00346,
+   "score": {
+    "truth_fields": 64,
+    "pred_fields": 20,
+    "matched": 9,
+    "recall": 0.141,
+    "precision": 0.45,
+    "type_acc": 0.889,
+    "required_acc": 1.0,
+    "validators_acc": 1.0,
+    "section_acc": 0.222,
+    "option_recall": null,
+    "section_recall": 0.067,
+    "title_sim": 0.85
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 7,
+     "fp": 0,
+     "fn": 0
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 1,
+    "ep-phone-required-flag": 1,
+    "seed-address-required": 2,
+    "seed-email": 1,
+    "seed-marked-optional": 1,
+    "seed-phone-optional": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "nadplata-podatku",
+   "set": "held-out",
+   "mode": "seeds",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 0.1,
+   "llm_latency_s": 124.6,
+   "calls": 11,
+   "cached_calls": 11,
+   "prompt_tokens": 17030,
+   "completion_tokens": 2649,
+   "cost_usd": 0.00422,
+   "list_cost_usd": 0.00422,
+   "score": {
+    "truth_fields": 66,
+    "pred_fields": 22,
+    "matched": 12,
+    "recall": 0.182,
+    "precision": 0.545,
+    "type_acc": 0.833,
+    "required_acc": 0.833,
+    "validators_acc": 0.75,
+    "section_acc": 0.083,
+    "option_recall": null,
+    "section_recall": 0.059,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 10,
+     "fp": 0,
+     "fn": 2
+    },
+    "PESEL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 3,
+    "seed-nip": 3,
+    "seed-pesel": 3
+   },
+   "episodes": {}
+  },
+  {
+   "form": "nadplata-podatku",
+   "set": "held-out",
+   "mode": "learned",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 47.8,
+   "llm_latency_s": 129.2,
+   "calls": 11,
+   "cached_calls": 7,
+   "prompt_tokens": 17355,
+   "completion_tokens": 2645,
+   "cost_usd": 0.00425,
+   "list_cost_usd": 0.00425,
+   "score": {
+    "truth_fields": 66,
+    "pred_fields": 22,
+    "matched": 11,
+    "recall": 0.167,
+    "precision": 0.5,
+    "type_acc": 0.818,
+    "required_acc": 0.909,
+    "validators_acc": 0.818,
+    "section_acc": 0.091,
+    "option_recall": null,
+    "section_recall": 0.059,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 10,
+     "fp": 0,
+     "fn": 1
+    },
+    "PESEL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-nip-remove-pl-prefix": 2,
+    "ep-pesel-digits-only": 3,
+    "seed-address-required": 3,
+    "seed-nip": 2,
+    "seed-pesel": 3
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-udostepnienie-informacji-publicznej",
+   "set": "held-out",
+   "mode": "seeds",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 0.1,
+   "llm_latency_s": 143.8,
+   "calls": 12,
+   "cached_calls": 12,
+   "prompt_tokens": 22358,
+   "completion_tokens": 3029,
+   "cost_usd": 0.00511,
+   "list_cost_usd": 0.00511,
+   "score": {
+    "truth_fields": 71,
+    "pred_fields": 29,
+    "matched": 14,
+    "recall": 0.197,
+    "precision": 0.483,
+    "type_acc": 0.786,
+    "required_acc": 0.5,
+    "validators_acc": 0.5,
+    "section_acc": 0.071,
+    "option_recall": 0.75,
+    "section_recall": 0.118,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 6,
+     "fp": 0,
+     "fn": 7
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 1
+    },
+    "EMAIL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 4,
+    "seed-email": 4,
+    "seed-phone-optional": 3
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-udostepnienie-informacji-publicznej",
+   "set": "held-out",
+   "mode": "learned",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 13.8,
+   "llm_latency_s": 152.0,
+   "calls": 13,
+   "cached_calls": 11,
+   "prompt_tokens": 24552,
+   "completion_tokens": 3183,
+   "cost_usd": 0.00548,
+   "list_cost_usd": 0.00548,
+   "score": {
+    "truth_fields": 71,
+    "pred_fields": 29,
+    "matched": 14,
+    "recall": 0.197,
+    "precision": 0.483,
+    "type_acc": 0.786,
+    "required_acc": 0.5,
+    "validators_acc": 0.5,
+    "section_acc": 0.071,
+    "option_recall": 0.75,
+    "section_recall": 0.118,
+    "title_sim": 1.0
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 6,
+     "fp": 0,
+     "fn": 7
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 1
+    },
+    "EMAIL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 1,
+    "ep-phone-required-flag": 1,
+    "seed-address-required": 4,
+    "seed-email": 1,
+    "seed-phone-optional": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci",
+   "set": "held-out",
+   "mode": "seeds",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 0.1,
+   "llm_latency_s": 21.3,
+   "calls": 10,
+   "cached_calls": 10,
+   "prompt_tokens": 23863,
+   "completion_tokens": 1908,
+   "cost_usd": 0.00178,
+   "list_cost_usd": 0.00178,
+   "score": {
+    "truth_fields": 75,
+    "pred_fields": 29,
+    "matched": 20,
+    "recall": 0.267,
+    "precision": 0.69,
+    "type_acc": 0.85,
+    "required_acc": 0.9,
+    "validators_acc": 0.85,
+    "section_acc": 0.3,
+    "option_recall": null,
+    "section_recall": 0.111,
+    "title_sim": 0.969
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 17,
+     "fp": 1,
+     "fn": 1
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 7,
+    "seed-phone-optional": 4
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci",
+   "set": "held-out",
+   "mode": "learned",
+   "tier_start": "simple",
+   "routed_tier": "simple",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "simple",
+   "escalations": 0,
+   "wall_s": 6.9,
+   "llm_latency_s": 24.1,
+   "calls": 11,
+   "cached_calls": 7,
+   "prompt_tokens": 26789,
+   "completion_tokens": 2385,
+   "cost_usd": 0.00193,
+   "list_cost_usd": 0.00204,
+   "score": {
+    "truth_fields": 75,
+    "pred_fields": 31,
+    "matched": 22,
+    "recall": 0.293,
+    "precision": 0.71,
+    "type_acc": 0.864,
+    "required_acc": 0.909,
+    "validators_acc": 0.864,
+    "section_acc": 0.318,
+    "option_recall": null,
+    "section_recall": 0.111,
+    "title_sim": 0.969
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 19,
+     "fp": 1,
+     "fn": 1
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 1
+    }
+   },
+   "skills_fired": {
+    "ep-phone-required-flag": 2,
+    "seed-address-required": 9,
+    "seed-phone-optional": 2
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-rejestracje-pojazdu",
+   "set": "held-out",
+   "mode": "seeds",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 111.1,
+   "llm_latency_s": 184.3,
+   "calls": 11,
+   "cached_calls": 0,
+   "prompt_tokens": 18466,
+   "completion_tokens": 3465,
+   "cost_usd": 0.00514,
+   "list_cost_usd": 0.00514,
+   "score": {
+    "truth_fields": 79,
+    "pred_fields": 27,
+    "matched": 16,
+    "recall": 0.203,
+    "precision": 0.593,
+    "type_acc": 0.875,
+    "required_acc": 0.562,
+    "validators_acc": 0.562,
+    "section_acc": 0.375,
+    "option_recall": 0.667,
+    "section_recall": 0.158,
+    "title_sim": 0.433
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 9,
+     "fp": 1,
+     "fn": 6
+    },
+    "PESEL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 2,
+    "seed-pesel": 2,
+    "seed-regon": 2
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-rejestracje-pojazdu",
+   "set": "held-out",
+   "mode": "learned",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 22.4,
+   "llm_latency_s": 196.4,
+   "calls": 12,
+   "cached_calls": 10,
+   "prompt_tokens": 20528,
+   "completion_tokens": 3681,
+   "cost_usd": 0.00555,
+   "list_cost_usd": 0.00555,
+   "score": {
+    "truth_fields": 79,
+    "pred_fields": 27,
+    "matched": 16,
+    "recall": 0.203,
+    "precision": 0.593,
+    "type_acc": 0.875,
+    "required_acc": 0.625,
+    "validators_acc": 0.625,
+    "section_acc": 0.375,
+    "option_recall": 0.667,
+    "section_recall": 0.158,
+    "title_sim": 0.433
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 10,
+     "fp": 1,
+     "fn": 5
+    },
+    "PESEL": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 1,
+     "fp": 0,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-nip-remove-pl-prefix": 1,
+    "ep-pesel-digits-only": 2,
+    "seed-address-required": 2,
+    "seed-pesel": 2,
+    "seed-regon": 1
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17",
+   "set": "held-out",
+   "mode": "seeds",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 0.3,
+   "llm_latency_s": 341.9,
+   "calls": 18,
+   "cached_calls": 18,
+   "prompt_tokens": 67268,
+   "completion_tokens": 8361,
+   "cost_usd": 0.01467,
+   "list_cost_usd": 0.01467,
+   "score": {
+    "truth_fields": 126,
+    "pred_fields": 72,
+    "matched": 40,
+    "recall": 0.317,
+    "precision": 0.556,
+    "type_acc": 0.9,
+    "required_acc": 0.725,
+    "validators_acc": 0.7,
+    "section_acc": 0.125,
+    "option_recall": 1.0,
+    "section_recall": 0.217,
+    "title_sim": 0.921
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 27,
+     "fp": 0,
+     "fn": 11
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 3,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "seed-address-required": 19,
+    "seed-email": 6,
+    "seed-marked-optional": 2,
+    "seed-phone-optional": 6,
+    "seed-zip-code": 4
+   },
+   "episodes": {}
+  },
+  {
+   "form": "ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17",
+   "set": "held-out",
+   "mode": "learned",
+   "tier_start": "medium",
+   "routed_tier": "medium",
+   "route_source": "heuristic",
+   "route_confidence": 1.0,
+   "ok": true,
+   "tier_final": "medium",
+   "escalations": 0,
+   "wall_s": 49.4,
+   "llm_latency_s": 365.6,
+   "calls": 19,
+   "cached_calls": 9,
+   "prompt_tokens": 71108,
+   "completion_tokens": 8297,
+   "cost_usd": 0.01499,
+   "list_cost_usd": 0.01499,
+   "score": {
+    "truth_fields": 126,
+    "pred_fields": 72,
+    "matched": 40,
+    "recall": 0.317,
+    "precision": 0.556,
+    "type_acc": 0.9,
+    "required_acc": 0.725,
+    "validators_acc": 0.7,
+    "section_acc": 0.125,
+    "option_recall": 1.0,
+    "section_recall": 0.217,
+    "title_sim": 0.921
+   },
+   "validators": {
+    "REQUIRED": {
+     "tp": 27,
+     "fp": 0,
+     "fn": 11
+    },
+    "PESEL": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "NIP": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "REGON": {
+     "tp": 0,
+     "fp": 0,
+     "fn": 0
+    },
+    "ZIP_CODE": {
+     "tp": 3,
+     "fp": 1,
+     "fn": 0
+    },
+    "EMAIL": {
+     "tp": 2,
+     "fp": 0,
+     "fn": 0
+    }
+   },
+   "skills_fired": {
+    "ep-email-trim-spaces": 3,
+    "ep-phone-required-flag": 1,
+    "ep-zip-code-hyphen": 4,
+    "seed-address-required": 19,
+    "seed-email": 3,
+    "seed-marked-optional": 2,
+    "seed-phone-optional": 4,
+    "seed-zip-code": 2
+   },
+   "episodes": {}
+  }
+ ]
+}

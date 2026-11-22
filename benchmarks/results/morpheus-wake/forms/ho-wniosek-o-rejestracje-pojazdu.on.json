@@ -1,0 +1,769 @@
+{
+ "title": "Wniosek o rejestrację / czasową rejestrację w celu wyrejestrowanie i zawiadamienie o nabyciu/zbyciu pojazdu",
+ "tabs": [
+  {
+   "id": "65b35e72-619e-4a9c-a3ed-157bd846d7ed",
+   "title": "Dane wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_osobowe_firmowe",
+      "title": "Dane osobowe / firmowe",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_lub_nazwa_wlasciciela",
+         "title": "Imię i nazwisko lub nazwa właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "2e9b90fc-5ffb-4c4f-ae78-09bd1a1ff43e"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "46cc1b64-0765-4caf-bdbb-f4e88667be0c"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "da31a025-7aec-45c4-92e4-bb74f026971f"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_i_numer_lokalu",
+         "title": "Ulica i numer lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "378ef261-b488-4df4-93aa-e8709f428a84"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_pesel_lub_regon",
+         "title": "Nr PESEL lub REGON",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Wpisz PESEL lub REGON",
+         "states": [],
+         "questionOrder": 4,
+         "id": "beb14413-d677-43ff-9a4a-5bace922a435"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia",
+         "title": "Data urodzenia",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "79b9b59c-fb17-4a53-a4d7-cc365684e283"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "f64cb5f9-2141-4ff2-9975-5dcea248437d"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 6,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "identyfikacja",
+      "title": "Identyfikacja",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_pesel",
+         "title": "Numer PESEL",
+         "validation": [
+          "REQUIRED",
+          "PESEL"
+         ],
+         "description": "11 cyfr bez separatorów",
+         "states": [],
+         "questionOrder": 0,
+         "id": "b15704a1-dbcd-4b0c-8111-f8bf56d3bea0"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "regon",
+         "title": "REGON",
+         "validation": [
+          "REQUIRED",
+          "REGON"
+         ],
+         "description": "9 lub 14 cyfr",
+         "states": [],
+         "questionOrder": 1,
+         "id": "27749c30-c78a-4d79-917d-bf9f5dc5c291"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia_identyfikacja",
+         "title": "Data urodzenia",
+         "validation": [],
+         "description": "W przypadku osoby fizycznej",
+         "states": [],
+         "questionOrder": 2,
+         "id": "66e95f42-638a-4c46-9b3d-ae8f87bcdfe8"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 6,
+      "id": "53a80d12-3f50-4bbd-84f8-dd8268f5e112"
+     },
+     "x": 0,
+     "y": 6,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "60010d80-b588-43ff-9ebd-335b49da2457",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "rodzaj_postepowania",
+      "title": "Rodzaj postępowania",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "rodzaj_postepowania_rodzaj_postepowania",
+         "title": "Rodzaj postępowania",
+         "options": [
+          {
+           "id": "rejestracja",
+           "name": "rejestracja",
+           "techName": "rejestracja"
+          },
+          {
+           "id": "czasowa rejestracja",
+           "name": "czasowa rejestracja",
+           "techName": "czasowa_rejestracja"
+          },
+          {
+           "id": "wyrejestrowanie",
+           "name": "wyrejestrowanie",
+           "techName": "wyrejestrowanie"
+          },
+          {
+           "id": "zawiadomienie o nabyciu/zbyciu",
+           "name": "zawiadomienie o nabyciu/zbyciu",
+           "techName": "zawiadomienie_o_nabyciu_zbyciu"
+          },
+          {
+           "id": "Inne",
+           "name": "Inne",
+           "techName": "inne"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "544edf3a-9582-40cd-ab5f-9c3e5b99e60c"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_postepowania_rodzaj_postepowania_inne",
+         "title": "Wpisz, jakie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Inne\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "f08c72af-6254-46be-b300-057c447f92c7"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "38786188-bdf5-49cf-a561-fa58dffd36a8"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_pojazdu",
+      "title": "Dane pojazdu",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_pojazdu_i_przeznaczenie",
+         "title": "Rodzaj pojazdu i przeznaczenie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "5ba2e8ec-1f7a-4fa1-b752-d558a4ec5609"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "marka_typ_model",
+         "title": "Marka, typ, model",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "71eaf717-6ba9-4158-8580-ef6cce1ed77c"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "rok_produkcji",
+         "title": "Rok produkcji",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "24af46a6-5075-4bb6-a9be-4d0f8fc3bd3b"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_vin_numer_nadwozia_podwozia_lub_ramy",
+         "title": "Numer VIN / numer nadwozia, podwozia lub ramy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "8df8f7dd-5532-4443-ad25-6c1f62123053"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "dotychczasowy_numer_rejestracyjny",
+         "title": "Dotychczasowy numer rejestracyjny",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "8042d286-4c64-4765-96d1-35078c1920d7"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_sprowadzenia_z_terytorium_panstwa_czlonkowskiego_ue",
+         "title": "Data sprowadzenia z terytorium państwa członkowskiego UE",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"czasowa rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 5,
+         "id": "93f460b8-3400-41c0-9537-3fbc2ded54a2"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_nabycia_zbycia_dotychczas_zarejestrowanego_pojazdu",
+         "title": "Data nabycia/zbycia dotychczas zarejestrowanego pojazdu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"zawiadomienie o nabyciu/zbyciu\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"wyrejestrowanie\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 6,
+         "id": "d0aa7500-15c0-4716-99e4-c50481f8aca5"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "e2dc9653-c096-4530-a691-fecc174698c9"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 7,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_transakcyjne",
+      "title": "Dane transakcyjne",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "sprowadzonego_z_terytorium_panstwa_czlonkowskiego_ue_dnia",
+         "title": "sprowadzonego z terytorium państwa członkowskiego UE dnia",
+         "validation": [],
+         "description": "Jeśli dotyczy",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"czasowa rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "1f1b5dff-a050-4d9f-b562-bb6cb3b7b534"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_nabycia_zbycia_dotychczas_zarejestrowanego_pojazdu_dane_transakcyjne",
+         "title": "data nabycia/zbycia dotychczas zarejestrowanego pojazdu",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"zawiadomienie o nabyciu/zbyciu\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"wyrejestrowanie\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "4a66612d-297c-4e20-bd9f-5a138509abbd"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 9,
+      "id": "1b1c03c1-a5d4-4731-9b5e-f65e864f1677"
+     },
+     "x": 0,
+     "y": 9,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "604f3a71-8957-4ea1-bf01-65a0b288c140",
+   "title": "Żądania i załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zadania_dotyczace_rejestracji",
+      "title": "Żądania dotyczące rejestracji",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "dotychczasowy_numer_rejestracyjny_zadania_dotyczace_rejestracji",
+         "title": "Dotychczasowy numer rejestracyjny",
+         "validation": [],
+         "description": "Numer rejestracyjny pojazdu, który był wcześniej zarejestrowany.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"czasowa rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"wyrejestrowanie\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"zawiadomienie o nabyciu/zbyciu\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 0,
+         "id": "2b856b58-0783-410a-9b14-8b9ed8a45c3c"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "wyroznik_pojazdu_dla_tablic_indywidualnych",
+         "title": "Wyróżnik pojazdu dla tablic indywidualnych",
+         "validation": [],
+         "description": "Wpisz preferowany wyróżnik dla tablic rejestracyjnych indywidualnych.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "7994956f-c5f6-4519-a3a1-9785e954bc66"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "czy_w_pojezdzie_sa_zmniejszone_wymiary_miejsca_konstrukcyjnie_przeznaczonego_do_umieszczania_tablic_rejestracyjnych",
+         "title": "Czy w pojeździe są zmniejszone wymiary miejsca konstrukcyjnie przeznaczonego do umieszczania tablic rejestracyjnych?",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "description": "Wymagane, jeśli wnioskujesz o tablice zmniejszone.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "b78d6f88-d490-4f49-a472-e6326ecc858c"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "czy_wnioskujesz_o_zachowanie_dotychczasowego_numeru_rejestracyjnego",
+         "title": "Czy wnioskujesz o zachowanie dotychczasowego numeru rejestracyjnego?",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "description": "Wybierz Tak, jeśli chcesz zachować obecny numer rejestracyjny.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)\nor\n(\"czasowa rejestracja\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_postepowania' in field.techName].field.repeatingSectionGrid['rodzaj_postepowania_rodzaj_postepowania' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 3,
+         "id": "6f387520-2e28-4dd2-9ab7-f7b2ee8ef76e"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "68324967-fe98-48bb-bcb2-4897fe5c6048"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "REPEATING_SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "do_wniosku_zalaczam_nastepujace_dokumenty",
+         "title": "Do wniosku załączam następujące dokumenty:",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "7b734fb7-27a8-46ef-a452-9b57f9a4fe68"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "5f041f00-af60-4db2-9c0d-5c1c39dda27b"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "3ff3781e-132c-4d9d-b325-c4e731b55bf2",
+   "title": "Oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenie_o_zgodnosci_danych",
+      "title": "Oświadczenie o zgodności danych",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "oswiadczam_ze_podane_we_wniosku_dane_i_informacje_sa_aktualne_i_zgodne_ze_stanem_faktycznym",
+         "title": "Oświadczam, że podane we wniosku dane i informacje są aktualne i zgodne ze stanem faktycznym.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "61ca7390-a1ac-41b9-9620-85340a32850f"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis_wlasciciela",
+         "title": "Podpis właściciela",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "749fd01e-4f76-42ea-8e80-fa08fb24ed8e"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "4c5fbb0d-6157-4b91-96f3-3fc43f917905"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "6d19417d-3a55-4b03-8845-b9f68231f48a",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "1e2969e2-f8f0-4993-a6ff-e7590c4fe25c"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "b9f494fa-d3a0-4e2c-a6ac-298caf4427a5"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "2154bb8b-e94e-4ca9-bd3c-1a63cedd517b",
+    "source": "65b35e72-619e-4a9c-a3ed-157bd846d7ed",
+    "target": "60010d80-b588-43ff-9ebd-335b49da2457"
+   },
+   {
+    "id": "5a13080c-e58b-4dc8-97f6-362ba9847446",
+    "source": "60010d80-b588-43ff-9ebd-335b49da2457",
+    "target": "604f3a71-8957-4ea1-bf01-65a0b288c140"
+   },
+   {
+    "id": "8d631874-eb91-4e01-834e-15c12a060d68",
+    "source": "604f3a71-8957-4ea1-bf01-65a0b288c140",
+    "target": "3ff3781e-132c-4d9d-b325-c4e731b55bf2"
+   },
+   {
+    "id": "d70309cf-e642-43b2-9f83-4cc625260849",
+    "source": "3ff3781e-132c-4d9d-b325-c4e731b55bf2",
+    "target": "6d19417d-3a55-4b03-8845-b9f68231f48a"
+   }
+  ]
+ }
+}

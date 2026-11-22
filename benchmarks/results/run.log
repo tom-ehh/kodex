@@ -1,0 +1,134 @@
+=== 2026-11-22T06:20:20+01:00 START skills
+zwrot-oplaty-skarbowej                                  off ok=True 0.65 $0.000
+zwrot-oplaty-skarbowej                                  on  ok=True 0.75 $0.001
+wydanie-zaswiadczenia                                   off ok=True 0.889 $0.001
+wydanie-zaswiadczenia                                   on  ok=True 0.889 $0.001
+wynajecie-swietlicy-wiejskiej                           off ok=True 0.8 $0.001
+wynajecie-swietlicy-wiejskiej                           on  ok=True 0.8 $0.001
+zajecie-pasa-drogowego                                  off ok=True 0.514 $0.001
+zajecie-pasa-drogowego                                  on  ok=True 0.514 $0.004
+psy-ras-agresywnych                                     off ok=True 0.722 $0.004
+psy-ras-agresywnych                                     on  ok=True 0.857 $0.011
+oplata-za-odpady                                        off ok=True 0.614 $0.011
+oplata-za-odpady                                        on  ok=True 0.807 $0.081
+numer-porzadkowy                                        off ok=True 0.889 $0.081
+numer-porzadkowy                                        on  ok=True 1.0 $0.082
+nadplata-podatku                                        off ok=True 0.9 $0.082
+nadplata-podatku                                        on  ok=True 0.75 $0.084
+ho-wniosek-o-udostepnienie-informacji-publicznej        off ok=True 0.267 $0.084
+ho-wniosek-o-udostepnienie-informacji-publicznej        on  ok=True 0.5 $0.085
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    off ok=True 0.857 $0.085
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    on  ok=True 0.85 $0.085
+ho-wniosek-o-rejestracje-pojazdu                        off ok=True 0.5 $0.090
+ho-wniosek-o-rejestracje-pojazdu                        on  ok=True 0.5 $0.090
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            off ok=True 0.6 $0.090
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            on  ok=True 0.7 $0.097
+spent $0.0970; wrote benchmarks/results/skills
+=== 2026-11-22T06:25:54+01:00 START routing-routed
+zwrot-oplaty-skarbowej                                  off ok=True 0.65 $0.000
+wydanie-zaswiadczenia                                   off ok=True 0.889 $0.000
+wynajecie-swietlicy-wiejskiej                           off ok=True 0.8 $0.000
+zajecie-pasa-drogowego                                  off ok=True 0.529 $0.003
+psy-ras-agresywnych                                     off ok=True 0.833 $0.006
+oplata-za-odpady                                        off ok=True 0.614 $0.006
+numer-porzadkowy                                        off ok=True 1.0 $0.008
+nadplata-podatku                                        off ok=True 0.727 $0.009
+ho-wniosek-o-udostepnienie-informacji-publicznej        off ok=True 0.636 $0.012
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    off ok=True 0.857 $0.012
+ho-wniosek-o-rejestracje-pojazdu                        off ok=True 0.562 $0.017
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            off ok=True 0.6 $0.017
+spent $0.0174; wrote benchmarks/results/routing-routed
+=== 2026-11-22T06:28:54+01:00 START routing-hard
+zwrot-oplaty-skarbowej                                  off ok=True 0.65 $0.016
+wydanie-zaswiadczenia                                   off ok=True 0.778 $0.026
+wynajecie-swietlicy-wiejskiej                           off ok=True 0.778 $0.035
+zajecie-pasa-drogowego                                  off ok=False None $0.066
+psy-ras-agresywnych                                     off ok=True 0.722 $0.066
+oplata-za-odpady                                        off ok=True 0.614 $0.066
+numer-porzadkowy                                        off ok=True 0.812 $0.066
+nadplata-podatku                                        off ok=True 0.727 $0.081
+ho-wniosek-o-udostepnienie-informacji-publicznej        off ok=False None $0.096
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    off ok=False None $0.122
+ho-wniosek-o-rejestracje-pojazdu                        off ok=True 0.722 $0.137
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            off ok=True 0.512 $0.137
+spent $0.1366; wrote benchmarks/results/routing-hard
+=== 2026-11-22T06:39:09+01:00 START morpheus-wake
+zwrot-oplaty-skarbowej                                  seeds    0.75 $0.009
+zwrot-oplaty-skarbowej                                  learned  0.75 $0.010
+wydanie-zaswiadczenia                                   seeds    0.889 $0.010
+wydanie-zaswiadczenia                                   learned  0.889 $0.010
+wynajecie-swietlicy-wiejskiej                           seeds    0.8 $0.010
+wynajecie-swietlicy-wiejskiej                           learned  0.8 $0.010
+zajecie-pasa-drogowego                                  seeds    0.514 $0.010
+zajecie-pasa-drogowego                                  learned  0.541 $0.012
+psy-ras-agresywnych                                     seeds    0.857 $0.012
+psy-ras-agresywnych                                     learned  0.857 $0.021
+oplata-za-odpady                                        seeds    0.807 $0.021
+oplata-za-odpady                                        learned  0.807 $0.076
+numer-porzadkowy                                        seeds    1.0 $0.076
+numer-porzadkowy                                        learned  1.0 $0.076
+nadplata-podatku                                        seeds    0.75 $0.076
+nadplata-podatku                                        learned  0.818 $0.078
+ho-wniosek-o-udostepnienie-informacji-publicznej        seeds    0.5 $0.078
+ho-wniosek-o-udostepnienie-informacji-publicznej        learned  0.5 $0.079
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    seeds    0.85 $0.079
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    learned  0.864 $0.080
+ho-wniosek-o-rejestracje-pojazdu                        seeds    0.562 $0.085
+ho-wniosek-o-rejestracje-pojazdu                        learned  0.625 $0.086
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            seeds    0.7 $0.086
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            learned  0.7 $0.093
+spent $0.0928; wrote benchmarks/results/morpheus-wake
+=== 2026-11-22T06:47:10+01:00 START morpheus-sleep
+{"id": "sc_2420276ef27a", "started_at": "2026-11-22T05:47:10.585862+00:00", "trigger": "bench", "candidates": 12, "clusters": 3, "drafts": 3, "acc_gate_after": 0.75, "acc_gate_before": 0.75, "activated": 2, "proposed": 1, "pruned": 0, "ended_at": "2026-11-22T05:49:01.412931+00:00", "skill_count": 17, "cost": 0.005418, "status": "ok"}
+zwrot-oplaty-skarbowej                                  seeds  0.75 $0.012
+zwrot-oplaty-skarbowej                                  wake   0.75 $0.013
+zwrot-oplaty-skarbowej                                  sleep  0.75 $0.014
+zwrot-oplaty-skarbowej                                  approved 0.75 $0.014
+wydanie-zaswiadczenia                                   seeds  0.889 $0.014
+wydanie-zaswiadczenia                                   wake   0.889 $0.014
+wydanie-zaswiadczenia                                   sleep  0.889 $0.014
+wydanie-zaswiadczenia                                   approved 0.889 $0.014
+wynajecie-swietlicy-wiejskiej                           seeds  0.8 $0.014
+wynajecie-swietlicy-wiejskiej                           wake   0.8 $0.014
+wynajecie-swietlicy-wiejskiej                           sleep  0.8 $0.014
+wynajecie-swietlicy-wiejskiej                           approved 0.8 $0.014
+zajecie-pasa-drogowego                                  seeds  0.514 $0.014
+zajecie-pasa-drogowego                                  wake   0.541 $0.014
+zajecie-pasa-drogowego                                  sleep  0.541 $0.014
+zajecie-pasa-drogowego                                  approved 0.541 $0.014
+psy-ras-agresywnych                                     seeds  0.857 $0.014
+psy-ras-agresywnych                                     wake   0.857 $0.018
+psy-ras-agresywnych                                     sleep  0.857 $0.023
+psy-ras-agresywnych                                     approved 0.857 $0.023
+oplata-za-odpady                                        seeds  0.807 $0.023
+oplata-za-odpady                                        wake   0.807 $0.074
+oplata-za-odpady                                        sleep  0.807 $0.111
+oplata-za-odpady                                        approved 0.793 $0.135
+numer-porzadkowy                                        seeds  1.0 $0.135
+numer-porzadkowy                                        wake   1.0 $0.135
+numer-porzadkowy                                        sleep  1.0 $0.135
+numer-porzadkowy                                        approved 1.0 $0.135
+nadplata-podatku                                        seeds  0.75 $0.135
+nadplata-podatku                                        wake   0.9 $0.137
+nadplata-podatku                                        sleep  0.9 $0.138
+nadplata-podatku                                        approved 0.833 $0.141
+ho-wniosek-o-udostepnienie-informacji-publicznej        seeds  0.5 $0.141
+ho-wniosek-o-udostepnienie-informacji-publicznej        wake   0.5 $0.141
+ho-wniosek-o-udostepnienie-informacji-publicznej        sleep  0.5 $0.141
+ho-wniosek-o-udostepnienie-informacji-publicznej        approved 0.5 $0.141
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    seeds  0.85 $0.141
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    wake   0.864 $0.141
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    sleep  0.864 $0.141
+ho-wniosek-o-dzierzawe-najem-uzyczenie-nieruchomosci    approved 0.864 $0.141
+ho-wniosek-o-rejestracje-pojazdu                        seeds  0.562 $0.141
+ho-wniosek-o-rejestracje-pojazdu                        wake   0.625 $0.141
+ho-wniosek-o-rejestracje-pojazdu                        sleep  0.625 $0.142
+ho-wniosek-o-rejestracje-pojazdu                        approved 0.562 $0.143
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            seeds  0.7 $0.143
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            wake   0.7 $0.147
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            sleep  0.7 $0.153
+ho-wniosek-o-pozwolenie-na-uzytkowanie-pb-17            approved 0.7 $0.153
+spent $0.1527; wrote benchmarks/results/morpheus-sleep
+=== 2026-11-22T06:57:57+01:00 START summary
+wrote benchmarks/results/RESULTS.md
+=== 2026-11-22T06:57:58+01:00 ALL DONE

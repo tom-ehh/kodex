@@ -1,0 +1,534 @@
+{
+ "title": "Wniosek o ustalenie numeru porządkowego",
+ "tabs": [
+  {
+   "id": "71830d2c-92bc-4398-ab03-cd65213dc068",
+   "title": "Dane adresata i wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adresat_wniosku",
+      "title": "Adresat wniosku",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "okreslenie_organu_wlasciwego_do_rozpatrzenia_wniosku",
+         "title": "Określenie organu właściwego do rozpatrzenia wniosku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Wójt Gminy Elbląg",
+         "states": [],
+         "questionOrder": 0,
+         "id": "065c11df-fd8e-47f9-a375-c4fb05020641"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_organu",
+         "title": "Adres organu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "ul. Browarna 85",
+         "states": [],
+         "questionOrder": 1,
+         "id": "78ecea56-196d-4863-92fb-45ecf3ac7ec2"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_i_miejscowosc_organu",
+         "title": "Kod pocztowy i miejscowość organu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "82-300 Elbląg",
+         "states": [],
+         "questionOrder": 2,
+         "id": "5c3efdf3-ccf9-40ac-8a45-3cb47540a365"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "8b7f9227-066d-4748-b05c-e3a22d48a69d"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_wnioskodawcy",
+      "title": "Dane wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_nazwa_wnioskodawcy",
+         "title": "Imię i nazwisko / Nazwa wnioskodawcy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "3c9901a6-8c6c-4717-928f-fab9477f84a5"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres",
+         "title": "Adres",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "895d4564-638d-4ab4-9f17-3db3bdbe90d1"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_telefonu",
+         "title": "Numer telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "3aee5894-5ae8-4575-9db3-01d8af48e5e3"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_e_mail",
+         "title": "Adres e-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "f5611522-0448-44c4-a231-206fa8573078"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "1f2a88f9-7a28-4545-ad05-fc647132f9dc"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_kontaktowe",
+      "title": "Dane kontaktowe",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_dane_kontaktowe",
+         "title": "Adres",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "31e15584-b792-4e65-b2df-144ead9174e6"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_telefonu_dane_kontaktowe",
+         "title": "Numer telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "dfb11573-a772-4566-b8c9-dbedbfdf6a0f"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_e_mail_dane_kontaktowe",
+         "title": "Adres e-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "e0e6ce7e-9787-4bf8-a6d5-eba363db4ef5"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 7,
+      "id": "d801e95d-1166-43e3-8199-356e8fab29b4"
+     },
+     "x": 0,
+     "y": 7,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "2e2b75c0-686d-42cd-9034-13d05f77bdda",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_nieruchomosci",
+      "title": "Dane nieruchomości",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 0,
+         "id": "6c1db4bb-9c81-4afa-be6c-115056f12680"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "2ea333d0-c889-4fca-a9bd-a5f8849b04a8"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_ewidencyjny_dzialki",
+         "title": "Numer ewidencyjny działki",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "d140f396-03e3-4c8f-8501-0b4b807b03ec"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "obreb",
+         "title": "Obręb",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "db67b4a5-c786-4541-ada3-0daafdac4453"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "99f9c6d5-b1f4-42b4-86aa-67eba2ad9bfa"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "cf816202-dfaa-4c7c-9a71-b79f97c5bf1b",
+   "title": "Oświadczenia i załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podpis_wnioskodawcy",
+      "title": "Podpis wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_zlozenia_wniosku",
+         "title": "Data złożenia wniosku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "(data)",
+         "states": [],
+         "questionOrder": 0,
+         "id": "a7fc93b4-9ef6-4c43-8d9c-3ac5baef5eb3"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_nazwa_wnioskodawcy_podpis_wnioskodawcy",
+         "title": "Imię i nazwisko / Nazwa wnioskodawcy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "(imię i nazwisko/nazwa wnioskodawcy)",
+         "states": [],
+         "questionOrder": 1,
+         "id": "f3ecfad5-b330-4b9e-bd2e-3910546c0f0a"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_podpis_wnioskodawcy",
+         "title": "Adres",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "(adres)",
+         "states": [],
+         "questionOrder": 2,
+         "id": "ef886395-44c6-4ba8-bab9-db6623d81210"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_telefonu_adres_e_mail",
+         "title": "Numer telefonu / Adres e-mail",
+         "validation": [],
+         "description": "(nr telefonu/adres e-mail)1)",
+         "states": [],
+         "questionOrder": 3,
+         "id": "ce451e9c-bd4c-4812-8afb-5872e3cbf820"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "podpis_wnioskodawcy_podpis_wnioskodawcy",
+         "title": "Podpis wnioskodawcy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "2) Podpis własnoręczny, a w przypadku składania wniosku w postaci elektronicznej: kwalifikowany podpis elektroniczny, podpis osobisty albo podpis zaufany.",
+         "states": [],
+         "questionOrder": 4,
+         "id": "7d27ab09-7bf5-453b-b7f1-4652c1573868"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "35ba2ad1-75aa-4055-a9b0-ab4d427ccfd6"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "klauzula_rodo",
+      "title": "Klauzula RODO",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "potwierdzenie_zapoznania_sie_z_informacjami_o_przetwarzaniu_danych_osobowych",
+         "title": "Potwierdzenie zapoznania się z informacjami o przetwarzaniu danych osobowych",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Wyrażam zgodę na przetwarzanie moich danych osobowych zgodnie z klauzulą informacyjną.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "e74ff0f3-fd64-49bf-b9fe-e6ac46922cc3"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 5,
+      "id": "eac1a151-4daf-4f17-ab6c-4598e859ed85"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "1e014de7-fc79-4ceb-8d16-186b68e244bc",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "30d5ed51-4c38-44ee-84f1-0963140d8bba"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "a5e4bb4d-35cc-4887-81df-9afbfa5ec8c0"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "33c239e5-1936-4529-9731-c89b2c043d84",
+    "source": "71830d2c-92bc-4398-ab03-cd65213dc068",
+    "target": "2e2b75c0-686d-42cd-9034-13d05f77bdda"
+   },
+   {
+    "id": "27928484-5f6e-4876-8a98-2f7a863cbf84",
+    "source": "2e2b75c0-686d-42cd-9034-13d05f77bdda",
+    "target": "cf816202-dfaa-4c7c-9a71-b79f97c5bf1b"
+   },
+   {
+    "id": "fd312ca2-ddc0-4db0-8a8f-aa44bdf138e3",
+    "source": "cf816202-dfaa-4c7c-9a71-b79f97c5bf1b",
+    "target": "1e014de7-fc79-4ceb-8d16-186b68e244bc"
+   }
+  ]
+ }
+}

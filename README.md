@@ -62,6 +62,8 @@ build on, and accuracy stays above where it started.
 
 <img src="assets/chart-morpheus.svg" alt="Morpheus learns, then compresses" width="560">
 
+The benchmark scripts and raw results behind these charts are in [benchmarks/](benchmarks/).
+
 *Morpheus* is our own design, a hybrid of two ideas. From Nous Research's
 [Hermes Agent](https://github.com/NousResearch/hermes-agent) it takes agent-written,
 refinable skills behind an approval gate (not the full agent harness). From research on

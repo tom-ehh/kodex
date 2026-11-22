@@ -1,0 +1,985 @@
+{
+ "title": "Wniosek o wydanie zezwolenia na hodowanie lub utrzymywanie psów ras uznawanych za agresywne",
+ "tabs": [
+  {
+   "id": "c88c4592-c3bc-431b-a0e6-9cb3192927c0",
+   "title": "Urząd",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "urzad_i_dane_sprawy",
+      "title": "Urząd i dane sprawy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_sprawy",
+         "title": "Nr sprawy",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "d6f2567a-dcbe-4de3-96da-3e67b9a487c0"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "miejsce_na_pieczec_urzedu_wypelnia_organ",
+         "title": "Miejsce na pieczęć Urzędu /wypełnia organ/",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "ade7996f-fc81-4e90-939c-e7eacdcdfcd3"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data",
+         "title": "Data",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "5b408d7a-0733-4a5e-9d4e-5d9655bbc633"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "urzad",
+         "title": "Urząd",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "d62042aa-a524-4003-ad6d-a85230738927"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "wydzial",
+         "title": "Wydział",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "423e7893-922d-45b3-9cae-e8179ca94c4f"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "f050b3b4-cf5b-4a9a-945d-b07f7466eb5a"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "d7bb16b3-1e95-4265-9cda-83fa41fd04ce",
+   "title": "Wnioskodawca",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_identyfikacyjne_wnioskodawcy",
+      "title": "Dane identyfikacyjne wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko",
+         "title": "Imię i nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "e4479d05-60ce-462a-a3a6-38679d0b8364"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "7b383942-d3d7-4689-8c60-bf38fd830b32"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "b1ac7911-4f2d-414d-b3f7-3484836bc161"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_lokalu",
+         "title": "Nr lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "2f698f6f-92d5-47a2-a496-078ed4c0ec84"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 4,
+         "id": "6d10a292-3423-4676-9048-82584cc77ec8"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "b2464389-3564-48a6-b8cb-4b3d8b37804a"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "telefon",
+         "title": "Telefon",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "bd526606-5805-4495-96c9-47878a6eaf6c"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "443616d5-99e5-45ba-9b05-39f531efca3a"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 7,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "d15732df-73ec-4f95-ab81-044791a4a5e2",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "przedmiot_wniosku",
+      "title": "Przedmiot wniosku",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "zgodnie_z_ustawa_prawo_lowieckie_oraz_rozporzadzeniem_ministra_rolnictwa_i_rozwoju_wsi_prosze_o_wydanie_zezwolenia_na_hodowanie_utrzymywanie_charta_chartow_lub_mieszanca_charta_mieszancow_chartow",
+         "title": "Zgodnie z ustawą Prawo Łowieckie oraz Rozporządzeniem Ministra Rolnictwa i Rozwoju Wsi proszę o wydanie zezwolenia na hodowanie/utrzymywanie charta/chartów lub mieszańca charta/mieszańców chartów",
+         "states": [],
+         "questionOrder": 0,
+         "id": "62f875a3-0479-4d0d-b6ba-6f350019fd5b"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "informacja_o_posiadanym_psie_w_przypadku_wiecej_niz_jednego_psa_pobrac_odpowiednia_liczbe_zalacznikow_z_tabela_b_z_urzedu_badz_ze_strony_bip",
+         "title": "INFORMACJA O POSIADANYM PSIE (w przypadku więcej niż jednego psa pobrać odpowiednią liczbę załączników z tabelą B z urzędu bądź ze strony BIP).",
+         "states": [],
+         "questionOrder": 1,
+         "id": "9dc90787-cb99-47a1-8ada-a8f5c4c2ea06"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "pochodzenie_psa",
+         "title": "Pochodzenie psa",
+         "validation": [],
+         "description": "metryka, numer rodowodu, imię, nazwisko i adres poprzedniego właściciela",
+         "states": [],
+         "questionOrder": 2,
+         "id": "b027d0cf-b89f-4024-8584-e52932c9c9b8"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rasa_psa",
+         "title": "Rasa psa",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "e9d80e21-aba9-4f6d-b641-2ad7dbeb1052"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia_psa",
+         "title": "Data urodzenia psa",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "9c5361d8-9d05-44d4-b4af-717e7eb4b231"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_szczepienia",
+         "title": "Data szczepienia",
+         "validation": [],
+         "description": "w przypadku jego braku",
+         "states": [],
+         "questionOrder": 5,
+         "id": "561baf76-aba8-4af4-bb88-96610f7062ec"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "plec",
+         "title": "Płeć",
+         "options": [
+          {
+           "id": "pies",
+           "name": "pies",
+           "techName": "pies"
+          },
+          {
+           "id": "suka",
+           "name": "suka",
+           "techName": "suka"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "2ca1dbfd-3a65-4fb6-8b8f-0a3a135e586b"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "sposob_oznakowania_psa_nr_ident",
+         "title": "Sposób oznakowania psa / nr ident.",
+         "options": [
+          {
+           "id": "mikroprocesor",
+           "name": "mikroprocesor",
+           "techName": "mikroprocesor"
+          },
+          {
+           "id": "tatuaż",
+           "name": "tatuaż",
+           "techName": "tatuaz"
+          },
+          {
+           "id": "brak",
+           "name": "brak",
+           "techName": "brak"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 7,
+         "id": "04d57071-d8d0-4885-817b-7f828d232b81"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "adres_miejsca_utrzymywania_psa_psow",
+         "title": "Adres miejsca utrzymywania psa/psów",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 8,
+         "id": "31d5a381-d77e-4c5e-b4cf-4c0f889a7416"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "opis_miejsca_i_warunkow_w_jakich_wnioskodawca_zamierza_utrzymywac_psa_psy",
+         "title": "Opis miejsca i warunków w jakich wnioskodawca zamierza utrzymywać psa/psy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 9,
+         "id": "2f80f241-1433-4eb1-a8d5-b45c3b9d1061"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "94631f8e-a10d-4171-91b2-6b70c5ef15ae"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 10,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "REPEATING_SECTION",
+      "techName": "informacja_o_posiadanym_psie",
+      "title": "Informacja o posiadanym psie",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "pochodzenie_psa_metryka_numer_rodowodu_imie_nazwisko_i_adres_poprzedniego_wlasciciela",
+         "title": "Pochodzenie psa (metryka, numer rodowodu, imię, nazwisko i adres poprzedniego właściciela)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "76bd7e9b-3a31-4027-b018-72f00611029b"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rasa_psa_informacja_o_posiadanym_psie",
+         "title": "Rasa psa",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "e2bd85e0-25db-425e-8fae-310d94d60564"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_urodzenia_psa_informacja_o_posiadanym_psie",
+         "title": "Data urodzenia psa",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "d07a7d6f-e6a3-486c-8d28-9810b65d7145"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_szczepienia_w_przypadku_jego_braku",
+         "title": "Data szczepienia (w przypadku jego braku)",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "ae74c703-d0ba-4d68-a99f-c28ec095d231"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "plec_informacja_o_posiadanym_psie",
+         "title": "Płeć",
+         "options": [
+          {
+           "id": "pies",
+           "name": "pies",
+           "techName": "pies"
+          },
+          {
+           "id": "suka",
+           "name": "suka",
+           "techName": "suka"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "6deb8c24-7dd0-42d6-98f9-38ee2a16f127"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "sposob_oznakowania_psa_nr_ident_informacja_o_posiadanym_psie",
+         "title": "Sposób oznakowania psa / nr ident.",
+         "options": [
+          {
+           "id": "mikroprocesor",
+           "name": "mikroprocesor",
+           "techName": "mikroprocesor"
+          },
+          {
+           "id": "tatuaż",
+           "name": "tatuaż",
+           "techName": "tatuaz"
+          },
+          {
+           "id": "brak",
+           "name": "brak",
+           "techName": "brak"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "9f0a78fb-5ebb-475d-9d1a-f1456fbdce02"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 10,
+      "id": "bcffed10-bc53-4b9a-a814-8b10d0942f48"
+     },
+     "x": 0,
+     "y": 10,
+     "rows": 6,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adres_miejsca_utrzymywania_psa",
+      "title": "Adres miejsca utrzymywania psa",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_miejsca_utrzymywania_psa_psow_adres_miejsca_utrzymywania_psa",
+         "title": "Adres miejsca utrzymywania psa/psów",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "1fed4f3f-c1de-45df-839c-cfe70f2156cd"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 16,
+      "id": "a7f0a52d-a825-4952-941d-fd88429b15fc"
+     },
+     "x": 0,
+     "y": 16,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "warunki_utrzymywania_psa",
+      "title": "Warunki utrzymywania psa",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "opis_miejsca_i_warunkow_w_jakich_wnioskodawca_zamierza_utrzymywac_psa_psy_warunki_utrzymywania_psa",
+         "title": "Opis miejsca i warunków w jakich wnioskodawca zamierza utrzymywać psa/psy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "2f7a03d5-8e98-4ddc-9d0a-3921f55ab1aa"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 17,
+      "id": "27363978-0da2-489e-866e-fea9bffc7799"
+     },
+     "x": 0,
+     "y": 17,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "c46cabae-1762-4fce-afdf-c3a3dd63da71",
+   "title": "Kontakt",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "kontakt",
+      "title": "Kontakt",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "telefon_kontakt",
+         "title": "Telefon",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "1185681e-9fca-47c6-a836-9765b5cc8a63"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "72c64e5b-2b58-4de6-b903-389bddad2bd2"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "e4e3467d-7c79-44f6-a8d4-bc650304812c",
+   "title": "Opłaty",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oplata_skarbowa",
+      "title": "Opłata skarbowa",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "oplata_skarbowa_82_zl",
+         "title": "Opłata skarbowa – 82 zł.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "bb116ee7-dd13-43e5-9f64-f6385023d0f2"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "numer_konta_12_1223_1232_1233_2312_2342_2342",
+         "title": "Numer konta: 12 1223 1232 1233 2312 2342 2342",
+         "states": [],
+         "questionOrder": 1,
+         "id": "32501aa7-8068-44a9-aa22-e6904915fd01"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "3acfca0c-273a-4420-8de9-b9d6fc263c6e"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "15abb13c-270b-48eb-94a5-415b919f44b8",
+   "title": "Załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "REPEATING_SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "kopia_szczepienia_psa_przeciwko_wsciekliznie",
+         "title": "Kopia szczepienia psa przeciwko wściekliźnie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "0b3c5b17-848d-43da-a97f-7d9ab4cbacac"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "f272c028-2d12-464e-a5ec-f0cf41c84743"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "5adef7ab-2ff8-48cb-a75b-ef8ad90c4c19",
+   "title": "Oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenia",
+      "title": "Oświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "oswiadczam_ze_psy_nie_beda_wykorzystywane_do_polowan",
+         "title": "Oświadczam, że psy nie będą wykorzystywane do polowań.",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "7663f446-cea3-4516-8c0a-60c5cec24efd"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "oswiadczam_ze_zaszczepiono_psa_psy_przeciwko_wsciekliznie_w_zalaczeniu_kopia_dla_kazdego_psa",
+         "title": "Oświadczam, że zaszczepiono psa/psy przeciwko wściekliźnie – w załączeniu kopia dla każdego psa.",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "4516ac02-9bda-4a6c-9d1e-e3ae0edf2e34"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "oswiadczam_ze_zapewniam_warunki_utrzymywania_psa_zgodnie_z_rozporzadzeniem_ministra_rolnictwa_i_rozwoju_wsi_z_dnia_5_lipca_2010r",
+         "title": "Oświadczam, że zapewniam warunki utrzymywania psa, zgodnie z rozporządzeniem Ministra Rolnictwa i Rozwoju Wsi z dnia 5 lipca 2010r.",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "b2ad9c3d-7edd-4c27-a9d7-da81f5e0f351"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "945e476d-3ac2-4ae7-9e57-6e066813e646"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "b9620b66-2d40-48b9-8f8e-000ac27cafdd",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "b74b3bd9-0984-4529-8e97-ef0d8d53eed2"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "e5fd83f5-7787-4f77-9af9-e2ce0b716156"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "b0ccaec3-b218-456c-b78e-ddb9e28774af",
+    "source": "c88c4592-c3bc-431b-a0e6-9cb3192927c0",
+    "target": "d7bb16b3-1e95-4265-9cda-83fa41fd04ce"
+   },
+   {
+    "id": "1987e2ac-b5eb-4b3b-bb65-e17471603b6d",
+    "source": "d7bb16b3-1e95-4265-9cda-83fa41fd04ce",
+    "target": "d15732df-73ec-4f95-ab81-044791a4a5e2"
+   },
+   {
+    "id": "a659d17d-b999-4e58-a3ec-b06be0614d58",
+    "source": "d15732df-73ec-4f95-ab81-044791a4a5e2",
+    "target": "c46cabae-1762-4fce-afdf-c3a3dd63da71"
+   },
+   {
+    "id": "a6f1c82f-749a-463d-adf6-28b184ed880a",
+    "source": "c46cabae-1762-4fce-afdf-c3a3dd63da71",
+    "target": "e4e3467d-7c79-44f6-a8d4-bc650304812c"
+   },
+   {
+    "id": "0114706d-569f-45d7-9546-0b1f65855017",
+    "source": "e4e3467d-7c79-44f6-a8d4-bc650304812c",
+    "target": "15abb13c-270b-48eb-94a5-415b919f44b8"
+   },
+   {
+    "id": "b2542a06-3dfc-4a6e-900e-b9a47aca111f",
+    "source": "15abb13c-270b-48eb-94a5-415b919f44b8",
+    "target": "5adef7ab-2ff8-48cb-a75b-ef8ad90c4c19"
+   },
+   {
+    "id": "d4f3ba77-2ef4-4fbe-ac40-ba7b3e42e7d8",
+    "source": "5adef7ab-2ff8-48cb-a75b-ef8ad90c4c19",
+    "target": "b9620b66-2d40-48b9-8f8e-000ac27cafdd"
+   }
+  ]
+ }
+}

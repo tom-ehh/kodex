@@ -1,0 +1,561 @@
+{
+ "title": "Wniosek o stwierdzenie nadpłaty podatku",
+ "tabs": [
+  {
+   "id": "33432d12-9aae-41e9-b0c4-177ecffb7cfe",
+   "title": "Dane urzędu i wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "urzad",
+      "title": "Urząd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_urzedu",
+         "title": "Nazwa urzędu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "869b6a21-3b42-4fb0-9c60-87c18f456848"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "adres_urzedu_miejscowosc",
+         "title": "Adres urzędu - miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "62da080b-1199-41cd-b206-18987b69d3f9"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_urzedu_ulica_i_numer",
+         "title": "Adres urzędu - ulica i numer",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "2b19fd39-9e8c-4358-a52f-27e5ad11b170"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_urzedu_kod_pocztowy",
+         "title": "Adres urzędu - kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "f0d7abd1-1c5f-4f35-8df5-8f2527259c83"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "d40e8796-763f-49a0-9b3b-3b9119062012"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_wnioskodawcy",
+      "title": "Dane wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwisko_i_imie_nazwa_firmy",
+         "title": "Nazwisko i imię/Nazwa firmy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "4cce9ffd-7c16-49cd-9fb6-60e51b0bfb36"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_siedziba_firmy",
+         "title": "Adres zamieszkania/siedziba firmy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "e47a1cf2-81f3-4e85-b9a6-b64e4774e223"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel",
+         "title": "PESEL",
+         "validation": [
+          "PESEL"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "3b2091f9-4194-405d-ba97-8b4853ff3043"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nip",
+         "title": "NIP",
+         "validation": [
+          "NIP"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "3e7c09c3-bb68-47dc-a517-06d6bcd352cc"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "74d06057-5897-4788-b8b3-0e7af8112e32"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "4d0009ad-68c4-40f4-8441-d5ff1f7cd141",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "rodzaj_podatku_i_kwota_nadplaty",
+      "title": "Rodzaj podatku i kwota nadpłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_podatku",
+         "title": "Rodzaj podatku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "ff112b71-396d-41ea-801b-e87c5f2beec5"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "kwota_nadplaty",
+         "title": "Kwota nadpłaty",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "7f75ca1d-0e6f-4424-bb81-465205f03c62"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "99617859-7f23-4560-8505-099c25ad25ed"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "uzasadnienie",
+      "title": "Uzasadnienie",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "uzasadnienie_uzasadnienie",
+         "title": "Uzasadnienie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "8eeaef52-5d77-438c-abdb-f4004617b5a0"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "2fdfc643-f389-40ad-80d7-9081f77620ee"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "3b99cefc-c5ac-4199-a79f-312e4ad05632",
+   "title": "Dyspozycja nadpłaty",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "sposob_rozliczenia_nadplaty",
+      "title": "Sposób rozliczenia nadpłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "kwote_nadplaty_prosze",
+         "title": "Kwotę nadpłaty proszę",
+         "options": [
+          {
+           "id": "zaliczyć na poczet przyszłego zobowiązania podatkowego z tytułu",
+           "name": "zaliczyć na poczet przyszłego zobowiązania podatkowego z tytułu",
+           "techName": "zaliczyc_na_poczet_przyszlego_zobowiazania_podatkowego_z_tytulu"
+          },
+          {
+           "id": "zwrócić przelewem na wskazany rachunek",
+           "name": "zwrócić przelewem na wskazany rachunek",
+           "techName": "zwrocic_przelewem_na_wskazany_rachunek"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "db604813-b521-4453-8795-f4d0fdf8a3fd"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "tytul_przyszlego_zobowiazania_podatkowego",
+         "title": "Tytuł przyszłego zobowiązania podatkowego",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"zaliczyć na poczet przyszłego zobowiązania podatkowego z tytułu\" in tabs['Dyspozycja nadpłaty' in title].questions['sposob_rozliczenia_nadplaty' in field.techName].field.repeatingSectionGrid['kwote_nadplaty_prosze' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "6e0a21ce-ea52-4716-83a6-7e47205ba3e8"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_rachunku_bankowego",
+         "title": "Numer rachunku bankowego",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"zwrócić przelewem na wskazany rachunek\" in tabs['Dyspozycja nadpłaty' in title].questions['sposob_rozliczenia_nadplaty' in field.techName].field.repeatingSectionGrid['kwote_nadplaty_prosze' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "06bccf3c-8287-469e-90ae-92d5d0dabc78"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "5781def8-6807-469d-b8a3-e31d6e73fa02"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "72230d37-98da-4f53-ba39-1443e1178b07",
+   "title": "Załączniki i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "wykaz_dokumentow_dolaczanych_do_wniosku_w_tym_korekta_deklaracji",
+         "title": "Wykaz dokumentów dołączanych do wniosku, w tym korekta deklaracji",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "ee5c2016-3a54-49fd-9658-7d123443d763"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "b91a0b60-90ce-4eea-aea3-34d2d7bffe55"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenie_i_podpis",
+      "title": "Oświadczenie i podpis",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "oswiadczam_ze_dane_zawarte_we_wniosku_sa_zgodne_z_prawda",
+         "title": "Oświadczam, że dane zawarte we wniosku są zgodne z prawdą",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "7241a94c-9afb-4bf6-b12a-83f6d0643c7d"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "d75c455d-695b-412a-bde9-fd0235be3c50"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data",
+         "title": "Data",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "2f3b25ca-b908-4b6b-8f79-b35a83f56ffb"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis_wnioskodawcy_lub_osoby_upowaznionej",
+         "title": "Podpis wnioskodawcy lub osoby upoważnionej",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "2737b20c-8359-422e-8350-222f596b9ac0"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 1,
+      "id": "69e459c2-9864-4d97-b967-bc5e7a129b54"
+     },
+     "x": 0,
+     "y": 1,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "0581d32b-445b-4115-804b-e1eb6da79025",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "f3d14358-baf8-48ac-859d-d1efcc764432"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "dac5d563-9e99-4cad-bf6a-e6c2fa941ed0"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "e05ac005-563b-4fc8-8103-a552807147d3",
+    "source": "33432d12-9aae-41e9-b0c4-177ecffb7cfe",
+    "target": "4d0009ad-68c4-40f4-8441-d5ff1f7cd141"
+   },
+   {
+    "id": "1ce79e18-bb87-4309-904b-1a31b4172b54",
+    "source": "4d0009ad-68c4-40f4-8441-d5ff1f7cd141",
+    "target": "3b99cefc-c5ac-4199-a79f-312e4ad05632"
+   },
+   {
+    "id": "ebbefa26-5955-4389-9440-1870a290787d",
+    "source": "3b99cefc-c5ac-4199-a79f-312e4ad05632",
+    "target": "72230d37-98da-4f53-ba39-1443e1178b07"
+   },
+   {
+    "id": "8bcb2ebe-b144-4167-8ee6-61d7dd43a73f",
+    "source": "72230d37-98da-4f53-ba39-1443e1178b07",
+    "target": "0581d32b-445b-4115-804b-e1eb6da79025"
+   }
+  ]
+ }
+}

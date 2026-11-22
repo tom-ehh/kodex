@@ -1,0 +1,747 @@
+{
+ "title": "Wniosek o stwierdzenie nadpłaty podatku",
+ "tabs": [
+  {
+   "id": "14477137-439d-4601-b608-3fd4fe67a611",
+   "title": "Urząd",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "urzad",
+      "title": "Urząd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "urzad_gminy",
+         "title": "Urząd Gminy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "a256d85c-8ecc-4288-844a-c2994ae569b8"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_urzedu",
+         "title": "Adres urzędu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "57d418dc-d36e-4e48-aa37-0c2c64ba35df"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "602a0323-2cd5-451f-b555-933cd976587f"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "e29b92c8-7018-4764-805e-b000f3f8c07c"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "72ff83b6-88be-47f3-9a93-2899042e9c2f"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "a35a8921-4218-4308-8c07-6d09f6af980b",
+   "title": "Wnioskodawca",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_wnioskodawcy",
+      "title": "Dane wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwisko_i_imie_nazwa_firmy",
+         "title": "Nazwisko i imię/Nazwa firmy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "985a9965-70a1-440e-8ee7-29d604119ad8"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_zamieszkania_siedziba_firmy",
+         "title": "Adres zamieszkania/siedziba firmy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "fdc2f216-490d-4de3-8d21-0b07df812e56"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel",
+         "title": "PESEL",
+         "validation": [
+          "PESEL"
+         ],
+         "description": "Numer PESEL wpisują podatnicy będący osobami fizycznymi objętymi rejestrem PESEL nieprowadzący działalności gospodarczej.",
+         "states": [],
+         "questionOrder": 2,
+         "id": "65384262-589e-4378-bc8c-3de3dc0c4514"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nip",
+         "title": "NIP",
+         "validation": [
+          "NIP"
+         ],
+         "description": "Identyfikator podatkowy NIP wpisują pozostali podatnicy.",
+         "states": [],
+         "questionOrder": 3,
+         "id": "be45af2f-ab1f-4d1e-918c-b5dcd38ed5e9"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "6c5441ad-98ab-4fd3-b73f-685bd93f7583"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "identyfikatory_podatkowe",
+      "title": "Identyfikatory podatkowe",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel_identyfikatory_podatkowe",
+         "title": "PESEL",
+         "validation": [
+          "PESEL"
+         ],
+         "description": "Numer PESEL wpisują podatnicy będący osobami fizycznymi objętymi rejestrem PESEL nieprowadzący działalności gospodarczej.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "9f97d0cf-aba9-4b99-b6cb-40c83e6f5db5"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nip_identyfikatory_podatkowe",
+         "title": "NIP",
+         "validation": [
+          "NIP"
+         ],
+         "description": "Identyfikator podatkowy NIP wpisują pozostali podatnicy.",
+         "states": [],
+         "questionOrder": 1,
+         "id": "cddbc5ec-d3cb-4d12-8e04-6bec4bc6ff1f"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "c5fb420d-018f-4742-8bfd-e3dfc2cbfe0e"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "a945a283-6d86-411f-aa6c-bb83149f913f",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "przedmiot_nadplaty",
+      "title": "Przedmiot nadpłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_podatku",
+         "title": "Rodzaj podatku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "2dbd69f9-0410-4abd-9e25-88e0fbfb95bf"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "c0c2bf10-80c9-4c24-a085-0d7deaf752e8"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "kwota_nadplaty",
+      "title": "Kwota nadpłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "kwota_nadplaty_kwota_nadplaty",
+         "title": "Kwota nadpłaty",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "dc7bb664-382b-4e25-b868-de3d15452b9e"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 1,
+      "id": "a863e358-c1af-4ca4-9671-c6533690c16a"
+     },
+     "x": 0,
+     "y": 1,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "uzasadnienie",
+      "title": "Uzasadnienie",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "uzasadnienie_uzasadnienie",
+         "title": "Uzasadnienie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "779088e3-c4b5-46e4-9560-1f02c3af1aa8"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "3dce0892-858b-48ae-b040-3ee8964c003b"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "sposob_zwrotu_nadplaty",
+      "title": "Sposób zwrotu nadpłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "sposob_zwrotu_nadplaty_sposob_zwrotu_nadplaty",
+         "title": "Sposób zwrotu nadpłaty",
+         "options": [
+          {
+           "id": "Zaliczyć na poczet przyszłego zobowiązania podatkowego",
+           "name": "Zaliczyć na poczet przyszłego zobowiązania podatkowego",
+           "techName": "zaliczyc_na_poczet_przyszlego_zobowiazania_podatkowego"
+          },
+          {
+           "id": "Zwrócić przelewem na wskazany rachunek",
+           "name": "Zwrócić przelewem na wskazany rachunek",
+           "techName": "zwrocic_przelewem_na_wskazany_rachunek"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "0190c23f-a903-406e-817a-36a8f72a152a"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "tytul_przyszlego_zobowiazania_podatkowego",
+         "title": "Tytuł przyszłego zobowiązania podatkowego",
+         "validation": [],
+         "description": "Należy wypełnić, jeśli wybrano zaliczenie na poczet przyszłego zobowiązania podatkowego.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Zaliczyć na poczet przyszłego zobowiązania podatkowego\" in tabs['Przedmiot wniosku' in title].questions['sposob_zwrotu_nadplaty' in field.techName].field.repeatingSectionGrid['sposob_zwrotu_nadplaty_sposob_zwrotu_nadplaty' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "6586ff5e-3205-4665-8b9d-fb59a57beeda"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_rachunku_bankowego",
+         "title": "Numer rachunku bankowego",
+         "validation": [],
+         "description": "Należy wypełnić, jeśli wybrano zwrot przelewem.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Zwrócić przelewem na wskazany rachunek\" in tabs['Przedmiot wniosku' in title].questions['sposob_zwrotu_nadplaty' in field.techName].field.repeatingSectionGrid['sposob_zwrotu_nadplaty_sposob_zwrotu_nadplaty' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "1ead61c7-356a-4f55-9ded-039f8e7b399c"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "989fab65-c9da-4f36-bcdf-9c3cabe43eab"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "74d2109a-c59f-48fa-a3bc-309a29be09b0",
+   "title": "Kontakt",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "kontakt",
+      "title": "Kontakt",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "telefon",
+         "title": "Telefon",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "e8cf5eee-5d4a-4d2a-a76b-6be177e6e5be"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_e_mail",
+         "title": "Adres e-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "b7a19579-f63b-4dbc-bb8f-b2d1bd74718e"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "fe32c88a-a6ca-4a72-b50b-b18ff7e9e6e3"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "bec69553-dee1-486f-adce-dd4dac298587",
+   "title": "Opłaty",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oplaty",
+      "title": "Opłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "informacja_o_ewentualnych_oplatach_zwiazanych_z_wnioskiem",
+         "title": "Informacja o ewentualnych opłatach związanych z wnioskiem.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "882ec4db-6f3a-4f76-929e-e28a3be3e949"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "da07628c-5248-45a4-95c0-46d6ccf1b2d6"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "e2880263-74b2-4bef-b26f-83a9dc6eafe4",
+   "title": "Załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "REPEATING_SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "korekta_deklaracji",
+         "title": "Korekta deklaracji",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "a2a97edb-9db5-43c0-9a17-e27264fab9a1"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "inny_zalacznik_1",
+         "title": "Inny załącznik 1",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "82165594-1895-4c6b-b5fc-66b9776d9d6a"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "inny_zalacznik_2",
+         "title": "Inny załącznik 2",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "42219db8-0a03-40ce-b4bd-380933eea9c4"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "b1b94bb9-43fd-4a6a-9827-8241fcd1d95b"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "b1b4869c-faae-4a9f-9529-91d69fad5eaf",
+   "title": "Oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenia_i_podpis",
+      "title": "Oświadczenia i podpis",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "oswiadczenia_i_podpis_oswiadczenia_i_podpis",
+         "title": "Oświadczenia i podpis",
+         "states": [],
+         "questionOrder": 0,
+         "id": "58410a6f-52c2-4df5-9471-8ce845da31af"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "miejscowosc_i_data",
+         "title": "Miejscowość i data",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "c38bbd63-0522-4db6-bb16-f12cb809a825"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis_wnioskodawcy_lub_osoby_upowaznionej",
+         "title": "Podpis wnioskodawcy lub osoby upoważnionej",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "4e376da6-340d-4a1d-bd6c-eb49799d6388"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "fe575fb3-5d25-4dc3-a4f9-8ae1d222b6ed"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "f7b62b39-3d16-4e8e-9454-3dd0ecb128c1",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "a1b0e85e-fc60-42f7-9636-1af3c66d48fe"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "6a297fd4-fa13-4525-ab2f-2528084694a1"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "cb02605a-7126-45c1-8a12-46a02999a7e3",
+    "source": "14477137-439d-4601-b608-3fd4fe67a611",
+    "target": "a35a8921-4218-4308-8c07-6d09f6af980b"
+   },
+   {
+    "id": "f06b80ce-37df-47d5-bb22-a2b7436bd333",
+    "source": "a35a8921-4218-4308-8c07-6d09f6af980b",
+    "target": "a945a283-6d86-411f-aa6c-bb83149f913f"
+   },
+   {
+    "id": "ae0f95a7-a744-4a16-99d3-f2cd6dcfcc1e",
+    "source": "a945a283-6d86-411f-aa6c-bb83149f913f",
+    "target": "74d2109a-c59f-48fa-a3bc-309a29be09b0"
+   },
+   {
+    "id": "643c5428-bac0-4368-abc0-250280bd6d1d",
+    "source": "74d2109a-c59f-48fa-a3bc-309a29be09b0",
+    "target": "bec69553-dee1-486f-adce-dd4dac298587"
+   },
+   {
+    "id": "b314caa6-c0cf-483a-8993-83e552572096",
+    "source": "bec69553-dee1-486f-adce-dd4dac298587",
+    "target": "e2880263-74b2-4bef-b26f-83a9dc6eafe4"
+   },
+   {
+    "id": "1d11a4d6-58bb-4b12-99e3-845adb2a5263",
+    "source": "e2880263-74b2-4bef-b26f-83a9dc6eafe4",
+    "target": "b1b4869c-faae-4a9f-9529-91d69fad5eaf"
+   },
+   {
+    "id": "c607aadc-3f2a-45dc-859b-1a4f2d0b29d4",
+    "source": "b1b4869c-faae-4a9f-9529-91d69fad5eaf",
+    "target": "f7b62b39-3d16-4e8e-9454-3dd0ecb128c1"
+   }
+  ]
+ }
+}

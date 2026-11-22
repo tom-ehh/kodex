@@ -1,0 +1,1592 @@
+{
+ "title": "Wniosek o pozwolenie na użytkowanie",
+ "tabs": [
+  {
+   "id": "3056b377-5c1c-4e97-be85-a300a2d709a1",
+   "title": "Organ i wnioskodawca",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "organ_nadzoru_budowlanego",
+      "title": "Organ Nadzoru Budowlanego",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa",
+         "title": "Nazwa",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "dfd4d70f-1876-4a0a-bb8e-ee854901ef23"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "4beeba93-3861-472b-b728-d3d5330e80bd"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_inwestora",
+      "title": "Dane inwestora",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_lub_nazwa",
+         "title": "Imię i nazwisko lub nazwa",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "d32731bd-036d-49d9-880e-c85aef84c743"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "kraj",
+         "title": "Kraj",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Kraje",
+         "options": [],
+         "searchEnabled": true,
+         "defaultValue": [
+          "Polska"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "aead038f-74e1-435c-95ef-52f77e770fe5"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 2,
+         "id": "7a01b0a6-11a3-4223-90f0-f163a200e390"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "powiat",
+         "title": "Powiat",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Powiat",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 3,
+         "id": "8112ed21-e56f-4bc7-b60e-2dd532815b70"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 4,
+         "id": "b1f24ee0-90ab-40e2-a757-c5ab513aae9d"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "51021a4e-a2a3-43a2-80b5-f8f27682635b"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "ea995256-3f84-4cac-be00-1276b7f7a0b2"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_lokalu",
+         "title": "Nr lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 7,
+         "id": "5313df9a-9d65-41c5-8612-ca6b8adc3d51"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 8,
+         "id": "66db3df9-67b5-4a90-99e8-9d7b25e1c12e"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 9,
+         "id": "175bd518-0862-4619-a66f-ffda311012e4"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "e_mail",
+         "title": "E-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [],
+         "questionOrder": 10,
+         "id": "13485189-f428-49ff-b8de-aa04895aa4c9"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_tel",
+         "title": "Nr tel.",
+         "validation": [],
+         "states": [],
+         "questionOrder": 11,
+         "id": "20798466-b1d0-43f1-86e5-a2b1ed6d1902"
+        },
+        "x": 0,
+        "y": 11,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 1,
+      "id": "82621e58-93d8-442e-8578-72a163503d1c"
+     },
+     "x": 0,
+     "y": 1,
+     "rows": 12,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "adres_do_korespondencji",
+      "title": "Adres do korespondencji",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "kraj_adres_do_korespondencji",
+         "title": "Kraj",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Kraje",
+         "options": [],
+         "searchEnabled": true,
+         "defaultValue": [
+          "Polska"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "024f6fcc-2261-45d4-af6c-2d73f56f7159"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo_adres_do_korespondencji",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 1,
+         "id": "83c022f5-eff5-42c6-b807-7461d57fc1a7"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "powiat_adres_do_korespondencji",
+         "title": "Powiat",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Powiat",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 2,
+         "id": "6aa66e7d-85c7-4be3-9874-0bcb1465c599"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina_adres_do_korespondencji",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "b728b324-015d-4d50-8226-4310a4dd663b"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_adres_do_korespondencji",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "189d284d-7b5d-492a-b493-5e95c961f758"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu_adres_do_korespondencji",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "3dfddb49-32ce-4319-9e46-97bcc045eba9"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_lokalu_adres_do_korespondencji",
+         "title": "Nr lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "07ee5e36-2b4a-4ebf-aa7a-a8369df57036"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_adres_do_korespondencji",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 7,
+         "id": "4251a47d-e324-459a-961f-1442960a97be"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_adres_do_korespondencji",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 8,
+         "id": "671850cd-2564-49e4-9996-387c2adce925"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_do_doreczen_elektronicznych",
+         "title": "Adres do doręczeń elektronicznych",
+         "validation": [
+          "EPUAP"
+         ],
+         "states": [],
+         "questionOrder": 9,
+         "id": "42362662-6730-4c5a-bfe4-8efe6702bd11"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 13,
+      "id": "b5c0c692-78c2-46b3-a43b-bd516fc92c3f"
+     },
+     "x": 0,
+     "y": 13,
+     "rows": 10,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_pelnomocnika",
+      "title": "Dane pełnomocnika",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "CHECKBOX",
+         "techName": "rodzaj_pelnomocnika",
+         "title": "Rodzaj pełnomocnika",
+         "options": [
+          {
+           "id": "pełnomocnik",
+           "name": "pełnomocnik",
+           "techName": "pelnomocnik"
+          },
+          {
+           "id": "pełnomocnik do doręczeń",
+           "name": "pełnomocnik do doręczeń",
+           "techName": "pelnomocnik_do_doreczen"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "d6e33f4a-b80f-494b-9ce2-7dfde7548cfa"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko",
+         "title": "Imię i nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "93ad1990-edd6-4cfa-a505-b87b35c49c09"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "kraj_dane_pelnomocnika",
+         "title": "Kraj",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Kraje",
+         "options": [],
+         "searchEnabled": true,
+         "defaultValue": [
+          "Polska"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 2,
+         "id": "8f5bc698-0da8-4749-938e-343af26facfc"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo_dane_pelnomocnika",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 3,
+         "id": "c609f029-03e9-4b07-b441-0290c6c77a4c"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "powiat_dane_pelnomocnika",
+         "title": "Powiat",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Powiat",
+         "options": [],
+         "searchEnabled": false,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 4,
+         "id": "679fb66e-1fd7-490a-aa19-83da04548bf0"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina_dane_pelnomocnika",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 5,
+         "id": "253dfc0f-09d3-43b5-bf95-95ddf06c4c52"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_dane_pelnomocnika",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 6,
+         "id": "773eeed3-0b99-4456-afc9-4f2b3941ff3a"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu_dane_pelnomocnika",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 7,
+         "id": "fb99f6ee-8b57-4ae6-b1c7-89fb951ff3e2"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_lokalu_dane_pelnomocnika",
+         "title": "Nr lokalu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 8,
+         "id": "6c3e21ea-1a4c-460f-8f3d-4a8dad96065d"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_pelnomocnika",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 9,
+         "id": "bdb14938-9f39-4713-a3c3-03ed05e55f04"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_dane_pelnomocnika",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 10,
+         "id": "cffd774c-b188-44e4-b57d-f2f64d9af48d"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres_do_doreczen_elektronicznych_dane_pelnomocnika",
+         "title": "Adres do doręczeń elektronicznych",
+         "validation": [
+          "EPUAP"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 11,
+         "id": "cc4d100f-182d-4d71-8934-90f4e4a64cbd"
+        },
+        "x": 0,
+        "y": 11,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "e_mail_dane_pelnomocnika",
+         "title": "E-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 12,
+         "id": "8b2429bd-b705-4056-acda-ea2d40deb493"
+        },
+        "x": 0,
+        "y": 12,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_tel_dane_pelnomocnika",
+         "title": "Nr tel.",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 13,
+         "id": "32e4bda3-9eb0-44c7-8781-0703d13f1022"
+        },
+        "x": 0,
+        "y": 13,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 23,
+      "id": "e640a9c9-d6f9-4e8b-9aa7-6da9cb99add8"
+     },
+     "x": 0,
+     "y": 23,
+     "rows": 14,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "80e9de75-2a7e-4b7a-8f0f-e7dc90e323d2",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "informacje_o_decyzji_o_pozwoleniu_na_budowe",
+      "title": "Informacje o decyzji o pozwoleniu na budowę",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "organ_wydajacy_decyzje_albo_przyjmujacy_zgloszenie",
+         "title": "Organ wydający decyzję albo przyjmujący zgłoszenie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "65d05598-918d-498f-8610-2084b849facc"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_wydania_decyzji_albo_dokonania_zgloszenia",
+         "title": "Data wydania decyzji albo dokonania zgłoszenia",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "9861c808-946e-4569-a34e-2665b357ead2"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_decyzji",
+         "title": "Nr decyzji",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "7f5b4182-5dbe-4e69-966f-f768f06e6888"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "znak_sprawy",
+         "title": "Znak sprawy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "7971aa50-8a0a-4f4f-a29e-39b89e876062"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "40a5e118-2ebf-4b94-9cc1-2266b93fa3d6"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "informacje_o_obiekcie",
+      "title": "Informacje o obiekcie",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "wskaz_funkcje_przeznaczenie_lub_parametry_obiektu",
+         "title": "Wskaż funkcję (przeznaczenie) lub parametry obiektu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Określenie funkcji, przeznaczenia lub kluczowych parametrów technicznych obiektu budowlanego.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "9c8c6130-5875-4ee2-a545-7351e5d3beb4"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "a42201b0-0023-459c-8780-c42ba199efd4"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 1,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_nieruchomosci",
+      "title": "Dane nieruchomości",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "wojewodztwo_dane_nieruchomosci",
+         "title": "Województwo",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Województwo",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 0,
+         "id": "4e2039ec-abb1-402d-adce-d1084e379e82"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "powiat_dane_nieruchomosci",
+         "title": "Powiat",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Powiat",
+         "options": [],
+         "searchEnabled": false,
+         "states": [],
+         "questionOrder": 1,
+         "id": "d14397f4-8820-49e6-b3fc-f91408ca2393"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "gmina_dane_nieruchomosci",
+         "title": "Gmina",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Gmina",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 2,
+         "id": "c4b0c867-7c7e-49c9-a172-6024ff6fc16a"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_dane_nieruchomosci",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "d425dde4-ddf5-4729-88e4-46421e5ab8d4"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_domu_dane_nieruchomosci",
+         "title": "Nr domu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "5fb9be27-6b0a-44f4-9346-b014bb42bc94"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_nieruchomosci",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 5,
+         "id": "94324aef-7adf-46b3-9253-f91a494c3101"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_dane_nieruchomosci",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "3d000631-165b-4f7c-82b0-af67fb0bad11"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "identyfikator_dzialki_ewidencyjnej",
+         "title": "Identyfikator działki ewidencyjnej",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 7,
+         "id": "e59fea69-bd6c-4587-b543-dd549ec044b0"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 5,
+      "id": "0d453cbc-5d5c-4e0a-afdc-e7e91d82abfe"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 8,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "837320da-2583-4a2b-b98e-8230ba9ce383",
+   "title": "Załączniki i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "wykaz_zalacznikow",
+      "title": "Wykaz załączników",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "oryginal_dziennika_budowy",
+         "title": "Oryginał dziennika budowy",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "8a930e62-1baf-4697-b524-f84a60934eb7"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "projekt_techniczny",
+         "title": "Projekt techniczny",
+         "validation": [],
+         "states": [],
+         "questionOrder": 1,
+         "id": "cecb0ece-e5a1-4faa-a4f1-16c9f6d488a3"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "kopia_swiadectwa_charakterystyki_energetycznej_budynku",
+         "title": "Kopia świadectwa charakterystyki energetycznej budynku",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "df8a92eb-2e8e-4947-afb1-eed15b7fe6cd"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "oswiadczenie_kierownika_budowy_o_zgodnosci_wykonania_obiektu_budowlanego_z_projektem_budowlanym_lub_warunkami_pozwolenia_na_budowe_oraz_przepisami_oraz_o_doprowadzeniu_do_nalezytego_stanu_i_porzadku",
+         "title": "Oświadczenie kierownika budowy o zgodności wykonania obiektu budowlanego z projektem budowlanym lub warunkami pozwolenia na budowę oraz przepisami oraz o doprowadzeniu do należytego stanu i porządku",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "cd0ea5ef-604d-473f-bd51-388a476d728e"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "oswiadczenie_o_wlasciwym_zagospodarowaniu_terenow_przyleglych",
+         "title": "Oświadczenie o właściwym zagospodarowaniu terenów przyległych",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "dac3036e-9559-4dd9-9c49-73191b2d07d0"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "protokoly_badan_i_sprawdzen",
+         "title": "Protokoły badań i sprawdzeń",
+         "validation": [],
+         "states": [],
+         "questionOrder": 5,
+         "id": "98865585-c41d-4c64-af92-b768cb050606"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "decyzja_zezwalajaca_na_eksploatacje_urzadzenia_technicznego",
+         "title": "Decyzja zezwalająca na eksploatację urządzenia technicznego",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "8a9f2906-95b8-4204-831c-32c520e6e35a"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokumentacja_geodezyjna_zawierajaca_wyniki_geodezyjnej_inwentaryzacji_powykonawczej",
+         "title": "Dokumentacja geodezyjna zawierająca wyniki geodezyjnej inwentaryzacji powykonawczej",
+         "validation": [],
+         "states": [],
+         "questionOrder": 7,
+         "id": "57e160e6-97f9-4311-9bec-274922524964"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "potwierdzenie_odbioru_wykonanych_przylaczy",
+         "title": "Potwierdzenie odbioru wykonanych przyłączy",
+         "validation": [],
+         "states": [],
+         "questionOrder": 8,
+         "id": "f0d6f5ef-141d-4b30-85e4-96a2a3340874"
+        },
+        "x": 0,
+        "y": 8,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "zaswiadczenie_wojta_burmistrza_albo_prezydenta_miasta_potwierdzajace_spelnienie_warunkow_planistycznych",
+         "title": "Zaświadczenie wójta, burmistrza albo prezydenta miasta potwierdzające spełnienie warunków planistycznych",
+         "validation": [],
+         "states": [],
+         "questionOrder": 9,
+         "id": "bbf79843-2fc6-48c4-a851-090abcb9890d"
+        },
+        "x": 0,
+        "y": 9,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "droga_publiczna_inna_niz_art_24ga_ust_1_pkt_1_i_2_lub_droga_wojewodzka_wynik_audytu_bezpieczenstwa_ruchu_drogowego",
+         "title": "Droga publiczna (inna niż art. 24ga ust. 1 pkt 1 i 2) lub droga wojewódzka - wynik audytu bezpieczeństwa ruchu drogowego",
+         "validation": [],
+         "states": [],
+         "questionOrder": 10,
+         "id": "af5e6afc-c372-4452-b792-ace83a228e98"
+        },
+        "x": 0,
+        "y": 10,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "droga_publiczna_inna_niz_art_24ga_ust_1_pkt_1_i_2_lub_droga_wojewodzka_uzasadnienie_zarzadcy_drogi",
+         "title": "Droga publiczna (inna niż art. 24ga ust. 1 pkt 1 i 2) lub droga wojewódzka - uzasadnienie zarządcy drogi",
+         "validation": [],
+         "states": [],
+         "questionOrder": 11,
+         "id": "2150f990-68ae-42a4-93b4-7376d743315f"
+        },
+        "x": 0,
+        "y": 11,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "droga_krajowa_wojewodzka_oswiadczenie_zarzadcy_drogi_o_braku_ubiegania_sie_o_dofinansowanie_z_ue",
+         "title": "Droga krajowa/wojewódzka - oświadczenie zarządcy drogi o braku ubiegania się o dofinansowanie z UE",
+         "validation": [],
+         "states": [],
+         "questionOrder": 12,
+         "id": "0b196384-3b6e-4349-bdd7-ef9674dbb1f2"
+        },
+        "x": 0,
+        "y": 12,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "kopie_rysunkow_z_zatwierdzonego_projektu_z_naniesionymi_zmianami",
+         "title": "Kopie rysunków z zatwierdzonego projektu z naniesionymi zmianami",
+         "validation": [],
+         "states": [],
+         "questionOrder": 13,
+         "id": "35a46dd0-0e3f-4740-9df2-bf2ffda68672"
+        },
+        "x": 0,
+        "y": 13,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "oswiadczenia_o_braku_sprzeciwu_lub_uwag_ze_strony_organow",
+         "title": "Oświadczenia o braku sprzeciwu lub uwag ze strony organów",
+         "validation": [],
+         "states": [],
+         "questionOrder": 14,
+         "id": "de1cb94a-78d8-4672-b3b7-18bda25f876c"
+        },
+        "x": 0,
+        "y": 14,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "pelnomocnictwo_do_reprezentowania_inwestora",
+         "title": "Pełnomocnictwo do reprezentowania inwestora",
+         "validation": [],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"pełnomocnik\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)\nor\n(\"pełnomocnik do doręczeń\" in tabs['Organ i wnioskodawca' in title].questions['dane_pelnomocnika' in field.techName].field.repeatingSectionGrid['rodzaj_pelnomocnika' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 15,
+         "id": "2aaee059-8b63-4f13-b337-277ed079de10"
+        },
+        "x": 0,
+        "y": 15,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "potwierdzenie_uiszczenia_oplaty_skarbowej",
+         "title": "Potwierdzenie uiszczenia opłaty skarbowej",
+         "validation": [],
+         "states": [],
+         "questionOrder": 16,
+         "id": "381adaab-2b75-4e77-a51d-f481e4d0bda9"
+        },
+        "x": 0,
+        "y": 16,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "inne_zalaczniki",
+         "title": "Inne załączniki",
+         "validation": [],
+         "states": [],
+         "questionOrder": 17,
+         "id": "54447d98-0036-4000-940f-ad39a5cfbbd4"
+        },
+        "x": 0,
+        "y": 17,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "9a27bbff-c2c9-414f-9c9a-4a4e416e72b7"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 18,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "c63dc327-76a7-441e-a95e-d6153b6f956d",
+   "title": "Kontakt i podpis",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_kontaktowe",
+      "title": "Dane kontaktowe",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "e_mail_dane_kontaktowe",
+         "title": "E-mail",
+         "validation": [
+          "EMAIL"
+         ],
+         "description": "nieobowiązkowo",
+         "states": [],
+         "questionOrder": 0,
+         "id": "940a1d61-1eb8-4891-a493-1f29e2e7fd36"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_tel_dane_kontaktowe",
+         "title": "Nr tel.",
+         "validation": [],
+         "description": "nieobowiązkowo",
+         "states": [],
+         "questionOrder": 1,
+         "id": "37064739-35e9-4d9b-a017-664789bf3027"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "133b3d82-bcf1-460c-8c45-8b429dd24ce1"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podpis_i_data",
+      "title": "Podpis i data",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podpis",
+         "title": "Podpis",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Podpis powinien być czytelny. Podpis i datę podpisu umieszcza się w przypadku składania wniosku w postaci papierowej.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "971c96b3-8eab-4960-9d28-3c37b3b38dd8"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_podpisu",
+         "title": "Data podpisu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "2eb67a0f-fe79-4b69-8a1b-1e06d10215ec"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "310b8b54-df0c-4b13-9440-6e4019d6498b"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "b6c1299f-c69e-4728-91b6-a973018a4143",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "39e3d3bb-88ee-4814-aee7-576fb9cf493a"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "7d47f8b8-c573-44c2-9d22-5e0d2dc69574"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "a98652f6-d037-4d88-a8ed-d69132e9dac4",
+    "source": "3056b377-5c1c-4e97-be85-a300a2d709a1",
+    "target": "80e9de75-2a7e-4b7a-8f0f-e7dc90e323d2"
+   },
+   {
+    "id": "06777889-9c4d-4dbb-aab8-800557efca54",
+    "source": "80e9de75-2a7e-4b7a-8f0f-e7dc90e323d2",
+    "target": "837320da-2583-4a2b-b98e-8230ba9ce383"
+   },
+   {
+    "id": "6536200b-cdec-48ed-bd15-4e7104890438",
+    "source": "837320da-2583-4a2b-b98e-8230ba9ce383",
+    "target": "c63dc327-76a7-441e-a95e-d6153b6f956d"
+   },
+   {
+    "id": "235b35ae-be56-4eb6-bb3e-a85df797e514",
+    "source": "c63dc327-76a7-441e-a95e-d6153b6f956d",
+    "target": "b6c1299f-c69e-4728-91b6-a973018a4143"
+   }
+  ]
+ }
+}

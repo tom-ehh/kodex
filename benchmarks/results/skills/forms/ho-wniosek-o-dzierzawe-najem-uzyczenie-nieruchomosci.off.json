@@ -1,0 +1,748 @@
+{
+ "title": "Wniosek o dzierżawę/najem/użyczenie nieruchomości Gminy Lublin",
+ "tabs": [
+  {
+   "id": "52958cbf-354f-4696-a432-b0023b547e8b",
+   "title": "Dane urzędu i wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_urzedu",
+      "title": "Dane urzędu",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "wydzial_gospodarowania_mieniem_urzedu_miasta_lublin",
+         "title": "Wydział Gospodarowania Mieniem Urzędu Miasta Lublin",
+         "states": [],
+         "questionOrder": 0,
+         "id": "85bfa12d-de68-47ea-8014-a30e07489fab"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "ul. Wieniawska 14",
+         "states": [],
+         "questionOrder": 1,
+         "id": "42c3efc2-105d-4345-8f33-14a5ef59fbda"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "description": "20-071",
+         "states": [],
+         "questionOrder": 2,
+         "id": "3be9a306-a30d-4a36-a497-50529eb0e48a"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "description": "Lublin",
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "1c2d40ca-040f-4693-b1dc-b15be68848fc"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "4016707c-21c7-4c4c-bbb5-8185162181ad"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_wnioskodawcy",
+      "title": "Dane wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_wnioskodawcy",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 0,
+         "id": "53e7bcb8-95d4-43a4-baa1-02339486d0fc"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data",
+         "title": "Data",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "4878f914-69b1-46da-a6bb-eba946a4c8dd"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko_nazwa_firmy",
+         "title": "Imię i nazwisko / Nazwa firmy",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "f6f21892-e346-4d2f-9673-7770b4428ba7"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_dane_wnioskodawcy",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "780d819b-cfc3-4387-b9f4-a8eeb2e29dd5"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_budynku",
+         "title": "Numer budynku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "f0c68b3b-336d-4b2d-8571-14955d93f6e0"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_dane_wnioskodawcy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "98775712-c76d-4bf0-9613-2132c5a0af8c"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_adresu",
+         "title": "Miejscowość adresu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 6,
+         "id": "b5a72076-673a-4486-abad-cb8418c03301"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_telefonu",
+         "title": "Nr telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 7,
+         "id": "c8fad5d6-b063-4339-8556-7742a50cd69d"
+        },
+        "x": 0,
+        "y": 7,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 4,
+      "id": "8009df9b-164d-42de-8843-374d7a580062"
+     },
+     "x": 0,
+     "y": 4,
+     "rows": 8,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "ffcb4a16-c126-40c8-8185-621aa8d61e53",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "opis_nieruchomosci",
+      "title": "Opis nieruchomości",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_opis_nieruchomosci",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "b9454345-c9f0-4278-aab1-5d7509887f5f"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_dzialki",
+         "title": "Numer działki",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "8ae050b6-3fdc-41fb-8890-e08fa271be8a"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "obreb",
+         "title": "Obręb",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "27b84db8-e2f9-471a-b588-83f28c74590b"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "arkusz",
+         "title": "Arkusz",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "b0c6890d-79df-4fe0-ad3c-518fbce80df6"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "NUMBER",
+         "techName": "powierzchnia_m2",
+         "title": "Powierzchnia (m²)",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "f06f414d-0639-46da-94b3-b186e209a7c6"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "okres",
+         "title": "Okres",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "53124cd3-62a0-4638-bcff-7454e2c5b5bc"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "przeznaczenie",
+         "title": "Przeznaczenie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 6,
+         "id": "d709c305-6eda-40eb-be02-13a1cb7208cc"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "795d4b3c-2b64-4698-b7a6-313679ba5fa6"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 7,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "uzasadnienie_wniosku",
+      "title": "Uzasadnienie wniosku",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "motywacja_wniosku",
+         "title": "Motywacja wniosku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "ebca20a0-f0d1-42c1-9c8c-03d0eb949325"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 7,
+      "id": "7596f41c-944e-4761-a14b-b35e1e027316"
+     },
+     "x": 0,
+     "y": 7,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "dc3170ee-8e31-4568-8b5c-b4c59f0a182d",
+   "title": "Kontakt i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_kontaktowe",
+      "title": "Dane kontaktowe",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_kontaktowe",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 0,
+         "id": "9bdb68b3-efa5-42a6-b93e-7b865b9f96b7"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "DATEPICKER",
+         "techName": "data_dane_kontaktowe",
+         "title": "Data",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "b2094fe6-2137-4dfa-8e2e-28a1b97a0473"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "dane_wnioskujacego",
+         "title": "Dane Wnioskującego",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "06e9c07e-757c-4ffb-8d45-ad0c75c19d16"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres",
+         "title": "Adres",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "f2b789cb-62e8-4f19-9d56-0bb7583f267f"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_telefonu_dane_kontaktowe",
+         "title": "Nr Telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 4,
+         "id": "14795e0f-b4f9-4405-abc3-0e317d2c73f8"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "7ae86fba-0607-452d-b70b-1c653e921d8c"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenia_i_zgody",
+      "title": "Oświadczenia i zgody",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "oswiadczam_ze_dane_zawarte_we_wniosku_sa_zgodne_z_prawda",
+         "title": "Oświadczam, że dane zawarte we wniosku są zgodne z prawdą",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "3a78eda9-0dc9-4f6b-8253-0fbef0d891cb"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "wyrazam_zgode_na_przetwarzanie_moich_danych_osobowych_w_celu_rozpatrzenia_wniosku",
+         "title": "Wyrażam zgodę na przetwarzanie moich danych osobowych w celu rozpatrzenia wniosku",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "ac87cb86-89a3-4904-9985-54423c72c3c8"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 5,
+      "id": "2937a4d0-b2e3-499e-87b5-f96546295509"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 2,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "cce4288a-e5fa-478e-836d-07407a5c71a1",
+   "title": "Załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "lista_zalacznikow",
+      "title": "Lista załączników",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "mapa_z_zaznaczonym_obszarem_objetym_wnioskiem",
+         "title": "Mapa z zaznaczonym obszarem objętym wnioskiem",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "c25ab9cc-8115-4692-ab6b-7e3159cc193a"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "dokumenty_organizacyjne_wnioskodawcy_nip_regon_krs_pelnomocnictwa_etc",
+         "title": "Dokumenty organizacyjne Wnioskodawcy, NIP, REGON, KRS, pełnomocnictwa etc.",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "fc544cef-9c21-4f7d-a4c1-683cb5eb26a4"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "pozwolenia_decyzje_opinie_uzgodnienia_dotyczace_wniosku_w_zaleznosci_od_sposobu_korzystania_z_nieruchomosci",
+         "title": "Pozwolenia, decyzje, opinie, uzgodnienia dotyczące wniosku, w zależności od sposobu korzystania z nieruchomości.",
+         "validation": [],
+         "states": [],
+         "questionOrder": 2,
+         "id": "ebf5d22b-e2b0-465d-9638-16925c10bd2e"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "5710e45c-6c3e-48c4-b979-dfbcd574379b"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "fd89c433-59b2-464d-9275-17e87a621466",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "be1fa2e0-8c83-47eb-97a6-4879a2c5c911"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "fbb151e6-831d-4681-afc5-b9321ab6ba96"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "ad4a4069-9796-47e3-a82c-f860189d1362",
+    "source": "52958cbf-354f-4696-a432-b0023b547e8b",
+    "target": "ffcb4a16-c126-40c8-8185-621aa8d61e53"
+   },
+   {
+    "id": "88be7fae-883b-4c82-9c92-a0fb6acb36ef",
+    "source": "ffcb4a16-c126-40c8-8185-621aa8d61e53",
+    "target": "dc3170ee-8e31-4568-8b5c-b4c59f0a182d"
+   },
+   {
+    "id": "71be8b13-460f-4354-ac20-894147d8b2e7",
+    "source": "dc3170ee-8e31-4568-8b5c-b4c59f0a182d",
+    "target": "cce4288a-e5fa-478e-836d-07407a5c71a1"
+   },
+   {
+    "id": "02447802-65a0-4d84-b73a-f42c75c1293b",
+    "source": "cce4288a-e5fa-478e-836d-07407a5c71a1",
+    "target": "fd89c433-59b2-464d-9275-17e87a621466"
+   }
+  ]
+ }
+}

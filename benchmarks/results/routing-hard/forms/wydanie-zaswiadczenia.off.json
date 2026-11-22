@@ -1,0 +1,627 @@
+{
+ "title": "Wniosek o wydanie zaświadczenia",
+ "tabs": [
+  {
+   "id": "5334a882-91ba-4f31-9425-28da92972aee",
+   "title": "Urząd",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "urzad",
+      "title": "Urząd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "urzad_urzad",
+         "title": "Urząd",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "76dc7d99-d523-4d07-a582-f1c3a4070504"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_i_numer",
+         "title": "Ulica i numer",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "1757bde4-f734-4c24-91af-59f16bbe2c2d"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "1520d3d7-5e9c-4039-b488-4db42c398a90"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 3,
+         "id": "b1fbc68a-37e2-4594-9a56-a54715fe782f"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "6cc5d5a4-9e90-4f9f-8932-562cc8beb720"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "cccfbac5-1913-43a6-ba1d-22248d2a44be",
+   "title": "Wnioskodawca",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_wnioskodawcy",
+      "title": "Dane wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko",
+         "title": "Imię i nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "a0a2b569-40f1-4e02-948d-ff1db0c28946"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc_dane_wnioskodawcy",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 1,
+         "id": "dc55b83e-fe2b-44f7-a1c1-a078a2add252"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica_i_numer_dane_wnioskodawcy",
+         "title": "Ulica i numer",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "7f084adf-f80b-4a6e-b344-1f7acc3c1e64"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy_dane_wnioskodawcy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "d94ba716-612d-4b1b-92ab-92b7310d8366"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "poczta",
+         "title": "Poczta",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 4,
+         "id": "6555871a-0316-4360-8eac-d147f38e418f"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel",
+         "title": "PESEL",
+         "validation": [
+          "REQUIRED",
+          "PESEL"
+         ],
+         "states": [],
+         "questionOrder": 5,
+         "id": "54da6375-a0df-4899-91ab-aa77493afda9"
+        },
+        "x": 0,
+        "y": 5,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_telefonu",
+         "title": "Numer telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 6,
+         "id": "a5678f4a-ed10-4d25-a45e-bed1b54068dc"
+        },
+        "x": 0,
+        "y": 6,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "a331bdd3-ef8c-4c42-b34c-c92d0b26a203"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 7,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "31e41c7f-254b-40ee-8e73-ef43be55530c",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "rodzaj_zaswiadczenia",
+      "title": "Rodzaj zaświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "prosze_o_wydanie_zaswiadczenia_o",
+         "title": "Proszę o wydanie zaświadczenia o:",
+         "options": [
+          {
+           "id": "ilości posiadanych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "name": "ilości posiadanych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "techName": "ilosci_posiadanych_uzytkow_rolnych_w_hektarach_fizycznych_i_przeliczeniowych"
+          },
+          {
+           "id": "ilości dzierżawionych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "name": "ilości dzierżawionych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "techName": "ilosci_dzierzawionych_uzytkow_rolnych_w_hektarach_fizycznych_i_przeliczeniowych"
+          },
+          {
+           "id": "okresie posiadania gospodarstwa rolnego",
+           "name": "okresie posiadania gospodarstwa rolnego",
+           "techName": "okresie_posiadania_gospodarstwa_rolnego"
+          },
+          {
+           "id": "nieposiadaniu użytków rolnych / gospodarstwa rolnego na terenie Gminy Młynary",
+           "name": "nieposiadaniu użytków rolnych / gospodarstwa rolnego na terenie Gminy Młynary",
+           "techName": "nieposiadaniu_uzytkow_rolnych_gospodarstwa_rolnego_na_terenie_gminy_mlynary"
+          },
+          {
+           "id": "Inne",
+           "name": "Inne",
+           "techName": "inne"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "969f9be5-03c7-4e68-b83a-6051037b767f"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "prosze_o_wydanie_zaswiadczenia_o_inne",
+         "title": "Wpisz, jakie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Inne\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_zaswiadczenia' in field.techName].field.repeatingSectionGrid['prosze_o_wydanie_zaswiadczenia_o' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "7207e6e8-356a-494b-98fe-e3d2d86c33ad"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "30d7ad7c-5de5-49a8-ba28-e73e0c9e1c34"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "cel_wydania_zaswiadczenia",
+      "title": "Cel wydania zaświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXTAREA",
+         "techName": "zaswiadczenie_potrzebne_jest_celem_przedlozenia_w",
+         "title": "Zaświadczenie potrzebne jest celem przedłożenia w",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "e5ebee68-d5fe-43d8-b97e-1085fc958d23"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "9ee3910c-c6f3-4ad8-84dd-45283c16c4b7"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "042c29e5-6e0d-40b6-9051-ebfbf01fad9e",
+   "title": "Opłaty",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oplata_skarbowa",
+      "title": "Opłata skarbowa",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "informacja_o_oplacie_skarbowej",
+         "title": "Informacja o opłacie skarbowej",
+         "description": "Opłata za wydanie zaświadczenia wynosi 17 zł od każdego egzemplarza. Obowiązek uiszczenia opłaty skarbowej powstaje z chwilą złożenia wniosku o wydanie zaświadczenia.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "ea75541f-fe7e-4582-8613-c64a09ce66cf"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "sposob_uiszczenia_oplaty_skarbowej",
+         "title": "Sposób uiszczenia opłaty skarbowej",
+         "description": "Opłatę skarbową należy wnieść w kasie lub bezgotówkowo na rachunek tut. Urzędu – przed złożeniem wniosku. Konto bankowe Urzędu: Bank PKO BP S.A. 12 1234 1234 1234 1234 1234 1234.",
+         "states": [],
+         "questionOrder": 1,
+         "id": "e3c8051d-e50d-4db9-a649-fed3e41246e6"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "podstawa_prawna_zwolnienia_lub_wylaczenia_z_oplaty_skarbowej",
+         "title": "Podstawa prawna zwolnienia lub wyłączenia z opłaty skarbowej",
+         "description": "Zwolnienie z opłaty skarbowej określa art. 2, natomiast wyłączenie art. 7 ustawy z dnia 16 listopada 2006 r. o opłacie skarbowej.",
+         "states": [],
+         "questionOrder": 2,
+         "id": "3c6731c2-fb8d-4f19-af8e-6317db854858"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "czy_wnioskodawca_korzysta_ze_zwolnienia_lub_wylaczenia_z_oplaty_skarbowej",
+         "title": "Czy wnioskodawca korzysta ze zwolnienia lub wyłączenia z opłaty skarbowej?",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "bec507bc-a183-4fcb-93fb-cf9e5cff8340"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "podstawa_prawna_zwolnienia_lub_wylaczenia",
+         "title": "Podstawa prawna zwolnienia lub wyłączenia",
+         "validation": [],
+         "description": "Należy wskazać podstawę prawną zwolnienia lub wyłączenia z opłaty skarbowej.",
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Tak\" in tabs['Opłaty' in title].questions['oplata_skarbowa' in field.techName].field.repeatingSectionGrid['czy_wnioskodawca_korzysta_ze_zwolnienia_lub_wylaczenia_z_oplaty_skarbowej' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 4,
+         "id": "503d6ee7-f7ee-45f2-b05d-16f030683bbd"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "761dddbf-5872-4104-8d3a-e57b8d397e75"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "cf49ce49-ff5c-44e5-a690-10baf4268ee1",
+   "title": "Załączniki",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "zalaczniki",
+      "title": "Załączniki",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "FILE_UPLOADER",
+         "techName": "miejsce_na_zalaczenie_dokumentow_potwierdzajacych_dane_lub_uprawnienia",
+         "title": "Miejsce na załączenie dokumentów potwierdzających dane lub uprawnienia",
+         "validation": [],
+         "states": [],
+         "questionOrder": 0,
+         "id": "654a7166-39da-4678-8498-174061ccc590"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "7edef755-9392-46c6-bddf-b67a8467d50a"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "8bfc6737-33ef-4823-9134-271b567ac081",
+   "title": "Oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenia",
+      "title": "Oświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "oswiadczenia_wymagane_do_zlozenia_wniosku",
+         "title": "Oświadczenia wymagane do złożenia wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "288f3ed0-e534-4453-971c-6fc9987fe565"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "4afc9b43-d93b-4e54-be8d-6b040ff2f2fd"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "4915f2a5-8977-40d7-807d-b7d12d1974a1",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "832204bf-7076-459e-a2aa-9bbd06e633bf"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "0adfffc3-3f84-4019-a785-2096ab02a978"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "4ed0f541-3dda-413d-91d1-f331289f0bf1",
+    "source": "5334a882-91ba-4f31-9425-28da92972aee",
+    "target": "cccfbac5-1913-43a6-ba1d-22248d2a44be"
+   },
+   {
+    "id": "f2f62389-2d71-49b0-b22a-dce4c23d00d0",
+    "source": "cccfbac5-1913-43a6-ba1d-22248d2a44be",
+    "target": "31e41c7f-254b-40ee-8e73-ef43be55530c"
+   },
+   {
+    "id": "9a5c1d33-5b44-4176-9a16-4e5c1a3242da",
+    "source": "31e41c7f-254b-40ee-8e73-ef43be55530c",
+    "target": "042c29e5-6e0d-40b6-9051-ebfbf01fad9e"
+   },
+   {
+    "id": "91927be8-2d62-463a-821d-7995bf448e32",
+    "source": "042c29e5-6e0d-40b6-9051-ebfbf01fad9e",
+    "target": "cf49ce49-ff5c-44e5-a690-10baf4268ee1"
+   },
+   {
+    "id": "2b13dd9d-2230-4d3c-918b-7692a0219808",
+    "source": "cf49ce49-ff5c-44e5-a690-10baf4268ee1",
+    "target": "8bfc6737-33ef-4823-9134-271b567ac081"
+   },
+   {
+    "id": "c448f235-a602-4570-9a24-f0a293eaf363",
+    "source": "8bfc6737-33ef-4823-9134-271b567ac081",
+    "target": "4915f2a5-8977-40d7-807d-b7d12d1974a1"
+   }
+  ]
+ }
+}

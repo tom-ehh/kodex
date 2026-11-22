@@ -1,0 +1,491 @@
+{
+ "title": "Wniosek o wydanie zaświadczenia",
+ "tabs": [
+  {
+   "id": "2864b0ff-ea53-468e-81a2-690e1266f1f3",
+   "title": "Dane urzędu i wnioskodawcy",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_adresata",
+      "title": "Dane adresata",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nazwa_urzedu",
+         "title": "Nazwa urzędu",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "d6554a27-817a-4df6-88b0-5d84bd88323d"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "ulica",
+         "title": "Ulica",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "acfcae72-60ee-4bbc-86d5-df33fd0adada"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "numer_budynku",
+         "title": "Numer budynku",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "b896118f-e0e8-473f-a7ff-c23aa7a60eda"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "kod_pocztowy",
+         "title": "Kod pocztowy",
+         "validation": [
+          "REQUIRED",
+          "ZIP_CODE"
+         ],
+         "states": [],
+         "questionOrder": 3,
+         "id": "ddcfa8bc-52e8-4918-84ff-f7ad50ac7d55"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "SELECT",
+         "techName": "miejscowosc",
+         "title": "Miejscowość",
+         "validation": [
+          "REQUIRED"
+         ],
+         "dictionaryName": "Miejscowość",
+         "options": [],
+         "searchEnabled": true,
+         "states": [],
+         "questionOrder": 4,
+         "id": "5081e0ec-5456-4d3e-a015-7c67a1349994"
+        },
+        "x": 0,
+        "y": 4,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "62a86b36-fada-4002-9ec3-af458d56622d"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 5,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "dane_wnioskodawcy",
+      "title": "Dane wnioskodawcy",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "imie_i_nazwisko",
+         "title": "Imię i nazwisko",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "93241178-a6aa-4ee2-b784-431c67d200d1"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "adres",
+         "title": "Adres",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 1,
+         "id": "656b1e0b-bf0b-4f60-8d97-504dda8f9312"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "pesel",
+         "title": "PESEL",
+         "validation": [
+          "REQUIRED",
+          "PESEL"
+         ],
+         "states": [],
+         "questionOrder": 2,
+         "id": "2bc54cb3-10d1-44a5-98c0-146c90f3650d"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "nr_telefonu",
+         "title": "Nr telefonu",
+         "validation": [],
+         "states": [],
+         "questionOrder": 3,
+         "id": "734bbea1-5ddf-4f92-a41b-39e767312ad9"
+        },
+        "x": 0,
+        "y": 3,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 5,
+      "id": "5e6e59f4-caef-487b-b31e-10964187fa56"
+     },
+     "x": 0,
+     "y": 5,
+     "rows": 4,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "8fe13455-bdbd-4dfb-9ca6-10fb3b35f6c7",
+   "title": "Przedmiot wniosku",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "rodzaj_zaswiadczenia",
+      "title": "Rodzaj zaświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "rodzaj_zaswiadczenia_rodzaj_zaswiadczenia",
+         "title": "Rodzaj zaświadczenia",
+         "options": [
+          {
+           "id": "ilości posiadanych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "name": "ilości posiadanych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "techName": "ilosci_posiadanych_uzytkow_rolnych_w_hektarach_fizycznych_i_przeliczeniowych"
+          },
+          {
+           "id": "ilości dzierżawionych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "name": "ilości dzierżawionych użytków rolnych w hektarach fizycznych i przeliczeniowych",
+           "techName": "ilosci_dzierzawionych_uzytkow_rolnych_w_hektarach_fizycznych_i_przeliczeniowych"
+          },
+          {
+           "id": "okresie posiadania gospodarstwa rolnego",
+           "name": "okresie posiadania gospodarstwa rolnego",
+           "techName": "okresie_posiadania_gospodarstwa_rolnego"
+          },
+          {
+           "id": "nieposiadaniu użytków rolnych / gospodarstwa rolnego na terenie Gminy Młynary",
+           "name": "nieposiadaniu użytków rolnych / gospodarstwa rolnego na terenie Gminy Młynary",
+           "techName": "nieposiadaniu_uzytkow_rolnych_gospodarstwa_rolnego_na_terenie_gminy_mlynary"
+          },
+          {
+           "id": "Inne",
+           "name": "Inne",
+           "techName": "inne"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "41d0663b-7f65-4713-a357-33c9fae7606e"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "rodzaj_zaswiadczenia_rodzaj_zaswiadczenia_inne",
+         "title": "Wpisz, jakie",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [
+          {
+           "type": "SHOW",
+           "query": "(\"Inne\" in tabs['Przedmiot wniosku' in title].questions['rodzaj_zaswiadczenia' in field.techName].field.repeatingSectionGrid['rodzaj_zaswiadczenia_rodzaj_zaswiadczenia' in field.techName].field.__userAnswer)"
+          }
+         ],
+         "questionOrder": 1,
+         "id": "6becf0de-5cd6-4574-a5e1-6c6847802109"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "96664ea3-b779-4f6d-b8b3-014c9286faa1"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 2,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "cel_wydania_zaswiadczenia",
+      "title": "Cel wydania zaświadczenia",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_FIELD",
+         "techName": "okreslenie_instytucji_do_ktorej_zaswiadczenie_ma_byc_przedlozone",
+         "title": "Określenie instytucji, do której zaświadczenie ma być przedłożone",
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "ac69493e-1470-4b0f-a2b5-800dcc78c380"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 2,
+      "id": "16f95cd1-6a4e-4900-9bdd-05b6554e35e3"
+     },
+     "x": 0,
+     "y": 2,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "70800d00-ff0b-4582-b5d8-301589a6c3ba",
+   "title": "Opłata i oświadczenia",
+   "type": "MAIN",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "informacja_o_oplacie_skarbowej",
+      "title": "Informacja o opłacie skarbowej",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "wysokosc_oplaty_skarbowej",
+         "title": "Wysokość opłaty skarbowej",
+         "description": "Opłata za wydanie zaświadczenia wynosi 17 zł od każdego egzemplarza. Obowiązek uiszczenia opłaty skarbowej powstaje z chwilą złożenia wniosku o wydanie zaświadczenia.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "f9a6a615-5ee5-45e3-a923-22d04d20ae13"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "sposob_uiszczenia_oplaty",
+         "title": "Sposób uiszczenia opłaty",
+         "description": "Opłatę skarbową należy wnieść w kasie lub bezgotówkowo na rachunek tut. Urzędu – przed złożeniem wniosku. Konto bankowe Urzędu: Bank PKO BP S.A. 12 1234 1234 1234 1234 1234 1234.",
+         "states": [],
+         "questionOrder": 1,
+         "id": "696a0154-04d4-4f0d-92ac-1db61e98cf73"
+        },
+        "x": 0,
+        "y": 1,
+        "rows": 1,
+        "cols": 3
+       },
+       {
+        "field": {
+         "type": "TEXT_BLOCK",
+         "techName": "informacja_o_zwolnieniu_lub_wylaczeniu_z_oplaty_skarbowej",
+         "title": "Informacja o zwolnieniu lub wyłączeniu z opłaty skarbowej",
+         "description": "Zwolnienie z opłaty skarbowej określa art. 2, natomiast wyłączenie art. 7 ustawy z dnia 16 listopada 2006 r. o opłacie skarbowej.",
+         "states": [],
+         "questionOrder": 2,
+         "id": "37075aaa-e191-45e9-a328-ad75f0bfcac7"
+        },
+        "x": 0,
+        "y": 2,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "8072ec01-265f-47af-944b-89aa250c1e60"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 3,
+     "cols": 3
+    },
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "oswiadczenie_o_wniesieniu_oplaty",
+      "title": "Oświadczenie o wniesieniu opłaty",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "RADIO",
+         "techName": "potwierdzam_wniesienie_oplaty_skarbowej_przed_zlozeniem_wniosku",
+         "title": "Potwierdzam wniesienie opłaty skarbowej przed złożeniem wniosku",
+         "options": [
+          {
+           "id": "Tak",
+           "name": "Tak",
+           "techName": "tak"
+          },
+          {
+           "id": "Nie",
+           "name": "Nie",
+           "techName": "nie"
+          }
+         ],
+         "validation": [
+          "REQUIRED"
+         ],
+         "states": [],
+         "questionOrder": 0,
+         "id": "682fe3f1-d44c-4e5d-a55f-8d5f4253a0f8"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 3,
+      "id": "5e13cd7f-f4bf-4df0-9d37-fc32ecc99848"
+     },
+     "x": 0,
+     "y": 3,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  },
+  {
+   "id": "71e3ddaa-25f8-4238-aa83-000846008e1b",
+   "title": "Podsumowanie",
+   "type": "FINISH",
+   "questions": [
+    {
+     "field": {
+      "type": "SECTION",
+      "techName": "podglad",
+      "title": "Podgląd",
+      "repeatingSectionGrid": [
+       {
+        "field": {
+         "type": "INFO_SECTION",
+         "techName": "podglad_info",
+         "description": "Sprawdź dane przed wysłaniem wniosku.",
+         "states": [],
+         "questionOrder": 0,
+         "id": "53bf04bb-5a08-4056-88fc-a0614c731d12"
+        },
+        "x": 0,
+        "y": 0,
+        "rows": 1,
+        "cols": 3
+       }
+      ],
+      "states": [],
+      "questionOrder": 0,
+      "id": "a655d5aa-9ed5-4c8a-9b1b-b4c96547ae26"
+     },
+     "x": 0,
+     "y": 0,
+     "rows": 1,
+     "cols": 3
+    }
+   ]
+  }
+ ],
+ "flow": {
+  "links": [
+   {
+    "id": "d804839b-6f72-479d-843a-974eeeaeb0fd",
+    "source": "2864b0ff-ea53-468e-81a2-690e1266f1f3",
+    "target": "8fe13455-bdbd-4dfb-9ca6-10fb3b35f6c7"
+   },
+   {
+    "id": "e65a656a-b3b8-469c-9539-f84c38dfe7e0",
+    "source": "8fe13455-bdbd-4dfb-9ca6-10fb3b35f6c7",
+    "target": "70800d00-ff0b-4582-b5d8-301589a6c3ba"
+   },
+   {
+    "id": "c94c881a-fe52-457c-a343-920cb15f4caf",
+    "source": "70800d00-ff0b-4582-b5d8-301589a6c3ba",
+    "target": "71e3ddaa-25f8-4238-aa83-000846008e1b"
+   }
+  ]
+ }
+}
