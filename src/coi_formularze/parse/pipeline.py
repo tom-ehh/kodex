@@ -13,6 +13,8 @@ from dataclasses import dataclass, field
 
 from pydantic import BaseModel, ValidationError
 
+from coi_formularze.morpheus.hooks import Hooks, form_shape
+from coi_formularze.morpheus.models import HitOutcome
 from coi_formularze.parse.llm import ChatModel, LlmError
 from coi_formularze.parse.prompts import prompt, retry_prompt
 from coi_formularze.route.model import Route, Tier
@@ -35,6 +37,10 @@ log = logging.getLogger(__name__)
 
 class PassFailed(Exception):
     """A draft pass gave no valid answer after its retry."""
+
+    def __init__(self, task: str, errors: list[str]):
+        super().__init__(f"{task}: {errors[:3]}")
+        self.task, self.errors = task, errors
 
 
 class ParseFailed(Exception):
@@ -79,14 +85,19 @@ def _strip_fence(text: str) -> str:
 class _Run:
     """One attempt at one tier model."""
 
-    def __init__(self, chat: ChatModel, model: str, md: str, attempt: Attempt, retries: int):
+    def __init__(self, chat: ChatModel, model: str, md: str, attempt: Attempt, retries: int,
+                 hooks: Hooks | None = None):
         self.chat, self.model, self.md, self.attempt, self.retries = chat, model, md, attempt, retries
+        self.hooks = hooks
 
-    async def ask(self, task: str, schema_model: type[BaseModel], check=None, **ctx) -> BaseModel:
+    async def ask(self, task: str, schema_model: type[BaseModel], check=None, hints: str = "",
+                  stats: dict | None = None, **ctx) -> BaseModel:
         schema = schema_model.model_json_schema()
-        messages = [{"role": "user", "content": prompt(task, self.md, schema, **ctx)}]
+        messages = [{"role": "user", "content": prompt(task, self.md, schema, hints, **ctx)}]
         errors: list[str] = []
-        for _ in range(self.retries + 1):
+        for n in range(self.retries + 1):
+            if stats is not None:
+                stats["tries"] = n + 1
             c = await self.chat.complete(self.model, messages, schema)
             self.attempt.calls += 1
             self.attempt.cost += c.cost
@@ -98,20 +109,40 @@ class _Run:
                 return obj
             messages += [{"role": "assistant", "content": c.text[:20000]},
                          {"role": "user", "content": retry_prompt(errors)}]
-        raise PassFailed(f"{task}: {errors[:3]}")
+        if self.hooks and task != "section":  # sections record their own failure
+            self.hooks.record_validation_failure(self.attempt.tier, task, None, errors)
+        raise PassFailed(task, errors)
+
+    async def section(self, page: str, sec, plan: str) -> SectionDraft:
+        """One SectionDraft, with matching Morpheus skills as hints when enabled."""
+        def same_title(obj):
+            return [] if slug(obj.title) == slug(sec.title) else [f"title must be exactly {sec.title!r}"]
+
+        h = self.hooks
+        skills = h.section_skills(sec.title, sec.purpose) if h else []
+        if h:
+            h.used_now(skills)
+        stats: dict = {}
+        try:
+            out = await self.ask("section", SectionDraft, same_title, hints=Hooks.hints(skills),
+                                 stats=stats, section=sec.title, purpose=sec.purpose,
+                                 page=page, outline=plan)
+        except PassFailed as exc:
+            if h:
+                h.hit(skills, HitOutcome.LOSS)
+                h.record_validation_failure(self.attempt.tier, slug(sec.title), sec.title,
+                                            exc.errors, skills)
+            raise
+        if h:
+            h.hit(skills, HitOutcome.WIN if stats.get("tries") == 1 else HitOutcome.NEUTRAL)
+        return out
 
     async def draft(self) -> FormDraft:
         facts = await self.ask("facts", FormFacts)
         outline = await self.ask("outline", Outline, facts=facts.model_dump_json())
         plan = "\n".join(f"- {p.title}: " + "; ".join(s.title for s in p.sections) for p in outline.pages)
-
-        def same_title(want: str):
-            return lambda obj: [] if slug(obj.title) == slug(want) else [f"title must be exactly {want!r}"]
-
         sections = await asyncio.gather(*(
-            self.ask("section", SectionDraft, same_title(s.title), section=s.title,
-                     purpose=s.purpose, page=p.title, outline=plan)
-            for p in outline.pages for s in p.sections
+            self.section(p.title, s, plan) for p in outline.pages for s in p.sections
         ))
         entries = catalogue(outline, sections)
         states = []
@@ -128,22 +159,39 @@ class _Run:
                          states=[s.model_dump() for s in states])
 
 
-async def parse(md: str, route: Route, settings, chat: ChatModel, retries: int = 1) -> ParseResult:
+async def parse(md: str, route: Route, settings, chat: ChatModel, retries: int = 1,
+                hooks: Hooks | None = None) -> ParseResult:
+    """`hooks`: Morpheus plug-in points (skills in, episodes out); None = Morpheus off."""
     models = tier_models(settings)
     attempts: list[Attempt] = []
     while True:
         attempt = Attempt(tier=route.tier.value, model=models[route.tier])
         attempts.append(attempt)
+        applied: list = []
         try:
-            draft = await _Run(chat, attempt.model, md, attempt, retries).draft()
-            result = assemble(draft)
+            draft = await _Run(chat, attempt.model, md, attempt, retries, hooks).draft()
+            post = None
+            if hooks:
+                def post(fd, built, applied=applied):
+                    used = hooks.apply_rules(fd.label, built)
+                    hooks.used_now(used)
+                    applied.extend(used)
+            result = assemble(draft, post)
             issues = validate_form_definition(result.form)
+            if hooks:
+                hooks.hit(applied, HitOutcome.LOSS if issues else HitOutcome.WIN)
             if not issues:
+                if hooks and len(attempts) > 1:
+                    prev = attempts[-2]
+                    hooks.record_escalation(prev.tier, attempt.tier, prev.error,
+                                            f"failed:{prev.tier}", form_shape(result.form))
                 return ParseResult(result=result, route=route, attempts=attempts)
             attempt.error = f"invalid form: {json.dumps([i.message for i in issues[:3]], ensure_ascii=False)}"
             log.warning("assembled form invalid (assembler bug?): %s", attempt.error)
         except (PassFailed, DraftError, ValidationError, LlmError) as exc:
             attempt.error = str(exc)[:300]
         if route.tier is Tier.HARD:
+            if hooks:
+                hooks.record_needs_review(attempt.tier, attempt.error)
             raise ParseFailed(attempts)
         route = escalate(route, f"{attempt.tier} failed: {attempt.error}"[:200])

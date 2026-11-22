@@ -11,11 +11,12 @@ assembler bugs, not model errors.
 
 import itertools
 import uuid
-from collections.abc import Iterable
+from collections.abc import Callable, Iterable
 
 from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 from coi_formularze.schema.drafts import (
+    FieldDraft,
     FormFacts,
     Outline,
     OutlineSection,
@@ -35,6 +36,7 @@ from coi_formularze.schema.states import (
 FINISH_TITLE = "Podsumowanie"
 FINISH_TEXT = "Sprawdź dane przed wysłaniem wniosku."
 GRID_COLS = 3
+PostBuild = Callable[[FieldDraft, list[dict]], None]
 
 
 class DraftError(ValueError):
@@ -80,8 +82,9 @@ class Assembled(BaseModel):
     dictionary_proposals: list[DictionaryProposal] = []
 
 
-def assemble(draft: FormDraft) -> Assembled:
-    builder = _Builder(set(), {slug(s.title): s for s in draft.sections})
+def assemble(draft: FormDraft, post_build: PostBuild | None = None) -> Assembled:
+    """`post_build(field_draft, questions)` may adjust each built field in place (Morpheus rules)."""
+    builder = _Builder(set(), {slug(s.title): s for s in draft.sections}, post_build)
     pages = [(p.title, builder.sections(p.title, p.sections)) for p in draft.outline.pages]
     finish = make_field("SECTION", unique("podglad", builder.taken), "Podgląd", repeatingSectionGrid=[
         {"field": make_field("INFO_SECTION", unique("podglad_info", builder.taken), description=FINISH_TEXT)}
@@ -106,8 +109,10 @@ def assemble(draft: FormDraft) -> Assembled:
 class _Builder:
     """Builds drafted sections and remembers where every catalogue key landed."""
 
-    def __init__(self, taken: set[str], drafted: dict[str, SectionDraft]):
+    def __init__(self, taken: set[str], drafted: dict[str, SectionDraft],
+                 post_build: PostBuild | None = None):
         self.taken = taken
+        self.post_build = post_build
         self.drafted = drafted
         self.where: dict[str, Location] = {}
         self.question: dict[str, dict] = {}  # key -> the question whose field it is
@@ -124,6 +129,8 @@ class _Builder:
         grid: list[dict] = []
         for field in draft.fields:
             built = build(field, ctx)
+            if self.post_build:
+                self.post_build(field, built)
             fkey = f"{key}.{slug(field.label)}"
             self.where[fkey] = ctx.at(ctx.techs[0])
             self.question[fkey] = built[0]

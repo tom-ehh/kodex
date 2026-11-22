@@ -7,6 +7,8 @@ from fastapi import Depends, Request, UploadFile
 from coi_formularze.api.schemas import FileReportOut
 from coi_formularze.config import Settings, get_settings
 from coi_formularze.jobs import JobStore
+from coi_formularze.morpheus import SkillStore, open_store
+from coi_formularze.morpheus.doccache import DocCache
 from coi_formularze.parse.llm import ChatModel, EdenAiChat
 from coi_formularze.validation.checks import validate_file
 
@@ -32,6 +34,28 @@ def get_chat(request: Request, settings: SettingsDep) -> ChatModel | None:
 
 
 ChatDep = Annotated[ChatModel | None, Depends(get_chat)]
+
+
+def get_morpheus(request: Request, settings: SettingsDep) -> SkillStore | None:
+    """The Morpheus skill store (opened on first use); None when Morpheus is off."""
+    if not settings.morpheus_enabled:
+        return None
+    store = getattr(request.app.state, "morpheus", None)
+    if store is None:
+        store = request.app.state.morpheus = open_store(settings)
+    return store
+
+
+def get_doc_cache(request: Request, settings: SettingsDep) -> DocCache:
+    """Form id -> extracted Document, in memory only (TTL `COI_MORPHEUS_DOC_TTL_S`)."""
+    cache = getattr(request.app.state, "doc_cache", None)
+    if cache is None:
+        cache = request.app.state.doc_cache = DocCache(settings.morpheus_doc_ttl_s)
+    return cache
+
+
+MorpheusDep = Annotated[SkillStore | None, Depends(get_morpheus)]
+DocCacheDep = Annotated[DocCache, Depends(get_doc_cache)]
 
 
 async def read_and_validate(upload: UploadFile, settings: Settings) -> tuple[FileReportOut, bytes]:

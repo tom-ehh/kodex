@@ -45,6 +45,7 @@ class Settings(BaseSettings):
     episodic_max: int = Field(20, gt=0)
     general_max: int = Field(50, gt=0)
     skills_max_per_section: int = Field(5, gt=0)
+    morpheus_doc_ttl_s: float = Field(86400.0, gt=0, description="In-memory Document lifetime.")
 
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None

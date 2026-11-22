@@ -2,6 +2,7 @@
 
 import asyncio
 import logging
+import uuid
 from typing import Annotated, Any
 
 from fastapi import (
@@ -15,12 +16,21 @@ from fastapi import (
     status,
 )
 
-from coi_formularze.api.deps import ChatDep, JobStoreDep, SettingsDep, read_and_validate
+from coi_formularze.api.deps import (
+    ChatDep,
+    DocCacheDep,
+    JobStoreDep,
+    MorpheusDep,
+    SettingsDep,
+    read_and_validate,
+)
 from coi_formularze.api.schemas import (
     AnalyzeEnvelope,
     AnalyzeFailed,
     AttemptOut,
     BatchReport,
+    CorrectionsIn,
+    CorrectionsOut,
     ErrorDetail,
     FileReportOut,
     FormatOut,
@@ -32,6 +42,7 @@ from coi_formularze.api.schemas import (
 )
 from coi_formularze.auth import require_auth
 from coi_formularze.extract import ExtractionError, extract, ocr_engine_from_settings
+from coi_formularze.morpheus.hooks import Hooks, record_corrections
 from coi_formularze.parse.pipeline import ParseFailed, parse
 from coi_formularze.route import route_document, tier_models
 from coi_formularze.validation.checks import (
@@ -143,6 +154,8 @@ async def analyze_form(
     file: FileParam,
     settings: SettingsDep,
     chat: ChatDep,
+    morpheus: MorpheusDep,
+    doc_cache: DocCacheDep,
     response: Response,
     envelope: Annotated[bool, Query(description="Wrap the form with its route, attempts "
                                                 "and dictionary proposals.")] = False,
@@ -169,16 +182,24 @@ async def analyze_form(
         response.status_code = status.HTTP_422_UNPROCESSABLE_CONTENT
         return ValidationFailed(detail=f"Text extraction failed: {exc}", file=report).model_dump()
     route = await route_document(doc, settings)
+    form_id = uuid.uuid4().hex
+    response.headers["X-Form-Id"] = form_id
+    hooks = Hooks(morpheus, form_id, settings.skills_max_per_section) if morpheus else None
     try:
-        parsed = await parse(doc.markdown, route, settings, chat)
+        parsed = await parse(doc.markdown, route, settings, chat, hooks=hooks)
     except ParseFailed as exc:
+        if morpheus:
+            doc_cache.put(form_id, doc)
         response.status_code = status.HTTP_502_BAD_GATEWAY
         return AnalyzeFailed(detail="No model tier produced a valid form.",
                              attempts=[_attempt(a) for a in exc.attempts]).model_dump()
+    if morpheus:
+        doc_cache.put(form_id, doc, parsed.result.form)
     if not envelope:
         return parsed.result.form
     r = parsed.route
     return AnalyzeEnvelope(
+        form_id=form_id,
         form=parsed.result.form,
         route=RouteOut(tier=r.tier, confidence=r.confidence, probabilities=r.probabilities,
                        source=r.source, escalated=r.escalated, reason=r.reason,
@@ -186,6 +207,34 @@ async def analyze_form(
         attempts=[_attempt(a) for a in parsed.attempts],
         dictionary_proposals=[p.model_dump() for p in parsed.result.dictionary_proposals],
     ).model_dump()
+
+
+@router.post(
+    "/forms/{form_id}/corrections",
+    tags=["forms"],
+    summary="Send a worker's corrections to a generated form",
+    response_description="The episodes recorded.",
+    status_code=status.HTTP_201_CREATED,
+    responses={
+        404: {"model": ErrorDetail, "description": "Unknown or expired form id."},
+        503: {"model": ErrorDetail, "description": "Morpheus is disabled."},
+    },
+)
+def post_corrections(form_id: str, body: CorrectionsIn, morpheus: MorpheusDep,
+                     doc_cache: DocCacheDep) -> CorrectionsOut:
+    """Structured edits to a form from `POST /forms/analyze` (its `X-Form-Id` header or
+    envelope `form_id`), kept while the form is cached (`COI_MORPHEUS_DOC_TTL_S`).
+
+    Each edit becomes one Morpheus episode holding **shapes only** (a value `00-950`
+    is stored as `##-###`). `why` is **never stored or logged**. `learn_now` is
+    recorded on the episodes; live learning from it comes with the wake phase."""
+    if morpheus is None:
+        raise HTTPException(status.HTTP_503_SERVICE_UNAVAILABLE, "Morpheus is disabled.")
+    cached = doc_cache.get(form_id)
+    if cached is None:
+        raise HTTPException(status.HTTP_404_NOT_FOUND, "Unknown or expired form id.")
+    eps = record_corrections(morpheus, form_id, cached.form, body.edits, body.learn_now)
+    return CorrectionsOut(form_id=form_id, episode_ids=[e.id for e in eps], learn_now=body.learn_now)
 
 
 def _attempt(a) -> AttemptOut:

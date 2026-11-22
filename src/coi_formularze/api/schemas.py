@@ -2,7 +2,7 @@
 
 from datetime import datetime
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import BaseModel, ConfigDict, Field
 
@@ -157,6 +157,8 @@ class DictionaryProposalOut(BaseModel):
 class AnalyzeEnvelope(BaseModel):
     """`?envelope=true` body: the importable form plus how it was made."""
 
+    form_id: str = Field(description="Id of this result (also in the `X-Form-Id` header); "
+                         "use it with `POST /forms/{form_id}/corrections`.")
     form: dict[str, Any] = Field(description="The Form Definition: identical to the bare 200 body.")
     route: RouteOut = Field(description="Final tier (after any escalation) and its model.")
     attempts: list[AttemptOut] = Field(description="Every tier tried, in order.")
@@ -218,3 +220,27 @@ class Job(JobSummary):
 
 class Health(BaseModel):
     status: str = Field(description="Always `ok` when the process is serving requests.")
+
+
+class CorrectionEdit(BaseModel):
+    """One structured edit a worker made to a generated field."""
+
+    field_path: str = Field(max_length=300, description="techName (or tab/section/techName) of the field.")
+    attr: Literal["value", "type", "validator", "required", "label", "options"] = Field(
+        description="What was edited.")
+    before: Any = None
+    after: Any = None
+
+
+class CorrectionsIn(BaseModel):
+    edits: list[CorrectionEdit] = Field(min_length=1, max_length=200)
+    why: str | None = Field(None, max_length=2000, description="Free-text reason. "
+                            "**Never stored or logged**; reserved for the live wake call (P2).")
+    learn_now: bool = Field(False, description="Ask Morpheus to learn from these edits "
+                            "right away. Recorded on the episodes; learning arrives in P2.")
+
+
+class CorrectionsOut(BaseModel):
+    form_id: str
+    episode_ids: list[str] = Field(description="One episode per edit (shapes only).")
+    learn_now: bool

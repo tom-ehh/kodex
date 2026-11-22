@@ -52,8 +52,10 @@ Jeśli nic nie zależy od odpowiedzi, zwróć {{"states": []}}.""",
 }
 
 
-def prompt(task: str, md: str, schema: dict, **ctx) -> str:
-    return (f"{_COMMON}\n{_TASKS[task].format(**ctx)}\n\nJSON Schema:\n"
+def prompt(task: str, md: str, schema: dict, hints: str = "", **ctx) -> str:
+    """`hints`: Morpheus skill snippets (a "Wskazówki" block); empty = prompt unchanged."""
+    body = _TASKS[task].format(**ctx) + (f"\n{hints}" if hints else "")
+    return (f"{_COMMON}\n{body}\n\nJSON Schema:\n"
             f"{json.dumps(schema, ensure_ascii=False)}\n\nFormularz:\n<<<\n{md}\n>>>")
 
 

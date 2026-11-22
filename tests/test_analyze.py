@@ -90,7 +90,7 @@ def test_bare_body_is_an_importable_form(make):
 def test_envelope_wraps_the_same_form(make):
     chat = FakeChat()
     body = post(make(chat), envelope="true").json()
-    assert set(body) == {"form", "route", "attempts", "dictionary_proposals"}
+    assert set(body) == {"form_id", "form", "route", "attempts", "dictionary_proposals"}
     assert validate_form_definition(body["form"]) == []
     assert body["attempts"][0]["model"] == body["route"]["model"] and body["attempts"][0]["error"] is None
     assert body["attempts"][0]["calls"] == len(chat.calls)
