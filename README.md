@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="Kodex" width="720">
+</p>
+
 # Kodex
 
 A REST service that turns paper form blanks (PDF, DOC, DOCX, ODS, XLSX, JPG/JPEG, PNG)
