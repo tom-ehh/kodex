@@ -8,9 +8,9 @@ import sys
 import time
 from pathlib import Path
 
-from coi_formularze.config import Settings
-from coi_formularze.extract import ExtractionError, extract, ocr_engine_from_settings
-from coi_formularze.validation.sniff import sniff
+from kodex.config import Settings
+from kodex.extract import ExtractionError, extract, ocr_engine_from_settings
+from kodex.validation.sniff import sniff
 
 root = Path(sys.argv[1])
 use_ocr = "--ocr" in sys.argv

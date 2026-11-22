@@ -8,4 +8,4 @@ tests
 task.pdf
 .claude
 frontend/node_modules
-src/coi_formularze/static/app
+src/kodex/static/app

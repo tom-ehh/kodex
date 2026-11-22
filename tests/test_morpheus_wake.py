@@ -8,24 +8,24 @@ from types import SimpleNamespace
 import pytest
 from fastapi.testclient import TestClient
 
-from coi_formularze.api.deps import get_settings
-from coi_formularze.config import Settings
-from coi_formularze.main import create_app
-from coi_formularze.morpheus import SkillStore, review
-from coi_formularze.morpheus.basal import BasalFlag, build_state, parse_flag
-from coi_formularze.morpheus.doccache import DocCache
-from coi_formularze.morpheus.hooks import Hooks, section_slice
-from coi_formularze.morpheus.models import (
+from kodex.api.deps import get_settings
+from kodex.config import Settings
+from kodex.main import create_app
+from kodex.morpheus import SkillStore, review
+from kodex.morpheus.basal import BasalFlag, build_state, parse_flag
+from kodex.morpheus.doccache import DocCache
+from kodex.morpheus.hooks import Hooks, section_slice
+from kodex.morpheus.models import (
     Episode,
     EpisodeKind,
     EpisodeStatus,
     Layer,
     SkillStatus,
 )
-from coi_formularze.morpheus.replay import locate, post_fix_shape
-from coi_formularze.morpheus.wake import Wake, code_family, shape_ok
-from coi_formularze.parse.llm import Completion
-from coi_formularze.route.router import BasalUnavailable
+from kodex.morpheus.replay import locate, post_fix_shape
+from kodex.morpheus.wake import Wake, code_family, shape_ok
+from kodex.parse.llm import Completion
+from kodex.route.router import BasalUnavailable
 
 pytestmark = pytest.mark.anyio
 
@@ -147,7 +147,7 @@ def test_section_slice_feeds_hint_matching(store):
     md = "Dane wnioskodawcy\nImię\nAdres zamieszkania\nKod pocztowy ___\nOświadczenia\nPodpis"
     sl = section_slice(md, "Dane wnioskodawcy", ["Oświadczenia"])
     assert "Kod pocztowy" in sl and "Podpis" not in sl
-    from coi_formularze.morpheus import install_seeds
+    from kodex.morpheus import install_seeds
     install_seeds(store)
     h = Hooks(store)
     assert not any(s.id == "seed-zip-code" for s in h.section_skills("Dane wnioskodawcy"))
@@ -378,7 +378,7 @@ async def test_human_approval_of_cold_start_runs_the_gate(store):
 
 
 def test_email_shape_is_not_pii_but_email_is():
-    from coi_formularze.morpheus import pii_findings
+    from kodex.morpheus import pii_findings
     assert pii_findings("aaaa@aaa.aa") == [] and pii_findings("jan@wp.pl")
 
 

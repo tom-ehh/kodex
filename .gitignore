@@ -4,5 +4,5 @@ __pycache__/
 .pytest_cache/
 .env
 frontend/node_modules/
-src/coi_formularze/static/app/
+src/kodex/static/app/
 frontend/*.tsbuildinfo

@@ -1,7 +1,7 @@
 services:
   api:
     build: .
-    image: coi-formularze:0.1.0
+    image: kodex:0.1.0
     ports:
       - "8000:8000"
     # Secrets come in at runtime only; .env is excluded from the image by .dockerignore.
@@ -22,7 +22,7 @@ services:
 
   router:
     build: docker/basal
-    image: coi-formularze-router:0.1.0
+    image: kodex-router:0.1.0
     # Internal only: the API reaches it as http://router:8000.
     expose:
       - "8000"

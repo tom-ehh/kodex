@@ -1,4 +1,4 @@
-# COI Formularze
+# Kodex
 
 Turns paper form blanks into JSON form configurations for e-services, and shows those configurations as the e-service a citizen would fill in.
 

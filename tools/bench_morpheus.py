@@ -29,15 +29,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 from llm_score import flatten_definition, match, score, truth_from_expected
 
-from coi_formularze.config import Settings
-from coi_formularze.extract import extract, ocr_engine_from_settings
-from coi_formularze.morpheus import install_seeds
-from coi_formularze.morpheus.hooks import Hooks
-from coi_formularze.morpheus.store import SkillStore
-from coi_formularze.parse.llm import Completion, EdenAiChat
-from coi_formularze.parse.pipeline import ParseFailed, parse
-from coi_formularze.route import route_document
-from coi_formularze.validation.sniff import sniff
+from kodex.config import Settings
+from kodex.extract import extract, ocr_engine_from_settings
+from kodex.morpheus import install_seeds
+from kodex.morpheus.hooks import Hooks
+from kodex.morpheus.store import SkillStore
+from kodex.parse.llm import Completion, EdenAiChat
+from kodex.parse.pipeline import ParseFailed, parse
+from kodex.route import route_document
+from kodex.validation.sniff import sniff
 
 MAIN = Path(__file__).resolve().parents[1]
 while not (MAIN / "docs" / "examples").is_dir() and MAIN.parent != MAIN:

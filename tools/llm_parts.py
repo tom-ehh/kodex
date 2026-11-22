@@ -8,7 +8,7 @@ Parts (each with its own Pydantic model, so each can be validated and retried al
 
 Ids, techNames, grid placement (x/y/rows/cols), the FINISH tab and the flow are filled by
 code in ``merge`` - they are the same for every form and never asked of the model.
-The models mirror the rules in feat/form-schema (src/coi_formularze/schema/llm.py);
+The models mirror the rules in feat/form-schema (src/kodex/schema/llm.py);
 ``validate_merged`` uses that package when it is importable, else a compact fallback.
 """
 
@@ -361,7 +361,7 @@ def _field(f: FieldItem, by_label: dict, fid: str, tech_name: str, order: int) -
 def validate_merged(doc: dict) -> list[str]:
     """Issues in the merged Form Definition ([] = valid)."""
     try:
-        from coi_formularze.schema import validate_form_definition  # feat/form-schema
+        from kodex.schema import validate_form_definition  # feat/form-schema
     except ImportError:
         return _fallback_validate(doc)
     return [f"{i.path}: {i.message}" for i in validate_form_definition(doc)]

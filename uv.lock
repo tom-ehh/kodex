@@ -205,7 +205,7 @@ wheels = [
 ]
 
 [[package]]
-name = "coi-formularze"
+name = "kodex"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [

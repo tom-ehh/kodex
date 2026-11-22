@@ -57,9 +57,9 @@ from llm_score import (
     truth_from_synthetic,
 )
 
-from coi_formularze.config import Settings
-from coi_formularze.extract import extract
-from coi_formularze.validation.sniff import FileKind
+from kodex.config import Settings
+from kodex.extract import extract
+from kodex.validation.sniff import FileKind
 
 BASE = "https://api.edenai.run/v3"
 MAIN = Path(__file__).resolve().parents[1]

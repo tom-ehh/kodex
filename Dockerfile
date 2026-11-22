@@ -25,7 +25,7 @@ RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev --no-install-project
 COPY README.md ./
 COPY src ./src
-COPY --from=frontend /app/src/coi_formularze/static/app ./src/coi_formularze/static/app
+COPY --from=frontend /app/src/kodex/static/app ./src/kodex/static/app
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv sync --frozen --no-dev --no-editable
 
@@ -40,4 +40,4 @@ USER app
 EXPOSE 8000
 HEALTHCHECK --interval=30s --timeout=3s --retries=3 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"
-CMD ["uvicorn", "coi_formularze.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "kodex.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -1,5 +1,5 @@
 [project]
-name = "coi-formularze"
+name = "kodex"
 version = "0.1.0"
 description = "AI form digitization service: turns paper form blanks into e-form JSON configs"
 readme = "README.md"

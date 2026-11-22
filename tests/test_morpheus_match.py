@@ -2,8 +2,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from coi_formularze.config import Settings
-from coi_formularze.morpheus import (
+from kodex.config import Settings
+from kodex.morpheus import (
     Layer,
     Skill,
     SkillStatus,
@@ -17,7 +17,7 @@ from coi_formularze.morpheus import (
     pii_findings,
     shape,
 )
-from coi_formularze.morpheus.match import SectionTarget
+from kodex.morpheus.match import SectionTarget
 
 
 def sk(id, layer=Layer.GENERAL, status=SkillStatus.ACTIVE, **trig):

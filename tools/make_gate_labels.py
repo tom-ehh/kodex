@@ -12,7 +12,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from bench_morpheus import EXAMPLES, GATE
 from llm_score import truth_from_expected
 
-OUT = Path(__file__).resolve().parents[1] / "src/coi_formularze/morpheus/gate_labels.json"
+OUT = Path(__file__).resolve().parents[1] / "src/kodex/morpheus/gate_labels.json"
 
 forms = {}
 for slug in GATE:

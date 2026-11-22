@@ -6,9 +6,9 @@ from pathlib import Path
 
 import pytest
 
-from coi_formularze.config import Settings
-from coi_formularze.main import create_app
-from coi_formularze.validation.sniff import FORMATS
+from kodex.config import Settings
+from kodex.main import create_app
+from kodex.validation.sniff import FORMATS
 
 README = (Path(__file__).parent.parent / "README.md").read_text(encoding="utf-8")
 

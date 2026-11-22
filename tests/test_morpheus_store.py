@@ -3,7 +3,7 @@ import threading
 
 import pytest
 
-from coi_formularze.morpheus import (
+from kodex.morpheus import (
     Actor,
     Episode,
     EpisodeKind,
@@ -16,7 +16,7 @@ from coi_formularze.morpheus import (
     SkillStore,
     SkillTrigger,
 )
-from coi_formularze.morpheus.store import SCHEMA_VERSION
+from kodex.morpheus.store import SCHEMA_VERSION
 
 
 def mk(id="sk-zip", status=SkillStatus.ACTIVE, **kw):

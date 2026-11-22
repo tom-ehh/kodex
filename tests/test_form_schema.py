@@ -3,8 +3,8 @@ import copy
 import pytest
 from pydantic import ValidationError
 
-from coi_formularze.schema import PIECES, json_schemas, llm, validate_form_definition
-from coi_formularze.schema.code import Layout
+from kodex.schema import PIECES, json_schemas, llm, validate_form_definition
+from kodex.schema.code import Layout
 
 
 def q(field, y=0):

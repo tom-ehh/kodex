@@ -5,9 +5,9 @@ import asyncio
 import httpx
 import pytest
 
-from coi_formularze.config import Settings
-from coi_formularze.extract.model import Document, Page, Source
-from coi_formularze.route import (
+from kodex.config import Settings
+from kodex.extract.model import Document, Page, Source
+from kodex.route import (
     Route,
     Tier,
     build_state,
@@ -15,7 +15,7 @@ from coi_formularze.route import (
     features_of,
     route_document,
 )
-from coi_formularze.route.router import TRUNCATION_MARK, parse_answer
+from kodex.route.router import TRUNCATION_MARK, parse_answer
 
 
 def _doc(text="Imię: ........\nNazwisko: ........\n☐ tak ☐ nie", pages=1, ocr=False):
@@ -131,7 +131,7 @@ def test_features():
 
 
 def test_parse_answer_starting_raises():
-    from coi_formularze.route import BasalUnavailable
+    from kodex.route import BasalUnavailable
     with pytest.raises(BasalUnavailable):
         parse_answer({"status": "starting"})
 

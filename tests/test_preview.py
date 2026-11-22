@@ -6,11 +6,11 @@ from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
 
-from coi_formularze.api.schemas import FileReportOut, ItemStatus
-from coi_formularze.config import Settings, get_settings
-from coi_formularze.main import create_app
+from kodex.api.schemas import FileReportOut, ItemStatus
+from kodex.config import Settings, get_settings
+from kodex.main import create_app
 
-STATIC = Path(__file__).parent.parent / "src" / "coi_formularze" / "static"
+STATIC = Path(__file__).parent.parent / "src" / "kodex" / "static"
 
 FORM = {
     "title": "Wniosek testowy",

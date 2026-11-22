@@ -26,24 +26,24 @@ import bench_morpheus as bm
 from bench_morpheus_wake import doc_of
 from llm_score import truth_from_expected
 
-from coi_formularze.config import Settings
-from coi_formularze.morpheus import install_seeds, review
-from coi_formularze.morpheus.match import ZIP_SCOPE
-from coi_formularze.morpheus.models import (
+from kodex.config import Settings
+from kodex.morpheus import install_seeds, review
+from kodex.morpheus.match import ZIP_SCOPE
+from kodex.morpheus.models import (
     Layer,
     Skill,
     SkillStatus,
     SkillTrigger,
     ValidatorRule,
 )
-from coi_formularze.morpheus.sleep import SleepConfig, SleepDeps, run_cycle
-from coi_formularze.morpheus.sleep.adapters import (
+from kodex.morpheus.sleep import SleepConfig, SleepDeps, run_cycle
+from kodex.morpheus.sleep.adapters import (
     BasalJudge,
     GateReplayer,
     LlmGeneralizer,
 )
-from coi_formularze.morpheus.store import SkillStore
-from coi_formularze.morpheus.wake import Wake
+from kodex.morpheus.store import SkillStore
+from kodex.morpheus.wake import Wake
 
 
 def ep(id, labels, validator, family, snippet, before, after, rule, scope=None):

@@ -7,8 +7,8 @@ from types import SimpleNamespace
 
 import pytest
 
-from coi_formularze.config import Settings
-from coi_formularze.morpheus import (
+from kodex.config import Settings
+from kodex.morpheus import (
     Layer,
     Skill,
     SkillStatus,
@@ -16,8 +16,8 @@ from coi_formularze.morpheus import (
     SkillTrigger,
     review,
 )
-from coi_formularze.morpheus.models import Episode, EpisodeKind, EpisodeStatus
-from coi_formularze.morpheus.sleep import (
+from kodex.morpheus.models import Episode, EpisodeKind, EpisodeStatus
+from kodex.morpheus.sleep import (
     GATE_FORMS,
     HELDOUT_FORMS,
     AdapterError,
@@ -32,15 +32,15 @@ from coi_formularze.morpheus.sleep import (
     should_sleep,
     state,
 )
-from coi_formularze.morpheus.sleep.blocking import Pair, candidate_pairs
-from coi_formularze.morpheus.sleep.cluster import (
+from kodex.morpheus.sleep.blocking import Pair, candidate_pairs
+from kodex.morpheus.sleep.cluster import (
     Judged,
     clusters_from_edges,
     edge_decision,
     judge_pairs,
 )
-from coi_formularze.morpheus.sleep.generalize import check_draft, generalize_cluster
-from coi_formularze.morpheus.sleep.prune import plan_prune
+from kodex.morpheus.sleep.generalize import check_draft, generalize_cluster
+from kodex.morpheus.sleep.prune import plan_prune
 
 NOW = datetime(2026, 11, 22, 3, 0, tzinfo=UTC)
 
@@ -443,7 +443,7 @@ def test_metrics_row(store):
 
 
 def test_approving_a_sleep_proposal_retires_absorbed(store):
-    from coi_formularze.morpheus.wake import Wake
+    from kodex.morpheus.wake import Wake
     rep = FakeReplay(lambda ids: {"f1": True, "f2": "pesel-b" in ids})
     run(store, deps(replay=rep))
     [item] = review.items(store)
@@ -459,7 +459,7 @@ def test_approving_a_sleep_proposal_retires_absorbed(store):
 
 
 def test_gate_replayer_focus_cache_and_scoring(tmp_path):
-    from coi_formularze.morpheus.sleep.adapters import GateReplayer
+    from kodex.morpheus.sleep.adapters import GateReplayer
     from tests.test_morpheus_wake import REPLAY, Chat
     from tests.test_morpheus_zip_scope import LEARNED_ZIP
 
@@ -481,9 +481,9 @@ def test_gate_replayer_focus_cache_and_scoring(tmp_path):
 
 
 def test_basal_judge_uses_wake_client(monkeypatch):
-    from coi_formularze.morpheus import basal
-    from coi_formularze.morpheus.sleep.adapters import BasalJudge
-    from coi_formularze.route.router import BasalUnavailable
+    from kodex.morpheus import basal
+    from kodex.morpheus.sleep.adapters import BasalJudge
+    from kodex.route.router import BasalUnavailable
 
     seen = []
 
@@ -506,8 +506,8 @@ def test_basal_judge_uses_wake_client(monkeypatch):
 def test_llm_generalizer_uses_writer_prompt():
     import json as _json
 
-    from coi_formularze.morpheus.sleep.adapters import LlmGeneralizer
-    from coi_formularze.parse.llm import Completion
+    from kodex.morpheus.sleep.adapters import LlmGeneralizer
+    from kodex.parse.llm import Completion
 
     class C:
         async def complete(self, model, messages, schema):
@@ -524,7 +524,7 @@ def test_llm_generalizer_uses_writer_prompt():
 
 
 def test_code_edge_for_identical_rules_without_basal():
-    from coi_formularze.morpheus.models import ValidatorRule
+    from kodex.morpheus.models import ValidatorRule
     rule = ValidatorRule(add_validators=["PESEL"], post_fix="digits_only")
     a = PESEL[0].model_copy(update={"validator_rule": rule})
     b = PESEL[1].model_copy(update={"validator_rule": rule})

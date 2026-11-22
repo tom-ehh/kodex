@@ -8,10 +8,10 @@ from openpyxl import Workbook
 from openpyxl.styles import Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 
-from coi_formularze.extract import ExtractionError, Source, extract
-from coi_formularze.extract.ocr import _collapse_leaders, _strip_fence
-from coi_formularze.extract.quality import needs_ocr
-from coi_formularze.validation.sniff import FileKind
+from kodex.extract import ExtractionError, Source, extract
+from kodex.extract.ocr import _collapse_leaders, _strip_fence
+from kodex.extract.quality import needs_ocr
+from kodex.validation.sniff import FileKind
 
 
 class FakeOcr:

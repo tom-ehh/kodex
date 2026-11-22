@@ -1,24 +1,24 @@
-# COI Formularze
+# Kodex
 
 A REST service that turns paper form blanks (PDF, DOC, DOCX, ODS, XLSX, JPG/JPEG, PNG)
 into JSON form configurations for e-services.
 
-> **Status:** `POST /api/v1/forms/analyze` returns the Form Definition. It reads the
-> file's text (OCR for scans and images), routes it to a model tier, drafts the form with
-> an open-weights LLM in passes and validates the result. Jobs don't analyse files yet.
+## Approach
+
+To be continued..
 
 ## Docker image
 
 Requires Docker 24+ with Compose v2. From the repository root:
 
 ```sh
-docker build -t coi-formularze:0.1.0 .
+docker build -t kodex:0.1.0 .
 ```
 
 The base images are pinned in the `Dockerfile` but can be overridden at build time:
 
 ```sh
-docker build --build-arg PYTHON_IMAGE=python:3.14.10-alpine3.24 -t coi-formularze:0.1.0 .
+docker build --build-arg PYTHON_IMAGE=python:3.14.10-alpine3.24 -t kodex:0.1.0 .
 ```
 
 The web interface (`frontend/`, React + Vite) is built inside the image by a Node stage
@@ -33,7 +33,7 @@ PyTorch, so it has its own glibc-based image (`docker/basal/Dockerfile`, about 1
 while the API image stays Alpine. Build it on its own with:
 
 ```sh
-docker build -t coi-formularze-router:0.1.0 docker/basal
+docker build -t kodex-router:0.1.0 docker/basal
 ```
 
 On first start it downloads the weights (about 1.5 GB) into the `hf-cache` volume and
@@ -52,7 +52,7 @@ docker compose up --build
 With Docker only:
 
 ```sh
-docker run --rm -p 8000:8000 --env-file .env coi-formularze:0.1.0
+docker run --rm -p 8000:8000 --env-file .env kodex:0.1.0
 ```
 
 Without Docker (requires [uv](https://docs.astral.sh/uv/) and Python 3.14):
@@ -60,10 +60,10 @@ Without Docker (requires [uv](https://docs.astral.sh/uv/) and Python 3.14):
 ```sh
 uv sync
 (cd frontend && npm ci && npm run build)   # web interface; optional, see below
-uv run uvicorn coi_formularze.main:app --port 8000
+uv run uvicorn kodex.main:app --port 8000
 ```
 
-The build writes to `src/coi_formularze/static/app/`. Without it, `/` serves a plain
+The build writes to `src/kodex/static/app/`. Without it, `/` serves a plain
 fallback upload page. For frontend work, `cd frontend && npm run dev` serves the interface
 on http://localhost:5173 and forwards API calls to the server on port 8000 (`KODEX_API` overrides).
 

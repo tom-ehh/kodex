@@ -15,16 +15,16 @@ import tempfile
 import time
 from pathlib import Path
 
-from coi_formularze.morpheus import Layer, Skill, SkillStore, SkillTrigger
-from coi_formularze.morpheus.match import fold
-from coi_formularze.morpheus.sleep import (
+from kodex.morpheus import Layer, Skill, SkillStore, SkillTrigger
+from kodex.morpheus.match import fold
+from kodex.morpheus.sleep import (
     Draft,
     ReplayResult,
     SleepConfig,
     SleepDeps,
     run_cycle,
 )
-from coi_formularze.morpheus.sleep.adapters import BasalJudge
+from kodex.morpheus.sleep.adapters import BasalJudge
 
 POSITIVE = [f"P{i:02d}" for i in range(1, 11)]
 HARD = ["P16", "P17", "P18", "P19", "P22", "P24"]

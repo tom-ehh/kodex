@@ -1,17 +1,17 @@
 """ZIP narrowing: seed and learned ZIP skills apply only in Polish address sections."""
 
-from coi_formularze.morpheus import (
+from kodex.morpheus import (
     Layer,
     Skill,
     SkillStore,
     SkillTrigger,
     install_seeds,
 )
-from coi_formularze.morpheus.gate import lint
-from coi_formularze.morpheus.hooks import Hooks
-from coi_formularze.morpheus.match import ZIP_SCOPE, scope_ok
-from coi_formularze.morpheus.models import Episode, EpisodeKind, ValidatorRule
-from coi_formularze.morpheus.writer import PatchDraft, RuleDraft, assemble
+from kodex.morpheus.gate import lint
+from kodex.morpheus.hooks import Hooks
+from kodex.morpheus.match import ZIP_SCOPE, scope_ok
+from kodex.morpheus.models import Episode, EpisodeKind, ValidatorRule
+from kodex.morpheus.writer import PatchDraft, RuleDraft, assemble
 
 LEARNED_ZIP = Skill(  # as P2 learned it, before scopes existed: no scope at all
     id="ep-zip-code-hyphen", name="zip-code-hyphen", layer=Layer.EPISODIC, description="zip",

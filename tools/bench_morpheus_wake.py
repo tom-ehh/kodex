@@ -24,15 +24,15 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent))
 import bench_morpheus as bm
 
-from coi_formularze.config import Settings
-from coi_formularze.extract import extract, ocr_engine_from_settings
-from coi_formularze.extract.model import Document, Page, Source
-from coi_formularze.morpheus import install_seeds, review
-from coi_formularze.morpheus.doccache import DocCache
-from coi_formularze.morpheus.models import Episode, EpisodeKind, Layer
-from coi_formularze.morpheus.store import SkillStore
-from coi_formularze.morpheus.wake import Wake
-from coi_formularze.validation.sniff import sniff
+from kodex.config import Settings
+from kodex.extract import extract, ocr_engine_from_settings
+from kodex.extract.model import Document, Page, Source
+from kodex.morpheus import install_seeds, review
+from kodex.morpheus.doccache import DocCache
+from kodex.morpheus.models import Episode, EpisodeKind, Layer
+from kodex.morpheus.store import SkillStore
+from kodex.morpheus.wake import Wake
+from kodex.validation.sniff import sniff
 
 FORMS_DIR = bm.MAIN / "docs/notes/morpheus-hooks/bench/forms"  # seeds-on forms from P1 bench
 

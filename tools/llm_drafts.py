@@ -1,4 +1,4 @@
-"""Bench variants built on coi_formularze.schema drafts (multi-pass, code-side kinds).
+"""Bench variants built on kodex.schema drafts (multi-pass, code-side kinds).
 
 Variants (``base`` lives in bench_llm.run_form):
 
@@ -17,17 +17,17 @@ from collections.abc import Callable
 from llm_parts import Structure, extract_json, retry_prompt
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
-from coi_formularze.parse.prompts import prompt
-from coi_formularze.schema.assemble import FormDraft, assemble
-from coi_formularze.schema.drafts import (
+from kodex.parse.prompts import prompt
+from kodex.schema.assemble import FormDraft, assemble
+from kodex.schema.drafts import (
     FormFacts,
     Outline,
     OutlinePage,
     OutlineSection,
     SectionDraft,
 )
-from coi_formularze.schema.naming import slug
-from coi_formularze.schema.states import catalogue, describe, state_set_model
+from kodex.schema.naming import slug
+from kodex.schema.states import catalogue, describe, state_set_model
 
 VARIANTS = ("base", "kinds", "drafts", "drafts_states")
 
@@ -136,7 +136,7 @@ def prompt_structure(md: str) -> str:
 
 def _assemble(facts, outline, sections, states, ok, total):
     """Drop failed (empty) sections, then assemble and validate like production would."""
-    from coi_formularze.schema import validate_form_definition
+    from kodex.schema import validate_form_definition
 
     keep = {slug(s.title) for s in sections if s.fields}
     pages = [OutlinePage.model_construct(title=p.title, sections=[s for s in p.sections if slug(s.title) in keep])

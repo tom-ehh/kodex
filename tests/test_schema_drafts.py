@@ -3,9 +3,9 @@
 import pytest
 from pydantic import ValidationError
 
-from coi_formularze.schema import FormDefinition, validate_form_definition
-from coi_formularze.schema.assemble import FINISH_TITLE, FormDraft, assemble
-from coi_formularze.schema.drafts import (
+from kodex.schema import FormDefinition, validate_form_definition
+from kodex.schema.assemble import FINISH_TITLE, FormDraft, assemble
+from kodex.schema.drafts import (
     FieldDraft,
     FormFacts,
     Outline,
@@ -13,8 +13,8 @@ from coi_formularze.schema.drafts import (
     OutlineSection,
     SectionDraft,
 )
-from coi_formularze.schema.naming import slug, unique
-from coi_formularze.schema.states import (
+from kodex.schema.naming import slug, unique
+from kodex.schema.states import (
     AllOf,
     AnyOfLeaves,
     Equals,

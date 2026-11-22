@@ -6,11 +6,11 @@ import logging
 
 import pytest
 
-from coi_formularze.morpheus import Skill, SkillStore, pii_findings
-from coi_formularze.morpheus.doccache import DocCache
-from coi_formularze.morpheus.hooks import HINTS_HEADER, Hooks
-from coi_formularze.morpheus.models import EpisodeKind, EpisodeStatus
-from coi_formularze.parse.prompts import prompt
+from kodex.morpheus import Skill, SkillStore, pii_findings
+from kodex.morpheus.doccache import DocCache
+from kodex.morpheus.hooks import HINTS_HEADER, Hooks
+from kodex.morpheus.models import EpisodeKind, EpisodeStatus
+from kodex.parse.prompts import prompt
 from tests.test_analyze import ANSWERS, HARD, MEDIUM, SIMPLE, FakeChat, make, post  # noqa: F401
 
 PESEL_OUTLINE = {"pages": [{"title": "Wnioskodawca", "sections": [
@@ -99,7 +99,7 @@ def test_hand_written_skill_changes_prompt_and_output(on, tmp_path):
 
 def test_validator_rule_adds_validator_to_text_field(tmp_path):
     store = SkillStore(tmp_path / "m.sqlite")
-    from coi_formularze.morpheus import install_seeds
+    from kodex.morpheus import install_seeds
     install_seeds(store)
     h = Hooks(store, "f1")
     q = [{"field": {"type": "TEXT_FIELD", "title": "Numer NIP", "validation": []}}]

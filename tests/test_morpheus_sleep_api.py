@@ -5,12 +5,12 @@ from datetime import UTC, datetime
 
 from fastapi.testclient import TestClient
 
-from coi_formularze.config import Settings, get_settings
-from coi_formularze.main import create_app
-from coi_formularze.morpheus import SkillStore
-from coi_formularze.morpheus.models import Episode, EpisodeKind, EpisodeStatus, Layer
-from coi_formularze.morpheus.sleep import state
-from coi_formularze.morpheus.sleep.api import SleepScheduler
+from kodex.config import Settings, get_settings
+from kodex.main import create_app
+from kodex.morpheus import SkillStore
+from kodex.morpheus.models import Episode, EpisodeKind, EpisodeStatus, Layer
+from kodex.morpheus.sleep import state
+from kodex.morpheus.sleep.api import SleepScheduler
 from tests.test_morpheus_sleep import PESEL, ZIP, FakeGen, FakeJudge, FakeReplay, deps
 
 

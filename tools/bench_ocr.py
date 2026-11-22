@@ -17,8 +17,8 @@ from pathlib import Path
 
 import pdfplumber
 
-from coi_formularze.config import Settings
-from coi_formularze.extract import EdenAiOcr
+from kodex.config import Settings
+from kodex.extract import EdenAiOcr
 
 _WORD = re.compile(r"[0-9A-Za-zĄĆĘŁŃÓŚŹŻąćęłńóśźż]{2,}")
 

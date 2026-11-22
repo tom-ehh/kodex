@@ -2,8 +2,8 @@ import jwt
 import pytest
 from fastapi.testclient import TestClient
 
-from coi_formularze.config import Settings, get_settings
-from coi_formularze.main import create_app
+from kodex.config import Settings, get_settings
+from kodex.main import create_app
 from tests import samples
 
 

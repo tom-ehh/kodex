@@ -1,7 +1,7 @@
 import pytest
 
-from coi_formularze.validation.checks import validate_file
-from coi_formularze.validation.sniff import FileKind, sniff
+from kodex.validation.checks import validate_file
+from kodex.validation.sniff import FileKind, sniff
 from tests import samples
 
 LIMIT = 1024

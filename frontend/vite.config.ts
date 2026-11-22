@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/static/app/",
   build: {
-    outDir: "../src/coi_formularze/static/app",
+    outDir: "../src/kodex/static/app",
     emptyOutDir: true,
   },
   server: {

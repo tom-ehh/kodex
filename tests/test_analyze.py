@@ -5,13 +5,13 @@ import json
 import pytest
 from fastapi.testclient import TestClient
 
-from coi_formularze.api import routes
-from coi_formularze.api.deps import get_chat
-from coi_formularze.config import Settings, get_settings
-from coi_formularze.extract.model import Document, Page, Source
-from coi_formularze.main import create_app
-from coi_formularze.parse.llm import Completion, LlmError
-from coi_formularze.schema import validate_form_definition
+from kodex.api import routes
+from kodex.api.deps import get_chat
+from kodex.config import Settings, get_settings
+from kodex.extract.model import Document, Page, Source
+from kodex.main import create_app
+from kodex.parse.llm import Completion, LlmError
+from kodex.schema import validate_form_definition
 from tests import samples
 
 ANSWERS = {
@@ -126,7 +126,7 @@ def test_invalid_file_still_422(make):
 
 
 def test_extraction_failure_gives_422(make, monkeypatch):
-    from coi_formularze.extract import ExtractionError
+    from kodex.extract import ExtractionError
 
     def boom(*a):
         raise ExtractionError("encrypted PDF")
