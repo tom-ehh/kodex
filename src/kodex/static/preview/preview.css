@@ -181,6 +181,8 @@ textarea.fp-input { resize: vertical; padding-right: 12px; }
 .fp-input:hover, .fp-select:hover { border-color: var(--text); }
 .fp-input:focus, .fp-select:focus { outline: none; border-color: var(--focus); box-shadow: 0 0 0 3px rgb(20 92 235 / .2); }
 .fp-ro .fp-input, .fp-ro .fp-select { background: var(--ro-bg); border-color: transparent; color: var(--text); }
+.fp-phone { display: grid; grid-template-columns: 96px 1fr; gap: 8px; }
+.fp-phone .fp-select { padding-right: 32px; }
 .fp-select { appearance: none; padding-right: 64px; cursor: pointer; }
 .fp-select.fp-placeholder { color: #6a727b; }
 .fp-selectwrap::after {

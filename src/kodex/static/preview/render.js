@@ -2,11 +2,12 @@
 // FINISH-tab answer summary. A tab is rendered once; afterwards States only
 // toggle visibility and read-only on the existing elements, so typing keeps focus.
 
-import { tree } from "./demo-data.js";
+import { dictionary, tree } from "./demo-data.js";
 import { richText } from "./markdown.js";
 import { CONTAINER_TYPES, INPUT_TYPES, isTree } from "./model.js";
-import { check, isEmpty } from "./validators.js";
+import { PHONE_DICTIONARY, check, isEmpty, isPhoneField, splitPhone } from "./validators.js";
 
+const PHONE_HINTS = { "+48": "123 456 789", "+420": "123 456 789", "+421": "123 456 789" };
 const UPLOAD = { extensions: [".jpg", ".pdf", ".png", ".jpeg"], maxBytes: 10 * 1024 * 1024, maxFiles: 3 };
 
 export function h(tag, attrs = {}, ...children) {
@@ -178,7 +179,10 @@ export class Renderer {
     let control;
     switch (f.type) {
       case "TEXT_FIELD": case "TEXTAREA": case "NUMBER": case "DATEPICKER":
-        control = this.textInput(f, index, id, view, clearError); break;
+        control = isPhoneField(f)
+          ? this.phoneInput(f, index, id, view, clearError)
+          : this.textInput(f, index, id, view, clearError);
+        break;
       case "RADIO": case "CHECKBOX":
         control = this.choices(f, index, id, view, clearError); break;
       case "SELECT":
@@ -259,6 +263,35 @@ export class Renderer {
     };
     view.focus = () => input.focus();
     sync();
+    return wrap;
+  }
+
+  /** A phone number: prefix SELECT (Numery kierunkowe) beside the national number; the Answer is "+48123456789". */
+  phoneInput(f, index, id, view, clearError) {
+    const m = this.model;
+    const prefixes = dictionary(PHONE_DICTIONARY);
+    const { prefix, number } = splitPhone(m.get(f, index) ?? "");
+    const select = h("select", { class: "fp-select fp-phone-prefix", "aria-label": "Numer kierunkowy" },
+      prefixes.map((p) => h("option", { value: p, selected: p === (prefix ?? prefixes[0]) }, p)));
+    const input = h("input", { id, class: "fp-input", type: "text", inputmode: "tel", autocomplete: "tel-national", });
+    input.value = number;
+    // A hint only where the national format is certain; other prefixes show none.
+    const hint = () => { input.placeholder = PHONE_HINTS[select.value] ?? ""; };
+    hint();
+    const store = () => {
+      const digits = input.value.replace(/[\s-]/g, "");
+      m.set(f, index, digits ? select.value + digits : "");
+    };
+    const update = () => { hint(); store(); clearError(); this.onChange(true); };
+    input.addEventListener("input", update);
+    select.addEventListener("change", update);
+    const wrap = h("div", { class: "fp-phone" }, h("div", { class: "fp-selectwrap" }, select), h("div", { class: "fp-inputwrap" }, input));
+    view.setReadOnly = (ro) => {
+      input.readOnly = ro;
+      select.disabled = ro;
+      wrap.classList.toggle("fp-ro", ro);
+    };
+    view.focus = () => input.focus();
     return wrap;
   }
 
@@ -503,7 +536,7 @@ export class Renderer {
     }
     if (typeof value === "string" && !isEmpty(value)) {
       if (f.type === "NUMBER" && !/^-?\d+([.,]\d+)?$/.test(value.trim())) return "Wpisz liczbę.";
-      return check(rules, value);
+      return check(isPhoneField(f) && !rules.includes("PHONE") ? [...rules, "PHONE"] : rules, value);
     }
     return null;
   }

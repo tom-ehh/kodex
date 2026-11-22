@@ -2,6 +2,8 @@
 // message in Polish, or null. REQUIRED is handled by the caller, since emptiness
 // depends on the component.
 
+import { dictionary } from "./demo-data.js";
+
 const digits = (v) => String(v).replace(/[\s-]/g, "");
 const weighted = (d, w) => w.reduce((sum, x, i) => sum + x * Number(d[i]), 0);
 
@@ -44,11 +46,37 @@ export function validIdCard(v) {
   return sum % 10 === Number(s[3]);
 }
 
+export const PHONE_DICTIONARY = "Numery kierunkowe";
+// Longest first, so "+420" is never read as a shorter prefix.
+const PREFIXES = [...(dictionary(PHONE_DICTIONARY) ?? ["+48"])].sort((a, b) => b.length - a.length);
+
+/** A TEXT_FIELD for a phone number: named PHONE, or titled "telefon" (the exports carry no phone validator). */
+export const isPhoneField = (f) =>
+  f.type === "TEXT_FIELD" && ((f.validation ?? []).includes("PHONE") || /telefon/i.test(f.title ?? ""));
+
+/** Split "+48 123 456 789" into the known prefix and the national digits; no prefix means +48. */
+export function splitPhone(v) {
+  const s = String(v).replace(/[\s().-]/g, "");
+  const prefix = PREFIXES.find((p) => s.startsWith(p));
+  return prefix ? { prefix, number: s.slice(prefix.length) } : { prefix: null, number: s };
+}
+
+// Prefixes whose national numbers always have 9 digits; others accept 6-12 (E.164 caps the whole number at 15).
+const NINE_DIGITS = new Set(["+48", "+420", "+421"]);
+
+export function validPhone(v) {
+  const { prefix, number } = splitPhone(v);
+  if (!/^\d+$/.test(number)) return false;
+  if (!prefix || NINE_DIGITS.has(prefix)) return /^\d{9}$/.test(number);
+  return /^\d{6,12}$/.test(number);
+}
+
 const CHECKS = {
   EMAIL: [(v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v).trim()), "Wpisz poprawny adres e-mail."],
   PESEL: [validPesel, "Wpisz poprawny numer PESEL (11 cyfr)."],
   NIP: [validNip, "Wpisz poprawny numer NIP (10 cyfr)."],
   REGON: [validRegon, "Wpisz poprawny numer REGON (9 lub 14 cyfr)."],
+  PHONE: [validPhone, "Wpisz poprawny numer telefonu (dla +48, +420 i +421: 9 cyfr)."],
   ZIP_CODE: [(v) => /^\d{2}-\d{3}$/.test(String(v).trim()), "Wpisz kod pocztowy w formacie 00-000."],
   EPUAP: [(v) => /^\/[^/\s]+\/[^/\s]+$/.test(String(v).trim()), "Wpisz adres skrytki ePUAP, np. /nazwa/skrytka."],
   ADE: [(v) => /^AE:PL-[0-9A-Z]{5}-[0-9A-Z]{5}-[0-9A-Z]{5}-[0-9A-Z]{2}$/i.test(String(v).trim()),
