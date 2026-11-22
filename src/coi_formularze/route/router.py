@@ -117,8 +117,8 @@ def escalate(route: Route, reason: str = "validation failed") -> Route:
     return route.bumped(reason)
 
 
-def tier_models(settings) -> dict[Tier, str | None]:
-    """Configured extractor model per tier (placeholders until benchmarked)."""
+def tier_models(settings) -> dict[Tier, str]:
+    """Configured extractor model per tier."""
     return {
         Tier.SIMPLE: settings.tier_simple_model,
         Tier.MEDIUM: settings.tier_medium_model,
