@@ -11,9 +11,12 @@ services:
     environment:
       COI_ROUTER_ENABLED: "true"
       COI_ROUTER_URL: http://router:8000
+      COI_MORPHEUS_ENABLED: "true"
     read_only: true
     tmpfs:
       - /tmp  # Starlette spools large uploads here; wiped with the container
+    volumes:
+      - morpheus-data:/data  # Morpheus skill store (SQLite); the only writable path
     restart: unless-stopped
     # No depends_on: the API answers at once and routes heuristically until the router is ready.
 
@@ -32,3 +35,4 @@ services:
 
 volumes:
   hf-cache:
+  morpheus-data:

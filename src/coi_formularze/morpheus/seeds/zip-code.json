@@ -1,0 +1,29 @@
+{
+  "id": "seed-zip-code",
+  "name": "zip-code-polish",
+  "description": "Use when a field is a Polish postcode: format NN-NNN, ZIP_CODE validator; foreign postcodes get none.",
+  "trigger": {
+    "labels_any": [
+      "kod pocztowy"
+    ],
+    "validator": "ZIP_CODE",
+    "field_family": "zip_code"
+  },
+  "pattern": {
+    "before_shape": "#####",
+    "after_shape": "##-###"
+  },
+  "prompt_snippet": "Polski „Kod pocztowy” ma format NN-NNN (myślnik po drugiej cyfrze): walidator ZIP_CODE. Kod pocztowy zagraniczny: bez ZIP_CODE.",
+  "validator_rule": {
+    "add_validators": [
+      "ZIP_CODE"
+    ],
+    "post_fix": "zip_code"
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

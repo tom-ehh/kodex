@@ -1,0 +1,24 @@
+{
+  "id": "seed-marked-optional",
+  "name": "marked-optional",
+  "description": "Use when the paper form marks a field optional (nieobowiązkowo): keep it optional.",
+  "trigger": {
+    "labels_any": [
+      "nieobowiązkowo",
+      "nieobowiązkowe",
+      "opcjonalnie",
+      "opcjonalne",
+      "pole nie jest wymagane"
+    ]
+  },
+  "prompt_snippet": "Jeśli wzór formularza oznacza pole jako „nieobowiązkowo” lub „opcjonalne”, pole pozostaje opcjonalne: bez REQUIRED (wzór urzędowy ma pierwszeństwo).",
+  "validator_rule": {
+    "required": false
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

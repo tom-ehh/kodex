@@ -37,6 +37,15 @@ class Settings(BaseSettings):
     tier_hard_model: str = "qwen/deepseek-v4-pro-0813"
     llm_timeout_s: float = Field(120.0, gt=0, description="Per LLM call.")
 
+    # Morpheus skill store (SQLite on the morpheus-data volume); never opened when disabled.
+    morpheus_enabled: bool = False
+    morpheus_db: str = "/data/morpheus.sqlite"
+    skills_snapshot: int | None = Field(None, ge=1, description="Pin a skillset version.")
+    episodic_ttl_days: int = Field(14, gt=0)
+    episodic_max: int = Field(20, gt=0)
+    general_max: int = Field(50, gt=0)
+    skills_max_per_section: int = Field(5, gt=0)
+
     jwt_enabled: bool = False
     jwt_secret: SecretStr | None = None
     jwt_algorithm: str = "HS256"

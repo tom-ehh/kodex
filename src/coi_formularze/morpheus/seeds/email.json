@@ -1,0 +1,28 @@
+{
+  "id": "seed-email",
+  "name": "email-validator",
+  "description": "Use when a field is an e-mail address: EMAIL validator; optional in contact data.",
+  "trigger": {
+    "labels_any": [
+      "e-mail",
+      "email",
+      "poczta elektroniczna",
+      "adres poczty"
+    ],
+    "validator": "EMAIL",
+    "field_family": "email"
+  },
+  "prompt_snippet": "Adres e-mail: walidator EMAIL. W danych kontaktowych pole nie jest wymagane (bez REQUIRED), chyba że formularz wymaga go do doręczeń.",
+  "validator_rule": {
+    "add_validators": [
+      "EMAIL"
+    ],
+    "post_fix": "trim"
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

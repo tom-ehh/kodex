@@ -1,0 +1,23 @@
+{
+  "id": "seed-brak-checkbox",
+  "name": "brak-checkbox-optional",
+  "description": "Use for 'Brak ...' checkboxes next to an address field: never REQUIRED.",
+  "trigger": {
+    "labels_any": [
+      "brak nazwy ulicy",
+      "brak numeru lokalu",
+      "brak kodu pocztowego"
+    ],
+    "regex": "^\\s*brak\\b"
+  },
+  "prompt_snippet": "Pola wyboru „Brak …” (np. „Brak nazwy ulicy”, „Brak numeru lokalu”) nigdy nie są wymagane; pole, które wyłączają, pozostaje REQUIRED.",
+  "validator_rule": {
+    "required": false
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "seed-nip",
+  "name": "nip-validator",
+  "description": "Use when a field is a NIP tax number: attach the NIP validator.",
+  "trigger": {
+    "regex": "\\bnip\\b",
+    "validator": "NIP",
+    "field_family": "nip"
+  },
+  "pattern": {
+    "after_shape": "##########"
+  },
+  "prompt_snippet": "Pole „NIP” to 10 cyfr: dodaj walidator NIP.",
+  "validator_rule": {
+    "add_validators": [
+      "NIP"
+    ],
+    "post_fix": "digits_only"
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

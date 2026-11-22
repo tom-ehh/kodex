@@ -21,7 +21,8 @@ RUN --mount=type=cache,target=/root/.cache/uv \
 
 # ---- runtime: venv only, unprivileged user ----
 FROM ${PYTHON_IMAGE}
-RUN addgroup -S app && adduser -S -G app -H -s /sbin/nologin app
+RUN addgroup -S app && adduser -S -G app -H -s /sbin/nologin app \
+    && mkdir /data && chown app:app /data  # Morpheus SQLite; a fresh named volume copies this owner
 WORKDIR /app
 COPY --from=build --chown=app:app /app/.venv /app/.venv
 ENV PATH="/app/.venv/bin:$PATH" PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1

@@ -1,0 +1,25 @@
+{
+  "id": "seed-regon",
+  "name": "regon-validator",
+  "description": "Use when a field is a REGON number: attach the REGON validator.",
+  "trigger": {
+    "labels_any": [
+      "regon"
+    ],
+    "validator": "REGON",
+    "field_family": "regon"
+  },
+  "prompt_snippet": "Pole „REGON” (9 lub 14 cyfr): dodaj walidator REGON.",
+  "validator_rule": {
+    "add_validators": [
+      "REGON"
+    ],
+    "post_fix": "digits_only"
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

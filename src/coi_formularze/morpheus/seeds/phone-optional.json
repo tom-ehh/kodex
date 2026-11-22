@@ -1,0 +1,22 @@
+{
+  "id": "seed-phone-optional",
+  "name": "phone-optional",
+  "description": "Use when a field is a contact phone number: it stays optional.",
+  "trigger": {
+    "labels_any": [
+      "telefon",
+      "nr tel"
+    ],
+    "field_family": "phone"
+  },
+  "prompt_snippet": "Numer telefonu w danych kontaktowych nie jest wymagany: bez REQUIRED.",
+  "validator_rule": {
+    "required": false
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

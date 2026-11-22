@@ -1,0 +1,19 @@
+{
+  "id": "seed-krs-optional",
+  "name": "krs-optional",
+  "description": "Use when a field is a KRS number: optional, no format validator.",
+  "trigger": {
+    "regex": "\\bkrs\\b",
+    "field_family": "krs"
+  },
+  "prompt_snippet": "„Numer KRS” jest opcjonalny: bez REQUIRED i bez walidatora formatu.",
+  "validator_rule": {
+    "required": false
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}

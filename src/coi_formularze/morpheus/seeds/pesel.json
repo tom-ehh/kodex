@@ -1,0 +1,30 @@
+{
+  "id": "seed-pesel",
+  "name": "pesel-validator",
+  "description": "Use when a field is a PESEL number: attach the PESEL validator; it is required.",
+  "trigger": {
+    "labels_any": [
+      "pesel"
+    ],
+    "validator": "PESEL",
+    "field_family": "pesel"
+  },
+  "pattern": {
+    "after_shape": "###########"
+  },
+  "prompt_snippet": "Pole „Numer PESEL” to 11 cyfr: dodaj walidatory REQUIRED i PESEL. Nie wpisuj przykładowej wartości.",
+  "validator_rule": {
+    "add_validators": [
+      "REQUIRED",
+      "PESEL"
+    ],
+    "required": true,
+    "post_fix": "digits_only"
+  },
+  "layer": "seed",
+  "status": "active",
+  "provenance": {
+    "source": "docs/examples gate forms + tools/add_validators.py",
+    "kind": "seed"
+  }
+}
