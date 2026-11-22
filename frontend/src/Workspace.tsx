@@ -221,7 +221,7 @@ export function Workspace() {
               {active.length > 0 && <span className="text-muted">Trwa analiza: {active.length}</span>}
             </div>
             <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-surface" role="progressbar" aria-valuemin={0} aria-valuemax={tracked.length} aria-valuenow={finished.length}>
-              <div className="h-full rounded-full bg-accent transition-all duration-500" style={{ width: `${(finished.length / tracked.length) * 100}%` }} />
+              <div className="h-full rounded-full bg-focus transition-all duration-500" style={{ width: `${(finished.length / tracked.length) * 100}%` }} />
             </div>
           </div>
         )}
@@ -263,7 +263,7 @@ export function Workspace() {
                   <td className="whitespace-nowrap px-8 py-4 text-right">
                     {i.status === "done" && (
                       <span className="inline-flex gap-4">
-                        <button type="button" onClick={() => openPreview(i)} className="font-medium text-accent hover:underline">
+                        <button type="button" onClick={() => openPreview(i)} className="font-medium text-focus hover:underline">
                           Podgląd e-formularza
                         </button>
                         <button
